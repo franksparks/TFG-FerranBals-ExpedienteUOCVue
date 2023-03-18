@@ -13,19 +13,17 @@
         <p class="gwt-Label text-3xl text-right">Consulta del expediente</p>
       </div>
 
-      <p class="text-indigo-700 text-xl pt-3">{{ grado }}</p>
+      <p class="text-indigo-700 text-xl pt-3">{{ gradeType }}</p>
     </div>
   </div>
 </template>
 
 <script>
-import { gradeType } from "@/response";
 export default {
   name: "AppHeader",
-  data() {
-    return {
-      grado: gradeType,
-    };
-  },
 };
+</script>
+
+<script setup>
+import { gradeType } from "@/response";
 </script>

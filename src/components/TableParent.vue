@@ -49,25 +49,18 @@
 </template>
 
 <script>
+export default {
+  name: "TableParent",
+};
+</script>
+
+<script setup>
 import SubjectTable from "./tables/SubjectTable.vue";
 import ECTSTable from "./tables/ECTSTable.vue";
 import PaymentsTable from "./tables/PaymentsTable.vue";
 import VirtualTestReqTable from "./tables/VirtualTestReqTable.vue";
 import ItineraryTable from "./tables/ItineraryTable.vue";
+import { ref } from "vue";
 
-export default {
-  name: "TableParent",
-  components: {
-    SubjectTable,
-    ECTSTable,
-    PaymentsTable,
-    VirtualTestReqTable,
-    ItineraryTable,
-  },
-  data() {
-    return {
-      tab: "subject",
-    };
-  },
-};
+const tab = ref("subject");
 </script>

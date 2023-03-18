@@ -65,13 +65,10 @@
 </template>
 
 <script>
-import { credit } from "@/response";
 export default {
   name: "ECTSTable",
-  data() {
-    return {
-      creditList: credit,
-    };
-  },
 };
+</script>
+<script setup>
+import { credit as creditList } from "@/response";
 </script>

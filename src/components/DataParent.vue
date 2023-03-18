@@ -49,23 +49,16 @@
 </template>
 
 <script>
+export default {
+  name: "DataParent",
+};
+</script>
+<script setup>
 import FileData from "./data/FileData.vue";
 import PersonData from "./data/PersonData.vue";
 import StudentData from "./data/StudentData.vue";
 import TutorData from "./data/TutorData.vue";
+import { ref } from "vue";
 
-export default {
-  name: "DataParent",
-  data() {
-    return {
-      tab: "file",
-    };
-  },
-  components: {
-    FileData,
-    PersonData,
-    StudentData,
-    TutorData,
-  },
-};
+const tab = ref("file");
 </script>

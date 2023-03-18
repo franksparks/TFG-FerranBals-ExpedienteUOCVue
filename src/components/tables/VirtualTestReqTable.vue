@@ -32,14 +32,11 @@
 </template>
 
 <script>
-import { virtualTestReq } from "@/response";
-
 export default {
   name: "VitualTestReqTable",
-  data() {
-    return {
-      virtualTestList: virtualTestReq,
-    };
-  },
 };
+</script>
+
+<script setup>
+import { virtualTestReq as virtualTestList } from "@/response";
 </script>

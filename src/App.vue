@@ -1,9 +1,12 @@
 <template>
   <div class="container mx-auto px-50">
     <div class="px-9 pt-9 pr-9">
-      <AppHeader :contactList="contactList" />
+      <AppHeader />
       <br />
-      <DataParent :expediente="expediente" />
+      <DataParent
+        :expedienteFerran="expedienteFerran"
+        :expedienteCarlos="expedienteCarlos"
+      />
       <br />
       <TableParent />
       <br />
@@ -49,23 +52,6 @@ onMounted(() => {
       )
     );
 });
-/*
-export default {
-  name: "App",
-  data() {
-    return {
-      cookies,
-      contactList,
-    };
-  },
-  components: {
-    AppHeader,
-    DataParent,
-    ListParent,
-    TableParent,
-  },
-};
-*/
 </script>
 
 <style>

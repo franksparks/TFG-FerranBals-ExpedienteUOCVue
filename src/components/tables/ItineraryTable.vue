@@ -32,14 +32,11 @@
 </template>
 
 <script>
-import { itineraryReq } from "@/response";
-
 export default {
   name: "VitualTestList",
-  data() {
-    return {
-      itineraryList: itineraryReq,
-    };
-  },
 };
+</script>
+
+<script setup>
+import { itineraryReq as itineraryList } from "@/response";
 </script>

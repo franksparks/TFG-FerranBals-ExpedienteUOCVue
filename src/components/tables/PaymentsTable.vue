@@ -27,13 +27,11 @@
 </template>
 
 <script>
-import { matricula } from "@/response";
 export default {
   name: "PaymentsTable",
-  data() {
-    return {
-      matriculaList: matricula,
-    };
-  },
 };
+</script>
+
+<script setup>
+import { matricula as matriculaList } from "@/response";
 </script>

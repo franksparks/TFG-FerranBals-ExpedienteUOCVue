@@ -64,27 +64,22 @@
 </template>
 
 <script>
-import { subjects } from "@/response";
+export default {
+  name: "SubjectTable",
+};
+</script>
+
+<script setup>
+import { subjects as subjectList } from "@/response";
+import { ref } from "vue";
 
 import SubjectModal from "@/components/modals/SubjectModal.vue";
 
-export default {
-  name: "SubjectList",
-  data() {
-    return {
-      subjectList: subjects,
-      modalVisibility: false,
-    };
-  },
-  components: {
-    SubjectModal,
-  },
-  methods: {
-    requestData(asig) {
-      console.log("Requesting data from: " + asig);
-      //Request per subject
-      this.modalVisibility = true;
-    },
-  },
-};
+const modalVisibility = ref(false);
+
+function requestData(asig) {
+  console.log("Requesting data from: " + asig);
+  //Request per subject
+  this.modalVisibility = true;
+}
 </script>

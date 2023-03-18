@@ -19,7 +19,7 @@
           <!--Title-->
           <div class="flex justify-between items-center pb-4">
             <p class="text-2xl font-bold">
-              {{ request[0].P.descAsignatura }}
+              {{ asigRequest[0].P.descAsignatura }}
             </p>
             <!-- Modal Close Button -->
             <div
@@ -39,7 +39,7 @@
                 <!--Aplicar título en dos columnas-->
                 <tr>
                   <th scope="col" class="px-6 py-3 text-center">
-                    {{ request[0].P.anySuperacion }}
+                    {{ asigRequest[0].P.anySuperacion }}
                   </th>
                 </tr>
               </thead>
@@ -48,38 +48,40 @@
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
                 >
                   <td class="pl-3">Asignatura</td>
-                  <td>{{ request[0].P.descAsignatura }}</td>
+                  <td>{{ asigRequest[0].P.descAsignatura }}</td>
                 </tr>
                 <tr
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
                 >
                   <td class="pl-3">Código</td>
-                  <td>{{ request[0].P.codAsignatura }}</td>
+                  <td>{{ asigRequest[0].P.codAsignatura }}</td>
                 </tr>
                 <tr
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
                 >
                   <td class="pl-3">Tipo asignatura</td>
-                  <td>{{ request[0].P.descClaseCredit }}</td>
+                  <td>{{ asigRequest[0].P.descClaseCredit }}</td>
                 </tr>
                 <tr
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
                 >
                   <td class="pl-3">Convocatoria</td>
-                  <td>{{ request[0].P.numConvocatoriaActual }}</td>
+                  <td>{{ asigRequest[0].P.numConvocatoriaActual }}</td>
                 </tr>
                 <tr
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
                 >
                   <td class="pl-3">Consultor</td>
-                  <td>{{ request[0].P.nomConsultor }}</td>
+                  <td>{{ asigRequest[0].P.nomConsultor }}</td>
                 </tr>
                 <tr
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
                 >
                   <td class="pl-3">Calificación de Evaluación Contínua</td>
                   <td>
-                    {{ request[0].P.codCalifC }} ({{ request[0].P.numCalifC }})
+                    {{ asigRequest[0].P.codCalifC }} ({{
+                      asigRequest[0].P.numCalifC
+                    }})
                   </td>
                 </tr>
                 <tr
@@ -89,7 +91,9 @@
                     Calificación final de actividades prácticas
                   </td>
                   <td>
-                    {{ request[0].P.codCalifP }}({{ request[0].P.numCalifP }})
+                    {{ asigRequest[0].P.codCalifP }}({{
+                      asigRequest[0].P.numCalifP
+                    }})
                   </td>
                 </tr>
                 <tr
@@ -99,8 +103,8 @@
                     Calificación final de Evaluación Contínua
                   </td>
                   <td>
-                    {{ request[0].P.codCalifFC }} ({{
-                      request[0].P.numCalifFC
+                    {{ asigRequest[0].P.codCalifFC }} ({{
+                      asigRequest[0].P.numCalifFC
                     }})
                   </td>
                 </tr>
@@ -109,8 +113,8 @@
                 >
                   <td class="pl-3">Calificación final de la asignatura</td>
                   <td>
-                    {{ request[0].P.descCalifFA }} ({{
-                      request[0].P.numCalifFC
+                    {{ asigRequest[0].P.descCalifFA }} ({{
+                      asigRequest[0].P.numCalifFC
                     }})
                   </td>
                 </tr>
@@ -124,19 +128,16 @@
 </template>
 
 <script>
-import { asigRequest } from "@/response";
 export default {
   name: "SubjectModal",
-  data() {
-    return {
-      request: asigRequest,
-    };
-  },
-  methods: {
-    closeModal() {
-      this.$emit("close-modal");
-    },
-  },
-  emits: ["close-modal"],
 };
+</script>
+
+<script setup>
+import { asigRequest } from "@/response";
+const emit = defineEmits(["close-modal"]);
+function closeModal() {
+  console.log("close modal");
+  emit("close-modal");
+}
 </script>

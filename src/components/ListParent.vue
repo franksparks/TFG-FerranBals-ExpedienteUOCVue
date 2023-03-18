@@ -6,14 +6,11 @@
 </template>
 
 <script>
-import TypeList from "./lists/TypeList.vue";
-import ElemList from "./lists/ElemList.vue";
-
 export default {
   name: "ListParent",
-  components: {
-    TypeList,
-    ElemList,
-  },
 };
+</script>
+<script setup>
+import TypeList from "./lists/TypeList.vue";
+import ElemList from "./lists/ElemList.vue";
 </script>
