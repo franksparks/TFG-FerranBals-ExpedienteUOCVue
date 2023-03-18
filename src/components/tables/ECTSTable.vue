@@ -1,0 +1,77 @@
+<template>
+  <div class="px-80 pt-5">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead
+        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
+      >
+        <tr>
+          <th class="text-center bg-gray-300"></th>
+          <th class="text-center">Básicas</th>
+          <th class="text-center">Obligatorias</th>
+          <th class="text-center">Optativas</th>
+        </tr>
+      </thead>
+      <tbody class="justify-center">
+        <tr
+          class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
+        >
+          <th class="text-center">Objetivo</th>
+          <td class="text-center">
+            {{ creditList.numCreditsObligatoriObjectiu }}
+          </td>
+          <td class="text-center">
+            {{ creditList.numCreditsOptatiuObjectiu }}
+          </td>
+          <td class="text-center">
+            {{ creditList.numCreditsTroncalObjectiu }}
+          </td>
+        </tr>
+        <tr
+          class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
+        >
+          <th class="text-center">Superado</th>
+          <td class="text-center">
+            {{ creditList.numCreditsObligatoriSuperat }}
+          </td>
+          <td class="text-center">{{ creditList.numCreditsOptatiuSuperat }}</td>
+          <td class="text-center">{{ creditList.numCreditsTroncalSuperat }}</td>
+        </tr>
+        <tr
+          class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
+        >
+          <th class="text-center">Pendiente</th>
+          <td class="text-center">
+            {{
+              creditList.numCreditsObligatoriObjectiu -
+              creditList.numCreditsObligatoriSuperat
+            }}
+          </td>
+          <td class="text-center">
+            {{
+              creditList.numCreditsOptatiuObjectiu -
+              creditList.numCreditsOptatiuSuperat
+            }}
+          </td>
+          <td class="text-center">
+            {{
+              creditList.numCreditsTroncalSuperat -
+              creditList.numCreditsTroncalObjectiu
+            }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<script>
+import { credit } from "@/response";
+export default {
+  name: "ECTSTable",
+  data() {
+    return {
+      creditList: credit,
+    };
+  },
+};
+</script>
