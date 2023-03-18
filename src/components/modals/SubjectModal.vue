@@ -19,7 +19,7 @@
           <!--Title-->
           <div class="flex justify-between items-center pb-4">
             <p class="text-2xl font-bold">
-              {{ asigRequest[0].P.descAsignatura }}
+              {{ subject.descAsignatura }}
             </p>
             <!-- Modal Close Button -->
             <div
@@ -39,7 +39,7 @@
                 <!--Aplicar título en dos columnas-->
                 <tr>
                   <th scope="col" class="px-6 py-3 text-center">
-                    {{ asigRequest[0].P.anySuperacion }}
+                    {{ subject.anySuperacion }}
                   </th>
                 </tr>
               </thead>
@@ -48,41 +48,43 @@
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
                 >
                   <td class="pl-3">Asignatura</td>
-                  <td>{{ asigRequest[0].P.descAsignatura }}</td>
+                  <td>{{ subject.descAsignatura }}</td>
                 </tr>
                 <tr
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
                 >
                   <td class="pl-3">Código</td>
-                  <td>{{ asigRequest[0].P.codAsignatura }}</td>
+                  <td>{{ subject.codAsignatura }}</td>
+                </tr>
+                <tr
+                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+                >
+                  <td class="pl-3">Créditos</td>
+                  <td>{{ props.numCred }}</td>
                 </tr>
                 <tr
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
                 >
                   <td class="pl-3">Tipo asignatura</td>
-                  <td>{{ asigRequest[0].P.descClaseCredit }}</td>
+                  <td>{{ subject.descClaseCredit }}</td>
                 </tr>
                 <tr
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
                 >
                   <td class="pl-3">Convocatoria</td>
-                  <td>{{ asigRequest[0].P.numConvocatoriaActual }}</td>
+                  <td>{{ subject.numConvocatoriaActual }}</td>
                 </tr>
                 <tr
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
                 >
                   <td class="pl-3">Consultor</td>
-                  <td>{{ asigRequest[0].P.nomConsultor }}</td>
+                  <td>{{ subject.nomConsultor }}</td>
                 </tr>
                 <tr
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
                 >
                   <td class="pl-3">Calificación de Evaluación Contínua</td>
-                  <td>
-                    {{ asigRequest[0].P.codCalifC }} ({{
-                      asigRequest[0].P.numCalifC
-                    }})
-                  </td>
+                  <td>{{ subject.codCalifC }} ({{ subject.numCalifC }})</td>
                 </tr>
                 <tr
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
@@ -90,11 +92,7 @@
                   <td class="pl-3">
                     Calificación final de actividades prácticas
                   </td>
-                  <td>
-                    {{ asigRequest[0].P.codCalifP }}({{
-                      asigRequest[0].P.numCalifP
-                    }})
-                  </td>
+                  <td>{{ subject.codCalifP }}({{ subject.numCalifP }})</td>
                 </tr>
                 <tr
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
@@ -102,21 +100,13 @@
                   <td class="pl-3">
                     Calificación final de Evaluación Contínua
                   </td>
-                  <td>
-                    {{ asigRequest[0].P.codCalifFC }} ({{
-                      asigRequest[0].P.numCalifFC
-                    }})
-                  </td>
+                  <td>{{ subject.codCalifFC }} ({{ subject.numCalifFC }})</td>
                 </tr>
                 <tr
                   class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
                 >
                   <td class="pl-3">Calificación final de la asignatura</td>
-                  <td>
-                    {{ asigRequest[0].P.descCalifFA }} ({{
-                      asigRequest[0].P.numCalifFC
-                    }})
-                  </td>
+                  <td>{{ subject.descCalifFA }} ({{ subject.numCalifFC }})</td>
                 </tr>
               </tbody>
             </table>
@@ -134,7 +124,29 @@ export default {
 </script>
 
 <script setup>
-import { asigRequest } from "@/response";
+import axios from "axios";
+import { onMounted, ref } from "vue";
+const props = defineProps({
+  asigCode: String,
+  numCred: Number,
+});
+
+let subject = ref({});
+
+onMounted(() => {
+  console.log("subject request");
+  axios
+    //Recuperamos el listado completo de contactos  públicos con una petición GET
+    .get("http://localhost:3000/asignatura/" + props.asigCode)
+    //Imprimimos mensaje por consola y almacenamos el listado de contactos públicos
+    .then(
+      (response) => (
+        console.log("Obtaining subject info..."),
+        (subject.value = response.data.data)
+      )
+    );
+});
+
 const emit = defineEmits(["close-modal"]);
 function closeModal() {
   console.log("close modal");

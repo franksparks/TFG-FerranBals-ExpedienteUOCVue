@@ -47,7 +47,7 @@
               </td>
               <td
                 class="text-center px-6 py-4 cursor-pointer underline text-cyan-500"
-                @click.prevent="requestData(subj.descripcio)"
+                @click.prevent="requestData(subj)"
               >
                 Link
               </td>
@@ -58,7 +58,9 @@
     </div>
     <SubjectModal
       v-if="modalVisibility"
-      @close-modal="this.modalVisibility = false"
+      @close-modal="modalVisibility = false"
+      :asigCode="asigCode"
+      :numCred="numCred"
     />
   </div>
 </template>
@@ -76,10 +78,13 @@ import { ref } from "vue";
 import SubjectModal from "@/components/modals/SubjectModal.vue";
 
 const modalVisibility = ref(false);
+const asigCode = ref();
+const numCred = ref();
 
 function requestData(asig) {
-  console.log("Requesting data from: " + asig);
   //Request per subject
-  this.modalVisibility = true;
+  modalVisibility.value = true;
+  asigCode.value = asig.codi;
+  numCred.value = asig.numCredits;
 }
 </script>
