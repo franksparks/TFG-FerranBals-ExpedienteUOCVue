@@ -132,6 +132,7 @@ const props = defineProps({
 });
 
 let subject = ref({});
+let testSubject = ref({});
 
 onMounted(() => {
   console.log("subject request");
@@ -142,7 +143,30 @@ onMounted(() => {
     .then(
       (response) => (
         console.log("Obtaining subject info..."),
+        console.log(JSON.stringify(response.data.data)),
         (subject.value = response.data.data)
+      )
+    );
+});
+
+onMounted(() => {
+  console.log("TEST REQUEST");
+  axios
+    //Recuperamos el listado completo de contactos  públicos con una petición GET
+    .get("http://localhost:3000/notas/", {
+      params: { data: props.asigCode },
+    })
+    //Imprimimos mensaje por consola y almacenamos el listado de contactos públicos
+    .then(
+      (response) => (
+        console.log("Obtaining subject info..."),
+        console.log("RESPONSE -------------------------"),
+        console.log(JSON.stringify(response)),
+        console.log("PARAMS -------------------------"),
+        console.log(JSON.stringify(response.config.params)),
+        console.log("RESPONSE DATA DATA -------------------------"),
+        console.log(JSON.stringify(response.data.data)),
+        (testSubject.value = response.data.data.asignatura[props.asigCode])
       )
     );
 });

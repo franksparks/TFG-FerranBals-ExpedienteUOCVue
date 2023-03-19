@@ -1,0 +1,72 @@
+[
+  {
+    "asignatura": "75.588",
+    "data": {
+      "S": [true],
+      "O": [
+        {
+          "T": "6n0oQ7eyibwkJRl48sqD9yMWtsw=",
+          "P": {
+            "numCalifFA": 8.4,
+            "codAsignatura": "75.588",
+            "numCalifFC": 8.4,
+            "numCalifC": 10,
+            "descCalifFA": "Notable",
+            "nomConsultor": "Josep Antoni Mira Palacios",
+            "codCalifFC": "B",
+            "descClaseCredit": "Obligatoria",
+            "anyAcademico": "20221",
+            "descAnyAcademico": "2022/23-1",
+            "numCalifP": 7.7,
+            "descAsignatura": "Proyecto de desarrollo del software",
+            "codCalifP": "B",
+            "codCalifFA": "NO",
+            "codCalifC": "A",
+            "idpConsultor": "459571",
+            "anySuperacion": "2022/23-1",
+            "codClaseCredit": "O",
+            "numConvocatoriaActual": 1
+          },
+          "R": "2",
+          "Y": 1
+        }
+      ],
+      "I": [[{ "T": "6n0oQ7eyibwkJRl48sqD9yMWtsw=", "R": "2", "Y": 1 }]]
+    }
+  },
+  {
+    "asignatura": "75.589",
+    "data": {
+      "S": [true],
+      "O": [
+        {
+          "T": "6n0oQ7eyibwkJRl48sqD9yMWtsw=",
+          "P": {
+            "numCalifFA": 7.8,
+            "codAsignatura": "75.589",
+            "numCalifFC": 7.8,
+            "numCalifC": 6.5,
+            "descCalifFA": "Notable",
+            "nomConsultor": "Albert Gutiérrez",
+            "codCalifFC": "B",
+            "descClaseCredit": "Obligatoria",
+            "anyAcademico": "20212",
+            "descAnyAcademico": "2021/22-2",
+            "numCalifP": 9,
+            "descAsignatura": "Sistemas distribuidos",
+            "codCalifP": "A",
+            "codCalifFA": "NO",
+            "codCalifC": "C+",
+            "idpConsultor": "968935",
+            "anySuperacion": "2021/22-2",
+            "codClaseCredit": "O",
+            "numConvocatoriaActual": 1
+          },
+          "R": "2",
+          "Y": 1
+        }
+      ],
+      "I": [[{ "T": "6n0oQ7eyibwkJRl48sqD9yMWtsw=", "R": "2", "Y": 1 }]]
+    }
+  }
+]
