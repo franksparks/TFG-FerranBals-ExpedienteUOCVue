@@ -15,7 +15,6 @@
         :credit="credit"
         :subjects="subjects"
         :virtualTestReq="virtualTestReq"
-        :matricula="matricula"
       />
     </div>
   </div>
@@ -51,10 +50,9 @@ var fileNumber = ref(0);
 const certification = ref([]);
 var studentData = ref({});
 var tutorData = ref({});
-const matricula = ref([]);
 
 onMounted(() => {
-  console.log("Petición obtención expediente");
+  console.log("Petición expediente alumno");
   axios
     //Obtenemos el expediente original
     .get("http://localhost:3000/expediente/fb")
@@ -65,11 +63,6 @@ onMounted(() => {
         processFile(originalFile.value)
       )
     );
-
-  axios
-    //Obtenemos el expediente original
-    .get("http://localhost:3000/matricula")
-    .then((response) => (matricula.value = response.data.data.O));
 });
 
 function processFile(file) {

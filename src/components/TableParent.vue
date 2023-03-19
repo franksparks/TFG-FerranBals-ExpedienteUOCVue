@@ -38,7 +38,7 @@
       <SubjectTable v-if="tab === 'subject'" :subjects="subjects" />
 
       <!-- Payments Table -->
-      <EnrollmentTable v-if="tab === 'payments'" :matricula="matricula" />
+      <EnrollmentTable v-if="tab === 'payments'" />
 
       <!-- Itineary Table -->
       <ItineraryTable v-if="tab === 'requests'" :itineraryReq="itineraryReq" />
@@ -72,6 +72,5 @@ defineProps({
   credit: Object,
   subjects: Object,
   virtualTestReq: Object,
-  matricula: Object,
 });
 </script>

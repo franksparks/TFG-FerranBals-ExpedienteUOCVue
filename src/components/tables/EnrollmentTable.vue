@@ -33,7 +33,16 @@ export default {
 </script>
 
 <script setup>
-defineProps({
-  matricula: Object,
+import axios from "axios";
+import { onMounted, ref } from "vue";
+
+const matricula = ref([]);
+
+onMounted(() => {
+  console.log("Petición matrículas alumno");
+  axios
+    //Obtenemos el expediente original
+    .get("http://localhost:3000/matricula")
+    .then((response) => (matricula.value = response.data.data.O));
 });
 </script>
