@@ -86,17 +86,11 @@ app.route("/asignatura/").get(function (req, res) {
       message: "Especifica una asignatura",
     };
   } else {
-    /*
-    asignatura = data.filter(
-      (asignatura) => asignatura.codAsignatura === req.query.codAsignatura
-    );
-    */
-
     let asignatura = notasCompletas.filter((obj) => {
-      console.log(obj.O[0].P.codAsignatura);
       return obj.O[0].P.codAsignatura === req.query.codAsignatura;
     });
-    console.log(asignatura[0].O[0].P);
+    //Devuelve la lista de convos
+    console.log(asignatura[0]);
 
     asignatura = asignatura[0].O[0].P;
     //let asignatura = notasCompletas[1].data.O[0].P;
