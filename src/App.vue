@@ -55,7 +55,7 @@ onMounted(() => {
   console.log("Petición expediente alumno");
   axios
     //Obtenemos el expediente original
-    .get("http://localhost:3000/expediente/fb")
+    .get("http://localhost:3000/expediente/ferran")
     .then(
       (response) => (
         (originalFile.value = response.data.data),
