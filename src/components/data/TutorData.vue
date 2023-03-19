@@ -1,24 +1,22 @@
 <template>
   <div>
     <p>
-      Nombre: {{ tutor.nom }} {{ tutor.primerCognom }}
-      {{ tutor.segonCognom }}
+      Nombre: {{ tutorData.nom }} {{ tutorData.primerCognom }}
+      {{ tutorData.segonCognom }}
     </p>
 
-    <p>Usuario campus: {{ tutor.userLogin }}</p>
-    <p>DNI: {{ tutor.dni }}</p>
+    <p>Usuario campus: {{ tutorData.userLogin }}</p>
+    <p>DNI: {{ tutorData.dni }}</p>
   </div>
 </template>
 
 <script>
-import { tutorData } from "@/response";
-
 export default {
   name: "TutorData",
-  data() {
-    return {
-      tutor: tutorData,
-    };
-  },
 };
+</script>
+<script setup>
+defineProps({
+  tutorData: Object,
+});
 </script>

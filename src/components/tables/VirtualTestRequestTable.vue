@@ -1,5 +1,5 @@
 <template>
-  <div class="px-80 pt-5">
+  <div class="pt-5">
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead
@@ -7,18 +7,23 @@
         >
           <tr>
             <th>Semestre</th>
-            <th>Importe</th>
+            <th>Asignatura</th>
+            <th>Código</th>
+            <th>Tipo prueba</th>
+            <th>Estado</th>
           </tr>
         </thead>
         <tbody class="justify-center">
           <tr
-            v-for="m in matriculaList"
-            :key="m"
+            v-for="v in virtualTestReq"
+            :key="v"
             class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
-            <td class="text-center">{{ m.descAnyAcademic }}</td>
-
-            <td class="text-center">{{ m.importMatricula }}</td>
+            <td class="text-center">{{ v.descAnyAcademic }}</td>
+            <td>{{ v.descAssignatura }}</td>
+            <td class="text-center">{{ v.codAssignatura }}</td>
+            <td class="text-center">{{ v.tipusProva }}</td>
+            <td class="text-center">{{ v.descEstat }}</td>
           </tr>
         </tbody>
       </table>
@@ -28,10 +33,12 @@
 
 <script>
 export default {
-  name: "PaymentsTable",
+  name: "VitualTestRequestTable",
 };
 </script>
 
 <script setup>
-import { matricula as matriculaList } from "@/response";
+defineProps({
+  virtualTestReq: Object,
+});
 </script>

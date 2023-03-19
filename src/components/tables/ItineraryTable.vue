@@ -15,7 +15,7 @@
         </thead>
         <tbody class="justify-center">
           <tr
-            v-for="i in itineraryList"
+            v-for="i in itineraryReq"
             :key="i"
             class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
@@ -33,10 +33,12 @@
 
 <script>
 export default {
-  name: "VitualTestList",
+  name: "ItineraryTable",
 };
 </script>
 
 <script setup>
-import { itineraryReq as itineraryList } from "@/response";
+defineProps({
+  itineraryReq: Object,
+});
 </script>

@@ -34,16 +34,19 @@
     </div>
     <div class="pt-5">
       <!-- Subject Table -->
-      <ECTSTable v-if="tab === 'subject'" />
-      <SubjectTable v-if="tab === 'subject'" />
+      <ECTSTable v-if="tab === 'subject'" :credit="credit" />
+      <SubjectTable v-if="tab === 'subject'" :subjects="subjects" />
 
       <!-- Payments Table -->
-      <PaymentsTable v-if="tab === 'payments'" />
+      <EnrollmentTable v-if="tab === 'payments'" :matricula="matricula" />
 
       <!-- Itineary Table -->
-      <ItineraryTable v-if="tab === 'requests'" />
+      <ItineraryTable v-if="tab === 'requests'" :itineraryReq="itineraryReq" />
       <!-- Virtual test requests Table -->
-      <VirtualTestReqTable v-if="tab === 'requests'" />
+      <VirtualTestRequestTable
+        v-if="tab === 'requests'"
+        :virtualTestReq="virtualTestReq"
+      />
     </div>
   </div>
 </template>
@@ -57,10 +60,18 @@ export default {
 <script setup>
 import SubjectTable from "./tables/SubjectTable.vue";
 import ECTSTable from "./tables/ECTSTable.vue";
-import PaymentsTable from "./tables/PaymentsTable.vue";
-import VirtualTestReqTable from "./tables/VirtualTestReqTable.vue";
+import EnrollmentTable from "./tables/EnrollmentTable.vue";
+import VirtualTestRequestTable from "./tables/VirtualTestRequestTable.vue";
 import ItineraryTable from "./tables/ItineraryTable.vue";
 import { ref } from "vue";
 
 const tab = ref("subject");
+
+defineProps({
+  itineraryReq: Object,
+  credit: Object,
+  subjects: Object,
+  virtualTestReq: Object,
+  matricula: Object,
+});
 </script>

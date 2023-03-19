@@ -1,19 +1,21 @@
 <template>
   <div>
-    <p>Número expediente: {{ file }}</p>
-    <p>Estado expediente: {{ fileInfo.P.descEstatExpedient }}</p>
-    <p>Nota media actual: {{ fileInfo.P.notaMitjana }}</p>
+    <p>Número expediente: {{ fileNumber }}</p>
+
+    <p>Nota media actual: {{ fileInfo.notaMitjana }}</p>
+
+    <p>Estado expediente: {{ fileInfo.descEstatExpedient }}</p>
   </div>
 </template>
+
 <script>
-import { fileInfo, fileNumber } from "../../response";
 export default {
   name: "FileData",
-  data() {
-    return {
-      fileInfo: fileInfo,
-      file: fileNumber,
-    };
-  },
 };
+</script>
+<script setup>
+defineProps({
+  fileInfo: Object,
+  fileNumber: Number,
+});
 </script>

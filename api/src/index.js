@@ -13,6 +13,7 @@ const data = require("./notas.json");
 const notasResponse = require("./notasResponse.json");
 const ferran = require("./ferran.json");
 const carlos = require("./carlos.json");
+const matricula = require("./matricula.json");
 
 const loginUser = {
   tokenId: chance.guid(),
@@ -54,6 +55,16 @@ app.route("/expediente/cr").get(function (req, res) {
     code: 200,
     message: "Expediente Carlos",
     data: carlos,
+  };
+
+  res.send(response);
+});
+app.route("/matricula").get(function (req, res) {
+  response = {
+    error: false,
+    code: 200,
+    message: "Obteniendo matriculas del alumno",
+    data: matricula,
   };
 
   res.send(response);

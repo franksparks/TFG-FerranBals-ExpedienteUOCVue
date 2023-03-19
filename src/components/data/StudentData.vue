@@ -1,24 +1,22 @@
 <template>
   <div class="pt-5">
     <p>
-      Nombre y apellidos: {{ student.nom }} {{ student.primerCognom }}
-      {{ student.segonCognom }}
+      Nombre y apellidos: {{ studentData.nom }} {{ studentData.primerCognom }}
+      {{ studentData.segonCognom }}
     </p>
 
-    <p>Usuario campus: {{ student.userLogin }}</p>
-    <p>DNI: {{ student.dni }}</p>
+    <p>Usuario campus: {{ studentData.userLogin }}</p>
+    <p>DNI: {{ studentData.dni }}</p>
   </div>
 </template>
 
 <script>
-import { studentData } from "@/response";
-
 export default {
   name: "StudentData",
-  data() {
-    return {
-      student: studentData,
-    };
-  },
 };
+</script>
+<script setup>
+defineProps({
+  studentData: Object,
+});
 </script>

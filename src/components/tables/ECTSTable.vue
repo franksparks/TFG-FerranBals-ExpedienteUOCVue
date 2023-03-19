@@ -17,13 +17,13 @@
         >
           <th class="text-center">Objetivo</th>
           <td class="text-center">
-            {{ creditList.numCreditsObligatoriObjectiu }}
+            {{ credit.numCreditsObligatoriObjectiu }}
           </td>
           <td class="text-center">
-            {{ creditList.numCreditsOptatiuObjectiu }}
+            {{ credit.numCreditsOptatiuObjectiu }}
           </td>
           <td class="text-center">
-            {{ creditList.numCreditsTroncalObjectiu }}
+            {{ credit.numCreditsTroncalObjectiu }}
           </td>
         </tr>
         <tr
@@ -31,10 +31,10 @@
         >
           <th class="text-center">Superado</th>
           <td class="text-center">
-            {{ creditList.numCreditsObligatoriSuperat }}
+            {{ credit.numCreditsObligatoriSuperat }}
           </td>
-          <td class="text-center">{{ creditList.numCreditsOptatiuSuperat }}</td>
-          <td class="text-center">{{ creditList.numCreditsTroncalSuperat }}</td>
+          <td class="text-center">{{ credit.numCreditsOptatiuSuperat }}</td>
+          <td class="text-center">{{ credit.numCreditsTroncalSuperat }}</td>
         </tr>
         <tr
           class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
@@ -42,20 +42,18 @@
           <th class="text-center">Pendiente</th>
           <td class="text-center">
             {{
-              creditList.numCreditsObligatoriObjectiu -
-              creditList.numCreditsObligatoriSuperat
+              credit.numCreditsObligatoriObjectiu -
+              credit.numCreditsObligatoriSuperat
             }}
           </td>
           <td class="text-center">
             {{
-              creditList.numCreditsOptatiuObjectiu -
-              creditList.numCreditsOptatiuSuperat
+              credit.numCreditsOptatiuObjectiu - credit.numCreditsOptatiuSuperat
             }}
           </td>
           <td class="text-center">
             {{
-              creditList.numCreditsTroncalSuperat -
-              creditList.numCreditsTroncalObjectiu
+              credit.numCreditsTroncalSuperat - credit.numCreditsTroncalObjectiu
             }}
           </td>
         </tr>
@@ -70,5 +68,7 @@ export default {
 };
 </script>
 <script setup>
-import { credit as creditList } from "@/response";
+defineProps({
+  credit: Object,
+});
 </script>

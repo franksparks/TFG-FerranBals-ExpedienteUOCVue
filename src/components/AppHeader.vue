@@ -25,5 +25,7 @@ export default {
 </script>
 
 <script setup>
-import { gradeType } from "@/response";
+defineProps({
+  gradeType: String,
+});
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-5">
+  <div class="px-80 pt-5">
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead
@@ -7,23 +7,18 @@
         >
           <tr>
             <th>Semestre</th>
-            <th>Asignatura</th>
-            <th>Código</th>
-            <th>Tipo prueba</th>
-            <th>Estado</th>
+            <th>Importe</th>
           </tr>
         </thead>
         <tbody class="justify-center">
           <tr
-            v-for="v in virtualTestList"
-            :key="v"
+            v-for="m in matricula"
+            :key="m"
             class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
-            <td class="text-center">{{ v.descAnyAcademic }}</td>
-            <td>{{ v.descAssignatura }}</td>
-            <td class="text-center">{{ v.codAssignatura }}</td>
-            <td class="text-center">{{ v.tipusProva }}</td>
-            <td class="text-center">{{ v.descEstat }}</td>
+            <td class="text-center">{{ m.P.descAnyAcademic }}</td>
+
+            <td class="text-center">{{ m.P.importMatricula }}</td>
           </tr>
         </tbody>
       </table>
@@ -33,10 +28,12 @@
 
 <script>
 export default {
-  name: "VitualTestReqTable",
+  name: "EnrollmentTable",
 };
 </script>
 
 <script setup>
-import { virtualTestReq as virtualTestList } from "@/response";
+defineProps({
+  matricula: Object,
+});
 </script>
