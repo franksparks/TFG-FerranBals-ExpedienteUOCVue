@@ -56,11 +56,14 @@
         </table>
       </div>
     </div>
+
     <SubjectModal
       v-if="modalVisibility"
       @close-modal="modalVisibility = false"
       :asigCode="asigCode"
       :numCred="numCred"
+      :nota="nota"
+      :subjectOriginal="subjectOriginal"
     />
   </div>
 </template>
@@ -79,12 +82,16 @@ import SubjectModal from "@/components/modals/SubjectModal.vue";
 const modalVisibility = ref(false);
 const asigCode = ref();
 const numCred = ref();
+const nota = ref();
+const subjectOriginal = ref({});
 
 function requestData(asig) {
   //Request per subject
   modalVisibility.value = true;
   asigCode.value = asig.codi;
   numCred.value = asig.numCredits;
+  nota.value = asig.descripcioQualificacioQualitativaFinal;
+  subjectOriginal.value = asig;
 }
 
 defineProps({
