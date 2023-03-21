@@ -10,8 +10,9 @@ app.use(bodyParser.json());
 
 const data = require("./notas.json");
 const notasCompletas = require("./notasCompletas.json");
-const ferran = require("./ferran.json");
 const carlos = require("./carlos.json");
+const ferran = require("./ferran.json");
+const minor = require("./minor.json");
 const matricula = require("./matricula.json");
 
 let response = {
@@ -47,6 +48,16 @@ app.route("/expediente/carlos").get(function (req, res) {
     code: 200,
     message: "Expediente Carlos",
     data: carlos,
+  };
+
+  res.send(response);
+});
+app.route("/expediente/minor").get(function (req, res) {
+  response = {
+    error: false,
+    code: 200,
+    message: "Expediente Minor Ferran",
+    data: minor,
   };
 
   res.send(response);

@@ -19,6 +19,7 @@
         >
           <option value="ferran">Ferran</option>
           <option value="carlos">Carlos</option>
+          <option value="minor">Minor Ferran</option>
         </select>
       </div>
       <div></div>

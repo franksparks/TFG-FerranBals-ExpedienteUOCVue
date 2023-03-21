@@ -1,8 +1,8 @@
 <template>
   <div class="container mx-auto px-50">
     <div class="px-9 pt-9 pr-9">
-      <AppHeader :gradeType="gradeType" />
-      <!-- @refresh-expediente="getExpediente()"  Pending to receive the expediente received on the cusotm event-->
+      <AppHeader :gradeType="gradeType" @refresh-expediente="getExpediente" />
+      <!-- "  Pending to receive the expediente received on the cusotm event -->
 
       <br />
       <DataParent
@@ -60,6 +60,8 @@ onMounted(() => {
 });
 
 function getExpediente(text) {
+  console.log("get expediente");
+  subjects.value = [];
   axios
     //Obtenemos el expediente original
     .get("http://localhost:3000/expediente/" + text)
