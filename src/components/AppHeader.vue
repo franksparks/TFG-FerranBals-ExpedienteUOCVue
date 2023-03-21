@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="fondoHeader">
-      <div class="columns-2">
+      <div class="columns-3">
         <a href="https://www.uoc.edu/">
           <img
             src="/0FF0108D4D41E43CCF1FBA356ABC5156.cache.gif"
@@ -10,8 +10,18 @@
           />
         </a>
 
-        <p class="gwt-Label text-3xl text-right">Consulta del expediente</p>
+        <p class="gwt-Label text-3xl text-center">Consulta del expediente</p>
+        <select
+          v-model="expediente"
+          @change="refreshExpediente(expediente)"
+          value="ferran"
+          class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
+        >
+          <option value="ferran">Ferran</option>
+          <option value="carlos">Carlos</option>
+        </select>
       </div>
+      <div></div>
 
       <p class="text-indigo-700 text-xl pt-3">{{ gradeType }}</p>
     </div>
@@ -25,7 +35,16 @@ export default {
 </script>
 
 <script setup>
+import { ref } from "vue";
 defineProps({
   gradeType: String,
 });
+
+const emit = defineEmits(["refresh-expediente"]);
+
+const expediente = ref("ferran");
+
+function refreshExpediente(expediente) {
+  emit("refresh-expediente", expediente);
+}
 </script>

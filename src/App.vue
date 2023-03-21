@@ -2,6 +2,8 @@
   <div class="container mx-auto px-50">
     <div class="px-9 pt-9 pr-9">
       <AppHeader :gradeType="gradeType" />
+      <!-- @refresh-expediente="getExpediente()"  Pending to receive the expediente received on the cusotm event-->
+
       <br />
       <DataParent
         :studentData="studentData"
@@ -50,12 +52,17 @@ var fileNumber = ref(0);
 const certification = ref([]);
 var studentData = ref({});
 var tutorData = ref({});
+const text = "ferran";
 
 onMounted(() => {
   console.log("Petición expediente alumno");
+  getExpediente(text);
+});
+
+function getExpediente(text) {
   axios
     //Obtenemos el expediente original
-    .get("http://localhost:3000/expediente/ferran")
+    .get("http://localhost:3000/expediente/" + text)
     .then(
       (response) => (
         (originalFile.value = response.data.data),
@@ -63,7 +70,7 @@ onMounted(() => {
         processFile(originalFile.value)
       )
     );
-});
+}
 
 function processFile(file) {
   console.log("Procesando el expediente");
