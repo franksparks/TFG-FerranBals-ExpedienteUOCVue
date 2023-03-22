@@ -40,6 +40,16 @@
             "
           >
           </SubjectStudied>
+          <SubjectStudiedTabs
+            :subjectOriginal="subjectOriginal"
+            :subject="subject"
+            v-if="
+              props.subjectOriginal.descripcioQualificacioQualitativaFinal !=
+              'Reconocido'
+            "
+          >
+          </SubjectStudiedTabs>
+
           <SubjectRecognized
             :subjectOriginal="subjectOriginal"
             v-else
@@ -53,6 +63,7 @@
 <script>
 export default {
   name: "SubjectModal",
+  components: { SubjectStudiedTabs },
 };
 </script>
 
@@ -61,6 +72,7 @@ import axios from "axios";
 import { onMounted, ref } from "vue";
 import SubjectRecognized from "@/components/tables/SubjectRecognized.vue";
 import SubjectStudied from "@/components/tables/SubjectStudied.vue";
+import SubjectStudiedTabs from "../tables/SubjectStudiedTabs.vue";
 const props = defineProps({
   subjectOriginal: Object,
 });

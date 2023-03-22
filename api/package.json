@@ -1,14 +1,13 @@
 {
-  "name": "address-book-api",
-  "version": "1.0.0",
-  "description": "",
+  "name": "expediente-uoc-api",
+  "version": "0.0.1",
+  "description": "Api del TFG de Ferran Bals",
   "main": "src/index.js",
   "scripts": {
     "api": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Rubén Rodríguez",
-  "license": "ISC",
+  "author": "Ferran Bals",
   "dependencies": {
     "body-parser": "^1.19.0",
     "chance": "^1.1.8",
