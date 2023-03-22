@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="subj in subject" :key="subj">
+    <div v-for="convo in subjectConvo" :key="convo">
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table
           class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
@@ -11,7 +11,7 @@
             <!--Aplicar título en dos columnas-->
             <tr>
               <th scope="col" class="px-6 py-3 text-center">
-                {{ subj.P.descAnyAcademico }}
+                {{ convo.descAnyAcademico }}
               </th>
             </tr>
           </thead>
@@ -43,52 +43,52 @@
             </tr>
             <tr
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-              v-if="subj.numConvocatoriaActual != null"
+              v-if="convo.numConvocatoriaActual != null"
             >
               <td class="pl-3">Convocatoria</td>
-              <td>{{ subj.numConvocatoriaActual }}</td>
+              <td>{{ convo.numConvocatoriaActual }}</td>
             </tr>
             <tr
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-              v-if="subj.P.nomConsultor != null"
+              v-if="convo.nomConsultor != null"
             >
               <td class="pl-3">Consultor</td>
-              <td>{{ subj.P.nomConsultor }}</td>
+              <td>{{ convo.nomConsultor }}</td>
             </tr>
             <tr
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-              v-if="subj.P.codCalifFC != null"
+              v-if="convo.codCalifFC != null"
             >
               <td class="pl-3">Calificación de Evaluación Contínua</td>
-              <td>{{ subj.P.codCalifC }} ({{ subj.P.numCalifC }})</td>
+              <td>{{ convo.codCalifC }} ({{ convo.numCalifC }})</td>
             </tr>
             <tr
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-              v-if="subj.P.codCalifP != null"
+              v-if="convo.codCalifP != null"
             >
               <td class="pl-3">Calificación final de actividades prácticas</td>
-              <td>{{ subj.P.codCalifP }}({{ subj.P.numCalifP }})</td>
+              <td>{{ convo.codCalifP }}({{ convo.numCalifP }})</td>
             </tr>
             <tr
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-              v-if="subj.P.codCalifFC != null"
+              v-if="convo.codCalifFC != null"
             >
               <td class="pl-3">Calificación final de Evaluación Contínua</td>
-              <td>{{ subj.P.codCalifFC }} ({{ subj.P.numCalifFC }})</td>
+              <td>{{ convo.codCalifFC }} ({{ convo.numCalifFC }})</td>
             </tr>
             <tr
-              v-if="subj.P.numCalifPS != null"
+              v-if="convo.numCalifPS != null"
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="pl-3">Calificación final de Prueba de Síntesis</td>
-              <td>{{ subj.P.numCalifPS }}</td>
+              <td>{{ convo.numCalifPS }}</td>
             </tr>
             <tr
-              v-if="subj.P.numCalifEX != null"
+              v-if="convo.numCalifEX != null"
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="pl-3">Calificación final de Examen</td>
-              <td>{{ subj.P.numCalifEX }}</td>
+              <td>{{ convo.numCalifEX }}</td>
             </tr>
 
             <tr
@@ -109,7 +109,7 @@
                     .descripcioQualificacioQualitativaFinal != 'Reconocido'
                 "
               >
-                {{ subj.P.descCalifFA }} ({{ subj.P.numCalifFA }})
+                {{ convo.descCalifFA }} ({{ convo.numCalifFA }})
               </td>
               <td v-else>
                 {{
@@ -119,7 +119,7 @@
             </tr>
             <tr
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-              v-if="subj.P.numConvocatoriaActual != 0"
+              v-if="convo.numConvocatoriaActual != 0"
             >
               <td class="pl-3">Año superación</td>
               <td>{{ subjectOriginal.ultAnyMatricula }}</td>
@@ -140,6 +140,6 @@ export default {
 <script setup>
 const props = defineProps({
   subjectOriginal: Object,
-  subject: Object,
+  subjectConvo: Object,
 });
 </script>

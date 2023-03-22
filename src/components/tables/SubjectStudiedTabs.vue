@@ -1,22 +1,36 @@
 <template>
   <h1>Tabs</h1>
 
-  <ul>
-    <li
-      v-for="(objeto, index) in subject"
-      :key="index"
-      @click="seleccionarObjeto(index)"
+  <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+    <ul
+      class="flex flex-wrap -mb-px text-sm font-medium text-center"
+      id="myTab"
+      data-tabs-toggle="#myTabContent"
+      role="tablist"
     >
-      Test + {{ objeto.P.descAnyAcademico }}
-    </li>
-  </ul>
-  <table>
-    <tbody>
-      <tr v-for="field in objetoSeleccionado" :key="field">
-        <td>{{ field }}</td>
-      </tr>
-    </tbody>
-  </table>
+      <li
+        class="mr-2"
+        role="presentation"
+        v-for="(convo, index) in subjectConvo"
+        :key="index"
+      >
+        <button
+          class="inline-block p-4 border-b-2 rounded-t-lg"
+          id="profile-tab"
+          data-tabs-target="#profile"
+          type="button"
+          role="tab"
+          aria-controls="profile"
+          aria-selected="false"
+          @click="selectConvo(index)"
+        >
+          {{ convo.descAnyAcademico }}
+        </button>
+      </li>
+    </ul>
+    <p>{{ currentConvoIndex }}</p>
+    <p>{{ subjectConvo[currentConvoIndex] }}</p>
+  </div>
 </template>
 
 <script>
@@ -26,18 +40,18 @@ export default {
 </script>
 
 <script setup>
-import { ref, watchEffect } from "vue";
+import { ref } from "vue";
 const props = defineProps({
   subjectOriginal: Object,
-  subject: Object,
+  subjectConvo: Object,
 });
 
-const objetoSeleccionado = ref({});
+const currentConvoIndex = ref(0);
 
-watchEffect(() => (objetoSeleccionado.value = props.subject[0]));
+const convo = ref({});
 
-function seleccionarObjeto(index) {
-  objetoSeleccionado.value = props.subject[index];
-  console.log(objetoSeleccionado.value.P);
+function selectConvo(index) {
+  currentConvoIndex.value = index;
+  convo.value = props.subjectConvo[index];
 }
 </script>

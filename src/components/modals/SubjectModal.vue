@@ -33,7 +33,7 @@
 
           <SubjectStudied
             :subjectOriginal="subjectOriginal"
-            :subject="subject"
+            :subjectConvo="subjectConvo"
             v-if="
               props.subjectOriginal.descripcioQualificacioQualitativaFinal !=
               'Reconocido'
@@ -42,7 +42,7 @@
           </SubjectStudied>
           <SubjectStudiedTabs
             :subjectOriginal="subjectOriginal"
-            :subject="subject"
+            :subjectConvo="subjectConvo"
             v-if="
               props.subjectOriginal.descripcioQualificacioQualitativaFinal !=
               'Reconocido'
@@ -63,7 +63,6 @@
 <script>
 export default {
   name: "SubjectModal",
-  components: { SubjectStudiedTabs },
 };
 </script>
 
@@ -77,7 +76,7 @@ const props = defineProps({
   subjectOriginal: Object,
 });
 
-let subject = ref({});
+let subjectConvo = ref({});
 
 onMounted(() => {
   console.log("TEST REQUEST");
@@ -93,7 +92,7 @@ onMounted(() => {
       .then(
         (response) => (
           console.log(JSON.stringify(response.data.asignatura)),
-          (subject.value = response.data.asignatura)
+          (subjectConvo.value = response.data.asignatura)
         )
       );
   }

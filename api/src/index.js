@@ -113,21 +113,27 @@ app.route("/asignatura/").get(function (req, res) {
       return obj.O[0].P.codAsignatura === req.query.codAsignatura;
     });
 
-    let asignatura2 = notasCompletas.filter(
-      (obj) => obj.O[0].P.codAsignatura === req.query.codAsignatura
-    );
     //Devuelve la lista de convos
-    console.log(asignatura2[0].O);
-    console.log(asignatura[0]);
+    console.log("GET asignatura");
+    console.log(asignatura[0].O);
 
-    asignatura = asignatura[0].O;
-    //let asignatura = notasCompletas[1].data.O[0].P;
+    const asignaturaOriginal = asignatura[0].O;
+    const asignaturaConvos = [];
+
+    for (let i = 0; i < asignaturaOriginal.length; i++) {
+      asignaturaConvos.push(asignaturaOriginal[i].P);
+    }
+    console.log("asignaturaOriginal");
+    console.log(asignaturaOriginal);
+    console.log("asignaturaConvos");
+    console.log(asignaturaConvos);
+
     response = {
       error: false,
       code: 200,
       message: "Notas originales",
       //Usar aqui los params
-      asignatura: asignatura,
+      asignatura: asignaturaConvos,
     };
   }
 
