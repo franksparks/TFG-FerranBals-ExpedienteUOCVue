@@ -19,7 +19,7 @@
           <!--Title-->
           <div class="flex justify-between items-center pb-4">
             <p class="text-2xl font-bold">
-              {{ subject.descAsignatura }}
+              {{ subjectOriginal.descripcio }}
             </p>
             <!-- Modal Close Button -->
             <div
@@ -29,137 +29,21 @@
               <i class="fas fa-times"></i>
             </div>
           </div>
-          <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table
-              class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
-            >
-              <thead
-                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
-              >
-                <!--Aplicar título en dos columnas-->
-                <tr>
-                  <th scope="col" class="px-6 py-3 text-center">
-                    {{ subject.anySuperacion }}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                >
-                  <td class="pl-3">Asignatura</td>
-                  <td>{{ subjectOriginal.descripcio }}</td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                  v-if="subjectOriginal.codi != null"
-                >
-                  <td class="pl-3">Código</td>
-                  <td>{{ subjectOriginal.codi }}</td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                >
-                  <td class="pl-3">Créditos</td>
-                  <td>{{ subjectOriginal.numCredits }}</td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                >
-                  <td class="pl-3">Tipo asignatura</td>
-                  <td>{{ subjectOriginal.descripcioClasseCredits }}</td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                  v-if="subject.numConvocatoriaActual != null"
-                >
-                  <td class="pl-3">Convocatoria</td>
-                  <td>{{ subject.numConvocatoriaActual }}</td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                  v-if="subject.nomConsultor != null"
-                >
-                  <td class="pl-3">Consultor</td>
-                  <td>{{ subject.nomConsultor }}</td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                  v-if="subject.codCalifFC != null"
-                >
-                  <td class="pl-3">Calificación de Evaluación Contínua</td>
-                  <td>{{ subject.codCalifC }} ({{ subject.numCalifC }})</td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                  v-if="subject.codCalifP != null"
-                >
-                  <td class="pl-3">
-                    Calificación final de actividades prácticas
-                  </td>
-                  <td>{{ subject.codCalifP }}({{ subject.numCalifP }})</td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                  v-if="subject.codCalifFC != null"
-                >
-                  <td class="pl-3">
-                    Calificación final de Evaluación Contínua
-                  </td>
-                  <td>{{ subject.codCalifFC }} ({{ subject.numCalifFC }})</td>
-                </tr>
-                <tr
-                  v-if="subject.numCalifPS != null"
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                >
-                  <td class="pl-3">Calificación final de Prueba de Síntesis</td>
-                  <td>{{ subject.numCalifPS }}</td>
-                </tr>
-                <tr
-                  v-if="subject.numCalifEX != null"
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                >
-                  <td class="pl-3">Calificación final de Examen</td>
-                  <td>{{ subject.numCalifEX }}</td>
-                </tr>
+          <!-- Añadir bucle for -->
 
-                <tr
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                >
-                  <td class="pl-3">Calificación final de la asignatura</td>
-                  <td
-                    v-if="
-                      props.subjectOriginal
-                        .descripcioQualificacioQualitativaFinal == null
-                    "
-                  >
-                    En curso
-                  </td>
-                  <td
-                    v-else-if="
-                      props.subjectOriginal
-                        .descripcioQualificacioQualitativaFinal != 'Reconocido'
-                    "
-                  >
-                    {{ subject.descCalifFA }} ({{ subject.numCalifFA }})
-                  </td>
-                  <td v-else>
-                    {{
-                      props.subjectOriginal
-                        .descripcioQualificacioQualitativaFinal
-                    }}
-                  </td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                  v-if="subject.numConvocatoriaActual != 0"
-                >
-                  <td class="pl-3">Año superación</td>
-                  <td>{{ subjectOriginal.ultAnyMatricula }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <SubjectStudied
+            :subjectOriginal="subjectOriginal"
+            :subject="subject"
+            v-if="
+              props.subjectOriginal.descripcioQualificacioQualitativaFinal !=
+              'Reconocido'
+            "
+          >
+          </SubjectStudied>
+          <SubjectRecognized
+            :subjectOriginal="subjectOriginal"
+            v-else
+          ></SubjectRecognized>
         </div>
       </div>
     </div>
@@ -175,6 +59,8 @@ export default {
 <script setup>
 import axios from "axios";
 import { onMounted, ref } from "vue";
+import SubjectRecognized from "@/components/tables/SubjectRecognized.vue";
+import SubjectStudied from "@/components/tables/SubjectStudied.vue";
 const props = defineProps({
   subjectOriginal: Object,
 });

@@ -112,10 +112,15 @@ app.route("/asignatura/").get(function (req, res) {
     let asignatura = notasCompletas.filter((obj) => {
       return obj.O[0].P.codAsignatura === req.query.codAsignatura;
     });
+
+    let asignatura2 = notasCompletas.filter(
+      (obj) => obj.O[0].P.codAsignatura === req.query.codAsignatura
+    );
     //Devuelve la lista de convos
+    console.log(asignatura2[0].O);
     console.log(asignatura[0]);
 
-    asignatura = asignatura[0].O[0].P;
+    asignatura = asignatura[0].O;
     //let asignatura = notasCompletas[1].data.O[0].P;
     response = {
       error: false,
