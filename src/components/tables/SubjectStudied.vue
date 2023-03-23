@@ -1,7 +1,38 @@
 <template>
   <div>
-    <div v-for="convo in subjectConvo" :key="convo">
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+      <ul
+        class="flex flex-wrap -mb-px text-sm font-medium text-center"
+        id="myTab"
+        data-tabs-toggle="#myTabContent"
+        role="tablist"
+      >
+        <li
+          class="mr-2"
+          role="presentation"
+          v-for="(convo, index) in subjectConvo"
+          :key="index"
+        >
+          <button
+            class="inline-block p-4 border-b-2 rounded-t-lg"
+            id="profile-tab"
+            data-tabs-target="#profile"
+            type="button"
+            role="tab"
+            aria-controls="profile"
+            aria-selected="false"
+            @click="currentIndex = index"
+          >
+            {{ convo.descAnyAcademico }}
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div v-for="(convo, index) in subjectConvo" :key="convo" :index="index">
+      <div
+        v-if="index === currentIndex"
+        class="relative overflow-x-auto shadow-md sm:rounded-lg"
+      >
         <table
           class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
         >
@@ -138,6 +169,8 @@ export default {
 </script>
 
 <script setup>
+import { ref } from "vue";
+const currentIndex = ref(0);
 const props = defineProps({
   subjectOriginal: Object,
   subjectConvo: Object,

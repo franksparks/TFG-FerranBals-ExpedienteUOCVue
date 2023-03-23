@@ -40,15 +40,6 @@
             "
           >
           </SubjectStudied>
-          <SubjectStudiedTabs
-            :subjectOriginal="subjectOriginal"
-            :subjectConvo="subjectConvo"
-            v-if="
-              props.subjectOriginal.descripcioQualificacioQualitativaFinal !=
-              'Reconocido'
-            "
-          >
-          </SubjectStudiedTabs>
 
           <SubjectRecognized
             :subjectOriginal="subjectOriginal"
@@ -71,7 +62,6 @@ import axios from "axios";
 import { onMounted, ref } from "vue";
 import SubjectRecognized from "@/components/tables/SubjectRecognized.vue";
 import SubjectStudied from "@/components/tables/SubjectStudied.vue";
-import SubjectStudiedTabs from "../tables/SubjectStudiedTabs.vue";
 const props = defineProps({
   subjectOriginal: Object,
 });

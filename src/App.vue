@@ -62,6 +62,7 @@ onMounted(() => {
 function getExpediente(text) {
   console.log("get expediente");
   subjects.value = [];
+  virtualTestReq.value = [];
   axios
     //Obtenemos el expediente original
     .get("http://localhost:3000/expediente/" + text)
