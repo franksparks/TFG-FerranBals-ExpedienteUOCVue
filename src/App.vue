@@ -2,7 +2,6 @@
   <div class="container mx-auto px-50">
     <div class="px-9 pt-9 pr-9">
       <AppHeader :gradeType="gradeType" @refresh-expediente="getExpediente" />
-      <!-- "  Pending to receive the expediente received on the cusotm event -->
 
       <br />
       <DataParent
@@ -13,10 +12,10 @@
       />
       <br />
       <TableParent
-        :itineraryReq="itineraryReq"
+        :itineraryRequest="itineraryRequest"
         :credit="credit"
         :subjects="subjects"
-        :virtualTestReq="virtualTestReq"
+        :virtualTestRequest="virtualTestRequest"
       />
     </div>
   </div>
@@ -29,17 +28,18 @@ import TableParent from "./components/TableParent.vue";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
-//import { cookies } from "@/response";
+const BASE_URL = "http://localhost:3000"; // URL base para todas las solicitudes de API
 
+// Variables reactivas
 let originalFile = ref({});
 let processedFile = ref({});
 var elements = [];
 const types = [];
 const procedure = ref([]);
 const instanceAEP = ref([]);
-const virtualTestReq = ref([]);
+const virtualTestRequest = ref([]);
 const subjects = ref([]);
-const itineraryReq = ref([]);
+const itineraryRequest = ref([]);
 const people = [];
 const something = ref([]);
 const aep = ref([]);
@@ -54,25 +54,27 @@ var studentData = ref({});
 var tutorData = ref({});
 const text = "ferran";
 
-onMounted(() => {
+onMounted(async () => {
   console.log("Petición expediente alumno");
-  getExpediente(text);
+  await getExpediente(text);
 });
 
-function getExpediente(text) {
-  console.log("get expediente");
-  subjects.value = [];
-  virtualTestReq.value = [];
-  axios
-    //Obtenemos el expediente original
-    .get("http://localhost:3000/expediente/" + text)
-    .then(
-      (response) => (
-        (originalFile.value = response.data.data),
-        //Procesamos el expediente original
-        processFile(originalFile.value)
-      )
-    );
+async function getExpediente(text) {
+  try {
+    // Hacer la solicitud a la API
+    const response = await axios.get(`${BASE_URL}/expediente/${text}`);
+
+    // Actualizar la variable originalFile
+    originalFile.value = response.data.data;
+
+    itineraryRequest.value = [];
+    virtualTestRequest.value = [];
+
+    // Procesar el expediente original
+    processFile(originalFile.value);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 function processFile(file) {
@@ -97,13 +99,13 @@ function processFile(file) {
         instanceAEP.value.push(elem.P);
         break;
       case "atiod4vkRiNDS651NTVpY77vWZo=": //Solicitud prueba virtual
-        virtualTestReq.value.push(elem.P);
+        virtualTestRequest.value.push(elem.P);
         break;
       case "997hN7iymHHoU8BGqmuM0QMNPxs=": //Asignaturas
         subjects.value.push(elem.P);
         break;
       case "ua6oBq2$2vD_EV3hJJ2wzqrkrPQ=": //Itinerario
-        itineraryReq.value.push(elem.P);
+        itineraryRequest.value.push(elem.P);
         break;
       case "p_ovO$a_rkE0DzW9ZSC8AMXg5VQ=": //Personas
         people.push(elem);

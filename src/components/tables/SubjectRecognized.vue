@@ -43,24 +43,15 @@
             class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
             <td class="pl-3">Calificación final de la asignatura</td>
-            <td
-              v-if="
-                props.subjectOriginal.descripcioQualificacioQualitativaFinal ==
-                null
-              "
-            >
-              En curso
-            </td>
-            <td
-              v-else-if="
-                props.subjectOriginal.descripcioQualificacioQualitativaFinal !=
-                'Reconocido'
-              "
-            >
-              {{ subj.P.descCalifFA }} ({{ subj.P.numCalifFA }})
-            </td>
-            <td v-else>
-              {{ props.subjectOriginal.descripcioQualificacioQualitativaFinal }}
+            <td>
+              {{
+                subjectOriginal.descripcioQualificacioQualitativaFinal == null
+                  ? "En curso"
+                  : subjectOriginal.descripcioQualificacioQualitativaFinal !=
+                    "Reconocido"
+                  ? `${subjectOriginal.P.descCalifFA} (${subjectOriginal.P.numCalifFA})`
+                  : subjectOriginal.descripcioQualificacioQualitativaFinal
+              }}
             </td>
           </tr>
         </tbody>
@@ -75,7 +66,7 @@ export default {
 };
 </script>
 <script setup>
-const props = defineProps({
+defineProps({
   subjectOriginal: Object,
 });
 </script>

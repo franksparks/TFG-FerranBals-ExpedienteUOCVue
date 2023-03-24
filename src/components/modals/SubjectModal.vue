@@ -59,32 +59,28 @@ export default {
 
 <script setup>
 import axios from "axios";
-import { onMounted, ref } from "vue";
+import { defineEmits, ref, watchEffect } from "vue";
 import SubjectRecognized from "@/components/tables/SubjectRecognized.vue";
 import SubjectStudied from "@/components/tables/SubjectStudied.vue";
+
 const props = defineProps({
   subjectOriginal: Object,
 });
 
 let subjectConvo = ref({});
 
-onMounted(() => {
-  console.log("TEST REQUEST");
-  if (
-    props.subjectOriginal.descripcioQualificacioQualitativaFinal != "Reconocido"
-  ) {
+watchEffect(() => {
+  if (props.subject?.descripcioQualificacioQualitativaFinal !== "Reconocido") {
     axios
-      //Recuperamos el listado completo de contactos  públicos con una petición GET
       .get("http://localhost:3000/asignatura/", {
         params: { codAsignatura: props.subjectOriginal.codi },
       })
-      //Imprimimos mensaje por consola y almacenamos el listado de contactos públicos
-      .then(
-        (response) => (
-          console.log(JSON.stringify(response.data.asignatura)),
-          (subjectConvo.value = response.data.asignatura)
-        )
-      );
+      .then((response) => {
+        subjectConvo.value = response.data.asignatura;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 });
 

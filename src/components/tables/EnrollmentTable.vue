@@ -12,13 +12,13 @@
         </thead>
         <tbody class="justify-center">
           <tr
-            v-for="m in matricula"
-            :key="m"
+            v-for="matricula in matriculas"
+            :key="matricula"
             class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
-            <td class="text-center">{{ m.P.descAnyAcademic }}</td>
+            <td class="text-center">{{ matricula.P.descAnyAcademic }}</td>
 
-            <td class="text-center">{{ m.P.importMatricula }}</td>
+            <td class="text-center">{{ matricula.P.importMatricula }}</td>
           </tr>
         </tbody>
       </table>
@@ -36,13 +36,13 @@ export default {
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
-const matricula = ref([]);
+const matriculas = ref([]);
 
 onMounted(() => {
   console.log("Petición matrículas alumno");
   axios
-    //Obtenemos el expediente original
     .get("http://localhost:3000/matricula")
-    .then((response) => (matricula.value = response.data.data.O));
+    .then((response) => (matriculas.value = response.data.data.O))
+    .catch((error) => console.error(error));
 });
 </script>

@@ -15,15 +15,15 @@
         </thead>
         <tbody class="justify-center">
           <tr
-            v-for="i in itineraryReq"
-            :key="i"
+            v-for="request in itineraryRequest"
+            :key="request"
             class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
-            <td class="text-center">{{ i.descAnyAcademic }}</td>
-            <td class="text-center">{{ i.descripcioCamiDesti }}</td>
-            <td class="text-center">{{ i.numSolicitud }}</td>
-            <td class="text-center">{{ i.dataSolicitud }}</td>
-            <td class="text-center">{{ i.descEstatSolicitud }}</td>
+            <td class="text-center">{{ request.descAnyAcademic }}</td>
+            <td class="text-center">{{ request.descripcioCamiDesti }}</td>
+            <td class="text-center">{{ request.numSolicitud }}</td>
+            <td class="text-center">{{ request.dataSolicitud }}</td>
+            <td class="text-center">{{ request.descEstatSolicitud }}</td>
           </tr>
         </tbody>
       </table>
@@ -39,6 +39,6 @@ export default {
 
 <script setup>
 defineProps({
-  itineraryReq: Object,
+  itineraryRequest: Object,
 });
 </script>

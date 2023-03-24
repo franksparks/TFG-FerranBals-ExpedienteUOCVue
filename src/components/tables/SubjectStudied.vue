@@ -3,24 +3,12 @@
     <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
       <ul
         class="flex flex-wrap -mb-px text-sm font-medium text-center"
-        id="myTab"
-        data-tabs-toggle="#myTabContent"
         role="tablist"
       >
-        <li
-          class="mr-2"
-          role="presentation"
-          v-for="(convo, index) in subjectConvo"
-          :key="index"
-        >
+        <li class="mr-2" v-for="(convo, index) in subjectConvo" :key="index">
           <button
             class="inline-block p-4 border-b-2 rounded-t-lg"
-            id="profile-tab"
-            data-tabs-target="#profile"
             type="button"
-            role="tab"
-            aria-controls="profile"
-            aria-selected="false"
             @click="currentIndex = index"
           >
             {{ convo.descAnyAcademico }}
@@ -28,7 +16,10 @@
         </li>
       </ul>
     </div>
-    <div v-for="(convo, index) in subjectConvo" :key="convo" :index="index">
+    <div
+      v-for="(convo, index) in subjectConvo"
+      :key="convo.numConvocatoriaActual"
+    >
       <div
         v-if="index === currentIndex"
         class="relative overflow-x-auto shadow-md sm:rounded-lg"
@@ -170,7 +161,7 @@ export default {
 
 <script setup>
 import { ref } from "vue";
-const currentIndex = ref(0);
+let currentIndex = ref(0);
 const props = defineProps({
   subjectOriginal: Object,
   subjectConvo: Object,

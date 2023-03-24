@@ -15,15 +15,15 @@
         </thead>
         <tbody class="justify-center">
           <tr
-            v-for="v in virtualTestReq"
-            :key="v"
+            v-for="request in virtualTestRequest"
+            :key="request"
             class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
-            <td class="text-center">{{ v.descAnyAcademic }}</td>
-            <td>{{ v.descAssignatura }}</td>
-            <td class="text-center">{{ v.codAssignatura }}</td>
-            <td class="text-center">{{ v.tipusProva }}</td>
-            <td class="text-center">{{ v.descEstat }}</td>
+            <td class="text-center">{{ request.descAnyAcademic }}</td>
+            <td>{{ request.descAssignatura }}</td>
+            <td class="text-center">{{ request.codAssignatura }}</td>
+            <td class="text-center">{{ request.tipusProva }}</td>
+            <td class="text-center">{{ request.descEstat }}</td>
           </tr>
         </tbody>
       </table>
@@ -39,6 +39,6 @@ export default {
 
 <script setup>
 defineProps({
-  virtualTestReq: Object,
+  virtualTestRequest: Object,
 });
 </script>

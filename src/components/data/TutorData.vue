@@ -1,10 +1,6 @@
 <template>
   <div>
-    <p>
-      Nombre: {{ tutorData.nom }} {{ tutorData.primerCognom }}
-      {{ tutorData.segonCognom }}
-    </p>
-
+    <p>Nombre: {{ fullName }}</p>
     <p>Usuario campus: {{ tutorData.userLogin }}</p>
     <p>DNI: {{ tutorData.dni }}</p>
   </div>
@@ -16,7 +12,12 @@ export default {
 };
 </script>
 <script setup>
-defineProps({
+import { computed, defineProps } from "vue";
+const props = defineProps({
   tutorData: Object,
+});
+
+const fullName = computed(() => {
+  return `${props.tutorData.nom} ${props.tutorData.primerCognom} ${props.tutorData.segonCognom}`;
 });
 </script>

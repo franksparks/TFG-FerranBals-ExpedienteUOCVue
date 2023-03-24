@@ -41,11 +41,14 @@
       <EnrollmentTable v-if="tab === 'payments'" />
 
       <!-- Itineary Table -->
-      <ItineraryTable v-if="tab === 'requests'" :itineraryReq="itineraryReq" />
+      <ItineraryTable
+        v-if="tab === 'requests'"
+        :itineraryRequest="itineraryRequest"
+      />
       <!-- Virtual test requests Table -->
       <VirtualTestRequestTable
         v-if="tab === 'requests'"
-        :virtualTestReq="virtualTestReq"
+        :virtualTestRequest="virtualTestRequest"
       />
     </div>
   </div>
@@ -68,9 +71,9 @@ import { ref } from "vue";
 const tab = ref("subject");
 
 defineProps({
-  itineraryReq: Object,
+  itineraryRequest: Object,
   credit: Object,
   subjects: Object,
-  virtualTestReq: Object,
+  virtualTestRequest: Object,
 });
 </script>
