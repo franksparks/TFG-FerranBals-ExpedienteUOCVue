@@ -1,21 +1,20 @@
 <template>
   <div class="container mx-auto px-50">
     <div class="px-9 pt-9 pr-9">
-      <AppHeader :gradeType="gradeType" @refresh-expediente="getFile" />
+      <AppHeader :degreeType="degreeType" @refresh-file="getFile" />
 
       <br />
       <DataParent
         :studentData="studentData"
         :tutorData="tutorData"
         :fileInfo="fileInfo"
-        :fileNumber="fileNumber"
       />
       <br />
       <TableParent
-        :itineraryRequest="itineraryRequest"
-        :credit="credit"
+        :itineraryRequests="itineraryRequests"
+        :credits="credits"
         :subjects="subjects"
-        :virtualTestRequest="virtualTestRequest"
+        :virtualTestRequests="virtualTestRequests"
       />
     </div>
   </div>
@@ -28,31 +27,33 @@ import TableParent from "./components/TableParent.vue";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
-const BASE_URL = "http://localhost:3000"; // URL base para todas las solicitudes de API
+const BASE_URL = "http://localhost:3000"; // base URL for the GET requests
 
-// Variables reactivas
+// Reactive variables
 
+//Checked variables
 let elements = [];
-const originalFile = ref({});
-const processedFile = ref({ types: [] });
-const types = [];
+
+const credits = ref({});
+const degreeType = ref("");
+const fileInfo = ref({});
+const itineraryRequests = ref([]);
+const virtualTestRequests = ref([]);
+
+const studentData = ref({});
+const tutorData = ref({});
+
+//Not checked variables
 const procedure = ref([]);
 const instanceAEP = ref([]);
-const virtualTestRequest = ref([]);
 const subjects = ref([]);
-const itineraryRequest = ref([]);
 const people = [];
 const something = ref([]);
 const aep = ref([]);
-const credit = ref({});
 const eees = ref([]);
 const completeFile = ref({});
-const gradeType = ref("");
-const fileInfo = ref({});
-const fileNumber = ref(0);
 const certification = ref([]);
-const studentData = ref({});
-const tutorData = ref({});
+
 const text = "ferran";
 
 onMounted(async () => {
@@ -61,34 +62,25 @@ onMounted(async () => {
 });
 
 function resetFile() {
-  types.value = [];
   procedure.value = [];
   instanceAEP.value = [];
-  virtualTestRequest.value = [];
+  virtualTestRequests.value = [];
   subjects.value = [];
-  itineraryRequest.value = [];
+  itineraryRequests.value = [];
   people.value = [];
   aep.value = [];
-  credit.value = {};
+  credits.value = {};
   eees.value = [];
   completeFile.value = {};
   fileInfo.value = {};
   certification.value = [];
 }
 
-function processFile(file) {
+function processFile() {
   console.log("Reiniciando variables");
   resetFile();
 
   console.log("Procesando el expediente");
-  elements = file.O;
-
-  for (const elem of elements) {
-    if (!types.includes(elem.T)) {
-      types.push(elem.T);
-    }
-  }
-  processedFile.value.types = types;
 
   for (const elem of elements) {
     const elementType = elem.T;
@@ -101,13 +93,13 @@ function processFile(file) {
         instanceAEP.value.push(elem.P);
         break;
       case "atiod4vkRiNDS651NTVpY77vWZo=": //Solicitud prueba virtual
-        virtualTestRequest.value.push(elem.P);
+        virtualTestRequests.value.push(elem.P);
         break;
       case "997hN7iymHHoU8BGqmuM0QMNPxs=": //Asignaturas
         subjects.value.push(elem.P);
         break;
       case "ua6oBq2$2vD_EV3hJJ2wzqrkrPQ=": //Itinerario
-        itineraryRequest.value.push(elem.P);
+        itineraryRequests.value.push(elem.P);
         break;
       case "p_ovO$a_rkE0DzW9ZSC8AMXg5VQ=": //Personas
         people.push(elem);
@@ -119,7 +111,7 @@ function processFile(file) {
         aep.value.push(elem.P);
         break;
       case "1WNiS_NQH7GCRNTiIl2g1nIcgMM=": //Resumen créditos
-        credit.value = elem.P;
+        credits.value = elem.P;
         break;
       case "eO2Chrn3K53ySuNj82jHgm9Qo_E=": //Espacio Europeo Educación Superior
         eees.value.push(elem.P);
@@ -146,24 +138,19 @@ function processFile(file) {
     }
   }
 
-  gradeType.value = completeFile.value.descPlan;
-  fileNumber.value = fileInfo.value.P.numExpedient;
+  degreeType.value = completeFile.value.descPlan;
   fileInfo.value = fileInfo.value.P;
 }
 
 async function getFile(text) {
   try {
-    // Hacer la solicitud a la API
     const response = await axios.get(`${BASE_URL}/file/${text}`);
 
-    // Actualizar la variable originalFile
-    originalFile.value = response.data.data;
+    elements = response.data.data.O;
 
-    itineraryRequest.value = [];
-    virtualTestRequest.value = [];
+    resetFile();
 
-    // Procesar el expediente original
-    processFile(originalFile.value);
+    processFile(elements.value);
   } catch (error) {
     console.error(error);
   }

@@ -12,8 +12,8 @@
 
         <p class="gwt-Label text-3xl text-center">Consulta del expediente</p>
         <select
-          v-model="expediente"
-          @change="refreshExpediente(expediente)"
+          v-model="file"
+          @change="refreshFile(file)"
           value="ferran"
           class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
         >
@@ -24,7 +24,7 @@
       </div>
       <div></div>
 
-      <p class="text-indigo-700 text-xl pt-3">{{ gradeType }}</p>
+      <p class="text-indigo-700 text-xl pt-3">{{ degreeType }}</p>
     </div>
   </div>
 </template>
@@ -38,14 +38,14 @@ export default {
 <script setup>
 import { ref } from "vue";
 defineProps({
-  gradeType: String,
+  degreeType: String,
 });
 
-const emit = defineEmits(["refresh-expediente"]);
+const emit = defineEmits(["refresh-file"]);
 
-const expediente = ref("ferran");
+const file = ref("ferran");
 
-function refreshExpediente(expediente) {
-  emit("refresh-expediente", expediente);
+function refreshFile(file) {
+  emit("refresh-file", file);
 }
 </script>

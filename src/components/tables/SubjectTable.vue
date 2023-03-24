@@ -21,33 +21,35 @@
           </thead>
           <tbody>
             <tr
-              v-for="subj in subjects"
-              :key="subj"
+              v-for="subject in subjects"
+              :key="subject"
               class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <th
                 scope="row"
                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                {{ subj.descripcio }}
+                {{ subject.descripcio }}
               </th>
               <td class="text-center px-6 py-4">
-                {{ subj.codi }}
+                {{ subject.codi }}
               </td>
               <td class="text-center px-6 py-4">
-                {{ subj.descripcioClasseCredits }}
+                {{ subject.descripcioClasseCredits }}
               </td>
-              <td class="text-center px-6 py-4">{{ subj.numCredits }}</td>
-              <td class="text-center px-6 py-4">{{ subj.ultAnyMatricula }}</td>
+              <td class="text-center px-6 py-4">{{ subject.numCredits }}</td>
               <td class="text-center px-6 py-4">
-                {{ subj.descripcioQualificacioQualitativaFinal }}
+                {{ subject.ultAnyMatricula }}
               </td>
               <td class="text-center px-6 py-4">
-                {{ subj.qualificacioQuantitativaFinal }}
+                {{ subject.descripcioQualificacioQualitativaFinal }}
+              </td>
+              <td class="text-center px-6 py-4">
+                {{ subject.qualificacioQuantitativaFinal }}
               </td>
               <td
                 class="text-center px-6 py-4 cursor-pointer underline text-cyan-500"
-                @click.prevent="requestData(subj)"
+                @click.prevent="requestData(subject)"
               >
                 Link
               </td>
@@ -60,10 +62,7 @@
     <SubjectModal
       v-if="modalVisibility"
       @close-modal="modalVisibility = false"
-      :asigCode="asigCode"
-      :numCred="numCred"
-      :nota="nota"
-      :subjectOriginal="subjectOriginal"
+      :subjectInformation="subjectInformation"
     />
   </div>
 </template>
@@ -80,18 +79,12 @@ import { ref } from "vue";
 import SubjectModal from "@/components/modals/SubjectModal.vue";
 
 const modalVisibility = ref(false);
-const asigCode = ref();
-const numCred = ref();
-const nota = ref();
-const subjectOriginal = ref({});
+const subjectInformation = ref({});
 
-function requestData(asig) {
+function requestData(subject) {
   //Request per subject
   modalVisibility.value = true;
-  asigCode.value = asig.codi;
-  numCred.value = asig.numCredits;
-  nota.value = asig.descripcioQualificacioQualitativaFinal;
-  subjectOriginal.value = asig;
+  subjectInformation.value = subject;
 }
 
 defineProps({

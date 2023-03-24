@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Número expediente: {{ fileNumber }}</p>
+    <p>Número expediente: {{ fileInfo.numExpedient }}</p>
 
     <p>Nota media actual: {{ fileInfo.notaMitjana }}</p>
 
@@ -16,6 +16,5 @@ export default {
 <script setup>
 defineProps({
   fileInfo: Object,
-  fileNumber: Number,
 });
 </script>

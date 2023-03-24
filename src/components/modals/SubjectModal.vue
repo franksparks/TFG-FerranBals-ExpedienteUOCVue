@@ -19,7 +19,7 @@
           <!--Title-->
           <div class="flex justify-between items-center pb-4">
             <p class="text-2xl font-bold">
-              {{ subjectOriginal.descripcio }}
+              {{ subjectInformation.descripcio }}
             </p>
             <!-- Modal Close Button -->
             <div
@@ -31,20 +31,20 @@
           </div>
           <!-- Añadir bucle for -->
 
-          <SubjectStudied
-            :subjectOriginal="subjectOriginal"
+          <TakenSubject
+            :subjectInformation="subjectInformation"
             :subjectConvo="subjectConvo"
             v-if="
-              props.subjectOriginal.descripcioQualificacioQualitativaFinal !=
+              props.subjectInformation.descripcioQualificacioQualitativaFinal !=
               'Reconocido'
             "
           >
-          </SubjectStudied>
+          </TakenSubject>
 
-          <SubjectRecognized
-            :subjectOriginal="subjectOriginal"
+          <AccreditedSubject
+            :subjectInformation="subjectInformation"
             v-else
-          ></SubjectRecognized>
+          ></AccreditedSubject>
         </div>
       </div>
     </div>
@@ -59,21 +59,24 @@ export default {
 
 <script setup>
 import axios from "axios";
-import { defineEmits, ref, watchEffect } from "vue";
-import SubjectRecognized from "@/components/tables/SubjectRecognized.vue";
-import SubjectStudied from "@/components/tables/SubjectStudied.vue";
+import { ref, watchEffect } from "vue";
+import AccreditedSubject from "@/components/tables/subjects/AccreditedSubject.vue";
+import TakenSubject from "@/components/tables/subjects/TakenSubject.vue";
 
 const props = defineProps({
-  subjectOriginal: Object,
+  subjectInformation: Object,
 });
 
 let subjectConvo = ref({});
 
 watchEffect(() => {
-  if (props.subject?.descripcioQualificacioQualitativaFinal !== "Reconocido") {
+  if (
+    props.subjectInformation?.descripcioQualificacioQualitativaFinal !=
+    "Reconocido"
+  ) {
     axios
       .get("http://localhost:3000/subject/", {
-        params: { codAsignatura: props.subjectOriginal.codi },
+        params: { codAsignatura: props.subjectInformation.codi },
       })
       .then((response) => {
         subjectConvo.value = response.data.asignatura;

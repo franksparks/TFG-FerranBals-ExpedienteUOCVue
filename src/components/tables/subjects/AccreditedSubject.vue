@@ -8,7 +8,7 @@
           <!--Aplicar título en dos columnas-->
           <tr>
             <th scope="col" class="px-6 py-3 text-center">
-              {{ subjectOriginal.ultAnyMatricula }}
+              {{ subjectInformation.ultAnyMatricula }}
             </th>
           </tr>
         </thead>
@@ -17,26 +17,26 @@
             class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
             <td class="pl-3">Asignatura</td>
-            <td>{{ subjectOriginal.descripcio }}</td>
+            <td>{{ subjectInformation.descripcio }}</td>
           </tr>
           <tr
             class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-            v-if="subjectOriginal.codi != null"
+            v-if="subjectInformation.codi != null"
           >
             <td class="pl-3">Código</td>
-            <td>{{ subjectOriginal.codi }}</td>
+            <td>{{ subjectInformation.codi }}</td>
           </tr>
           <tr
             class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
             <td class="pl-3">Créditos</td>
-            <td>{{ subjectOriginal.numCredits }}</td>
+            <td>{{ subjectInformation.numCredits }}</td>
           </tr>
           <tr
             class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
             <td class="pl-3">Tipo asignatura</td>
-            <td>{{ subjectOriginal.descripcioClasseCredits }}</td>
+            <td>{{ subjectInformation.descripcioClasseCredits }}</td>
           </tr>
 
           <tr
@@ -45,12 +45,13 @@
             <td class="pl-3">Calificación final de la asignatura</td>
             <td>
               {{
-                subjectOriginal.descripcioQualificacioQualitativaFinal == null
+                subjectInformation.descripcioQualificacioQualitativaFinal ==
+                null
                   ? "En curso"
-                  : subjectOriginal.descripcioQualificacioQualitativaFinal !=
+                  : subjectInformation.descripcioQualificacioQualitativaFinal !=
                     "Reconocido"
-                  ? `${subjectOriginal.P.descCalifFA} (${subjectOriginal.P.numCalifFA})`
-                  : subjectOriginal.descripcioQualificacioQualitativaFinal
+                  ? `${subjectInformation.P.descCalifFA} (${subjectInformation.P.numCalifFA})`
+                  : subjectInformation.descripcioQualificacioQualitativaFinal
               }}
             </td>
           </tr>
@@ -67,6 +68,6 @@ export default {
 </script>
 <script setup>
 defineProps({
-  subjectOriginal: Object,
+  subjectInformation: Object,
 });
 </script>

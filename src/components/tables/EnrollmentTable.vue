@@ -12,13 +12,13 @@
         </thead>
         <tbody class="justify-center">
           <tr
-            v-for="matricula in matriculas"
-            :key="matricula"
+            v-for="enrollment in enrollments"
+            :key="enrollment"
             class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
-            <td class="text-center">{{ matricula.P.descAnyAcademic }}</td>
+            <td class="text-center">{{ enrollment.P.descAnyAcademic }}</td>
 
-            <td class="text-center">{{ matricula.P.importMatricula }}</td>
+            <td class="text-center">{{ enrollment.P.importMatricula }}</td>
           </tr>
         </tbody>
       </table>
@@ -36,13 +36,13 @@ export default {
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
-const matriculas = ref([]);
+const enrollments = ref([]);
 
 onMounted(() => {
-  console.log("Petición matrículas alumno");
+  console.log("Request student enrollments - matriculas");
   axios
     .get("http://localhost:3000/enrollments")
-    .then((response) => (matriculas.value = response.data.data.O))
+    .then((response) => (enrollments.value = response.data.data.O))
     .catch((error) => console.error(error));
 });
 </script>

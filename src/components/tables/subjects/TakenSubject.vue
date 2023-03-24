@@ -42,26 +42,26 @@
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="pl-3">Asignatura</td>
-              <td>{{ subjectOriginal.descripcio }}</td>
+              <td>{{ subjectInformation.descripcio }}</td>
             </tr>
             <tr
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-              v-if="subjectOriginal.codi != null"
+              v-if="subjectInformation.codi != null"
             >
               <td class="pl-3">Código</td>
-              <td>{{ subjectOriginal.codi }}</td>
+              <td>{{ subjectInformation.codi }}</td>
             </tr>
             <tr
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="pl-3">Créditos</td>
-              <td>{{ subjectOriginal.numCredits }}</td>
+              <td>{{ subjectInformation.numCredits }}</td>
             </tr>
             <tr
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="pl-3">Tipo asignatura</td>
-              <td>{{ subjectOriginal.descripcioClasseCredits }}</td>
+              <td>{{ subjectInformation.descripcioClasseCredits }}</td>
             </tr>
             <tr
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
@@ -119,7 +119,7 @@
               <td class="pl-3">Calificación final de la asignatura</td>
               <td
                 v-if="
-                  props.subjectOriginal
+                  props.subjectInformation
                     .descripcioQualificacioQualitativaFinal == null
                 "
               >
@@ -127,7 +127,7 @@
               </td>
               <td
                 v-else-if="
-                  props.subjectOriginal
+                  props.subjectInformation
                     .descripcioQualificacioQualitativaFinal != 'Reconocido'
                 "
               >
@@ -135,7 +135,8 @@
               </td>
               <td v-else>
                 {{
-                  props.subjectOriginal.descripcioQualificacioQualitativaFinal
+                  props.subjectInformation
+                    .descripcioQualificacioQualitativaFinal
                 }}
               </td>
             </tr>
@@ -144,7 +145,7 @@
               v-if="convo.numConvocatoriaActual != 0"
             >
               <td class="pl-3">Año superación</td>
-              <td>{{ subjectOriginal.ultAnyMatricula }}</td>
+              <td>{{ subjectInformation.ultAnyMatricula }}</td>
             </tr>
           </tbody>
         </table>
@@ -163,7 +164,7 @@ export default {
 import { ref } from "vue";
 let currentIndex = ref(0);
 const props = defineProps({
-  subjectOriginal: Object,
+  subjectInformation: Object,
   subjectConvo: Object,
 });
 </script>

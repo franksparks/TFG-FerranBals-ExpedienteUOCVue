@@ -61,11 +61,11 @@ export default {
 </script>
 
 <script setup>
-import SubjectTable from "./tables/SubjectTable.vue";
-import CreditsTable from "./tables/CreditsTable.vue";
-import EnrollmentTable from "./tables/EnrollmentTable.vue";
-import VirtualTestRequestTable from "./tables/VirtualTestRequestsTable.vue";
-import ItineraryRequestsTable from "./tables/ItineraryRequestsTable.vue";
+import SubjectTable from "../tables/SubjectTable.vue";
+import CreditsTable from "../tables/CreditsTable.vue";
+import EnrollmentTable from "../tables/EnrollmentTable.vue";
+import VirtualTestRequestTable from "../tables/VirtualTestRequestsTable.vue";
+import ItineraryRequestsTable from "../tables/ItineraryRequestsTable.vue";
 import { ref } from "vue";
 
 const tab = ref("subject");
