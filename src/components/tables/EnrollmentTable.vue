@@ -27,6 +27,10 @@
         </tbody>
       </table>
     </div>
+    <p class="text-center">Importe total: {{ total }}</p>
+    <p class="text-center">
+      Importe medio semestre: {{ (total / enrollments.length).toFixed(2) }}
+    </p>
   </div>
 </template>
 
@@ -40,7 +44,9 @@ export default {
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
+const total = ref(0);
 const enrollments = ref([]);
+
 function formatDate(unixDate) {
   const date = new Date(+unixDate);
   const day = date.getDate();
@@ -49,11 +55,20 @@ function formatDate(unixDate) {
   return `${day}/${month}/${year}`;
 }
 
+function calculateTotal(importMatricula) {
+  total.value += importMatricula;
+}
+
 onMounted(() => {
   console.log("Request student enrollments - matriculas");
   axios
     .get("http://localhost:3000/enrollments")
-    .then((response) => (enrollments.value = response.data.data.O))
+    .then((response) => {
+      enrollments.value = response.data.data.O;
+      enrollments.value.forEach((enrollment) =>
+        calculateTotal(enrollment.P.importMatricula)
+      );
+    })
     .catch((error) => console.error(error));
 });
 </script>

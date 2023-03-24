@@ -1,6 +1,7 @@
 <template>
   <div class="pt-5">
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <p>Solicitud de prueba de evaluación final virtual</p>
+    <div class="overflow-x-auto shadow-md sm:rounded-lg">
       <div v-if="virtualTestRequests.length == 0">
         <p>No hay peticiones de pruebas virtuales que mostrar</p>
       </div>
@@ -19,14 +20,14 @@
               <th>Estado</th>
             </tr>
           </thead>
-          <tbody class="justify-center">
+          <tbody>
             <tr
               v-for="request in virtualTestRequests"
               :key="request"
-              class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="text-center">{{ request.descAnyAcademic }}</td>
-              <td>{{ request.descAssignatura }}</td>
+              <td class="text-center">{{ request.descAssignatura }}</td>
               <td class="text-center">{{ request.codAssignatura }}</td>
               <td class="text-center">{{ request.tipusProva }}</td>
               <td class="text-center">{{ request.descEstat }}</td>

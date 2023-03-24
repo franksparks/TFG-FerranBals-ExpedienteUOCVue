@@ -40,15 +40,24 @@
       <!-- Payments Table -->
       <EnrollmentTable v-if="tab === 'payments'" />
 
+      <!-- AEP Table -->
+      <AEPRequestsTable v-if="tab === 'requests'" :AEPRequests="AEPRequests" />
+
       <!-- Itineary Table -->
-      <ItineraryRequestsTable
+      <CertificatesTable
         v-if="tab === 'requests'"
-        :itineraryRequests="itineraryRequests"
+        :certificates="certificates"
       />
+
       <!-- Virtual test requests Table -->
       <VirtualTestRequestTable
         v-if="tab === 'requests'"
         :virtualTestRequests="virtualTestRequests"
+      />
+      <!-- Itineary Table -->
+      <ItineraryRequestsTable
+        v-if="tab === 'requests'"
+        :itineraryRequests="itineraryRequests"
       />
     </div>
   </div>
@@ -64,6 +73,8 @@ export default {
 import SubjectTable from "./tables/SubjectTable.vue";
 import CreditsTable from "./tables/CreditsTable.vue";
 import EnrollmentTable from "./tables/EnrollmentTable.vue";
+import AEPRequestsTable from "./tables/AEPRequestsTable.vue";
+import CertificatesTable from "./tables/CertificatesTable.vue";
 import VirtualTestRequestTable from "./tables/VirtualTestRequestsTable.vue";
 import ItineraryRequestsTable from "./tables/ItineraryRequestsTable.vue";
 import { ref } from "vue";
@@ -75,5 +86,7 @@ defineProps({
   credits: Object,
   subjects: Object,
   virtualTestRequests: Object,
+  certificates: Object,
+  AEPRequests: Object,
 });
 </script>

@@ -17,6 +17,8 @@
           :credits="credits"
           :subjects="subjects"
           :virtualTestRequests="virtualTestRequests"
+          :certificates="certificates"
+          :AEPRequests="AEPRequests"
         />
       </div>
     </div>
@@ -49,14 +51,14 @@ const tutorData = ref({});
 
 //Not checked variables
 const procedure = ref([]);
-const instanceAEP = ref([]);
+const AEPRequests = ref([]);
 const subjects = ref([]);
 const people = [];
 const something = ref([]);
 const aep = ref([]);
 const eees = ref([]);
 const completeFile = ref({});
-const certification = ref([]);
+const certificates = ref([]);
 
 const text = "ferran";
 const fileLoaded = ref(false);
@@ -68,7 +70,7 @@ onMounted(async () => {
 
 function resetFile() {
   procedure.value = [];
-  instanceAEP.value = [];
+  AEPRequests.value = [];
   virtualTestRequests.value = [];
   subjects.value = [];
   itineraryRequests.value = [];
@@ -78,7 +80,7 @@ function resetFile() {
   eees.value = [];
   completeFile.value = {};
   fileInfo.value = {};
-  certification.value = [];
+  certificates.value = [];
 }
 
 function processFile() {
@@ -92,10 +94,10 @@ function processFile() {
 
     switch (elementType) {
       case "pHnAg5M_UV2eNft6JYjLM6wGvWM=": //Trámite académico
-        procedure.value.push(elem.P);
+        certificates.value.push(elem.P);
         break;
       case "zgufyJB2ytYUEauhIrcVTwsXfLE=": //Instancia AEP
-        instanceAEP.value.push(elem.P);
+        AEPRequests.value.push(elem.P);
         break;
       case "atiod4vkRiNDS651NTVpY77vWZo=": //Solicitud prueba virtual
         virtualTestRequests.value.push(elem.P);
@@ -128,7 +130,7 @@ function processFile() {
         fileInfo.value = elem;
         break;
       case "XGhl$81QmbUgS9EZJqobgd248iU=": //Cerfificados y otros documentos académicos
-        certification.value.push(elem.P);
+        procedure.value.push(elem.P);
         break;
     }
   }

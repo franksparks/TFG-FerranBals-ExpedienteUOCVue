@@ -1,5 +1,6 @@
 <template>
   <div class="pt-5">
+    <p>Cambio de itinerario</p>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <div v-if="itineraryRequests.length == 0">
         <p>No hay trámites de itinerario que mostrar</p>
