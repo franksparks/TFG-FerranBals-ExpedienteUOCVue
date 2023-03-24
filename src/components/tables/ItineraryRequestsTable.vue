@@ -28,7 +28,9 @@
               <td class="text-center">{{ request.descAnyAcademic }}</td>
               <td class="text-center">{{ request.descripcioCamiDesti }}</td>
               <td class="text-center">{{ request.numSolicitud }}</td>
-              <td class="text-center">{{ request.dataSolicitud }}</td>
+              <td class="text-center">
+                {{ formatDate(request.dataSolicitud) }}
+              </td>
               <td class="text-center">{{ request.descEstatSolicitud }}</td>
             </tr>
           </tbody>
@@ -48,4 +50,12 @@ export default {
 defineProps({
   itineraryRequests: Object,
 });
+
+function formatDate(unixDate) {
+  const date = new Date(+unixDate);
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
 </script>
