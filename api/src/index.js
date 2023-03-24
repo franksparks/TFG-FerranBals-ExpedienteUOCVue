@@ -8,12 +8,16 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const data = require("./notas.json");
-const notasCompletas = require("./notasCompletas.json");
-const carlos = require("./carlos.json");
-const ferran = require("./ferran.json");
+//Hardcoded documents references
+const carlosFile = require("./carlos.json");
+const ferranFile = require("./ferran.json");
 const minor = require("./minor.json");
-const matricula = require("./matricula.json");
+
+//Object with all Ferran grades
+const ferranMarks = require("./ferranMarks.json");
+
+//Object with all Ferran enrollment
+const enrollments = require("./enrollments.json");
 
 let response = {
   error: false,
@@ -30,112 +34,85 @@ app.get("/", function (req, res) {
   res.send(response);
 });
 
-//Expedientes completos
-app.route("/expediente/ferran").get(function (req, res) {
+//Ferran File
+app.route("/file/ferran").get(function (req, res) {
   response = {
     error: false,
     code: 200,
-    message: "Expediente Ferran",
-    data: ferran,
+    message: "Ferran - File",
+    data: ferranFile,
   };
 
   res.send(response);
 });
 
-app.route("/expediente/carlos").get(function (req, res) {
+//Ferran - Minor File
+app.route("/file/minor").get(function (req, res) {
   response = {
     error: false,
     code: 200,
-    message: "Expediente Carlos",
-    data: carlos,
-  };
-
-  res.send(response);
-});
-app.route("/expediente/minor").get(function (req, res) {
-  response = {
-    error: false,
-    code: 200,
-    message: "Expediente Minor Ferran",
+    message: "Ferran - Minor file",
     data: minor,
   };
 
   res.send(response);
 });
 
-app.route("/matricula").get(function (req, res) {
+//Returns Ferran enrollments
+app.route("/enrollments").get(function (req, res) {
   response = {
     error: false,
     code: 200,
-    message: "Obteniendo matriculas del alumno",
-    data: matricula,
+    message: "Ferran enrollments",
+    data: enrollments,
   };
 
   res.send(response);
 });
 
-//Todas las asignaturas
-app.route("/asignaturas/").get(function (req, res) {
-  response = {
-    error: false,
-    code: 200,
-    message: "Obtenemos la información de todas las asignaturas",
-    //Usar aqui los params
-    data: data,
-  };
-
-  res.send(response);
-});
-
-app.route("/notas/").get(function (req, res) {
-  response = {
-    error: false,
-    code: 200,
-    message: "Obtenemos la información de todas las asignaturas",
-    //Usar aqui los params
-    data: notasCompletas,
-  };
-
-  res.send(response);
-});
-
-//Especificamos una asignatura
-app.route("/asignatura/").get(function (req, res) {
+//Return the convos of a particular subject
+app.route("/subject/").get(function (req, res) {
   if (!req.query.codAsignatura) {
-    console.log(req);
-    response = {
+    const response = {
       error: true,
       code: 400,
-      message: "Especifica una asignatura",
+      message: "Please specify a subject",
     };
-  } else {
-    let asignatura = notasCompletas.filter((obj) => {
-      return obj.O[0].P.codAsignatura === req.query.codAsignatura;
-    });
-
-    //Devuelve la lista de convos
-    console.log("GET asignatura");
-    console.log(asignatura[0].O);
-
-    const asignaturaOriginal = asignatura[0].O;
-    const asignaturaConvos = [];
-
-    for (let i = 0; i < asignaturaOriginal.length; i++) {
-      asignaturaConvos.push(asignaturaOriginal[i].P);
-    }
-    console.log("asignaturaOriginal");
-    console.log(asignaturaOriginal);
-    console.log("asignaturaConvos");
-    console.log(asignaturaConvos);
-
-    response = {
-      error: false,
-      code: 200,
-      message: "Notas originales",
-      //Usar aqui los params
-      asignatura: asignaturaConvos,
-    };
+    return res.status(400).send(response);
   }
+
+  const subject = ferranMarks.find(
+    (obj) => obj.O[0].P.codAsignatura === req.query.codAsignatura
+  );
+
+  if (!subject) {
+    const response = {
+      error: true,
+      code: 404,
+      message: "Subject not found",
+    };
+    return res.status(404).send(response);
+  }
+
+  const subjectConvos = subject.O.map((item) => item.P);
+
+  const response = {
+    error: false,
+    code: 200,
+    message: "Information of the convos of a student of a particular subject",
+    asignatura: subjectConvos,
+  };
+  res.status(200).send(response);
+});
+
+//Carlos File
+app.route("/file/carlos").get(function (req, res) {
+  response = {
+    error: false,
+    code: 200,
+    message: "Carlos - File",
+    data: carlosFile,
+  };
 
   res.send(response);
 });

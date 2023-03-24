@@ -41,7 +41,7 @@ const matriculas = ref([]);
 onMounted(() => {
   console.log("Petición matrículas alumno");
   axios
-    .get("http://localhost:3000/matricula")
+    .get("http://localhost:3000/enrollments")
     .then((response) => (matriculas.value = response.data.data.O))
     .catch((error) => console.error(error));
 });

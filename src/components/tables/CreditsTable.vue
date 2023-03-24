@@ -64,7 +64,7 @@
 
 <script>
 export default {
-  name: "ECTSTable",
+  name: "CreditsTable",
 };
 </script>
 <script setup>

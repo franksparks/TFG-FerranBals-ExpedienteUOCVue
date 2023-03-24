@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-50">
     <div class="px-9 pt-9 pr-9">
-      <AppHeader :gradeType="gradeType" @refresh-expediente="getExpediente" />
+      <AppHeader :gradeType="gradeType" @refresh-expediente="getFile" />
 
       <br />
       <DataParent
@@ -31,9 +31,10 @@ import { onMounted, ref } from "vue";
 const BASE_URL = "http://localhost:3000"; // URL base para todas las solicitudes de API
 
 // Variables reactivas
-let originalFile = ref({});
-let processedFile = ref({});
-var elements = [];
+
+let elements = [];
+const originalFile = ref({});
+const processedFile = ref({ types: [] });
 const types = [];
 const procedure = ref([]);
 const instanceAEP = ref([]);
@@ -43,41 +44,42 @@ const itineraryRequest = ref([]);
 const people = [];
 const something = ref([]);
 const aep = ref([]);
-var credit = ref({});
+const credit = ref({});
 const eees = ref([]);
-var completeFile = ref({});
-var gradeType = ref("");
-var fileInfo = ref({});
-var fileNumber = ref(0);
+const completeFile = ref({});
+const gradeType = ref("");
+const fileInfo = ref({});
+const fileNumber = ref(0);
 const certification = ref([]);
-var studentData = ref({});
-var tutorData = ref({});
+const studentData = ref({});
+const tutorData = ref({});
 const text = "ferran";
 
 onMounted(async () => {
   console.log("Petición expediente alumno");
-  await getExpediente(text);
+  await getFile(text);
 });
 
-async function getExpediente(text) {
-  try {
-    // Hacer la solicitud a la API
-    const response = await axios.get(`${BASE_URL}/expediente/${text}`);
-
-    // Actualizar la variable originalFile
-    originalFile.value = response.data.data;
-
-    itineraryRequest.value = [];
-    virtualTestRequest.value = [];
-
-    // Procesar el expediente original
-    processFile(originalFile.value);
-  } catch (error) {
-    console.error(error);
-  }
+function resetFile() {
+  types.value = [];
+  procedure.value = [];
+  instanceAEP.value = [];
+  virtualTestRequest.value = [];
+  subjects.value = [];
+  itineraryRequest.value = [];
+  people.value = [];
+  aep.value = [];
+  credit.value = {};
+  eees.value = [];
+  completeFile.value = {};
+  fileInfo.value = {};
+  certification.value = [];
 }
 
 function processFile(file) {
+  console.log("Reiniciando variables");
+  resetFile();
+
   console.log("Procesando el expediente");
   elements = file.O;
 
@@ -147,6 +149,24 @@ function processFile(file) {
   gradeType.value = completeFile.value.descPlan;
   fileNumber.value = fileInfo.value.P.numExpedient;
   fileInfo.value = fileInfo.value.P;
+}
+
+async function getFile(text) {
+  try {
+    // Hacer la solicitud a la API
+    const response = await axios.get(`${BASE_URL}/file/${text}`);
+
+    // Actualizar la variable originalFile
+    originalFile.value = response.data.data;
+
+    itineraryRequest.value = [];
+    virtualTestRequest.value = [];
+
+    // Procesar el expediente original
+    processFile(originalFile.value);
+  } catch (error) {
+    console.error(error);
+  }
 }
 </script>
 

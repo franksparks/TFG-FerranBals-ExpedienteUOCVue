@@ -34,7 +34,7 @@
     </div>
     <div class="pt-5">
       <!-- Subject Table -->
-      <ECTSTable v-if="tab === 'subject'" :credit="credit" />
+      <CreditsTable v-if="tab === 'subject'" :credit="credit" />
       <SubjectTable v-if="tab === 'subject'" :subjects="subjects" />
 
       <!-- Payments Table -->
@@ -62,7 +62,7 @@ export default {
 
 <script setup>
 import SubjectTable from "./tables/SubjectTable.vue";
-import ECTSTable from "./tables/ECTSTable.vue";
+import CreditsTable from "./tables/CreditsTable.vue";
 import EnrollmentTable from "./tables/EnrollmentTable.vue";
 import VirtualTestRequestTable from "./tables/VirtualTestRequestTable.vue";
 import ItineraryTable from "./tables/ItineraryTable.vue";

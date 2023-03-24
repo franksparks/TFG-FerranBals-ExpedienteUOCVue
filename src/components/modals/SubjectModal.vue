@@ -72,7 +72,7 @@ let subjectConvo = ref({});
 watchEffect(() => {
   if (props.subject?.descripcioQualificacioQualitativaFinal !== "Reconocido") {
     axios
-      .get("http://localhost:3000/asignatura/", {
+      .get("http://localhost:3000/subject/", {
         params: { codAsignatura: props.subjectOriginal.codi },
       })
       .then((response) => {
