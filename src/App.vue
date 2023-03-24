@@ -8,6 +8,7 @@
         :studentData="studentData"
         :tutorData="tutorData"
         :fileInfo="fileInfo"
+        :accessType="accessType"
       />
       <br />
       <TableParent
@@ -36,6 +37,7 @@ let elements = [];
 
 const credits = ref({});
 const degreeType = ref("");
+const accessType = ref("");
 const fileInfo = ref({});
 const itineraryRequests = ref([]);
 const virtualTestRequests = ref([]);
@@ -139,6 +141,7 @@ function processFile() {
   }
 
   degreeType.value = completeFile.value.descPlan;
+  accessType.value = completeFile.value.descOpcioAcces;
   fileInfo.value = fileInfo.value.P;
 }
 

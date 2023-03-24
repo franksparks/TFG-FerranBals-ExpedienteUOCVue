@@ -31,7 +31,11 @@
       </button>
     </div>
     <div class="pt-5">
-      <FileData v-if="tab === 'file'" :fileInfo="fileInfo" />
+      <FileData
+        v-if="tab === 'file'"
+        :fileInfo="fileInfo"
+        :accessType="accessType"
+      />
       <TutorData v-if="tab === 'tutor'" :tutorData="tutorData" />
     </div>
   </div>
@@ -54,5 +58,6 @@ defineProps({
   studentData: Object,
   tutorData: Object,
   fileInfo: Object,
+  accessType: Object,
 });
 </script>

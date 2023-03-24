@@ -4,6 +4,8 @@
 
     <p>Nota media actual: {{ fileInfo.notaMitjana }}</p>
 
+    <p>Opción de acceso: {{ accessType }}</p>
+
     <p>Estado expediente: {{ fileInfo.descEstatExpedient }}</p>
   </div>
 </template>
@@ -16,5 +18,6 @@ export default {
 <script setup>
 defineProps({
   fileInfo: Object,
+  accessType: Object,
 });
 </script>
