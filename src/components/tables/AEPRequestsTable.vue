@@ -13,7 +13,7 @@
         >
           <!--Aplicar título en dos columnas-->
           <tr>
-            <th scope="col" class="px-6 py-3 text-center">
+            <th scope="col" class="px-6 py-3 text-center" colspan="2">
               Datos básicos de la solicitud de EEP
             </th>
           </tr>
@@ -40,6 +40,7 @@
             <td>{{ request.descEstado }}</td>
           </tr>
         </tbody>
+        <br />
       </table>
     </div>
   </div>

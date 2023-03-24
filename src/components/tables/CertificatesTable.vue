@@ -13,7 +13,9 @@
         >
           <!--Aplicar título en dos columnas-->
           <tr>
-            <th scope="col" class="px-6 py-3 text-center">Certificados</th>
+            <th scope="col" class="px-6 py-3 text-center" colspan="2">
+              Certificados
+            </th>
           </tr>
         </thead>
         <tbody>
