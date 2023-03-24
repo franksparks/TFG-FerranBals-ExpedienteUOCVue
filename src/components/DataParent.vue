@@ -58,6 +58,6 @@ defineProps({
   studentData: Object,
   tutorData: Object,
   fileInfo: Object,
-  accessType: Object,
+  accessType: String,
 });
 </script>

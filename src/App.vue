@@ -1,22 +1,24 @@
 <template>
-  <div class="container mx-auto px-50">
-    <div class="px-9 pt-9 pr-9">
-      <AppHeader :degreeType="degreeType" @refresh-file="getFile" />
+  <div v-if="fileLoaded">
+    <div class="container mx-auto px-50">
+      <div class="px-9 pt-9 pr-9">
+        <AppHeader :degreeType="degreeType" @refresh-file="getFile" />
 
-      <br />
-      <DataParent
-        :studentData="studentData"
-        :tutorData="tutorData"
-        :fileInfo="fileInfo"
-        :accessType="accessType"
-      />
-      <br />
-      <TableParent
-        :itineraryRequests="itineraryRequests"
-        :credits="credits"
-        :subjects="subjects"
-        :virtualTestRequests="virtualTestRequests"
-      />
+        <br />
+        <DataParent
+          :studentData="studentData"
+          :tutorData="tutorData"
+          :fileInfo="fileInfo"
+          :accessType="accessType"
+        />
+        <br />
+        <TableParent
+          :itineraryRequests="itineraryRequests"
+          :credits="credits"
+          :subjects="subjects"
+          :virtualTestRequests="virtualTestRequests"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -57,6 +59,7 @@ const completeFile = ref({});
 const certification = ref([]);
 
 const text = "ferran";
+const fileLoaded = ref(false);
 
 onMounted(async () => {
   console.log("Petición expediente alumno");
@@ -154,6 +157,7 @@ async function getFile(text) {
     resetFile();
 
     processFile(elements.value);
+    fileLoaded.value = true;
   } catch (error) {
     console.error(error);
   }

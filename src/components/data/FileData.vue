@@ -18,6 +18,6 @@ export default {
 <script setup>
 defineProps({
   fileInfo: Object,
-  accessType: Object,
+  accessType: String,
 });
 </script>
