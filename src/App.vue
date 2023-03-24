@@ -63,6 +63,20 @@ const certificates = ref([]);
 const text = "ferran";
 const fileLoaded = ref(false);
 
+// Constantes para los tipos de elementos
+const TRAMITE_ACADEMICO = "pHnAg5M_UV2eNft6JYjLM6wGvWM=";
+const INSTANCIA_AEP = "zgufyJB2ytYUEauhIrcVTwsXfLE=";
+const SOLICITUD_PRUEBA_VIRTUAL = "atiod4vkRiNDS651NTVpY77vWZo=";
+const ASIGNATURAS = "997hN7iymHHoU8BGqmuM0QMNPxs=";
+const ITINERARIO = "ua6oBq2$2vD_EV3hJJ2wzqrkrPQ=";
+const PERSONAS = "p_ovO$a_rkE0DzW9ZSC8AMXg5VQ=";
+const AEP = "NN$jjZrm84w_8AovFmxnnHU6giw=";
+const RESUMEN_CREDITOS = "1WNiS_NQH7GCRNTiIl2g1nIcgMM=";
+const ESPACIO_EUROPEO_EDUCACION_SUPERIOR = "eO2Chrn3K53ySuNj82jHgm9Qo_E=";
+const EXPEDIENTE_COMPLETO = "RHcWxB19zK9mb9$lOHQm8SO7ofs=";
+const INFORMACION_EXPEDIENTE = "sSIxO6pqzrwLhLd3PZFzpndhF1A=";
+const CERTIFICADOS_DOCUMENTOS_ACADEMICOS = "XGhl$81QmbUgS9EZJqobgd248iU=";
+
 onMounted(async () => {
   console.log("Petición expediente alumno");
   await getFile(text);
@@ -93,43 +107,43 @@ function processFile() {
     const elementType = elem.T;
 
     switch (elementType) {
-      case "pHnAg5M_UV2eNft6JYjLM6wGvWM=": //Trámite académico
+      case TRAMITE_ACADEMICO: //Trámite académico
         certificates.value.push(elem.P);
         break;
-      case "zgufyJB2ytYUEauhIrcVTwsXfLE=": //Instancia AEP
+      case INSTANCIA_AEP: //Instancia AEP
         AEPRequests.value.push(elem.P);
         break;
-      case "atiod4vkRiNDS651NTVpY77vWZo=": //Solicitud prueba virtual
+      case SOLICITUD_PRUEBA_VIRTUAL: //Solicitud prueba virtual
         virtualTestRequests.value.push(elem.P);
         break;
-      case "997hN7iymHHoU8BGqmuM0QMNPxs=": //Asignaturas
+      case ASIGNATURAS: //Asignaturas
         subjects.value.push(elem.P);
         break;
-      case "ua6oBq2$2vD_EV3hJJ2wzqrkrPQ=": //Itinerario
+      case ITINERARIO: //Itinerario
         itineraryRequests.value.push(elem.P);
         break;
-      case "p_ovO$a_rkE0DzW9ZSC8AMXg5VQ=": //Personas
+      case PERSONAS: //Personas
         people.push(elem);
         break;
       case "fEsBQZocOtnSXQniJn0BbX9ILA0=": //???
         something.value.push(elem.P);
         break;
-      case "NN$jjZrm84w_8AovFmxnnHU6giw=": //AEP
+      case AEP: //AEP
         aep.value.push(elem.P);
         break;
-      case "1WNiS_NQH7GCRNTiIl2g1nIcgMM=": //Resumen créditos
+      case RESUMEN_CREDITOS: //Resumen créditos
         credits.value = elem.P;
         break;
-      case "eO2Chrn3K53ySuNj82jHgm9Qo_E=": //Espacio Europeo Educación Superior
+      case ESPACIO_EUROPEO_EDUCACION_SUPERIOR: //Espacio Europeo Educación Superior
         eees.value.push(elem.P);
         break;
-      case "RHcWxB19zK9mb9$lOHQm8SO7ofs=": //Expediente completo
+      case EXPEDIENTE_COMPLETO: //Expediente completo
         completeFile.value = elem.P;
         break;
-      case "sSIxO6pqzrwLhLd3PZFzpndhF1A=": //Información expediente
+      case INFORMACION_EXPEDIENTE: //Información expediente
         fileInfo.value = elem;
         break;
-      case "XGhl$81QmbUgS9EZJqobgd248iU=": //Cerfificados y otros documentos académicos
+      case CERTIFICADOS_DOCUMENTOS_ACADEMICOS: //Cerfificados y otros documentos académicos
         procedure.value.push(elem.P);
         break;
     }
