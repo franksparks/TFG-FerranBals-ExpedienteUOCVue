@@ -7,6 +7,7 @@
         >
           <tr>
             <th>Semestre</th>
+            <th>Fecha matrícula</th>
             <th>Importe</th>
           </tr>
         </thead>
@@ -17,6 +18,9 @@
             class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
             <td class="text-center">{{ enrollment.P.descAnyAcademic }}</td>
+            <td class="text-center">
+              {{ formatDate(enrollment.P.dataMatricula) }}
+            </td>
 
             <td class="text-center">{{ enrollment.P.importMatricula }}</td>
           </tr>
@@ -37,6 +41,13 @@ import axios from "axios";
 import { onMounted, ref } from "vue";
 
 const enrollments = ref([]);
+function formatDate(unixDate) {
+  const date = new Date(+unixDate);
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
 
 onMounted(() => {
   console.log("Request student enrollments - matriculas");
