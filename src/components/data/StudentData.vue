@@ -1,8 +1,10 @@
 <template>
   <div class="pt-5">
-    <p>Nombre y apellidos: {{ fullName }}</p>
-    <p>Usuario campus: {{ studentData.userLogin }}</p>
-    <p>DNI: {{ studentData.dni }}</p>
+    <p><span class="font-bold">Nombre y apellidos:</span> {{ fullName }}</p>
+    <p>
+      <span class="font-bold">Usuario campus:</span> {{ studentData.userLogin }}
+    </p>
+    <p><span class="font-bold">DNI:</span> {{ studentData.dni }}</p>
   </div>
 </template>
 

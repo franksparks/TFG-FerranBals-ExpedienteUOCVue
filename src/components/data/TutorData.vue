@@ -1,8 +1,12 @@
 <template>
   <div>
-    <p>Nombre: {{ fullName }}</p>
-    <p>Usuario campus: {{ tutorData.userLogin }}</p>
-    <p>DNI: {{ tutorData.dni }}</p>
+    <p><span class="font-bold">Nombre:</span> {{ fullName }}</p>
+    <p>
+      <span class="font-bold">Usuario campus:</span> {{ tutorData.userLogin }}
+    </p>
+    <p>
+      <span class="font-bold">DNI: {{ tutorData.dni }}</span>
+    </p>
   </div>
 </template>
 

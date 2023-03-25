@@ -1,7 +1,7 @@
 <template>
   <div v-if="fileLoaded">
-    <div class="container mx-auto px-50">
-      <div class="px-9 pt-9 pr-9">
+    <div class="container mx-auto px-50 border-2 border-yellow-200">
+      <div class="px-9 pt-5">
         <AppHeader :degreeType="degreeType" @refresh-file="getFile" />
 
         <br />

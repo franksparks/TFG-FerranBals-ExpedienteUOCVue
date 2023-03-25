@@ -27,9 +27,12 @@
         </tbody>
       </table>
     </div>
-    <p class="text-center">Importe total: {{ total }}</p>
     <p class="text-center">
-      Importe medio semestre: {{ (total / enrollments.length).toFixed(2) }}
+      <span class="font-bold">Importe total:</span> {{ total }}
+    </p>
+    <p class="text-center">
+      <span class="font-bold"> Importe medio semestre: </span
+      >{{ (total / enrollments.length).toFixed(2) }}
     </p>
   </div>
 </template>

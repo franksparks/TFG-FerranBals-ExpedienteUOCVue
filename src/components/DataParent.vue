@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="border-2 border-green-700">
     <div class="tab">
       <button class="tablinks py-1.5 px-3 rounded text-white bg-blue-600">
-        Alumno
+        Datos del alumno
       </button>
     </div>
     <StudentData :studentData="studentData" />

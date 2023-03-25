@@ -1,12 +1,18 @@
 <template>
   <div>
-    <p>Número expediente: {{ fileInfo.numExpedient }}</p>
-
-    <p>Nota media actual: {{ fileInfo.notaMitjana }}</p>
-
-    <p>Opción de acceso: {{ accessType }}</p>
-
-    <p>Estado expediente: {{ fileInfo.descEstatExpedient }}</p>
+    <p>
+      <span class="font-bold">Número expediente: </span
+      >{{ fileInfo.numExpedient }}
+    </p>
+    <p>
+      <span class="font-bold">Nota media actual:</span>
+      {{ fileInfo.notaMitjana }}
+    </p>
+    <p><span class="font-bold">Opción de acceso: </span>{{ accessType }}</p>
+    <p>
+      <span class="font-bold">Estado expediente:</span>
+      {{ fileInfo.descEstatExpedient }}
+    </p>
   </div>
 </template>
 
