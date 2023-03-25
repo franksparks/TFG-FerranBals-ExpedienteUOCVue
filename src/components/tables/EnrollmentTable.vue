@@ -1,38 +1,37 @@
 <template>
-  <div class="px-80 pt-5">
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead
-          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
+  <div class="pt-10 px-80">
+    <table class="w-full text-gray-500 dark:text-gray-400">
+      <thead
+        class="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
+      >
+        <tr>
+          <th class="py-1">Semestre</th>
+          <th class="py-1">Fecha matrícula</th>
+          <th class="py-1">Importe</th>
+        </tr>
+      </thead>
+      <tbody class="text-base justify-center">
+        <tr
+          v-for="enrollment in enrollments"
+          :key="enrollment"
+          class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
         >
-          <tr>
-            <th>Semestre</th>
-            <th>Fecha matrícula</th>
-            <th>Importe</th>
-          </tr>
-        </thead>
-        <tbody class="justify-center">
-          <tr
-            v-for="enrollment in enrollments"
-            :key="enrollment"
-            class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-          >
-            <td class="text-center">{{ enrollment.P.descAnyAcademic }}</td>
-            <td class="text-center">
-              {{ formatDate(enrollment.P.dataMatricula) }}
-            </td>
-
-            <td class="text-center">{{ enrollment.P.importMatricula }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          <td class="text-center">{{ enrollment.P.descAnyAcademic }}</td>
+          <td class="text-center">
+            {{ formatDate(enrollment.P.dataMatricula) }}
+          </td>
+          <td class="text-center">{{ enrollment.P.importMatricula }} €</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="py-3">
     <p class="text-center">
-      <span class="font-bold">Importe total:</span> {{ total }}
+      <span class="font-bold">Importe total:</span> {{ total }} €
     </p>
     <p class="text-center">
       <span class="font-bold"> Importe medio semestre: </span
-      >{{ (total / enrollments.length).toFixed(2) }}
+      >{{ (total / enrollments.length).toFixed(2) }} €
     </p>
   </div>
 </template>

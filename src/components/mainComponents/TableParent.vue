@@ -32,7 +32,7 @@
         Solicitudes realizadas
       </button>
     </div>
-    <div class="pt-5">
+    <div class="pt-3">
       <!-- Subject Table -->
       <CreditsTable v-if="tab === 'subject'" :credits="credits" />
       <SubjectTable v-if="tab === 'subject'" :subjects="subjects" />

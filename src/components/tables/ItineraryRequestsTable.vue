@@ -1,7 +1,14 @@
 <template>
-  <div class="pt-5">
-    <p>Cambio de itinerario</p>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <div class="pb-10">
+    <div class="pt-3 px-60 pb-2">
+      <p
+        class="tablinks py-1.5 px-3 rounded text-white bg-blue-600 text-center py-2"
+      >
+        Solicitudes relacionadas con el itinerario
+      </p>
+    </div>
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-80">
       <div v-if="itineraryRequests.length == 0">
         <p>No hay trámites de itinerario que mostrar</p>
       </div>
@@ -13,11 +20,11 @@
             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
           >
             <tr>
-              <th>Semestre</th>
-              <th>Itinerario</th>
-              <th>Núm solicitud</th>
-              <th>Fecha solicitud</th>
-              <th>Estado</th>
+              <th scope="col" class="px-6 py-1">Semestre</th>
+              <th scope="col" class="px-6 py-1">Itinerario</th>
+              <th scope="col" class="px-6 py-1">Núm solicitud</th>
+              <th scope="col" class="px-6 py-1">Fecha solicitud</th>
+              <th scope="col" class="px-6 py-1">Estado</th>
             </tr>
           </thead>
           <tbody class="justify-center">

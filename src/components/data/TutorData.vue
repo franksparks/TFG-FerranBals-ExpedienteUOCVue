@@ -1,12 +1,10 @@
 <template>
-  <div>
+  <div class="pt-2">
     <p><span class="font-bold">Nombre:</span> {{ fullName }}</p>
     <p>
       <span class="font-bold">Usuario campus:</span> {{ tutorData.userLogin }}
     </p>
-    <p>
-      <span class="font-bold">DNI: {{ tutorData.dni }}</span>
-    </p>
+    <p><span class="font-bold">DNI:</span> {{ tutorData.dni }}</p>
   </div>
 </template>
 

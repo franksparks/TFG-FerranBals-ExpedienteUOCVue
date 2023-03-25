@@ -1,42 +1,30 @@
 <template>
-  <div class="border-2 border-green-700">
-    <div class="tab">
-      <button class="tablinks py-1.5 px-3 rounded text-white bg-blue-600">
-        Datos del alumno
-      </button>
-    </div>
-    <StudentData :studentData="studentData" />
-    <br />
-
-    <div>
-      <button
-        class="tablinks py-1.5 px-3 rounded text-white"
-        @click.prevent="tab = 'file'"
-        :class="{
-          'bg-blue-600': tab === 'file',
-          'bg-green-600': tab !== 'file',
-        }"
-      >
-        Expediente
-      </button>
-      <button
-        class="tablinks py-1.5 px-3 rounded text-white"
-        @click.prevent="tab = 'tutor'"
-        :class="{
-          'bg-blue-600': tab === 'tutor',
-          'bg-green-600': tab !== 'tutor',
-        }"
-      >
-        Tutor
-      </button>
-    </div>
-    <div class="pt-5">
-      <FileData
-        v-if="tab === 'file'"
-        :fileInfo="fileInfo"
-        :accessType="accessType"
-      />
-      <TutorData v-if="tab === 'tutor'" :tutorData="tutorData" />
+  <div>
+    <div class="pt-3 inline-grid grid-cols-3 text-center">
+      <div class="px-10">
+        <div class="tab">
+          <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-600">
+            Datos del alumno
+          </p>
+        </div>
+        <StudentData :studentData="studentData" class="text-left mx-20" />
+      </div>
+      <div class="px-10">
+        <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-600">
+          Datos del tutor
+        </p>
+        <TutorData :tutorData="tutorData" class="text-left mx-20" />
+      </div>
+      <div class="px-10">
+        <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-600">
+          Datos del expediente
+        </p>
+        <FileData
+          :fileInfo="fileInfo"
+          :accessType="accessType"
+          class="text-left mx-20"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -50,9 +38,6 @@ export default {
 import FileData from "./data/FileData.vue";
 import StudentData from "./data/StudentData.vue";
 import TutorData from "./data/TutorData.vue";
-import { ref } from "vue";
-
-const tab = ref("file");
 
 defineProps({
   studentData: Object,

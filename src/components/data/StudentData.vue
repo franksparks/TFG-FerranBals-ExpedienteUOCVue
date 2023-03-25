@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-5">
+  <div class="pt-2">
     <p><span class="font-bold">Nombre y apellidos:</span> {{ fullName }}</p>
     <p>
       <span class="font-bold">Usuario campus:</span> {{ studentData.userLogin }}

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pt-2">
     <p>
       <span class="font-bold">Número expediente: </span
       >{{ fileInfo.numExpedient }}

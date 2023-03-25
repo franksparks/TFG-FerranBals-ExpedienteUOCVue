@@ -2,7 +2,7 @@
   <div>
     <div class="header">
       <div class="columns-3">
-        <a href="https://www.uoc.edu/">
+        <a href="https://www.uoc.edu/" target="_blank">
           <img
             class="rounded"
             src="/0FF0108D4D41E43CCF1FBA356ABC5156.cache.gif"
@@ -16,7 +16,7 @@
             v-model="file"
             @change="refreshFile(file)"
             value="ferran"
-            class="pr-4 float-right text-gray-800 border-4 border-red-300 rounded align-right"
+            class="pr-4 float-right text-gray-800 rounded align-right"
           >
             <option value="ferran">Ferran</option>
             <option value="carlos">Carlos</option>
@@ -26,7 +26,7 @@
       </div>
       <div></div>
 
-      <p class="text-indigo-800 text-xl border-2 border-yellow-200">
+      <p class="text-indigo-800 text-xl">
         {{ degreeType }}
       </p>
     </div>

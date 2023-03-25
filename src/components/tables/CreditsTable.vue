@@ -1,14 +1,14 @@
 <template>
-  <div class="px-80 pt-5">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+  <div class="pt-10">
+    <table class="text-sm text-left text-gray-500 dark:text-gray-400">
       <thead
         class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
       >
         <tr>
-          <th class="text-center bg-gray-300"></th>
-          <th class="text-center">Básicas</th>
-          <th class="text-center">Obligatorias</th>
-          <th class="text-center">Optativas</th>
+          <th class="text-center bg-gray-300 px-10"></th>
+          <th class="text-center pt-1 px-10">Básicas</th>
+          <th class="text-center pt-1 px-10">Obligatorias</th>
+          <th class="text-center pt-1 px-10">Optativas</th>
         </tr>
       </thead>
       <tbody class="justify-center">

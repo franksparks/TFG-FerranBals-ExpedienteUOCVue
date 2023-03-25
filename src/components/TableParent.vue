@@ -32,18 +32,24 @@
         Solicitudes realizadas
       </button>
     </div>
-    <div class="pt-5">
-      <!-- Subject Table -->
+    <div class="3">
+      <!-- FIRST TAB -->
+      <!-- Credits Table -->
       <CreditsTable v-if="tab === 'subject'" :credits="credits" />
+      <!-- Subject Table -->
       <SubjectTable v-if="tab === 'subject'" :subjects="subjects" />
+      <!-- FIRST TAB END -->
 
-      <!-- Payments Table -->
+      <!-- SECOND TAB -->
+      <!-- Enrollments Table -->
       <EnrollmentTable v-if="tab === 'payments'" />
+      <!-- SECOND TAB END -->
 
-      <!-- AEP Table -->
+      <!-- THIRD TAB -->
+      <!-- AEP Requests Table -->
       <AEPRequestsTable v-if="tab === 'requests'" :AEPRequests="AEPRequests" />
 
-      <!-- Itineary Table -->
+      <!-- Certificates Table -->
       <CertificatesTable
         v-if="tab === 'requests'"
         :certificates="certificates"
@@ -59,6 +65,7 @@
         v-if="tab === 'requests'"
         :itineraryRequests="itineraryRequests"
       />
+      <!-- THIRD TAB END -->
     </div>
   </div>
 </template>

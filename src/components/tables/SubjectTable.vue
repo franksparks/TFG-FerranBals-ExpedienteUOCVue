@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-5">
+  <div class="pt-3 pb-10">
     <div>
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table
@@ -9,14 +9,14 @@
             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
           >
             <tr>
-              <th scope="col" class="px-6 py-3">Descripción</th>
-              <th scope="col" class="px-6 py-3">Código</th>
-              <th scope="col" class="px-6 py-3">Tipo</th>
-              <th scope="col" class="px-6 py-3">Créditos</th>
-              <th scope="col" class="px-6 py-3">Semestre</th>
-              <th scope="col" class="px-6 py-3">Nota</th>
-              <th scope="col" class="px-6 py-3">Nota final</th>
-              <th scope="col" class="px-6 py-3">Más info</th>
+              <th scope="col" class="px-6 py-1 w-3/10">Descripción</th>
+              <th scope="col" class="px-6 py-1 w-1/10">Código</th>
+              <th scope="col" class="px-6 py-1 w-1/10">Tipo</th>
+              <th scope="col" class="px-6 py-1 w-1/10">Créditos</th>
+              <th scope="col" class="px-6 py-1 w-1/10">Semestre</th>
+              <th scope="col" class="px-6 py-1 w-1/10">Nota</th>
+              <th scope="col" class="px-6 py-1 w-1/10">Nota final</th>
+              <th scope="col" class="px-6 py-1 w-1/10">Más info</th>
             </tr>
           </thead>
           <tbody>

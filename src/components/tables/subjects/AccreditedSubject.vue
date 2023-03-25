@@ -7,7 +7,7 @@
         >
           <!--Aplicar título en dos columnas-->
           <tr>
-            <th scope="col" class="px-6 py-3 text-center">
+            <th scope="col" class="px-6 py-1 text-center">
               {{ subjectInformation.ultAnyMatricula }}
             </th>
           </tr>
