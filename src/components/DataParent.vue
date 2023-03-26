@@ -3,20 +3,20 @@
     <div class="pt-3 inline-grid grid-cols-3 text-center">
       <div class="px-10">
         <div class="tab">
-          <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-600">
+          <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-400">
             Datos del alumno
           </p>
         </div>
         <StudentData :studentData="studentData" class="text-left mx-20" />
       </div>
       <div class="px-10">
-        <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-600">
+        <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-400">
           Datos del tutor
         </p>
         <TutorData :tutorData="tutorData" class="text-left mx-20" />
       </div>
       <div class="px-10">
-        <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-600">
+        <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-400">
           Datos del expediente
         </p>
         <FileData

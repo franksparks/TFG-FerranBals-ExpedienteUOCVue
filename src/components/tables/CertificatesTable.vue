@@ -1,6 +1,6 @@
 <template>
   <div class="pt-3 px-60 pb-2">
-    <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-300 text-center">
+    <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-400 text-center">
       Certificados y otros documentos académicos
     </p>
   </div>
