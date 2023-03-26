@@ -2,17 +2,17 @@
   <div class="pb-10">
     <div class="pt-3 px-60 pb-2">
       <p
-        class="tablinks py-1.5 px-3 rounded text-white bg-blue-600 text-center py-2"
+        class="tablinks py-1.5 px-3 rounded text-white bg-blue-300 text-center py-2"
       >
         Solicitudes relacionadas con el itinerario
       </p>
     </div>
 
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-80">
-      <div v-if="itineraryRequests.length == 0">
-        <p>No hay trámites de itinerario que mostrar</p>
-      </div>
-      <div v-else>
+    <div v-if="itineraryRequests.length == 0" class="mx-60">
+      <p>No hay trámites de itinerario que mostrar</p>
+    </div>
+    <div v-else>
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-80">
         <table
           class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
         >
