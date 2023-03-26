@@ -63,7 +63,7 @@ const certificates = ref([]);
 const text = "ferran";
 const fileLoaded = ref(false);
 
-// Constantes para los tipos de elementos
+// Element type constants
 const TRAMITE_ACADEMICO = "pHnAg5M_UV2eNft6JYjLM6wGvWM=";
 const INSTANCIA_AEP = "zgufyJB2ytYUEauhIrcVTwsXfLE=";
 const SOLICITUD_PRUEBA_VIRTUAL = "atiod4vkRiNDS651NTVpY77vWZo=";
@@ -78,8 +78,7 @@ const INFORMACION_EXPEDIENTE = "sSIxO6pqzrwLhLd3PZFzpndhF1A=";
 const CERTIFICADOS_DOCUMENTOS_ACADEMICOS = "XGhl$81QmbUgS9EZJqobgd248iU=";
 
 onMounted(async () => {
-  console.log("Petición expediente alumno");
-  await getFile(text);
+  getFile(text);
 });
 
 function resetFile() {
@@ -149,11 +148,12 @@ function processFile() {
     }
   }
 
-  //Aquí obtenemos la persona estudiante
+  //Student information
   for (const person of people) {
     if (person.Y == fileInfo.value.P.tercer.Y) {
       studentData.value = person.P;
-    } //Aquí obtenemos la persona tutor
+    }
+    //Tutor information
     if (person.Y == completeFile.value.tutor.Y) {
       tutorData.value = person.P;
     }
@@ -166,6 +166,7 @@ function processFile() {
 
 async function getFile(text) {
   try {
+    console.log("GET Request del expediente de: " + text);
     const response = await axios.get(`${BASE_URL}/file/${text}`);
 
     elements = response.data.data.O;

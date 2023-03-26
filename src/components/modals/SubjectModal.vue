@@ -74,6 +74,9 @@ watchEffect(() => {
     props.subjectInformation?.descripcioQualificacioQualitativaFinal !=
     "Reconocido"
   ) {
+    console.log(
+      "GET Request de la asignatura: " + props.subjectInformation.descripcio
+    );
     axios
       .get("http://localhost:3000/subject/", {
         params: { codAsignatura: props.subjectInformation.codi },

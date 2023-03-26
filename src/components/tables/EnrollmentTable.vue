@@ -62,7 +62,7 @@ function calculateTotal(importMatricula) {
 }
 
 onMounted(() => {
-  console.log("Request student enrollments - matriculas");
+  console.log("GET Request de las matriculas");
   axios
     .get("http://localhost:3000/enrollments")
     .then((response) => {

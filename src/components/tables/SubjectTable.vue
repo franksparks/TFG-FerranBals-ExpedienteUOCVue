@@ -222,9 +222,7 @@ const filteredSubjects = computed(() => {
 
 const paginatedData = computed(() => {
   const start = (currentPage.value - 1) * resultsPerPage.value;
-  console.log("Start: " + start);
   const end = Number(start) + Number(resultsPerPage.value);
-  console.log("End: " + end);
   return filteredSubjects.value.slice(start, end);
 });
 
@@ -245,7 +243,6 @@ function previousPage() {
 }
 
 function resetFilters() {
-  console.log("Reset filters");
   searchTerm.value = "";
   selectedType.value = null;
   selectedGrade.value = null;
@@ -254,7 +251,6 @@ function resetFilters() {
 }
 
 function requestData(subject) {
-  //Request per subject
   modalVisibility.value = true;
   subjectInformation.value = subject;
 }
