@@ -16,25 +16,13 @@
           <!-- FILTERS START -->
           <select
             v-model="selectedType"
-            class="block appearance-none w-1/10 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline relative"
+            class="block appearance-none w-1/10 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
           >
             <option value="null" selected="true">Tipo de asignatura</option>
             <option value="Básica">Básicas</option>
             <option value="Obligatoria">Obligatorias</option>
             <option value="Optativa">Optativas</option>
           </select>
-          <div
-            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-          >
-            <div>
-              <span
-                class="icon"
-                style="
-                  background-image: url('https://img.icons8.com/material-rounded/24/null/circled-chevron-down.png');
-                "
-              ></span>
-            </div>
-          </div>
 
           <select
             v-model="selectedGrade"
@@ -57,7 +45,7 @@
             <option value="40">40 resultados</option>
           </select>
           <button
-            @click.prevent="previousPage()"
+            @click.prevent="previousSubjectsPage()"
             class="tablinks py-1.5 px-3 rounded text-white bg-green-600"
             :class="{
               'bg-yellow-600 cursor-not-allowed': currentPage - 1 == 0,
@@ -70,7 +58,7 @@
             currentPage
           }}</label>
           <button
-            @click="nextPage()"
+            @click="nextSubjectsPage()"
             class="tablinks py-1.5 px-3 rounded text-white bg-green-600"
             :class="{
               'bg-yellow-600 cursor-not-allowed': currentPage + 1 > totalPages,
@@ -192,7 +180,7 @@ const filteredSubjects = computed(() => {
     );
   }
 
-  if (selectedType.value) {
+  if (selectedType.value && selectedType.value !== "null") {
     filtered = filtered.filter(
       (subject) => subject.descripcioClasseCredits === selectedType.value
     );
@@ -230,13 +218,13 @@ const totalPages = computed(() => {
   return Math.ceil(filteredSubjects.value.length / resultsPerPage.value);
 });
 
-function nextPage() {
+function nextSubjectsPage() {
   if (currentPage.value + 1 <= totalPages.value) {
     currentPage.value++;
   }
 }
 
-function previousPage() {
+function previousSubjectsPage() {
   if (currentPage.value - 1 > 0) {
     currentPage.value--;
   }
