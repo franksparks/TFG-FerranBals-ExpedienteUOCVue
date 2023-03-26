@@ -1,25 +1,24 @@
 <template>
-    <div class="container mx-auto px-50">
-      <div class="px-9 pt-3">
-        <AppHeader :degreeType="degreeType" @refresh-file="getFile" />
+  <div class="container mx-auto px-50">
+    <div class="px-9 pt-3">
+      <AppHeader :degreeType="degreeType" @refresh-file="getFile" />
 
-        <br />
-        <DataParent
-          :studentData="studentData"
-          :tutorData="tutorData"
-          :fileInfo="fileInfo"
-          :accessType="accessType"
-        />
-        <br />
-        <TableParent
-          :itineraryRequests="itineraryRequests"
-          :credits="credits"
-          :subjects="subjects"
-          :virtualTestRequests="virtualTestRequests"
-          :certificates="certificates"
-          :AEPRequests="AEPRequests"
-        />
-      </div>
+      <br />
+      <DataParent
+        :studentData="studentData"
+        :tutorData="tutorData"
+        :fileInfo="fileInfo"
+        :accessType="accessType"
+      />
+      <br />
+      <TableParent
+        :itineraryRequests="itineraryRequests"
+        :credits="credits"
+        :subjects="subjects"
+        :virtualTestRequests="virtualTestRequests"
+        :certificates="certificates"
+        :AEPRequests="AEPRequests"
+      />
     </div>
   </div>
 </template>
