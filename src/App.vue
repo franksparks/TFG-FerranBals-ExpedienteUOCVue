@@ -1,5 +1,4 @@
 <template>
-  <div v-if="fileLoaded">
     <div class="container mx-auto px-50">
       <div class="px-9 pt-3">
         <AppHeader :degreeType="degreeType" @refresh-file="getFile" />
@@ -61,7 +60,6 @@ const completeFile = ref({});
 const certificates = ref([]);
 
 const text = "ferran";
-const fileLoaded = ref(false);
 
 // Element type constants
 const TRAMITE_ACADEMICO = "pHnAg5M_UV2eNft6JYjLM6wGvWM=";
@@ -174,7 +172,6 @@ async function getFile(text) {
     resetFile();
 
     processFile(elements.value);
-    fileLoaded.value = true;
   } catch (error) {
     console.error(error);
   }
