@@ -15,7 +15,8 @@
     "sortablejs": "^1.15.0",
     "table-sort-js": "^1.8.1",
     "tailwind": "^4.0.0",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-pagination-2": "^3.1.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
