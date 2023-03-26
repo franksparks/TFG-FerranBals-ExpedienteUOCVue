@@ -89,7 +89,10 @@
               v-if="convo.codCalifP != null"
             >
               <td class="pl-3">Calificación final de actividades prácticas</td>
-              <td>{{ convo.codCalifP }}({{ convo.numCalifP }})</td>
+              <td v-if="convo.numCalifP != null">
+                {{ convo.codCalifP }}({{ convo.numCalifP }})
+              </td>
+              <td v-else>{{ convo.codCalifP }}</td>
             </tr>
             <tr
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
@@ -125,21 +128,13 @@
               >
                 En curso
               </td>
-              <td
-                v-else-if="
-                  props.subjectInformation
-                    .descripcioQualificacioQualitativaFinal != 'Reconocido'
-                "
-              >
+
+              <td v-else-if="convo.numCalifFA != null">
                 {{ convo.descCalifFA }} ({{ convo.numCalifFA }})
               </td>
-              <td v-else>
-                {{
-                  props.subjectInformation
-                    .descripcioQualificacioQualitativaFinal
-                }}
-              </td>
+              <td v-else>{{ convo.descCalifFA }}</td>
             </tr>
+
             <tr
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
               v-if="convo.numConvocatoriaActual != 0"

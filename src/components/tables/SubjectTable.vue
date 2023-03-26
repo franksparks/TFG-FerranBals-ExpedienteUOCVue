@@ -9,11 +9,14 @@
             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
           >
             <tr>
-              <th scope="col" class="px-6 py-1 w-3/10">Descripción</th>
+              <th scope="col" class="px-6 py-1 w-2/10">Descripción</th>
               <th scope="col" class="px-6 py-1 w-1/10">Código</th>
               <th scope="col" class="px-6 py-1 w-1/10">Tipo</th>
               <th scope="col" class="px-6 py-1 w-1/10">Créditos</th>
               <th scope="col" class="px-6 py-1 w-1/10">Semestre</th>
+              <th scope="col" class="px-1 py-1 w-1/10">
+                Convocatorias consumidas
+              </th>
               <th scope="col" class="px-6 py-1 w-1/10">Nota</th>
               <th scope="col" class="px-6 py-1 w-1/10">Nota final</th>
               <th scope="col" class="px-6 py-1 w-1/10">Más info</th>
@@ -40,6 +43,9 @@
               <td class="text-center px-6 py-4">{{ subject.numCredits }}</td>
               <td class="text-center px-6 py-4">
                 {{ subject.ultAnyMatricula }}
+              </td>
+              <td class="text-center px-6 py-4">
+                {{ subject.numConvocatoriesConsumides }}
               </td>
               <td class="text-center px-6 py-4">
                 {{ subject.descripcioQualificacioQualitativaFinal }}
