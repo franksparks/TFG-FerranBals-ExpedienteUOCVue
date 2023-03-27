@@ -78,7 +78,7 @@ watchEffect(() => {
       "GET Request de la asignatura: " + props.subjectInformation.descripcio
     );
     axios
-      .get("http://localhost:3000/subject/", {
+      .get("http://localhost:3003/subject/", {
         params: { codAsignatura: props.subjectInformation.codi },
       })
       .then((response) => {
