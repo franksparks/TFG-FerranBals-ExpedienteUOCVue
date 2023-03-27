@@ -9,7 +9,7 @@
           'bg-green-600': tab !== 'subject',
         }"
       >
-        Datos académicos
+        {{ $t("table.academic") }}
       </button>
       <button
         class="tablinks py-1.5 px-3 rounded text-white"
@@ -19,7 +19,7 @@
           'bg-green-600': tab !== 'payments',
         }"
       >
-        Datos de matrícula
+        {{ $t("table.enrollment") }}
       </button>
       <button
         class="tablinks py-1.5 px-3 rounded text-white"
@@ -29,7 +29,7 @@
           'bg-green-600': tab !== 'requests',
         }"
       >
-        Solicitudes realizadas
+        {{ $t("table.requests") }}
       </button>
     </div>
     <div class="3">

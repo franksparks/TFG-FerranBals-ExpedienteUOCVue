@@ -4,12 +4,12 @@
       <p
         class="tablinks py-1.5 px-3 rounded text-white bg-blue-400 text-center py-2"
       >
-        Solicitudes relacionadas con el itinerario
+        {{ $t("itineraryRequests.sectionTitle") }}
       </p>
     </div>
 
     <div v-if="itineraryRequests.length == 0" class="mx-60">
-      <p>No hay trámites de itinerario que mostrar</p>
+      <p>{{ $t("itineraryRequests.empty") }}</p>
     </div>
     <div v-else>
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-80">
@@ -20,11 +20,21 @@
             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
           >
             <tr>
-              <th scope="col" class="px-6 py-1">Semestre</th>
-              <th scope="col" class="px-6 py-1">Itinerario</th>
-              <th scope="col" class="px-6 py-1">Núm solicitud</th>
-              <th scope="col" class="px-6 py-1">Fecha solicitud</th>
-              <th scope="col" class="px-6 py-1">Estado</th>
+              <th scope="col" class="px-6 py-1">
+                {{ $t("itineraryRequests.semester") }}
+              </th>
+              <th scope="col" class="px-6 py-1">
+                {{ $t("itineraryRequests.itinerary") }}
+              </th>
+              <th scope="col" class="px-6 py-1">
+                {{ $t("itineraryRequests.number") }}
+              </th>
+              <th scope="col" class="px-6 py-1">
+                {{ $t("itineraryRequests.date") }}
+              </th>
+              <th scope="col" class="px-6 py-1">
+                {{ $t("itineraryRequests.status") }}
+              </th>
             </tr>
           </thead>
           <tbody class="justify-center">

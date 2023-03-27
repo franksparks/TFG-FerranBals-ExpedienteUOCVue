@@ -1,12 +1,12 @@
 <template>
   <div class="pt-3 px-60 pb-2">
     <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-400 text-center">
-      Certificados y otros documentos académicos
+      {{ $t("certificates.sectionTitle") }}
     </p>
   </div>
 
   <div v-if="certificates.length == 0" class="mx-60">
-    <p>No hay certificados que mostrar</p>
+    <p>{{ $t("certificates.empty") }}</p>
   </div>
   <div v-else>
     <div
@@ -22,7 +22,7 @@
         >
           <tr>
             <th scope="col" class="px-6 py-1 text-center" colspan="2">
-              Certificados
+              {{ $t("certificates.tableTitle") }}
             </th>
           </tr>
         </thead>
@@ -30,13 +30,13 @@
           <tr
             class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
-            <td class="pl-3 w-1/4">Número de solicitud</td>
+            <td class="pl-3 w-1/4">{{ $t("certificates.number") }}</td>
             <td>{{ certificate.numSolicitud }}</td>
           </tr>
           <tr
             class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
-            <td class="pl-3">Fecha de solicitud</td>
+            <td class="pl-3">{{ $t("certificates.date") }}</td>
             <td>
               {{ formatDate(certificate.dataSolicitud) }}
             </td>
@@ -44,13 +44,13 @@
           <tr
             class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
-            <td class="pl-3">Tipo Certificado</td>
+            <td class="pl-3">{{ $t("certificates.type") }}</td>
             <td>{{ certificate.descCertificat }}</td>
           </tr>
           <tr
             class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
           >
-            <td class="pl-3">Estado solicitud Certificado</td>
+            <td class="pl-3">{{ $t("certificates.status") }}</td>
             <td>{{ certificate.descEstatSolicitud }}</td>
           </tr>
         </tbody>

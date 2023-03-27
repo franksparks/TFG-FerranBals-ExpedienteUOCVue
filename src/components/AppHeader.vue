@@ -11,7 +11,9 @@
           />
         </a>
         <div>
-          <p class="text-2xl text-center">Consulta del expediente</p>
+          <p class="text-2xl text-center">
+            {{ $t("header.main") }}
+          </p>
           <select
             v-model="file"
             @change="refreshFile(file)"
@@ -21,6 +23,16 @@
             <option value="ferran">Ferran</option>
             <option value="carlos">Carlos</option>
             <option value="minor">Minor Ferran</option>
+          </select>
+
+          <select
+            v-model="this.$i18n.locale"
+            class="pr-4 float-right text-gray-800 rounded align-right"
+            value="es"
+          >
+            <option value="en">English</option>
+            <option value="es">Castellano</option>
+            <option value="cat">Català</option>
           </select>
         </div>
       </div>

@@ -16,6 +16,7 @@
     "table-sort-js": "^1.8.1",
     "tailwind": "^4.0.0",
     "vue": "^3.2.45",
+    "vue-i18n": "^9.2.2",
     "vue-pagination-2": "^3.1.0"
   },
   "devDependencies": {

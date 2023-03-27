@@ -1,0 +1,126 @@
+{
+  "header": {
+    "main": "Consulta del expediente"
+  },
+  "data": {
+    "student": "Datos del alumno",
+    "tutor": "Datos del tutor",
+    "file": "Datos del expediente"
+  },
+  "student": {
+    "name": "Nombre y apellidos",
+    "user": "Usuario campus",
+    "id": "DNI"
+  },
+  "tutor": {
+    "name": "Nombre y apellidos",
+    "user": "Usuario campus",
+    "id": "DNI"
+  },
+  "file": {
+    "number": "Número expediente",
+    "averageGrade": "Nota media actual",
+    "access": "Opción de acceso",
+    "status": "Estado expediente"
+  },
+  "table": {
+    "academic": "Datos académicos",
+    "enrollment": "Datos de matrícula",
+    "requests": "Soliciudes realizadas"
+  },
+  "credits": {
+    "basic": "Básicas",
+    "main": "Obligatorias",
+    "optative": "Optativas",
+    "goal": "Objetivo",
+    "passed": "Superadas",
+    "pending": "Pendientes"
+  },
+  "subjectTable": {
+    "all": "Todas las asignaturas",
+    "basic": "Básicas",
+    "main": "Obligatorias",
+    "optative": "Optativas",
+    "passed": "Superadas",
+    "notPassed": "No superadas",
+    "onGoing": "En curso",
+    "accredited": "Reconocidas",
+    "allResults": "Resultados por página",
+    "results": "resultados",
+    "reset": "Reset",
+    "description": "Descripción",
+    "code": "Código",
+    "type": "Tipo",
+    "credits": "Créditos",
+    "semester": "Semestre",
+    "convos": "Convocatorias consumidas",
+    "grade": "Nota",
+    "finalGrade": "Nota final",
+    "info": "Más info"
+  },
+  "takenSubject": {
+    "subject": "Asignatura",
+    "subjectCode": "Código",
+    "credits": "Créditos",
+    "type": "Tipo asignatura",
+    "convo": "Convocatoria",
+    "teacher": "Consultor",
+    "continuous": "Calificación de Evaluación Contínua",
+    "practical": "Calificación final de actividades prácticas",
+    "continuousFinal": "Calificación final de Evaluación Contínua",
+    "testFinal": "Calificación final de Prueba de Síntesis",
+    "exam": "Calificación final de Examen",
+    "subjectGrade": "Calificación final de la asignatura",
+    "ongoing": "En curso",
+    "year": "Año superación"
+  },
+  "accreditedSubject": {
+    "subject": "Asignatura",
+    "subjectCode": "Código",
+    "credits": "Créditos",
+    "type": "Tipo asignatura",
+    "grade": "Calificación final de la asignatura"
+  },
+  "enrollment": {
+    "semester": "Semestre",
+    "date": "Fecha matrícula",
+    "amount": "Importe",
+    "totalAmount": "Importe total",
+    "averageAmount": "importe medio semestre"
+  },
+  "AEPRequests": {
+    "sectionTitle": "Evaluación de estudios previos",
+    "empty": "No hay evaluaciones de estudios previos que mostrar",
+    "tableTitle": "Datos básicos de la solicitud de EEP",
+    "number": "Número de solicitud",
+    "data": "Fecha de solicitud",
+    "type": "Tipo Certificado"
+  },
+  "certificates": {
+    "sectionTitle": "Certificados y otros documentos académicos",
+    "empty": "No hay solicitudes de certificados que mostrar",
+    "tableTitle": "Certificados",
+    "number": "Número de solicitud",
+    "date": "Fecha de solicitud",
+    "type": "Tipo Certificado",
+    "status": "Estado solicitud certificado"
+  },
+  "itineraryRequests": {
+    "sectionTitle": "Solicitudes relacionadas con el itinerario académico",
+    "empty": "No hay solicitudes que mostrar",
+    "semester": "Semestre",
+    "itinerary": "Itinerario",
+    "number": "Núm solicitud",
+    "date": "Fecha solicitud",
+    "status": "Estado"
+  },
+  "virtualTestRequests": {
+    "sectionTitle": "Solicitudes de prueba de evaluación final virtual",
+    "empty": "No hay solicitudes que mostrar",
+    "semester": "Semestre",
+    "subject": "Asignatura",
+    "subjectCode": "Código asignatura",
+    "testType": "Núm solicitud",
+    "status": "Estado"
+  }
+}

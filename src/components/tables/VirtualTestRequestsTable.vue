@@ -1,12 +1,12 @@
 <template>
   <div class="pt-3 px-60 pb-2">
     <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-400 text-center">
-      Solicitud de prueba de evaluación final virtual
+      {{ $t("virtualTestRequests.sectionTitle") }}
     </p>
   </div>
 
   <div v-if="virtualTestRequests.length == 0" class="mx-60">
-    <p>No hay peticiones de pruebas virtuales que mostrar</p>
+    <p>{{ $t("virtualTestRequests.empty") }}</p>
   </div>
   <div v-else>
     <div class="overflow-x-auto shadow-md sm:rounded-lg mx-80"></div>
@@ -15,11 +15,21 @@
         class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
       >
         <tr>
-          <th scope="col" class="px-6 py-1">Semestre</th>
-          <th scope="col" class="px-6 py-1">Asignatura</th>
-          <th scope="col" class="px-6 py-1">Código</th>
-          <th scope="col" class="px-6 py-1">Tipo prueba</th>
-          <th scope="col" class="px-6 py-1">Estado</th>
+          <th scope="col" class="px-6 py-1">
+            {{ $t("virtualTestRequests.semester") }}
+          </th>
+          <th scope="col" class="px-6 py-1">
+            {{ $t("virtualTestRequests.subject") }}
+          </th>
+          <th scope="col" class="px-6 py-1">
+            {{ $t("virtualTestRequests.subjectCode") }}
+          </th>
+          <th scope="col" class="px-6 py-1">
+            {{ $t("virtualTestRequests.testType") }}
+          </th>
+          <th scope="col" class="px-6 py-1">
+            {{ $t("virtualTestRequests.status") }}
+          </th>
         </tr>
       </thead>
       <tbody>

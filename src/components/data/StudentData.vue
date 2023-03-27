@@ -1,10 +1,16 @@
 <template>
   <div class="pt-2">
-    <p><span class="font-bold">Nombre y apellidos:</span> {{ fullName }}</p>
     <p>
-      <span class="font-bold">Usuario campus:</span> {{ studentData.userLogin }}
+      <span class="font-bold">{{ $t("student.name") }}:</span> {{ fullName }}
     </p>
-    <p><span class="font-bold">DNI:</span> {{ studentData.dni }}</p>
+    <p>
+      <span class="font-bold">{{ $t("student.user") }}:</span>
+      {{ studentData.userLogin }}
+    </p>
+    <p>
+      <span class="font-bold">{{ $t("student.id") }}:</span>
+      {{ studentData.dni }}
+    </p>
   </div>
 </template>
 

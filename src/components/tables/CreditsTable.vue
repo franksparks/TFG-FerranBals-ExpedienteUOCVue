@@ -6,16 +6,16 @@
       >
         <tr>
           <th class="text-center bg-gray-300 px-10"></th>
-          <th class="text-center pt-1 px-10">Básicas</th>
-          <th class="text-center pt-1 px-10">Obligatorias</th>
-          <th class="text-center pt-1 px-10">Optativas</th>
+          <th class="text-center pt-1 px-10">{{ $t("credits.basic") }}</th>
+          <th class="text-center pt-1 px-10">{{ $t("credits.main") }}</th>
+          <th class="text-center pt-1 px-10">{{ $t("credits.optative") }}</th>
         </tr>
       </thead>
       <tbody class="justify-center">
         <tr
           class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
         >
-          <th class="text-center">Objetivo</th>
+          <th class="text-center">{{ $t("credits.goal") }}</th>
           <td class="text-center">
             {{ credits.numCreditsObligatoriObjectiu }}
           </td>
@@ -29,7 +29,7 @@
         <tr
           class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
         >
-          <th class="text-center">Superado</th>
+          <th class="text-center">{{ $t("credits.passed") }}</th>
           <td class="text-center">
             {{ credits.numCreditsObligatoriSuperat }}
           </td>
@@ -39,7 +39,7 @@
         <tr
           class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
         >
-          <th class="text-center">Pendiente</th>
+          <th class="text-center">{{ $t("credits.pending") }}</th>
           <td class="text-center">
             {{
               credits.numCreditsObligatoriObjectiu -

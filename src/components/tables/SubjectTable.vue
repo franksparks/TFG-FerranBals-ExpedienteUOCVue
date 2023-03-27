@@ -18,31 +18,41 @@
             v-model="selectedType"
             class="block appearance-none w-1/10 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
           >
-            <option value="null" selected="true">Tipo de asignatura</option>
-            <option value="Básica">Básicas</option>
-            <option value="Obligatoria">Obligatorias</option>
-            <option value="Optativa">Optativas</option>
+            <option value="null" selected="true">
+              {{ $t("subjectTable.all") }}
+            </option>
+            <option value="Básica">{{ $t("subjectTable.basic") }}</option>
+            <option value="Obligatoria">{{ $t("subjectTable.main") }}</option>
+            <option value="Optativa">{{ $t("subjectTable.optative") }}</option>
           </select>
 
           <select
             v-model="selectedGrade"
             class="block appearance-none w-1/10 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
           >
-            <option value="null" selected="true">Todas las asignaturas</option>
-            <option value="Aprobadas">Superadas</option>
-            <option value="Suspendidas">No superadas</option>
-            <option value="Cursando">En curso</option>
-            <option value="Reconocidas">Reconocidas</option>
+            <option value="null" selected="true">
+              {{ $t("subjectTable.all") }}
+            </option>
+            <option value="Aprobadas">{{ $t("subjectTable.passed") }}</option>
+            <option value="Suspendidas">
+              {{ $t("subjectTable.notPassed") }}
+            </option>
+            <option value="Cursando">{{ $t("subjectTable.onGoing") }}</option>
+            <option value="Reconocidas">
+              {{ $t("subjectTable.accredited") }}
+            </option>
           </select>
 
           <select
             v-model="resultsPerPage"
             class="block appearance-none w-1/10 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline relative"
           >
-            <option value="100" selected="true">Resultados por página</option>
-            <option value="10">10 resultados</option>
-            <option value="20">20 resultados</option>
-            <option value="40">40 resultados</option>
+            <option value="100" selected="true">
+              {{ $t("subjectTable.allResults") }}
+            </option>
+            <option value="10">10 {{ $t("subjectTable.results") }}</option>
+            <option value="10">20 {{ $t("subjectTable.results") }}</option>
+            <option value="10">40 {{ $t("subjectTable.results") }}</option>
           </select>
           <button
             @click.prevent="previousSubjectsPage()"
@@ -70,7 +80,7 @@
             class="tablinks py-1.5 px-3 rounded text-white bg-green-600"
             @click.prevent="resetFilters()"
           >
-            Reset filters
+            {{ $t("subjectTable.reset") }}
           </button>
         </div>
         <!-- FILTERS END -->
@@ -83,17 +93,33 @@
             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
           >
             <tr>
-              <th scope="col" class="px-6 py-1 w-2/10">Descripción</th>
-              <th scope="col" class="px-6 py-1 w-1/10">Código</th>
-              <th scope="col" class="px-6 py-1 w-1/10">Tipo</th>
-              <th scope="col" class="px-6 py-1 w-1/10">Créditos</th>
-              <th scope="col" class="px-6 py-1 w-1/10">Semestre</th>
-              <th scope="col" class="px-1 py-1 w-1/10">
-                Convocatorias consumidas
+              <th scope="col" class="px-6 py-1 w-2/10">
+                {{ $t("subjectTable.description") }}
               </th>
-              <th scope="col" class="px-6 py-1 w-1/10">Nota</th>
-              <th scope="col" class="px-6 py-1 w-1/10">Nota final</th>
-              <th scope="col" class="px-6 py-1 w-1/10">Más info</th>
+              <th scope="col" class="px-6 py-1 w-1/10">
+                {{ $t("subjectTable.code") }}
+              </th>
+              <th scope="col" class="px-6 py-1 w-1/10">
+                {{ $t("subjectTable.type") }}
+              </th>
+              <th scope="col" class="px-6 py-1 w-1/10">
+                {{ $t("subjectTable.credits") }}
+              </th>
+              <th scope="col" class="px-6 py-1 w-1/10">
+                {{ $t("subjectTable.semester") }}
+              </th>
+              <th scope="col" class="px-1 py-1 w-1/10">
+                {{ $t("subjectTable.convos") }}
+              </th>
+              <th scope="col" class="px-6 py-1 w-1/10">
+                {{ $t("subjectTable.grade") }}
+              </th>
+              <th scope="col" class="px-6 py-1 w-1/10">
+                {{ $t("subjectTable.finalGrade") }}
+              </th>
+              <th scope="col" class="px-6 py-1 w-1/10">
+                {{ $t("subjectTable.info") }}
+              </th>
             </tr>
           </thead>
           <tbody>

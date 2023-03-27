@@ -1,10 +1,10 @@
 <template>
   <div class="pt-3 px-60">
     <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-400 text-center">
-      Evaluación de estudios previos
+      {{ $t("AEPRequests.sectionTitle") }}
     </p>
     <div v-if="AEPRequests.length == 0">
-      <p>No hay evaluaciones de estudios previos que mostrar</p>
+      <p>{{ $t("AEPRequests.empty") }}</p>
     </div>
     <div v-for="request in AEPRequests" :key="request" class="py-2 px-20">
       <div>
@@ -17,7 +17,7 @@
             >
               <tr>
                 <th scope="col" class="px-6 py-1 text-center" colspan="2">
-                  Datos básicos de la solicitud de EEP
+                  {{ $t("AEPRequests.tableTitle") }}
                 </th>
               </tr>
             </thead>
@@ -25,13 +25,13 @@
               <tr
                 class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
               >
-                <td class="pl-3 w-1/4">Número de solicitud</td>
+                <td class="pl-3 w-1/4">{{ $t("AEPRequests.number") }}</td>
                 <td>{{ request.secSolicitud }}</td>
               </tr>
               <tr
                 class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
               >
-                <td class="pl-3">Fecha de solicitud</td>
+                <td class="pl-3">{{ $t("AEPRequests.data") }}</td>
                 <td>
                   {{ formatDate(request.fechaSolicitud) }}
                 </td>
@@ -39,7 +39,7 @@
               <tr
                 class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
               >
-                <td class="pl-3">Tipo Certificado</td>
+                <td class="pl-3">{{ $t("AEPRequests.type") }}</td>
                 <td>{{ request.descEstado }}</td>
               </tr>
             </tbody>

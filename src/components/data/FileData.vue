@@ -1,16 +1,18 @@
 <template>
   <div class="pt-2">
     <p>
-      <span class="font-bold">Número expediente: </span
+      <span class="font-bold">{{ $t("file.number") }}: </span
       >{{ fileInfo.numExpedient }}
     </p>
     <p>
-      <span class="font-bold">Nota media actual:</span>
+      <span class="font-bold">{{ $t("file.averageGrade") }}:</span>
       {{ fileInfo.notaMitjana }}
     </p>
-    <p><span class="font-bold">Opción de acceso: </span>{{ accessType }}</p>
     <p>
-      <span class="font-bold">Estado expediente:</span>
+      <span class="font-bold">{{ $t("file.access") }}: </span>{{ accessType }}
+    </p>
+    <p>
+      <span class="font-bold">{{ $t("file.status") }}:</span>
       {{ fileInfo.descEstatExpedient }}
     </p>
   </div>
