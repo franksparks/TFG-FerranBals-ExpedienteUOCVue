@@ -30,7 +30,7 @@ import TableParent from "./components/TableParent.vue";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
-const port = process.env.PORT || 3003;
+const port = 3000;
 
 const BASE_URL = "http://localhost:" + port; // base URL for the GET requests
 
