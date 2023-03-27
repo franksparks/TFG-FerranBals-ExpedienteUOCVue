@@ -26,7 +26,7 @@
           </select>
 
           <select
-            v-model="this.$i18n.locale"
+            v-model="$i18n.locale"
             class="pr-4 float-right text-gray-800 rounded align-right"
             value="es"
           >

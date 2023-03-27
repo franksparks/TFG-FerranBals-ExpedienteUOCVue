@@ -78,6 +78,7 @@ const CERTIFICADOS_DOCUMENTOS_ACADEMICOS = "XGhl$81QmbUgS9EZJqobgd248iU=";
 
 onMounted(async () => {
   console.log("El puerto es: " + port);
+
   getFile(text);
 });
 
