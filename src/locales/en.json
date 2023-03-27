@@ -1,5 +1,127 @@
 {
   "header": {
-    "main": "File check"
+    "main": "Student File"
+  },
+  "data": {
+    "student": "Student data",
+    "tutor": "Tutor data",
+    "file": "File data"
+  },
+  "student": {
+    "name": "Full name",
+    "user": "Campus username",
+    "id": "ID number"
+  },
+  "tutor": {
+    "name": "Full name",
+    "user": "Campus username",
+    "id": "ID number"
+  },
+  "file": {
+    "number": "File number",
+    "averageGrade": "Current average grade",
+    "access": "Access option",
+    "status": "File status"
+  },
+  "table": {
+    "academic": "Academic data",
+    "enrollment": "Enrollment data",
+    "requests": "Requests made"
+  },
+  "credits": {
+    "basic": "Basic",
+    "main": "Mandatory",
+    "optative": "Optative",
+    "goal": "Goal",
+    "passed": "Passed",
+    "pending": "Pending"
+  },
+  "subjectTable": {
+    "placeholder": "Search subject",
+    "all": "All subjects",
+    "basic": "Basic",
+    "main": "Mandatory",
+    "optative": "Optative",
+    "passed": "Passed",
+    "notPassed": "Not passed",
+    "onGoing": "Ongoing",
+    "accredited": "Accredited",
+    "allResults": "Results per page",
+    "results": "results",
+    "reset": "Reset",
+    "description": "Description",
+    "code": "Code",
+    "type": "Type",
+    "credits": "Credits",
+    "semester": "Semester",
+    "convos": "Consumed convos",
+    "grade": "Grade",
+    "finalGrade": "Final grade",
+    "info": "More info"
+  },
+  "takenSubject": {
+    "subject": "Subject",
+    "subjectCode": "Code",
+    "credits": "Credits",
+    "type": "Subject type",
+    "convo": "Convo",
+    "teacher": "Teacher",
+    "continuous": "Continuous assessment grade",
+    "practical": "Final grade of practical activities",
+    "continuousFinal": "Final grade of Continuous assessment",
+    "testFinal": "Final grade of Synthesis test",
+    "exam": "Final grade of Exam",
+    "subjectGrade": "Final grade of subject",
+    "ongoing": "Ongoing",
+    "year": "Year of passing"
+  },
+  "accreditedSubject": {
+    "subject": "Subject",
+    "code": "Code",
+    "credits": "Credits",
+    "type": "Subject type",
+    "grade": "Final grade of subject"
+  },
+  "enrollment": {
+    "semester": "Semester",
+    "date": "Enrollment date",
+    "amount": "Amount",
+    "totalAmount": "Total amount",
+    "averageAmount": "Average semester amount"
+  },
+  "AEPRequests": {
+    "sectionTitle": "Evaluation of previous studies",
+    "empty": "No previous study evaluations to show",
+    "tableTitle": "Basic data of the AEP request",
+    "number": "Request number",
+    "data": "Request date",
+    "type": "Certificate type"
+  },
+  "certificates": {
+    "sectionTitle": "Certificates and other academic documents",
+    "empty": "No certificate requests to show",
+    "tableTitle": "Certificates",
+    "number": "Request number",
+    "date": "Request date",
+    "type": "Certificate type",
+    "status": "Certificate request status"
+  },
+  "itineraryRequests": {
+    "sectionTitle": "Requests related to academic itinerary",
+    "empty": "No requests to show",
+    "semester": "Semester",
+    "itinerary": "Itinerary",
+    "number": "Request number",
+    "date": "Request date",
+    "status": "Status"
+  },
+  "virtualTestRequests": {
+    "sectionTitle": "Requests for virtual final evaluation test",
+    "empty": "No requests to show",
+    "semester": "Semester",
+    "subject": "Subject",
+    "subjectCode": "Subject code",
+    "testType": "Test type",
+    "status": "Status"
   }
 }

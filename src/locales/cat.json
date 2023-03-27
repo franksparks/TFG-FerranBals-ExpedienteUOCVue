@@ -1,5 +1,127 @@
 {
   "header": {
     "main": "Consulta de l'expedient"
+  },
+  "data": {
+    "student": "Dades de l'alumne",
+    "tutor": "Dades del tutor",
+    "file": "Dades de l'expediente"
+  },
+  "student": {
+    "name": "Nomi cognoms",
+    "user": "Usuari campus",
+    "id": "DNI"
+  },
+  "tutor": {
+    "name": "Nomi cognoms",
+    "user": "Usuari campus",
+    "id": "DNI"
+  },
+  "file": {
+    "number": "Número expedient",
+    "averageGrade": "Nota mitja actual",
+    "access": "Opció d'accés",
+    "status": "Estat expedient"
+  },
+  "table": {
+    "academic": "Dades acadèmiques",
+    "enrollment": "Dades de matrícula",
+    "requests": "Sol·licituds realitzades"
+  },
+  "credits": {
+    "basic": "Básiques",
+    "main": "Obligatòries",
+    "optative": "Optatives",
+    "goal": "Objetiu",
+    "passed": "Superades",
+    "pending": "Pendents"
+  },
+  "subjectTable": {
+    "placeholder": "Buscar assignatura",
+    "all": "Totes les assignatures",
+    "basic": "Básiques",
+    "main": "Obligatòries",
+    "optative": "Optatives",
+    "passed": "Superades",
+    "notPassed": "No superades",
+    "onGoing": "En curs",
+    "accredited": "Reconegudes",
+    "allResults": "Resultats per pàgina",
+    "results": "resultats",
+    "reset": "Reset",
+    "description": "Descripció",
+    "code": "Codi",
+    "type": "Tipus",
+    "credits": "Crèdits",
+    "semester": "Semestre",
+    "convos": "Convocatòries consumides",
+    "grade": "Nota",
+    "finalGrade": "Nota final",
+    "info": "Més info"
+  },
+  "takenSubject": {
+    "subject": "Assignatura",
+    "subjectCode": "Codi",
+    "credits": "Crèdits",
+    "type": "Tipus assignatura",
+    "convo": "Convocatòria",
+    "teacher": "Consultor",
+    "continuous": "Calificació d'Evaluació Contínua",
+    "practical": "Calificació final d'activitats pràctiques",
+    "continuousFinal": "Calificació final d'Evaluació Contínua",
+    "testFinal": "Calificació final de Prova de Síntesis",
+    "exam": "Calificació final d'Examen",
+    "subjectGrade": "Calificació final de l'assignatura",
+    "ongoing": "En curs",
+    "year": "Any superació"
+  },
+  "accreditedSubject": {
+    "subject": "Assignatura",
+    "code": "Codi",
+    "credits": "Crèdits",
+    "type": "Tipus assignatura",
+    "grade": "Calificació final de l'assignatura"
+  },
+  "enrollment": {
+    "semester": "Semestre",
+    "date": "Data matrícula",
+    "amount": "Import",
+    "totalAmount": "Import total",
+    "averageAmount": "import mig per semestre"
+  },
+  "AEPRequests": {
+    "sectionTitle": "Evaluació d'estudis previs",
+    "empty": "No hi han evaluacions d'estudis previs per mostrar",
+    "tableTitle": "Dades bàsiques de la sol·licitud d'AEP",
+    "number": "Número de sol·licitud",
+    "data": "Data de sol·licitud",
+    "type": "Tipus certificat"
+  },
+  "certificates": {
+    "sectionTitle": "Certificats i altres documents acadèmics",
+    "empty": "No hi han sol·licituds de certificats per mostrar",
+    "tableTitle": "Certificats",
+    "number": "Número de sol·licitud",
+    "date": "Data de sol·licitud",
+    "type": "Tipus Certificat",
+    "status": "Estat sol·licitud certificat"
+  },
+  "itineraryRequests": {
+    "sectionTitle": "Sol·licituds relacionades amb l'itinerari acadèmic",
+    "empty": "No hay sol·licituds per mostrar",
+    "semester": "Semestre",
+    "itinerary": "Itinerari",
+    "number": "Núm sol·licitud",
+    "date": "Data sol·licitud",
+    "status": "Estat"
+  },
+  "virtualTestRequests": {
+    "sectionTitle": "Sol·licituds de prova d'avaluació final virtual",
+    "empty": "No hay sol·licituds per mostrar",
+    "semester": "Semestre",
+    "subject": "Assignatura",
+    "subjectCode": "Codi assignatura",
+    "testType": "Núm sol·licitud",
+    "status": "Estat"
   }
 }

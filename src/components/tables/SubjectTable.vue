@@ -10,7 +10,7 @@
               class="block w-full max-w-lg py-2 px-3 rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-600 shadow-sm focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 text-gray-300"
               type="text"
               v-model="searchTerm"
-              placeholder="Buscar asignatura"
+              :placeholder="$t('subjectTable.placeholder')"
             />
           </div>
           <!-- FILTERS START -->

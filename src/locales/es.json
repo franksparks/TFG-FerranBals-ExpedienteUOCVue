@@ -37,6 +37,7 @@
     "pending": "Pendientes"
   },
   "subjectTable": {
+    "placeholder": "Buscar asignatura",
     "all": "Todas las asignaturas",
     "basic": "Básicas",
     "main": "Obligatorias",
@@ -76,7 +77,7 @@
   },
   "accreditedSubject": {
     "subject": "Asignatura",
-    "subjectCode": "Código",
+    "code": "Código",
     "credits": "Créditos",
     "type": "Tipo asignatura",
     "grade": "Calificación final de la asignatura"
