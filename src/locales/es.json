@@ -39,6 +39,7 @@
   "subjectTable": {
     "placeholder": "Buscar asignatura",
     "all": "Todas las asignaturas",
+    "empty": "No hay resultados para mostrar",
     "basic": "Básicas",
     "main": "Obligatorias",
     "optative": "Optativas",

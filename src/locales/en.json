@@ -39,6 +39,7 @@
   "subjectTable": {
     "placeholder": "Search subject",
     "all": "All subjects",
+    "empty": "No results",
     "basic": "Basic",
     "main": "Mandatory",
     "optative": "Optative",

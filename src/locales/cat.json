@@ -39,6 +39,7 @@
   "subjectTable": {
     "placeholder": "Buscar assignatura",
     "all": "Totes les assignatures",
+    "empty": "No hi ha resultats per mostrar",
     "basic": "Básiques",
     "main": "Obligatòries",
     "optative": "Optatives",

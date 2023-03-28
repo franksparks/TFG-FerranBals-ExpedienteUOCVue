@@ -163,7 +163,7 @@
           </tbody>
         </table>
         <div v-else>
-          <p>No hay resultados para mostrar</p>
+          <p>{{ $t("subjectTable.empty") }}</p>
         </div>
       </div>
     </div>
