@@ -32,7 +32,7 @@ import { onMounted, ref } from "vue";
 
 //const port = 3000;
 
-const BASE_URL = "https://api-test-git-main-franksparks.vercel.app"; // base URL for the GET requests
+const BASE_URL = "https://tfg-ferran-bals-expediente-api.vercel.app/"; // base URL for the GET requests
 
 // Reactive variables
 
