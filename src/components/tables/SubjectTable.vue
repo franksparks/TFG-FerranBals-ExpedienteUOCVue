@@ -96,56 +96,56 @@
               <th
                 scope="col"
                 class="px-6 py-1 w-2/10 cursor-pointer"
-                @click="sortTable('descripcio')"
+                @click="sortSubjects('descripcio')"
               >
                 {{ $t("subjectTable.description") }}
               </th>
               <th
                 scope="col"
                 class="px-6 py-1 w-1/10 cursor-pointer"
-                @click="sortTable('codi')"
+                @click="sortSubjects('codi')"
               >
                 {{ $t("subjectTable.code") }}
               </th>
               <th
                 scope="col"
                 class="px-6 py-1 w-1/10 cursor-pointer"
-                @click="sortTable('descripcioClasseCredits')"
+                @click="sortSubjects('descripcioClasseCredits')"
               >
                 {{ $t("subjectTable.type") }}
               </th>
               <th
                 scope="col"
                 class="px-6 py-1 w-1/10 cursor-pointer"
-                @click="sortTable('numCredits')"
+                @click="sortSubjects('numCredits')"
               >
                 {{ $t("subjectTable.credits") }}
               </th>
               <th
                 scope="col"
                 class="px-6 py-1 w-1/10 cursor-pointer"
-                @click="sortTable('ultAnyMatricula')"
+                @click="sortSubjects('ultAnyMatricula')"
               >
                 {{ $t("subjectTable.semester") }}
               </th>
               <th
                 scope="col"
                 class="px-6 py-1 w-1/10 cursor-pointer"
-                @click="sortTable('numConvocatoriesConsumides')"
+                @click="sortSubjects('numConvocatoriesConsumides')"
               >
                 {{ $t("subjectTable.convos") }}
               </th>
               <th
                 scope="col"
                 class="px-6 py-1 w-1/10 cursor-pointer"
-                @click="sortTable('descripcioQualificacioQualitativaFinal')"
+                @click="sortSubjects('descripcioQualificacioQualitativaFinal')"
               >
                 {{ $t("subjectTable.grade") }}
               </th>
               <th
                 scope="col"
                 class="px-6 py-1 w-1/10 cursor-pointer"
-                @click="sortTable('qualificacioQuantitativaFinal')"
+                @click="sortSubjects('qualificacioQuantitativaFinal')"
               >
                 {{ $t("subjectTable.finalGrade") }}
               </th>
@@ -263,8 +263,35 @@ const filteredSubjects = computed(() => {
           subject.descripcioQualificacioQualitativaFinal == "Reconocido"
       );
   }
+
   return filtered;
 });
+
+const sortDirection = ref("asc");
+const sortBy = ref(null);
+
+const sortSubjects = (column) => {
+  let sub = props.subjects;
+  if (column === sortBy.value) {
+    sortDirection.value = sortDirection.value === "asc" ? "desc" : "asc";
+  } else {
+    sortDirection.value = "asc";
+  }
+  sortBy.value = column;
+
+  sub.sort((a, b) => {
+    const valueA = a[column];
+    const valueB = b[column];
+
+    if (valueA < valueB) {
+      return sortDirection.value === "asc" ? -1 : 1;
+    } else if (valueA > valueB) {
+      return sortDirection.value === "asc" ? 1 : -1;
+    } else {
+      return 0;
+    }
+  });
+};
 
 const paginatedData = computed(() => {
   const start = (currentPage.value - 1) * resultsPerPage.value;
