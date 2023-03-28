@@ -93,28 +93,60 @@
             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
           >
             <tr>
-              <th scope="col" class="px-6 py-1 w-2/10">
+              <th
+                scope="col"
+                class="px-6 py-1 w-2/10 cursor-pointer"
+                @click="sortTable('descripcio')"
+              >
                 {{ $t("subjectTable.description") }}
               </th>
-              <th scope="col" class="px-6 py-1 w-1/10">
+              <th
+                scope="col"
+                class="px-6 py-1 w-1/10 cursor-pointer"
+                @click="sortTable('codi')"
+              >
                 {{ $t("subjectTable.code") }}
               </th>
-              <th scope="col" class="px-6 py-1 w-1/10">
+              <th
+                scope="col"
+                class="px-6 py-1 w-1/10 cursor-pointer"
+                @click="sortTable('descripcioClasseCredits')"
+              >
                 {{ $t("subjectTable.type") }}
               </th>
-              <th scope="col" class="px-6 py-1 w-1/10">
+              <th
+                scope="col"
+                class="px-6 py-1 w-1/10 cursor-pointer"
+                @click="sortTable('numCredits')"
+              >
                 {{ $t("subjectTable.credits") }}
               </th>
-              <th scope="col" class="px-6 py-1 w-1/10">
+              <th
+                scope="col"
+                class="px-6 py-1 w-1/10 cursor-pointer"
+                @click="sortTable('ultAnyMatricula')"
+              >
                 {{ $t("subjectTable.semester") }}
               </th>
-              <th scope="col" class="px-1 py-1 w-1/10">
+              <th
+                scope="col"
+                class="px-6 py-1 w-1/10 cursor-pointer"
+                @click="sortTable('numConvocatoriesConsumides')"
+              >
                 {{ $t("subjectTable.convos") }}
               </th>
-              <th scope="col" class="px-6 py-1 w-1/10">
+              <th
+                scope="col"
+                class="px-6 py-1 w-1/10 cursor-pointer"
+                @click="sortTable('descripcioQualificacioQualitativaFinal')"
+              >
                 {{ $t("subjectTable.grade") }}
               </th>
-              <th scope="col" class="px-6 py-1 w-1/10">
+              <th
+                scope="col"
+                class="px-6 py-1 w-1/10 cursor-pointer"
+                @click="sortTable('qualificacioQuantitativaFinal')"
+              >
                 {{ $t("subjectTable.finalGrade") }}
               </th>
               <th scope="col" class="px-6 py-1 w-1/10">

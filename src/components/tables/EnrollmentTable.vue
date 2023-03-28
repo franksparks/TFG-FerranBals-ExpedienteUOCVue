@@ -5,20 +5,20 @@
         class="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
       >
         <tr>
-          <th class="py-1" @click="sortTable('descAnyAcademic')">
+          <th class="py-1 cursor-pointer" @click="sortTable('descAnyAcademic')">
             {{ $t("enrollment.semester") }}
           </th>
-          <th class="py-1" @click="sortTable('dataMatricula')">
+          <th class="py-1 cursor-pointer" @click="sortTable('dataMatricula')">
             {{ $t("enrollment.date") }}
           </th>
-          <th class="py-1" @click="sortTable('importMatricula')">
+          <th class="py-1 cursor-pointer" @click="sortTable('importMatricula')">
             {{ $t("enrollment.amount") }}
           </th>
         </tr>
       </thead>
       <tbody class="text-base justify-center">
         <tr
-          v-for="enrollment in enrollments"
+          v-for="enrollment in sortedEnrollments"
           :key="enrollment"
           class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
         >
@@ -50,7 +50,12 @@ export default {
 </script>
 
 <script setup>
-import { computed } from "vue";
+import { computed, ref } from "vue";
+const sortedEnrollments = ref(props.enrollments);
+
+const props = defineProps({
+  enrollments: Object,
+});
 
 const total = computed(() => {
   let sum = 0;
@@ -60,9 +65,17 @@ const total = computed(() => {
   return sum;
 });
 
-const props = defineProps({
-  enrollments: Object,
-});
+let sortOrder = 1;
+
+function sortTable(column) {
+  sortedEnrollments.value = [...sortedEnrollments.value].sort((a, b) => {
+    if (a.P[column] < b.P[column]) return -1 * sortOrder;
+    if (a.P[column] > b.P[column]) return 1 * sortOrder;
+    return 0;
+  });
+  sortOrder *= -1;
+}
+
 function formatDate(unixDate) {
   const date = new Date(+unixDate);
   const day = date.getDate();
