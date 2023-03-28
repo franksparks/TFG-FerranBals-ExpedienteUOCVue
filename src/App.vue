@@ -18,7 +18,7 @@
         :virtualTestRequests="virtualTestRequests"
         :certificates="certificates"
         :AEPRequests="AEPRequests"
-        :text="text"
+        :enrollments="enrollments"
       />
     </div>
   </div>
@@ -61,7 +61,7 @@ const eees = ref([]);
 const completeFile = ref({});
 const certificates = ref([]);
 
-const text = "alice";
+const text = ref("alice");
 
 // Element type constants
 const TRAMITE_ACADEMICO = "pHnAg5M_UV2eNft6JYjLM6wGvWM=";
@@ -77,8 +77,10 @@ const EXPEDIENTE_COMPLETO = "RHcWxB19zK9mb9$lOHQm8SO7ofs=";
 const INFORMACION_EXPEDIENTE = "sSIxO6pqzrwLhLd3PZFzpndhF1A=";
 const CERTIFICADOS_DOCUMENTOS_ACADEMICOS = "XGhl$81QmbUgS9EZJqobgd248iU=";
 
+const enrollments = ref({});
+
 onMounted(async () => {
-  getFile(text);
+  getFile(text.value);
 });
 
 function resetFile() {
@@ -164,6 +166,18 @@ function processFile() {
   fileInfo.value = fileInfo.value.P;
 }
 
+function getEnrollments(text) {
+  console.log("GET Request de las matriculas de: " + text);
+  axios
+    .get(
+      "https://tfg-ferran-bals-expediente-api.vercel.app/enrollments/" + text
+    )
+    .then((response) => {
+      enrollments.value = response.data.data.O;
+    })
+    .catch((error) => console.error(error));
+}
+
 async function getFile(text) {
   try {
     console.log("GET Request del expediente de: " + text);
@@ -174,6 +188,7 @@ async function getFile(text) {
     resetFile();
 
     processFile(elements.value);
+    getEnrollments(text);
   } catch (error) {
     console.error(error);
   }

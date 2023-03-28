@@ -34,11 +34,11 @@
   <div class="py-3">
     <p class="text-center">
       <span class="font-bold">{{ $t("enrollment.amount") }}:</span>
-      {{ total }} €
+      {{ props.enrollments }} €
     </p>
     <p class="text-center">
       <span class="font-bold"> {{ $t("enrollment.averageAmount") }}: </span
-      >{{ (total / enrollments.length).toFixed(2) }} €
+      >{{ (100 / enrollments.length).toFixed(2) }} €
     </p>
   </div>
 </template>
@@ -50,11 +50,9 @@ export default {
 </script>
 
 <script setup>
-import axios from "axios";
-import { onMounted, ref } from "vue";
-
-const total = ref(0);
-const enrollments = ref([]);
+const props = defineProps({
+  enrollments: Object,
+});
 
 function formatDate(unixDate) {
   const date = new Date(+unixDate);
@@ -63,28 +61,4 @@ function formatDate(unixDate) {
   const year = date.getFullYear();
   return `${day}/${month}/${year}`;
 }
-
-function calculateTotal(importMatricula) {
-  total.value += importMatricula;
-}
-
-onMounted(() => {
-  console.log("GET Request de las matriculas de: " + props.text);
-  axios
-    .get(
-      "https://tfg-ferran-bals-expediente-api.vercel.app/enrollments/" +
-        props.text
-    )
-    .then((response) => {
-      enrollments.value = response.data.data.O;
-      enrollments.value.forEach((enrollment) =>
-        calculateTotal(enrollment.P.importMatricula)
-      );
-    })
-    .catch((error) => console.error(error));
-});
-
-const props = defineProps({
-  text: String,
-});
 </script>
