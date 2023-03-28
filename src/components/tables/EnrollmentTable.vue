@@ -34,7 +34,7 @@
   <div class="py-3">
     <p class="text-center">
       <span class="font-bold">{{ $t("enrollment.amount") }}:</span>
-      {{ total }} €
+      {{ total.toFixed(2) }} €
     </p>
     <p class="text-center">
       <span class="font-bold"> {{ $t("enrollment.averageAmount") }}: </span
@@ -50,17 +50,14 @@ export default {
 </script>
 
 <script setup>
-import { onMounted, ref } from "vue";
-const total = ref(0);
+import { computed } from "vue";
 
-onMounted(() => {
-  console.log("mounted");
-  total.value = 0;
-
-  //TODO - Debería ser una propiedad computada
+const total = computed(() => {
+  let sum = 0;
   for (let i = 0; i < props.enrollments.length; i++) {
-    total.value += props.enrollments[i].P.importMatricula;
+    sum += props.enrollments[i].P.importMatricula;
   }
+  return sum;
 });
 
 const props = defineProps({

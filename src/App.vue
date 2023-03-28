@@ -166,9 +166,9 @@ function processFile() {
   fileInfo.value = fileInfo.value.P;
 }
 
-function getEnrollments(text) {
+async function getEnrollments(text) {
   console.log("GET Request de las matriculas de: " + text);
-  axios
+  await axios
     .get(
       "https://tfg-ferran-bals-expediente-api.vercel.app/enrollments/" + text
     )
