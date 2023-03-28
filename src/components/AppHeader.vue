@@ -21,7 +21,7 @@
             class="pr-4 float-right text-gray-800 rounded align-right"
           >
             <option value="alice">Alice</option>
-            <option value="alice - minor -">Minor Alice</option>
+            <option value="minor">Minor Alice</option>
             <option value="bob">Bob</option>
           </select>
 
