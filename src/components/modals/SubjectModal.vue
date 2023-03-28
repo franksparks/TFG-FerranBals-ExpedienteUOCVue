@@ -93,7 +93,7 @@ watchEffect(() => {
       "GET Request de la asignatura: " + props.subjectInformation.descripcio
     );
     axios
-      .get("http://localhost:3000/subject/", {
+      .get("https://tfg-ferran-bals-expediente-api.vercel.app/subject/", {
         params: { codAsignatura: props.subjectInformation.codi },
       })
       .then((response) => {
