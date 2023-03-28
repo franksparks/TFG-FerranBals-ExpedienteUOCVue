@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="fixed z-10 inset-0 overflow-y-auto"
-    id="modal"
-    @keydown.esc="closeModal"
-  >
+  <div class="fixed z-10 inset-0 overflow-y-auto" id="modal">
     <div class="fixed z-10 inset-0 overflow-y-auto" id="modal">
       <div
         class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
@@ -65,9 +61,22 @@ export default {
 
 <script setup>
 import axios from "axios";
-import { ref, watchEffect } from "vue";
+import { ref, watchEffect, onMounted, onUnmounted } from "vue";
 import AccreditedSubject from "@/components/tables/subjects/AccreditedSubject.vue";
 import TakenSubject from "@/components/tables/subjects/TakenSubject.vue";
+
+onMounted(() => {
+  const handleEscape = (event) => {
+    if (event.key === "Escape") {
+      emit("close-modal");
+    }
+  };
+  window.addEventListener("keyup", handleEscape);
+
+  onUnmounted(() => {
+    window.removeEventListener("keyup", handleEscape);
+  });
+});
 
 const props = defineProps({
   subjectInformation: Object,
