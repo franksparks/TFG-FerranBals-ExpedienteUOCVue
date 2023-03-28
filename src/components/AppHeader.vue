@@ -17,12 +17,12 @@
           <select
             v-model="file"
             @change="refreshFile(file)"
-            value="ferran"
+            value="alice"
             class="pr-4 float-right text-gray-800 rounded align-right"
           >
-            <option value="ferran">Ferran</option>
-            <option value="carlos">Carlos</option>
-            <option value="minor">Minor Ferran</option>
+            <option value="alice">Alice</option>
+            <option value="alice - minor -">Minor Alice</option>
+            <option value="bob">Bob</option>
           </select>
 
           <select
@@ -59,7 +59,7 @@ defineProps({
 
 const emit = defineEmits(["refresh-file"]);
 
-const file = ref("ferran");
+const file = ref("alice");
 
 function refreshFile(file) {
   emit("refresh-file", file);
