@@ -34,11 +34,11 @@
   <div class="py-3">
     <p class="text-center">
       <span class="font-bold">{{ $t("enrollment.amount") }}:</span>
-      {{ props.enrollments }} €
+      {{ total }} €
     </p>
     <p class="text-center">
       <span class="font-bold"> {{ $t("enrollment.averageAmount") }}: </span
-      >{{ (100 / enrollments.length).toFixed(2) }} €
+      >{{ (total / enrollments.length).toFixed(2) }} €
     </p>
   </div>
 </template>
@@ -50,10 +50,22 @@ export default {
 </script>
 
 <script setup>
+import { onMounted, ref } from "vue";
+const total = ref(0);
+
+onMounted(() => {
+  console.log("mounted");
+  total.value = 0;
+
+  //TODO - Debería ser una propiedad computada
+  for (let i = 0; i < props.enrollments.length; i++) {
+    total.value += props.enrollments[i].P.importMatricula;
+  }
+});
+
 const props = defineProps({
   enrollments: Object,
 });
-
 function formatDate(unixDate) {
   const date = new Date(+unixDate);
   const day = date.getDate();
