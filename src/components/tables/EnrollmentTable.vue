@@ -69,9 +69,12 @@ function calculateTotal(importMatricula) {
 }
 
 onMounted(() => {
-  console.log("GET Request de las matriculas");
+  console.log("GET Request de las matriculas de: " + props.text);
   axios
-    .get("https://tfg-ferran-bals-expediente-api.vercel.app/enrollments")
+    .get(
+      "https://tfg-ferran-bals-expediente-api.vercel.app/enrollments/" +
+        props.text
+    )
     .then((response) => {
       enrollments.value = response.data.data.O;
       enrollments.value.forEach((enrollment) =>
@@ -79,5 +82,9 @@ onMounted(() => {
       );
     })
     .catch((error) => console.error(error));
+});
+
+const props = defineProps({
+  text: String,
 });
 </script>

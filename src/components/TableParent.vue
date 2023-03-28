@@ -42,7 +42,7 @@
 
       <!-- SECOND TAB -->
       <!-- Enrollments Table -->
-      <EnrollmentTable v-if="tab === 'payments'" />
+      <EnrollmentTable v-if="tab === 'payments'" :text="text" />
       <!-- SECOND TAB END -->
 
       <!-- THIRD TAB -->
@@ -95,5 +95,6 @@ defineProps({
   virtualTestRequests: Object,
   certificates: Object,
   AEPRequests: Object,
+  text: String,
 });
 </script>
