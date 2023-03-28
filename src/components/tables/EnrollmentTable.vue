@@ -5,9 +5,15 @@
         class="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
       >
         <tr>
-          <th class="py-1">{{ $t("enrollment.semester") }}</th>
-          <th class="py-1">{{ $t("enrollment.date") }}</th>
-          <th class="py-1">{{ $t("enrollment.amount") }}</th>
+          <th class="py-1" @click="sortTable('descAnyAcademic')">
+            {{ $t("enrollment.semester") }}
+          </th>
+          <th class="py-1" @click="sortTable('dataMatricula')">
+            {{ $t("enrollment.date") }}
+          </th>
+          <th class="py-1" @click="sortTable('importMatricula')">
+            {{ $t("enrollment.amount") }}
+          </th>
         </tr>
       </thead>
       <tbody class="text-base justify-center">

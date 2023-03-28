@@ -30,9 +30,9 @@ import TableParent from "./components/TableParent.vue";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
-const port = 3000;
+//const port = 3000;
 
-const BASE_URL = "http://localhost:" + port; // base URL for the GET requests
+const BASE_URL = "https://api-test-git-main-franksparks.vercel.app"; // base URL for the GET requests
 
 // Reactive variables
 
@@ -77,8 +77,6 @@ const INFORMACION_EXPEDIENTE = "sSIxO6pqzrwLhLd3PZFzpndhF1A=";
 const CERTIFICADOS_DOCUMENTOS_ACADEMICOS = "XGhl$81QmbUgS9EZJqobgd248iU=";
 
 onMounted(async () => {
-  console.log("El puerto es: " + port);
-
   getFile(text);
 });
 
