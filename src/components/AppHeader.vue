@@ -57,11 +57,12 @@ defineProps({
   degreeType: String,
 });
 
-const emit = defineEmits(["refresh-file"]);
+const emit = defineEmits(["refresh-file", "refresh-enrollment"]);
 
 const file = ref("alice");
 
 function refreshFile(file) {
   emit("refresh-file", file);
+  emit("refresh-enrollment", file);
 }
 </script>

@@ -1,7 +1,11 @@
 <template>
   <div class="container mx-auto px-50">
     <div class="px-9 pt-3">
-      <AppHeader :degreeType="degreeType" @refresh-file="getFile" />
+      <AppHeader
+        :degreeType="degreeType"
+        @refresh-file="getFile"
+        @refresh-enrollment="getEnrollment"
+      />
 
       <br />
       <DataParent
@@ -79,6 +83,10 @@ const CERTIFICADOS_DOCUMENTOS_ACADEMICOS = "XGhl$81QmbUgS9EZJqobgd248iU=";
 onMounted(async () => {
   getFile(text);
 });
+
+function getEnrollment() {
+  console.log("Update enrollments");
+}
 
 function resetFile() {
   procedure.value = [];
