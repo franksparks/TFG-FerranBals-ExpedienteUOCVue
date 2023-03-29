@@ -16,7 +16,7 @@
           </p>
           <select
             v-model="file"
-            @change="print(file)"
+            @change="print"
             class="pr-4 float-right text-gray-800 rounded align-right"
           >
             <option value="alice">Alice</option>
