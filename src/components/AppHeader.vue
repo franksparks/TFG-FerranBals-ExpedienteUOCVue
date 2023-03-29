@@ -51,18 +51,16 @@ export default {
 </script>
 
 <script setup>
-const props = defineProps({
+import { ref } from "vue";
+defineProps({
   degreeType: String,
-  text: String,
 });
 
 const emit = defineEmits(["refresh-file"]);
 
-// eslint-disable-next-line vue/no-setup-props-destructure
-const file = props.text;
+const file = ref("alice");
 
 function refreshFile(file) {
-  console.log("PROPS: " + props.text);
   emit("refresh-file", file);
 }
 </script>
