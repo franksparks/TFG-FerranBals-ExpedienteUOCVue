@@ -23,11 +23,7 @@
 
   <div class="container mx-auto px-50" v-if="!isLoading">
     <div class="px-9 pt-3">
-      <AppHeader
-        :degreeType="degreeType"
-        :selectedFile="selectedFile"
-        @refresh-file="getFile"
-      />
+      <AppHeader :degreeType="degreeType" @refresh-file="getFile" />
 
       <br />
       <DataParent
@@ -87,7 +83,7 @@ const eees = ref([]);
 const completeFile = ref({});
 const certificates = ref([]);
 
-const selectedFile = ref("alice");
+const text = ref("alice");
 
 // Element type constants
 const TRAMITE_ACADEMICO = "pHnAg5M_UV2eNft6JYjLM6wGvWM=";
@@ -107,7 +103,7 @@ const enrollments = ref({});
 const isLoading = ref(false);
 
 onMounted(async () => {
-  getFile(selectedFile.value);
+  getFile(text.value);
 });
 
 function resetFile() {
@@ -208,7 +204,6 @@ async function getEnrollments(text) {
 
 async function getFile(text) {
   console.log("GET file of: " + text);
-  selectedFile.value = text;
   try {
     isLoading.value = true;
 
