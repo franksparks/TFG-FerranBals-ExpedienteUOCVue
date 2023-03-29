@@ -23,7 +23,11 @@
 
   <div class="container mx-auto px-50" v-if="!isLoading">
     <div class="px-9 pt-3">
-      <AppHeader :degreeType="degreeType" @refresh-file="getFile" />
+      <AppHeader
+        :degreeType="degreeType"
+        :selectedFile="selectedFile"
+        @refresh-file="getFile"
+      />
 
       <br />
       <DataParent
@@ -52,26 +56,19 @@ import DataParent from "./components/DataParent.vue";
 import TableParent from "./components/TableParent.vue";
 import axios from "axios";
 import { onMounted, ref } from "vue";
-
 //const port = 3000;
-
 const BASE_URL = "https://tfg-ferran-bals-expediente-api.vercel.app"; // base URL for the GET requests
-
 // Reactive variables
-
 //Checked variables
 let elements = [];
-
 const credits = ref({});
 const degreeType = ref("");
 const accessType = ref("");
 const fileInfo = ref({});
 const itineraryRequests = ref([]);
 const virtualTestRequests = ref([]);
-
 const studentData = ref({});
 const tutorData = ref({});
-
 //Not checked variables
 const procedure = ref([]);
 const AEPRequests = ref([]);
@@ -82,9 +79,7 @@ const aep = ref([]);
 const eees = ref([]);
 const completeFile = ref({});
 const certificates = ref([]);
-
-const text = ref("alice");
-
+const selectedFile = ref("alice");
 // Element type constants
 const TRAMITE_ACADEMICO = "pHnAg5M_UV2eNft6JYjLM6wGvWM=";
 const INSTANCIA_AEP = "zgufyJB2ytYUEauhIrcVTwsXfLE=";
@@ -98,14 +93,11 @@ const ESPACIO_EUROPEO_EDUCACION_SUPERIOR = "eO2Chrn3K53ySuNj82jHgm9Qo_E=";
 const EXPEDIENTE_COMPLETO = "RHcWxB19zK9mb9$lOHQm8SO7ofs=";
 const INFORMACION_EXPEDIENTE = "sSIxO6pqzrwLhLd3PZFzpndhF1A=";
 const CERTIFICADOS_DOCUMENTOS_ACADEMICOS = "XGhl$81QmbUgS9EZJqobgd248iU=";
-
 const enrollments = ref({});
 const isLoading = ref(false);
-
 onMounted(async () => {
-  getFile(text.value);
+  getFile(selectedFile.value);
 });
-
 function resetFile() {
   procedure.value = [];
   AEPRequests.value = [];
@@ -120,16 +112,12 @@ function resetFile() {
   fileInfo.value = {};
   certificates.value = [];
 }
-
 function processFile() {
   console.log("Reiniciando variables");
   resetFile();
-
   console.log("Procesando el expediente");
-
   for (const elem of elements) {
     const elementType = elem.T;
-
     switch (elementType) {
       case TRAMITE_ACADEMICO: //Trámite académico
         certificates.value.push(elem.P);
@@ -172,7 +160,6 @@ function processFile() {
         break;
     }
   }
-
   //Student information
   for (const person of people) {
     if (person.Y == fileInfo.value.P.tercer.Y) {
@@ -183,12 +170,10 @@ function processFile() {
       tutorData.value = person.P;
     }
   }
-
   degreeType.value = completeFile.value.descPlan;
   accessType.value = completeFile.value.descOpcioAcces;
   fileInfo.value = fileInfo.value.P;
 }
-
 async function getEnrollments(text) {
   console.log("GET ENROLLMENTS");
   console.log("GET Request de las matriculas de: " + text);
@@ -201,17 +186,14 @@ async function getEnrollments(text) {
     })
     .catch((error) => console.error(error));
 }
-
 async function getFile(text) {
   console.log("GET file of: " + text);
+  selectedFile.value = text;
   try {
     isLoading.value = true;
-
     console.log("GET Request del expediente de: " + text);
     const response = await axios.get(`${BASE_URL}/file/${text}`);
-
     elements = response.data.data.O;
-
     processFile(elements.value);
     getEnrollments(text);
     isLoading.value = false;
