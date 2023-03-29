@@ -51,7 +51,7 @@ export default {
 </script>
 
 <script setup>
-import { onMounted, toRefs } from "vue";
+import { onMounted, toRefs, ref } from "vue";
 const props = defineProps({
   degreeType: String,
   selectedFile: String,
@@ -63,13 +63,10 @@ onMounted(() => {
 
 const { selectedFile } = toRefs(props);
 
-const file = selectedFile.value;
+const file = ref(selectedFile.value);
 
 const emit = defineEmits(["refresh-file"]);
 
-function print(text) {
-  console.log("FILE SELECTED: " + text.value);
-}
 function refreshFile(file) {
   console.log("FILE SELECTED: " + file);
   emit("refresh-file", file);
