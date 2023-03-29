@@ -51,14 +51,10 @@ export default {
 </script>
 
 <script setup>
-import { onMounted, toRefs, ref } from "vue";
+import { toRefs, ref } from "vue";
 const props = defineProps({
   degreeType: String,
   selectedFile: String,
-});
-
-onMounted(() => {
-  console.log("APPHEADER - selectedFile: " + selectedFile.value);
 });
 
 const { selectedFile } = toRefs(props);
@@ -68,7 +64,6 @@ const file = ref(selectedFile.value);
 const emit = defineEmits(["refresh-file"]);
 
 function refreshFile(file) {
-  console.log("FILE SELECTED: " + file);
   emit("refresh-file", file);
 }
 </script>
