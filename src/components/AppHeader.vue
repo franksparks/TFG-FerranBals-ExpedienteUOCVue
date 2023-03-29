@@ -17,7 +17,6 @@
           <select
             v-model="file"
             @change="refreshFile(file)"
-            value="alice"
             class="pr-4 float-right text-gray-800 rounded align-right"
           >
             <option value="alice">Alice</option>
@@ -52,16 +51,18 @@ export default {
 </script>
 
 <script setup>
-import { ref } from "vue";
-defineProps({
+const props = defineProps({
   degreeType: String,
+  text: String,
 });
 
 const emit = defineEmits(["refresh-file"]);
 
-const file = ref("alice");
+// eslint-disable-next-line vue/no-setup-props-destructure
+const file = props.text;
 
 function refreshFile(file) {
+  console.log("PROPS: " + props.text);
   emit("refresh-file", file);
 }
 </script>
