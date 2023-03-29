@@ -16,7 +16,7 @@
           </p>
           <select
             v-model="file"
-            @change="print(file)"
+            @change="refreshFile(file)"
             class="pr-4 float-right text-gray-800 rounded align-right"
           >
             <option value="alice">Alice</option>
@@ -68,7 +68,7 @@ const file = selectedFile.value;
 const emit = defineEmits(["refresh-file"]);
 
 function print(text) {
-  console.log("FILE SELECTED: " + text);
+  console.log("FILE SELECTED: " + text.value);
 }
 function refreshFile(file) {
   console.log("FILE SELECTED: " + file);
