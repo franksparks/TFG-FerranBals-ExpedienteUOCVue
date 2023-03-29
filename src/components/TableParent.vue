@@ -35,7 +35,10 @@
     <div class="3">
       <!-- FIRST TAB -->
       <!-- Credits Table -->
-      <CreditsTable v-if="tab === 'subject'" :credits="credits" />
+      <CreditsTable
+        v-if="tab === 'subject' && text != 'minor'"
+        :credits="credits"
+      />
       <!-- Subject Table -->
       <SubjectTable v-if="tab === 'subject'" :subjects="subjects" />
       <!-- FIRST TAB END -->
@@ -96,5 +99,6 @@ defineProps({
   certificates: Object,
   AEPRequests: Object,
   enrollments: Object,
+  text: String,
 });
 </script>

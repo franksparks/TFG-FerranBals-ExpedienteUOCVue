@@ -9,7 +9,7 @@
         </div>
         <StudentData :studentData="studentData" class="text-left mx-20" />
       </div>
-      <div class="px-10">
+      <div class="px-10" v-if="tutorData.nom != null">
         <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-400">
           {{ $t("data.tutor") }}
         </p>

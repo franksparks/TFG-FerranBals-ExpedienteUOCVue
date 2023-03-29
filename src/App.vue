@@ -45,6 +45,7 @@
         :certificates="certificates"
         :AEPRequests="AEPRequests"
         :enrollments="enrollments"
+        :text="text"
       />
     </div>
   </div>
