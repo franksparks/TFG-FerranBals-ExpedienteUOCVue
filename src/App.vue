@@ -23,7 +23,11 @@
 
   <div class="container mx-auto px-50" v-if="!isLoading">
     <div class="px-9 pt-3">
-      <AppHeader :degreeType="degreeType" @refresh-file="getFile" />
+      <AppHeader
+        :degreeType="degreeType"
+        :selectedFile="selectedFile"
+        @refresh-file="getFile"
+      />
 
       <br />
       <DataParent
@@ -41,7 +45,6 @@
         :certificates="certificates"
         :AEPRequests="AEPRequests"
         :enrollments="enrollments"
-        :text="text"
       />
     </div>
   </div>
@@ -84,7 +87,7 @@ const eees = ref([]);
 const completeFile = ref({});
 const certificates = ref([]);
 
-const text = ref("alice");
+const selectedFile = ref("alice");
 
 // Element type constants
 const TRAMITE_ACADEMICO = "pHnAg5M_UV2eNft6JYjLM6wGvWM=";
@@ -104,7 +107,7 @@ const enrollments = ref({});
 const isLoading = ref(false);
 
 onMounted(async () => {
-  getFile(text.value);
+  getFile(selectedFile.value);
 });
 
 function resetFile() {
@@ -205,6 +208,7 @@ async function getEnrollments(text) {
 
 async function getFile(text) {
   console.log("GET file of: " + text);
+  selectedFile.value = text;
   try {
     isLoading.value = true;
 
@@ -212,8 +216,6 @@ async function getFile(text) {
     const response = await axios.get(`${BASE_URL}/file/${text}`);
 
     elements = response.data.data.O;
-
-    resetFile();
 
     processFile(elements.value);
     getEnrollments(text);

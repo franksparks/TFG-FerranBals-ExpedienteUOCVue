@@ -51,14 +51,17 @@ export default {
 </script>
 
 <script setup>
-import { ref } from "vue";
-defineProps({
+import { toRefs } from "vue";
+const props = defineProps({
   degreeType: String,
+  selectedFile: String,
 });
 
-const emit = defineEmits(["refresh-file"]);
+const { degreeType, selectedFile } = toRefs(props);
 
-const file = ref("alice");
+const file = selectedFile.value;
+
+const emit = defineEmits(["refresh-file"]);
 
 function refreshFile(file) {
   emit("refresh-file", file);
