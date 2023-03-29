@@ -51,10 +51,14 @@ export default {
 </script>
 
 <script setup>
-import { toRefs } from "vue";
+import { onMounted, toRefs } from "vue";
 const props = defineProps({
   degreeType: String,
   selectedFile: String,
+});
+
+onMounted(() => {
+  console.log("APPHEADER - selectedFile: " + selectedFile.value);
 });
 
 const { degreeType, selectedFile } = toRefs(props);

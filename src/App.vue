@@ -220,6 +220,7 @@ async function getFile(text) {
     processFile(elements.value);
     getEnrollments(text);
     isLoading.value = false;
+    console.log("APP - selectedFile: " + selectedFile.value);
   } catch (error) {
     console.error(error);
   }
