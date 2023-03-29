@@ -36,7 +36,7 @@
       <!-- FIRST TAB -->
       <!-- Credits Table -->
       <CreditsTable
-        v-if="tab === 'subject' && text != 'minor'"
+        v-if="tab === 'subject' && credits.numCreditsObligatoriSuperat != null"
         :credits="credits"
       />
       <!-- Subject Table -->
