@@ -68,7 +68,7 @@ const file = selectedFile.value;
 const emit = defineEmits(["refresh-file"]);
 
 function print(text) {
-  console.log("FILE SELECTED: " + text);
+  console.log("FILE SELECTED: " + text.value);
 }
 function refreshFile(file) {
   console.log("FILE SELECTED: " + file);
