@@ -1,5 +1,6 @@
 <template>
   <div class="pt-10">
+    <p>Resumen de créditos</p>
     <table class="text-sm text-left text-gray-500 dark:text-gray-400">
       <thead
         class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
@@ -62,6 +63,14 @@
       </tbody>
     </table>
   </div>
+  <div>
+    <p>Gráfico del progreso</p>
+    <DoughnutChart
+      :chart-data="data"
+      :options="options"
+      css-classes="chart-container"
+    />
+  </div>
 </template>
 
 <script>
@@ -69,8 +78,49 @@ export default {
   name: "CreditsTable",
 };
 </script>
+
 <script setup>
-defineProps({
+import { ref, computed } from "vue";
+import { DoughnutChart } from "vue-chart-3";
+import { Chart, DoughnutController, ArcElement } from "chart.js";
+
+const props = defineProps({
   credits: Object,
+});
+
+Chart.register(DoughnutController, ArcElement);
+const dataValues = ref([
+  props.credits.numCreditsTroncalSuperat,
+  props.credits.numCreditsTroncalSuperat -
+    props.credits.numCreditsTroncalObjectiu,
+  props.credits.numCreditsObligatoriSuperat,
+  props.credits.numCreditsObligatoriObjectiu -
+    props.credits.numCreditsObligatoriSuperat,
+  props.credits.numCreditsOptatiuSuperat,
+  props.credits.numCreditsOptatiuObjectiu -
+    props.credits.numCreditsOptatiuSuperat,
+]);
+const data = computed(() => ({
+  labels: ["Foo", "Bar", "Baz"],
+  datasets: [
+    {
+      data: dataValues.value,
+      backgroundColor: [
+        "#008000",
+        "#FFFFFF",
+        "#FF0000",
+        "#FFFFFF",
+        "#800080",
+        "#FFFFFF",
+      ],
+    },
+  ],
+}));
+const options = ref({
+  plugins: {
+    title: {
+      text: "Doughnut",
+    },
+  },
 });
 </script>
