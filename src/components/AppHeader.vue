@@ -1,10 +1,8 @@
 <template>
   <div id="header">
     <!-- LOGO UOC -->
-
     <div class="md:cols-3">
       <div class="md:w-1/3">
-        <!-- TODO: Link only on image, not on while a element-->
         <a href="https://www.uoc.edu/" target="_blank">
           <img
             class="rounded w-full"

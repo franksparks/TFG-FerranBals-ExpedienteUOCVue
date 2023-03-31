@@ -1,53 +1,68 @@
 <template>
-  <div>
-    <div class="text-center py-2">
-      <!-- TODO: Add a way to collapse this section -->
-      <p class="tablinks py-1 rounded text-white bg-blue-900 text-xl">
-        {{ $t("mainFileInfo.main") }}
-      </p>
-    </div>
+  <div class="text-center py-2">
+    <p
+      class="tablinks py-1 rounded text-white bg-blue-900 text-xl"
+      @click.prevent="toggleSection"
+    >
+      <img
+        v-if="collapse"
+        src="plusIconWhite.png"
+        class="float-left m-1 rounded-full"
+      />
+      <img
+        v-if="!collapse"
+        src="minusIconWhite.png"
+        class="float-left m-1 rounded-full"
+      />
 
+      {{ $t("mainFileInfo.main") }}
+    </p>
+  </div>
+  <div class="md:columns-2">
+    <!--Info alumno-->
     <p>
       <span class="font-bold">{{ $t("mainFileInfo.student") }}: </span>
       {{ studentFullName }}
     </p>
+    <!--Info tutor-->
+    <div v-if="tutorData.nom != null">
+      <p>
+        <span class="float-left font-bold"
+          >{{ $t("mainFileInfo.teacher") }}: </span
+        ><span class="float-left">{{ tutorFullName }}</span>
+        <a
+          class="m-1"
+          :href="
+            'mailto:' + tutorMail + '?Subject=Expediente de: ' + studentFullName
+          "
+          target="_blank"
+          ><img class="float-left m-1" src="mail.png"
+        /></a>
+      </p>
+    </div>
   </div>
-  <div v-if="tutorData.nom != null">
+  <div v-if="!collapse" class="md:columns-2">
+    <!--Núm expediente-->
     <p>
-      <span class="font-bold">{{ $t("mainFileInfo.teacher") }}: </span>
-      {{ tutorFullName }}
+      <span class="font-bold">{{ $t("mainFileInfo.fileNumber") }}: </span
+      >{{ fileInfo.numExpedient }}
     </p>
-
-    <!-- TODO: ALINEAR ICONO CON TEXTO DE TUTOR -->
+    <!--Nota media actual-->
     <p>
-      <span class="font-bold">{{ $t("mainFileInfo.contact") }}:</span>
-      <a
-        :href="
-          'mailto:' + tutorMail + '?Subject=Expediente de: ' + studentFullName
-        "
-        target="_blank"
-      >
-        <img class="rounded" src="/mail.png" title="" alt="" />
-      </a>
+      <span class="font-bold">{{ $t("mainFileInfo.averageGrade") }}:</span>
+      {{ fileInfo.notaMitjana }}
+    </p>
+    <!--Acceso-->
+    <p>
+      <span class="font-bold">{{ $t("mainFileInfo.access") }}: </span
+      >{{ accessType }}
+    </p>
+    <!--Estado expediente-->
+    <p>
+      <span class="font-bold">{{ $t("mainFileInfo.status") }}:</span>
+      {{ fileInfo.descEstatExpedient }}
     </p>
   </div>
-
-  <p>
-    <span class="font-bold">{{ $t("mainFileInfo.fileNumber") }}: </span
-    >{{ fileInfo.numExpedient }}
-  </p>
-  <p>
-    <span class="font-bold">{{ $t("mainFileInfo.averageGrade") }}:</span>
-    {{ fileInfo.notaMitjana }}
-  </p>
-  <p>
-    <span class="font-bold">{{ $t("mainFileInfo.access") }}: </span
-    >{{ accessType }}
-  </p>
-  <p>
-    <span class="font-bold">{{ $t("mainFileInfo.status") }}:</span>
-    {{ fileInfo.descEstatExpedient }}
-  </p>
 </template>
 
 <script>
@@ -56,7 +71,7 @@ export default {
 };
 </script>
 <script setup>
-import { computed } from "vue";
+import { ref, computed } from "vue";
 
 const props = defineProps({
   studentData: Object,
@@ -64,6 +79,11 @@ const props = defineProps({
   fileInfo: Object,
   accessType: String,
 });
+const collapse = ref(true);
+
+function toggleSection() {
+  collapse.value = !collapse.value;
+}
 
 const studentFullName = computed(() => {
   return `${props.studentData.nom} ${props.studentData.primerCognom} ${props.studentData.segonCognom}`;
