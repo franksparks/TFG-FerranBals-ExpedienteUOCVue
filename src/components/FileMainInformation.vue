@@ -36,7 +36,7 @@
             'mailto:' + tutorMail + '?Subject=Expediente de: ' + studentFullName
           "
           target="_blank"
-          ><img class="float-left m-1" src="mail.png"
+          ><img class="float-left m-1" src="/mail.png"
         /></a>
       </p>
     </div>
