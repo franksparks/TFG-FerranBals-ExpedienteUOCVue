@@ -6,12 +6,12 @@
     >
       <img
         v-if="collapse"
-        src="plusIconWhite.png"
+        src="/plusIconWhite.png"
         class="float-left m-1 rounded-full"
       />
       <img
         v-if="!collapse"
-        src="minusIconWhite.png"
+        src="/minusIconWhite.png"
         class="float-left m-1 rounded-full"
       />
 
