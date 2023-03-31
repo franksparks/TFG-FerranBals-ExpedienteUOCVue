@@ -29,6 +29,8 @@
     "requests": "Sol·licituds realitzades"
   },
   "credits": {
+    "mainTitle": "Resum de crèdits",
+    "pieTitle": "Gràfic del progrés",
     "basic": "Básiques",
     "main": "Obligatòries",
     "optative": "Optatives",

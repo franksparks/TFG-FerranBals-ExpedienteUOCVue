@@ -29,6 +29,8 @@
     "requests": "Requests made"
   },
   "credits": {
+    "mainTitle": "Credits summary",
+    "pieTitle": "Pie chart",
     "basic": "Basic",
     "main": "Mandatory",
     "optative": "Optative",

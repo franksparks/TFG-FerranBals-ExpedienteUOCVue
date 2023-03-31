@@ -29,6 +29,8 @@
     "requests": "Solicitudes realizadas"
   },
   "credits": {
+    "mainTitle": "Resumen de créditos",
+    "pieTitle": "Gráfico del progreso",
     "basic": "Básicas",
     "main": "Obligatorias",
     "optative": "Optativas",

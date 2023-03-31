@@ -1,6 +1,8 @@
 <template>
-  <div class="pt-10">
-    <p>Resumen de créditos</p>
+  <div class="pt-10 px-60">
+    <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-400">
+      {{ $t("credits.mainTitle") }}
+    </p>
     <table class="text-sm text-left text-gray-500 dark:text-gray-400">
       <thead
         class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
@@ -63,8 +65,11 @@
       </tbody>
     </table>
   </div>
-  <div>
-    <p>Gráfico del progreso</p>
+  <div class="pt-10 px-60">
+    <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-400">
+      {{ $t("credits.pieTitle") }}
+    </p>
+
     <DoughnutChart
       :chart-data="data"
       :options="options"

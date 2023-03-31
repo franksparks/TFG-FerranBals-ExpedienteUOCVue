@@ -99,6 +99,5 @@ defineProps({
   certificates: Object,
   AEPRequests: Object,
   enrollments: Object,
-  text: String,
 });
 </script>
