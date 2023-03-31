@@ -52,7 +52,7 @@
 
 <script>
 export default {
-  name: "DataParent",
+  name: "MainFileInformation",
 };
 </script>
 <script setup>
