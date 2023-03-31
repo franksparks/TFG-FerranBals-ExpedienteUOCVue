@@ -8,8 +8,8 @@
         <tr>
           <th class="text-center bg-gray-300 px-10"></th>
           <th class="text-center pt-1 px-10">{{ $t("credits.basic") }}</th>
-          <th class="text-center pt-1 px-10">{{ $t("credits.main") }}</th>
           <th class="text-center pt-1 px-10">{{ $t("credits.optative") }}</th>
+          <th class="text-center pt-1 px-10">{{ $t("credits.main") }}</th>
         </tr>
       </thead>
       <tbody class="justify-center">
@@ -83,12 +83,15 @@ export default {
 import { ref, computed } from "vue";
 import { DoughnutChart } from "vue-chart-3";
 import { Chart, DoughnutController, ArcElement } from "chart.js";
+import { useI18n } from "vue-i18n";
 
 const props = defineProps({
   credits: Object,
 });
+const { t } = useI18n();
 
 Chart.register(DoughnutController, ArcElement);
+
 const dataValues = ref([
   props.credits.numCreditsTroncalSuperat,
   props.credits.numCreditsTroncalSuperat -
@@ -100,26 +103,36 @@ const dataValues = ref([
   props.credits.numCreditsOptatiuObjectiu -
     props.credits.numCreditsOptatiuSuperat,
 ]);
+
 const data = computed(() => ({
-  labels: ["Foo", "Bar", "Baz"],
+  labels: [
+    t("credits.mainPassed"),
+    t("credits.mainPending"),
+    t("credits.basicPassed"),
+    t("credits.basicPending"),
+    t("credits.optativePassed"),
+    t("credits.optativePending"),
+  ],
   datasets: [
     {
       data: dataValues.value,
       backgroundColor: [
-        "#008000",
-        "#FFFFFF",
-        "#FF0000",
-        "#FFFFFF",
+        "#0000BB",
+        "#ADD8E6",
+        "#008a00",
+        "#00dc00",
         "#800080",
-        "#FFFFFF",
+        "#d3c2ed",
       ],
     },
   ],
 }));
+
 const options = ref({
   plugins: {
-    title: {
-      text: "Doughnut",
+    legend: {
+      display: true,
+      position: "top",
     },
   },
 });

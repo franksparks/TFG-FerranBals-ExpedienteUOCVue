@@ -34,7 +34,13 @@
     "optative": "Optative",
     "goal": "Goal",
     "passed": "Passed",
-    "pending": "Pending"
+    "pending": "Pending",
+    "basicPassed": "Basic approved",
+    "mainPassed": "Mandatory approved",
+    "optativePassed": "Optative approved",
+    "basicPending": "Basic pending",
+    "mainPending": "Mandatory pending",
+    "optativePending": "Optative pending"
   },
   "subjectTable": {
     "placeholder": "Search subject",

@@ -32,9 +32,15 @@
     "basic": "Básiques",
     "main": "Obligatòries",
     "optative": "Optatives",
-    "goal": "Objetiu",
+    "goal": "Objectiu",
     "passed": "Superades",
-    "pending": "Pendents"
+    "pending": "Pendents",
+    "basicPassed": "Básiques superades",
+    "mainPassed": "Obligatòries superades",
+    "optativePassed": "Optatives superades",
+    "basicPending": "Básiques pendents",
+    "mainPending": "Obligatòries pendents",
+    "optativePending": "Optatives pendents"
   },
   "subjectTable": {
     "placeholder": "Buscar assignatura",

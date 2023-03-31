@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import "./assets/tailwind.css";
 
+import "./plugins/chart";
 import i18n from "./includes/i18n";
 
 const app = createApp(App);

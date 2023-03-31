@@ -34,7 +34,13 @@
     "optative": "Optativas",
     "goal": "Objetivo",
     "passed": "Superadas",
-    "pending": "Pendientes"
+    "pending": "Pendientes",
+    "basicPassed": "Básicas superadas",
+    "mainPassed": "Obligatorias superadas",
+    "optativePassed": "Optativas superadas",
+    "basicPending": "Básicas pendientes",
+    "mainPending": "Obligatorias pendientes",
+    "optativePending": "Optativas pendientes"
   },
   "subjectTable": {
     "placeholder": "Buscar asignatura",
