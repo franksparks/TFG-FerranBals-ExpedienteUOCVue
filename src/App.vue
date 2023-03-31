@@ -21,22 +21,21 @@
     </div>
   </div>
 
-  <div class="container mx-auto px-50" v-if="!isLoading">
-    <div class="px-9 pt-3">
+  <div class="container mx-auto md:px-50" v-if="!isLoading">
+    <div class="p-1 md:px-9 md:pt-3">
       <AppHeader
         :degreeType="degreeType"
         :selectedFile="selectedFile"
         @refresh-file="getFile"
       />
 
-      <br />
       <DataParent
         :studentData="studentData"
         :tutorData="tutorData"
         :fileInfo="fileInfo"
         :accessType="accessType"
       />
-      <br />
+
       <TableParent
         :itineraryRequests="itineraryRequests"
         :credits="credits"

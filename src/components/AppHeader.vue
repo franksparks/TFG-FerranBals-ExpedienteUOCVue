@@ -1,47 +1,51 @@
 <template>
-  <div>
-    <div class="header">
-      <div class="columns-3">
-        <a href="https://www.uoc.edu/" target="_blank">
-          <img
-            class="rounded"
-            src="/0FF0108D4D41E43CCF1FBA356ABC5156.cache.gif"
-            title="Universitat Oberta de Catalunya"
-            alt="Universitat Oberta de Catalunya"
-          />
-        </a>
-        <div>
-          <p class="text-2xl text-center">
-            {{ $t("header.main") }}
-          </p>
-          <select
-            v-model="file"
-            @change="refreshFile(file)"
-            class="pr-4 float-right text-gray-800 rounded align-right"
-          >
-            <option value="alice">Alice</option>
-            <option value="minor">Minor Alice</option>
-            <option value="bob">Bob</option>
-          </select>
+  <div id="header">
+    <!-- LOGO UOC -->
+    <a href="https://www.uoc.edu/" target="_blank">
+      <img
+        class="rounded w-full md:w-1/3"
+        src="/0FF0108D4D41E43CCF1FBA356ABC5156.cache.gif"
+        title="Universitat Oberta de Catalunya"
+        alt="Universitat Oberta de Catalunya"
+      />
+    </a>
 
-          <select
-            v-model="$i18n.locale"
-            class="pr-4 float-right text-gray-800 rounded align-right"
-            value="es"
-          >
-            <option value="en">English</option>
-            <option value="es">Castellano</option>
-            <option value="cat">Català</option>
-          </select>
-        </div>
-      </div>
-      <div></div>
+    <!-- CONSULTA DE EXPEDIENTE -->
+    <p class="text-xl text-left font-bold md:text-3xl">
+      {{ $t("header.main") }}
+    </p>
 
-      <p class="text-indigo-800 text-xl">
-        {{ degreeType }}
-      </p>
-    </div>
+    <!-- DROPDOWN EXPEDIENTES -->
+    <select
+      v-model="file"
+      @change="refreshFile(file)"
+      class="text-gray-800 rounded md:float-right"
+    >
+      <option value="alice">Alice</option>
+      <option value="minor">Minor Alice</option>
+      <option value="bob">Bob</option>
+    </select>
+
+    <!-- DROPDOWN IDIOMAS -->
+    <select
+      v-model="$i18n.locale"
+      class="text-gray-800 rounded float-right"
+      value="es"
+    >
+      <option value="en">English</option>
+      <option value="es">Castellano</option>
+      <option value="cat">Català</option>
+    </select>
   </div>
+
+  <!-- TIPO DE ESTUDIOS -->
+  <div class="text-center pt-1 md:text-left">
+    <p class="text-2xl text-blue-900">
+      {{ degreeType }}
+    </p>
+  </div>
+
+  <hr class="border-gray-500" />
 </template>
 
 <script>
