@@ -28,13 +28,15 @@
         :selectedFile="selectedFile"
         @refresh-file="getFile"
       />
+      <hr class="border-gray-500 py-1" />
 
-      <DataParent
+      <MainFileInformation
         :studentData="studentData"
         :tutorData="tutorData"
         :fileInfo="fileInfo"
         :accessType="accessType"
       />
+      <hr class="border-gray-500 py-1" />
 
       <TableParent
         :itineraryRequests="itineraryRequests"
@@ -51,7 +53,7 @@
 
 <script setup>
 import AppHeader from "./components/AppHeader.vue";
-import DataParent from "./components/DataParent.vue";
+import MainFileInformation from "./components/MainFileInformation.vue";
 import TableParent from "./components/TableParent.vue";
 import axios from "axios";
 import { onMounted, ref } from "vue";

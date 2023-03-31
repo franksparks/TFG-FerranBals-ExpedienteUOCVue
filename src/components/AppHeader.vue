@@ -1,14 +1,17 @@
 <template>
   <div id="header">
     <!-- LOGO UOC -->
-    <a href="https://www.uoc.edu/" target="_blank">
-      <img
-        class="rounded w-full md:w-1/3"
-        src="/0FF0108D4D41E43CCF1FBA356ABC5156.cache.gif"
-        title="Universitat Oberta de Catalunya"
-        alt="Universitat Oberta de Catalunya"
-      />
-    </a>
+    <div>
+      <!-- TODO: Link only on image, not on while a element-->
+      <a href="https://www.uoc.edu/" target="_blank">
+        <img
+          class="rounded w-full md:w-1/3"
+          src="/0FF0108D4D41E43CCF1FBA356ABC5156.cache.gif"
+          title="Universitat Oberta de Catalunya"
+          alt="Universitat Oberta de Catalunya"
+        />
+      </a>
+    </div>
 
     <!-- CONSULTA DE EXPEDIENTE -->
     <p class="text-xl text-left font-bold md:text-3xl">
@@ -44,8 +47,6 @@
       {{ degreeType }}
     </p>
   </div>
-
-  <hr class="border-gray-500" />
 </template>
 
 <script>

@@ -2,23 +2,12 @@
   "header": {
     "main": "Student File"
   },
-  "data": {
-    "student": "Student data",
-    "tutor": "Tutor data",
-    "file": "File data"
-  },
-  "student": {
-    "name": "Full name",
-    "user": "Campus username",
-    "id": "ID number"
-  },
-  "tutor": {
-    "name": "Full name",
-    "user": "Campus username",
-    "id": "ID number"
-  },
-  "file": {
-    "number": "File number",
+  "mainFileInfo": {
+    "main": "File Information",
+    "student": "Student",
+    "teacher": "Teacher",
+    "contact": "Contact",
+    "fileNumber": "File number",
     "averageGrade": "Current average grade",
     "access": "Access option",
     "status": "File status"

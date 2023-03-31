@@ -2,23 +2,12 @@
   "header": {
     "main": "Consulta del expediente"
   },
-  "data": {
-    "student": "Datos del alumno",
-    "tutor": "Datos del tutor",
-    "file": "Datos del expediente"
-  },
-  "student": {
-    "name": "Nombre y apellidos",
-    "user": "Usuario campus",
-    "id": "DNI"
-  },
-  "tutor": {
-    "name": "Nombre y apellidos",
-    "user": "Usuario campus",
-    "id": "DNI"
-  },
-  "file": {
-    "number": "Número expediente",
+  "mainFileInfo": {
+    "main": "Información del expediente",
+    "student": "Alumn@",
+    "teacher": "Tutor/a",
+    "contact": "Contacto",
+    "fileNumber": "Número expediente",
     "averageGrade": "Nota media actual",
     "access": "Opción de acceso",
     "status": "Estado expediente"

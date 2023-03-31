@@ -2,23 +2,12 @@
   "header": {
     "main": "Consulta de l'expedient"
   },
-  "data": {
-    "student": "Dades de l'alumne",
-    "tutor": "Dades del tutor",
-    "file": "Dades de l'expediente"
-  },
-  "student": {
-    "name": "Nomi cognoms",
-    "user": "Usuari campus",
-    "id": "DNI"
-  },
-  "tutor": {
-    "name": "Nomi cognoms",
-    "user": "Usuari campus",
-    "id": "DNI"
-  },
-  "file": {
-    "number": "Número expedient",
+  "mainFileInfo": {
+    "main": "Informació de l'expedient",
+    "student": "Alumne",
+    "teacher": "Tutor/a",
+    "contact": "Contacte",
+    "fileNumber": "Número expedient",
     "averageGrade": "Nota mitja actual",
     "access": "Opció d'accés",
     "status": "Estat expedient"
