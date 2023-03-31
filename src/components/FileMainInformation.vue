@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-center py-2">
-      <!-- TODO: Add a way to collapse this section-->
+      <!-- TODO: Add a way to collapse this section -->
       <p class="tablinks py-1 rounded text-white bg-blue-900 text-xl">
         {{ $t("mainFileInfo.main") }}
       </p>
@@ -52,7 +52,7 @@
 
 <script>
 export default {
-  name: "MainFileInformation",
+  name: "FileMainInformation",
 };
 </script>
 <script setup>

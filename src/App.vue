@@ -30,7 +30,7 @@
       />
       <hr class="border-gray-500 py-1" />
 
-      <MainFileInformation
+      <FileMainInformation
         :studentData="studentData"
         :tutorData="tutorData"
         :fileInfo="fileInfo"
@@ -53,7 +53,7 @@
 
 <script setup>
 import AppHeader from "./components/AppHeader.vue";
-import MainFileInformation from "./components/MainFileInformation.vue";
+import FileMainInformation from "./components/FileMainInformation.vue";
 import TableParent from "./components/TableParent.vue";
 import axios from "axios";
 import { onMounted, ref } from "vue";
