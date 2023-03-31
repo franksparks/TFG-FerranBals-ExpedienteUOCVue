@@ -51,7 +51,11 @@
 
       <!-- THIRD TAB -->
 
-      <div class="dropdown" data-control="checkbox-dropdown">
+      <div
+        v-if="tab === 'requests'"
+        class="dropdown"
+        data-control="checkbox-dropdown"
+      >
         <div class="dropdown-list">
           <label class="dropdown-option">
             <input type="checkbox" v-model="aep" checked />
