@@ -1,80 +1,89 @@
 <template>
-  <div class="pt-10 px-60">
-    <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-400">
-      {{ $t("credits.mainTitle") }}
-    </p>
-    <table class="text-sm text-left text-gray-500 dark:text-gray-400">
-      <thead
-        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
+  <div class="md:grid grid-cols-2">
+    <div class="text-center py-2 mx-2">
+      <p
+        class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl"
       >
-        <tr>
-          <th class="text-center bg-gray-300 px-10"></th>
-          <th class="text-center pt-1 px-10">{{ $t("credits.basic") }}</th>
-          <th class="text-center pt-1 px-10">{{ $t("credits.optative") }}</th>
-          <th class="text-center pt-1 px-10">{{ $t("credits.main") }}</th>
-        </tr>
-      </thead>
-      <tbody class="justify-center">
-        <tr
-          class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
+        {{ $t("credits.mainTitle") }}
+      </p>
+      <table class="text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead
+          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
         >
-          <th class="text-center">{{ $t("credits.goal") }}</th>
-          <td class="text-center">
-            {{ credits.numCreditsObligatoriObjectiu }}
-          </td>
-          <td class="text-center">
-            {{ credits.numCreditsOptatiuObjectiu }}
-          </td>
-          <td class="text-center">
-            {{ credits.numCreditsTroncalObjectiu }}
-          </td>
-        </tr>
-        <tr
-          class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
-        >
-          <th class="text-center">{{ $t("credits.passed") }}</th>
-          <td class="text-center">
-            {{ credits.numCreditsObligatoriSuperat }}
-          </td>
-          <td class="text-center">{{ credits.numCreditsOptatiuSuperat }}</td>
-          <td class="text-center">{{ credits.numCreditsTroncalSuperat }}</td>
-        </tr>
-        <tr
-          class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
-        >
-          <th class="text-center">{{ $t("credits.pending") }}</th>
-          <td class="text-center">
-            {{
-              credits.numCreditsObligatoriObjectiu -
-              credits.numCreditsObligatoriSuperat
-            }}
-          </td>
-          <td class="text-center">
-            {{
-              credits.numCreditsOptatiuObjectiu -
-              credits.numCreditsOptatiuSuperat
-            }}
-          </td>
-          <td class="text-center">
-            {{
-              credits.numCreditsTroncalSuperat -
-              credits.numCreditsTroncalObjectiu
-            }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="pt-10 px-60">
-    <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-400">
-      {{ $t("credits.pieTitle") }}
-    </p>
+          <tr>
+            <th class="text-center bg-gray-300 px-10"></th>
+            <th class="text-center pt-1 px-10">{{ $t("credits.basic") }}</th>
+            <th class="text-center pt-1 px-10">
+              {{ $t("credits.optative") }}
+            </th>
+            <th class="text-center pt-1 px-10">{{ $t("credits.main") }}</th>
+          </tr>
+        </thead>
+        <tbody class="justify-center">
+          <tr
+            class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
+          >
+            <th class="text-center">{{ $t("credits.goal") }}</th>
+            <td class="text-center">
+              {{ credits.numCreditsObligatoriObjectiu }}
+            </td>
+            <td class="text-center">
+              {{ credits.numCreditsOptatiuObjectiu }}
+            </td>
+            <td class="text-center">
+              {{ credits.numCreditsTroncalObjectiu }}
+            </td>
+          </tr>
+          <tr
+            class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
+          >
+            <th class="text-center">{{ $t("credits.passed") }}</th>
+            <td class="text-center">
+              {{ credits.numCreditsObligatoriSuperat }}
+            </td>
+            <td class="text-center">
+              {{ credits.numCreditsOptatiuSuperat }}
+            </td>
+            <td class="text-center">
+              {{ credits.numCreditsTroncalSuperat }}
+            </td>
+          </tr>
+          <tr
+            class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
+          >
+            <th class="text-center">{{ $t("credits.pending") }}</th>
+            <td class="text-center">
+              {{
+                credits.numCreditsObligatoriObjectiu -
+                credits.numCreditsObligatoriSuperat
+              }}
+            </td>
+            <td class="text-center">
+              {{
+                credits.numCreditsOptatiuObjectiu -
+                credits.numCreditsOptatiuSuperat
+              }}
+            </td>
+            <td class="text-center">
+              {{
+                credits.numCreditsTroncalSuperat -
+                credits.numCreditsTroncalObjectiu
+              }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-    <DoughnutChart
-      :chart-data="data"
-      :options="options"
-      css-classes="chart-container"
-    />
+    <div id="col2" class="text-center py-2 mx-2">
+      <p
+        class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl"
+      >
+        {{ $t("credits.pieTitle") }}
+      </p>
+
+      <DoughnutChart :chart-data="data" :options="options" />
+    </div>
   </div>
 </template>
 
@@ -109,18 +118,28 @@ const dataValues = ref([
     props.credits.numCreditsOptatiuSuperat,
 ]);
 
+const filteredLabels = computed(() => {
+  return [
+    { label: t("credits.mainPassed"), value: dataValues.value[0] },
+    { label: t("credits.mainPending"), value: dataValues.value[1] },
+    { label: t("credits.basicPassed"), value: dataValues.value[2] },
+    { label: t("credits.basicPending"), value: dataValues.value[3] },
+    { label: t("credits.optativePassed"), value: dataValues.value[4] },
+    { label: t("credits.optativePending"), value: dataValues.value[5] },
+  ]
+    .filter((item) => item.value !== 0)
+    .map((item) => item.label);
+});
+
+const filteredDataValues = computed(() => {
+  return dataValues.value.filter((value) => value !== 0);
+});
+
 const data = computed(() => ({
-  labels: [
-    t("credits.mainPassed"),
-    t("credits.mainPending"),
-    t("credits.basicPassed"),
-    t("credits.basicPending"),
-    t("credits.optativePassed"),
-    t("credits.optativePending"),
-  ],
+  labels: filteredLabels.value,
   datasets: [
     {
-      data: dataValues.value,
+      data: filteredDataValues.value,
       backgroundColor: [
         "#0000BB",
         "#ADD8E6",

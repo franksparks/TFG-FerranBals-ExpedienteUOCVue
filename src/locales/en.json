@@ -34,6 +34,7 @@
     "optativePending": "Optative pending"
   },
   "subjectTable": {
+    "mainTitle": "Subjects summary",
     "placeholder": "Search subject",
     "all": "All subjects",
     "empty": "No results",

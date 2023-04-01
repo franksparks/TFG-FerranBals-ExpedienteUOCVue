@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="tab">
+    <div class="tab py-2 mx-2">
       <button
         class="tablinks py-1.5 px-3 rounded text-white"
         @click.prevent="tab = 'subject'"

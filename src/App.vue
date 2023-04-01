@@ -28,7 +28,7 @@
         :selectedFile="selectedFile"
         @refresh-file="getFile"
       />
-      <hr class="border-gray-500 py-1" />
+      <hr class="border-gray-500 py-1 mx-2" />
 
       <FileMainInformation
         :studentData="studentData"
@@ -36,7 +36,7 @@
         :fileInfo="fileInfo"
         :accessType="accessType"
       />
-      <hr class="border-gray-500 py-1" />
+      <hr class="border-gray-500 py-1 mx-2" />
 
       <TableParent
         :itineraryRequests="itineraryRequests"

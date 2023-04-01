@@ -34,6 +34,7 @@
     "optativePending": "Optativas pendientes"
   },
   "subjectTable": {
+    "mainTitle": "Resumen de asignaturas",
     "placeholder": "Buscar asignatura",
     "all": "Todas las asignaturas",
     "empty": "No hay resultados para mostrar",
