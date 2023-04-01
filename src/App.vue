@@ -207,6 +207,6 @@ async function getFile(text) {
 
 <style>
 body {
-  background-color: lightgray;
+  background-color: WhiteSmoke;
 }
 </style>

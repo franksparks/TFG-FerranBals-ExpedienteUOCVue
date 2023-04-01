@@ -13,9 +13,9 @@
     "status": "Estat expedient"
   },
   "table": {
+    "academic": "Resum del progrés",
     "subjects": "Assignatures",
-    "academic": "Dades acadèmiques",
-    "enrollment": "Dades de matrícula",
+    "enrollment": "Matrícules",
     "requests": "Sol·licituds realitzades"
   },
   "credits": {
@@ -83,6 +83,7 @@
     "grade": "Calificació final de l'assignatura"
   },
   "enrollment": {
+    "title": "Dades de matrícules",
     "semester": "Semestre",
     "date": "Data matrícula",
     "amount": "Import",

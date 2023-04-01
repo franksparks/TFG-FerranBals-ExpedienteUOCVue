@@ -1,6 +1,11 @@
 <template>
-  <div class="pt-10 px-80">
-    <table class="w-full text-gray-500 dark:text-gray-400">
+  <div class="text-center py-2 mx-2">
+    <p
+      class="tablinks rounded text-white bg-blue-900 text-center py-1 text-sm md:text-xl"
+    >
+      {{ $t("enrollment.title") }}
+    </p>
+    <table class="w-full text-gray-500 dark:text-gray-400 my-2">
       <thead
         class="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
       >
@@ -33,7 +38,7 @@
   </div>
   <div class="py-3">
     <p class="text-center">
-      <span class="font-bold">{{ $t("enrollment.amount") }}:</span>
+      <span class="font-bold">{{ $t("enrollment.totalAmount") }}:</span>
       {{ total.toFixed(2) }} €
     </p>
     <p class="text-center">

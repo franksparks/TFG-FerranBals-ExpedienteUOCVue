@@ -15,7 +15,7 @@
     </div>
 
     <!-- CONSULTA DE EXPEDIENTE -->
-    <p class="text-xl text-left font-bold md:text-3xl">
+    <p class="text-2xl font-bold md:text-3xl text-center md:text-left">
       {{ $t("header.main") }}
     </p>
 
@@ -23,7 +23,7 @@
       <!-- DROPDOWN IDIOMAS -->
       <select
         v-model="$i18n.locale"
-        class="text-gray-800 rounded float-right"
+        class="text-gray-800 rounded float-right border-2 border-neutral-400"
         value="es"
       >
         <option value="en">English</option>
@@ -35,7 +35,7 @@
       <select
         v-model="file"
         @change="refreshFile(file)"
-        class="text-gray-800 rounded md:float-right md:mx-5"
+        class="text-gray-800 rounded md:float-right md:mx-5 border-2 border-neutral-400"
       >
         <option value="alice">Alice</option>
         <option value="minor">Minor Alice</option>

@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="text-center py-2">
     <p
-      class="tablinks py-1 rounded text-white bg-blue-900 text-xl text-center py-2"
+      class="tablinks rounded text-white bg-blue-900 text-center py-1 mx-2 text-sm md:text-xl"
     >
       {{ $t("subjectTable.mainTitle") }}
     </p>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-2 py-2">
       <div
         class="flex items-center justify-between px-6 py-3 bg-gray-100 dark:bg-gray-700"
       >

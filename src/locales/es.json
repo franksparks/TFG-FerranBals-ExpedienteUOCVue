@@ -13,9 +13,9 @@
     "status": "Estado expediente"
   },
   "table": {
-    "academic": "Datos académicos",
+    "academic": "Resumen del progreso",
     "subjects": "Asignaturas",
-    "enrollment": "Datos de matrícula",
+    "enrollment": "Matrículas",
     "requests": "Solicitudes realizadas"
   },
   "credits": {
@@ -83,6 +83,7 @@
     "grade": "Calificación final de la asignatura"
   },
   "enrollment": {
+    "title": "Información de matrículas",
     "semester": "Semestre",
     "date": "Fecha matrícula",
     "amount": "Importe",

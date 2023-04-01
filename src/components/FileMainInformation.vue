@@ -2,7 +2,7 @@
   <div class="mx-2">
     <div class="text-center py-2">
       <p
-        class="tablinks py-1 rounded text-white bg-blue-900 text-xl"
+        class="tablinks py-1 rounded text-white bg-blue-900 text-xl cursor-pointer"
         @click.prevent="toggleSection"
       >
         <img

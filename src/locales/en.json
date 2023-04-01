@@ -13,14 +13,14 @@
     "status": "File status"
   },
   "table": {
+    "academic": "Progress summary",
     "subjects": "Subjects",
-    "academic": "Academic data",
-    "enrollment": "Enrollment data",
+    "enrollment": "Enrollments",
     "requests": "Requests made"
   },
   "credits": {
     "mainTitle": "Credits summary",
-    "pieTitle": "Pie chart",
+    "pieTitle": "Doughnut chart",
     "basic": "Basic",
     "main": "Mandatory",
     "optative": "Optative",
@@ -83,6 +83,7 @@
     "grade": "Final grade of subject"
   },
   "enrollment": {
+    "title": "Entrollment information",
     "semester": "Semester",
     "date": "Enrollment date",
     "amount": "Amount",

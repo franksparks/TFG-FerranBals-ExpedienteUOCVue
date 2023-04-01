@@ -3,41 +3,41 @@
     <div class="tab py-2 mx-2">
       <button
         v-if="props.credits.numCreditsObligatoriSuperat != null"
-        class="tablinks py-1.5 px-3 rounded text-white"
+        class="tablinks py-1.5 px-3 rounded text-blue-900"
         @click.prevent="tab = 'summary'"
         :class="{
-          'bg-blue-600': tab === 'summary',
-          'bg-green-600': tab !== 'summary',
+          'bg-cyan-400 font-bold cursor-default': tab === 'summary',
+          'bg-neutral-300 border-2 hover:bg-neutral-400 ': tab !== 'summary',
         }"
       >
         {{ $t("table.academic") }}
       </button>
       <button
-        class="tablinks py-1.5 px-3 rounded text-white"
+        class="tablinks py-1.5 px-3 rounded text-blue-900"
         @click.prevent="tab = 'subjects'"
         :class="{
-          'bg-blue-600': tab === 'subjects',
-          'bg-green-600': tab !== 'subjects',
+          'bg-cyan-400 font-bold cursor-default': tab === 'subjects',
+          'bg-neutral-300 border-2 hover:bg-neutral-400': tab !== 'subjects',
         }"
       >
         {{ $t("table.subjects") }}
       </button>
       <button
-        class="tablinks py-1.5 px-3 rounded text-white"
+        class="tablinks py-1.5 px-3 rounded text-blue-900"
         @click.prevent="tab = 'payments'"
         :class="{
-          'bg-blue-600': tab === 'payments',
-          'bg-green-600': tab !== 'payments',
+          'bg-cyan-400 font-bold cursor-default': tab === 'payments',
+          'bg-neutral-300 border-2 hover:bg-neutral-400': tab !== 'payments',
         }"
       >
         {{ $t("table.enrollment") }}
       </button>
       <button
-        class="tablinks py-1.5 px-3 rounded text-white"
+        class="tablinks py-1.5 px-3 rounded text-blue-900"
         @click.prevent="tab = 'requests'"
         :class="{
-          'bg-blue-600': tab === 'requests',
-          'bg-green-600': tab !== 'requests',
+          'bg-cyan-400 font-bold cursor-default': tab === 'requests',
+          'bg-neutral-300 border-2 hover:bg-neutral-400': tab !== 'requests',
         }"
       >
         {{ $t("table.requests") }}
