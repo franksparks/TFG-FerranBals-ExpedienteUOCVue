@@ -1,5 +1,14 @@
 <template>
   <div class="md:grid grid-cols-2">
+    <div id="col2" class="text-center py-2 mx-2">
+      <p
+        class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl"
+      >
+        {{ $t("credits.pieTitle") }}
+      </p>
+
+      <DoughnutChart :chart-data="data" :options="options" />
+    </div>
     <div class="text-center py-2 mx-2">
       <p
         class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl"
@@ -74,16 +83,6 @@
         </tbody>
       </table>
     </div>
-
-    <div id="col2" class="text-center py-2 mx-2">
-      <p
-        class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl"
-      >
-        {{ $t("credits.pieTitle") }}
-      </p>
-
-      <DoughnutChart :chart-data="data" :options="options" />
-    </div>
   </div>
 </template>
 
@@ -98,6 +97,7 @@ import { ref, computed } from "vue";
 import { DoughnutChart } from "vue-chart-3";
 import { Chart, DoughnutController, ArcElement } from "chart.js";
 import { useI18n } from "vue-i18n";
+import pattern from "patternomaly";
 
 const props = defineProps({
   credits: Object,
@@ -108,12 +108,12 @@ Chart.register(DoughnutController, ArcElement);
 
 const dataValues = ref([
   props.credits.numCreditsTroncalSuperat,
+  props.credits.numCreditsObligatoriSuperat,
+  props.credits.numCreditsOptatiuSuperat,
   props.credits.numCreditsTroncalSuperat -
     props.credits.numCreditsTroncalObjectiu,
-  props.credits.numCreditsObligatoriSuperat,
   props.credits.numCreditsObligatoriObjectiu -
     props.credits.numCreditsObligatoriSuperat,
-  props.credits.numCreditsOptatiuSuperat,
   props.credits.numCreditsOptatiuObjectiu -
     props.credits.numCreditsOptatiuSuperat,
 ]);
@@ -121,10 +121,10 @@ const dataValues = ref([
 const filteredLabels = computed(() => {
   return [
     { label: t("credits.mainPassed"), value: dataValues.value[0] },
-    { label: t("credits.mainPending"), value: dataValues.value[1] },
-    { label: t("credits.basicPassed"), value: dataValues.value[2] },
-    { label: t("credits.basicPending"), value: dataValues.value[3] },
-    { label: t("credits.optativePassed"), value: dataValues.value[4] },
+    { label: t("credits.basicPassed"), value: dataValues.value[1] },
+    { label: t("credits.optativePassed"), value: dataValues.value[2] },
+    { label: t("credits.mainPending"), value: dataValues.value[3] },
+    { label: t("credits.basicPending"), value: dataValues.value[4] },
     { label: t("credits.optativePending"), value: dataValues.value[5] },
   ]
     .filter((item) => item.value !== 0)
@@ -141,12 +141,12 @@ const data = computed(() => ({
     {
       data: filteredDataValues.value,
       backgroundColor: [
-        "#0000BB",
-        "#ADD8E6",
-        "#008a00",
-        "#00dc00",
-        "#800080",
-        "#d3c2ed",
+        pattern.draw("dot", "#0000BB"),
+        pattern.draw("dot", "#008a00"),
+        pattern.draw("dot", "#800080"),
+        pattern.draw("ring", "#ADD8E6"),
+        pattern.draw("ring", "#90EE90"),
+        pattern.draw("ring", "#CBC3E3"),
       ],
     },
   ],
@@ -156,7 +156,16 @@ const options = ref({
   plugins: {
     legend: {
       display: true,
-      position: "top",
+      position: "bottom",
+    },
+  },
+  layout: {
+    margin: {
+      top: 0,
+    },
+    padding: {
+      top: -50,
+      bottom: 10,
     },
   },
 });

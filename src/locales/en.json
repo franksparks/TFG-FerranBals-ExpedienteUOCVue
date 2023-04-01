@@ -13,6 +13,7 @@
     "status": "File status"
   },
   "table": {
+    "subjects": "Subjects",
     "academic": "Academic data",
     "enrollment": "Enrollment data",
     "requests": "Requests made"

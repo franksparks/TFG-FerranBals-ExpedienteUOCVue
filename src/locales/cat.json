@@ -13,6 +13,7 @@
     "status": "Estat expedient"
   },
   "table": {
+    "subjects": "Assignatures",
     "academic": "Dades acadèmiques",
     "enrollment": "Dades de matrícula",
     "requests": "Sol·licituds realitzades"

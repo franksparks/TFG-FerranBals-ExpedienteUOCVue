@@ -2,14 +2,25 @@
   <div>
     <div class="tab py-2 mx-2">
       <button
+        v-if="props.credits.numCreditsObligatoriSuperat != null"
         class="tablinks py-1.5 px-3 rounded text-white"
-        @click.prevent="tab = 'subject'"
+        @click.prevent="tab = 'summary'"
         :class="{
-          'bg-blue-600': tab === 'subject',
-          'bg-green-600': tab !== 'subject',
+          'bg-blue-600': tab === 'summary',
+          'bg-green-600': tab !== 'summary',
         }"
       >
         {{ $t("table.academic") }}
+      </button>
+      <button
+        class="tablinks py-1.5 px-3 rounded text-white"
+        @click.prevent="tab = 'subjects'"
+        :class="{
+          'bg-blue-600': tab === 'subjects',
+          'bg-green-600': tab !== 'subjects',
+        }"
+      >
+        {{ $t("table.subjects") }}
       </button>
       <button
         class="tablinks py-1.5 px-3 rounded text-white"
@@ -36,11 +47,11 @@
       <!-- FIRST TAB -->
       <!-- Credits Table -->
       <CreditsTable
-        v-if="tab === 'subject' && credits.numCreditsObligatoriSuperat != null"
+        v-if="tab === 'summary' && credits.numCreditsObligatoriSuperat != null"
         :credits="credits"
       />
       <!-- Subject Table -->
-      <SubjectTable v-if="tab === 'subject'" :subjects="subjects" />
+      <SubjectTable v-if="tab === 'subjects'" :subjects="subjects" />
       <!-- FIRST TAB END -->
 
       <!-- SECOND TAB -->
@@ -112,7 +123,7 @@ export default {
 </script>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import SubjectTable from "./tables/SubjectTable.vue";
 import CreditsTable from "./tables/CreditsTable.vue";
 import EnrollmentTable from "./tables/EnrollmentTable.vue";
@@ -121,14 +132,18 @@ import CertificatesTable from "./tables/CertificatesTable.vue";
 import VirtualTestRequestTable from "./tables/VirtualTestRequestsTable.vue";
 import ItineraryRequestsTable from "./tables/ItineraryRequestsTable.vue";
 
-const tab = ref("subject");
+const tab = ref("summary");
+
+onMounted(() => {
+  if (props.credits.numCreditsObligatoriSuperat == null) tab.value = "subjects";
+});
 
 const aep = ref(true);
 const certs = ref(true);
 const virtualTestRequest = ref(true);
 const itineraryRequest = ref(true);
 
-defineProps({
+const props = defineProps({
   itineraryRequests: Object,
   credits: Object,
   subjects: Object,
