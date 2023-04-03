@@ -15,32 +15,32 @@
       >
         {{ $t("credits.mainTitle") }}
       </p>
-      <div class="py-2 content-center">
-        <table class="text-sm text-gray-500 dark:text-gray-400">
+      <div class="py-2 md:flex md:justify-center">
+        <table class="w-full text-sm text-gray-500 dark:text-gray-400">
           <thead
             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
           >
             <tr>
-              <th class="text-center bg-gray-300 px-10"></th>
-              <th class="text-center pt-1 px-10">{{ $t("credits.basic") }}</th>
-              <th class="text-center pt-1 px-10">
+              <th class="w-1/4 bg-gray-100"></th>
+              <th class="w-1/4 pt-1">{{ $t("credits.basic") }}</th>
+              <th class="w-1/4 pt-1">
                 {{ $t("credits.optative") }}
               </th>
-              <th class="text-center pt-1 px-10">{{ $t("credits.main") }}</th>
+              <th class="w-1/4 pt-1">{{ $t("credits.main") }}</th>
             </tr>
           </thead>
           <tbody class="justify-center">
             <tr
-              class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
+              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 text-center"
             >
-              <th class="text-center">{{ $t("credits.goal") }}</th>
-              <td class="text-center">
+              <th>{{ $t("credits.goal") }}</th>
+              <td>
                 {{ credits.numCreditsObligatoriObjectiu }}
               </td>
-              <td class="text-center">
+              <td>
                 {{ credits.numCreditsOptatiuObjectiu }}
               </td>
-              <td class="text-center">
+              <td>
                 {{ credits.numCreditsTroncalObjectiu }}
               </td>
             </tr>

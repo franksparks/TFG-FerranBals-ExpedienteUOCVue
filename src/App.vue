@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <div class="container mx-auto md:px-50" v-if="!isLoading">
+  <div class="container mx-auto" v-if="!isLoading">
     <div class="p-1 md:px-9 md:pt-3">
       <AppHeader
         :degreeType="degreeType"
