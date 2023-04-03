@@ -64,7 +64,7 @@
 
       <div
         v-if="tab === 'requests'"
-        class="dropdown"
+        class="dropdown mx-2"
         data-control="checkbox-dropdown"
       >
         <div class="dropdown-list">

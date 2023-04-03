@@ -1,12 +1,15 @@
 <template>
-  <div class="pt-3 px-60">
-    <p class="tablinks py-1.5 px-3 rounded text-white bg-blue-400 text-center">
+  <div class="py-2 mx-2">
+    <p
+      class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl text-center"
+    >
       {{ $t("AEPRequests.sectionTitle") }}
     </p>
-    <div v-if="AEPRequests.length == 0">
+
+    <div v-if="AEPRequests.length == 0" class="text-center">
       <p>{{ $t("AEPRequests.empty") }}</p>
     </div>
-    <div v-for="request in AEPRequests" :key="request" class="py-2 px-20">
+    <div v-for="request in AEPRequests" :key="request" class="py-2">
       <div>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table

@@ -100,7 +100,7 @@
   },
   "certificates": {
     "sectionTitle": "Certificados y otros documentos académicos",
-    "empty": "No hay solicitudes de certificados que mostrar",
+    "empty": "No hay solicitudes que mostrar",
     "tableTitle": "Certificados",
     "number": "Número de solicitud",
     "date": "Fecha de solicitud",
@@ -122,7 +122,7 @@
     "semester": "Semestre",
     "subject": "Asignatura",
     "subjectCode": "Código asignatura",
-    "testType": "Núm solicitud",
+    "testType": "Tipo de prueba",
     "status": "Estado"
   },
   "footer": {

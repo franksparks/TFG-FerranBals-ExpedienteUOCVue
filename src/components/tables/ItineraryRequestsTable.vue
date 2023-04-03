@@ -1,18 +1,16 @@
 <template>
-  <div class="pb-10">
-    <div class="pt-3 px-60 pb-2">
-      <p
-        class="tablinks py-1.5 px-3 rounded text-white bg-blue-400 text-center py-2"
-      >
-        {{ $t("itineraryRequests.sectionTitle") }}
-      </p>
-    </div>
+  <div class="py-2 mx-2">
+    <p
+      class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl text-center"
+    >
+      {{ $t("itineraryRequests.sectionTitle") }}
+    </p>
 
-    <div v-if="itineraryRequests.length == 0" class="mx-60">
+    <div v-if="itineraryRequests.length == 0" class="text-center">
       <p>{{ $t("itineraryRequests.empty") }}</p>
     </div>
     <div v-else>
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-80">
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg py-2">
         <table
           class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
         >

@@ -109,7 +109,7 @@
   },
   "itineraryRequests": {
     "sectionTitle": "Sol·licituds relacionades amb l'itinerari acadèmic",
-    "empty": "No hay sol·licituds per mostrar",
+    "empty": "No hi han sol·licituds per mostrar",
     "semester": "Semestre",
     "itinerary": "Itinerari",
     "number": "Núm sol·licitud",
@@ -118,11 +118,11 @@
   },
   "virtualTestRequests": {
     "sectionTitle": "Sol·licituds de prova d'avaluació final virtual",
-    "empty": "No hay sol·licituds per mostrar",
+    "empty": "No hi han sol·licituds per mostrar",
     "semester": "Semestre",
     "subject": "Assignatura",
     "subjectCode": "Codi assignatura",
-    "testType": "Núm sol·licitud",
+    "testType": "Tipus de prova",
     "status": "Estat"
   },
   "footer": {
