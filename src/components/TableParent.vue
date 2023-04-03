@@ -51,13 +51,13 @@
         :credits="credits"
       />
       <!-- Subject Table -->
-      <SubjectTable v-if="tab === 'subjects'" :subjects="subjects" />
+      <SubjectsTable v-if="tab === 'subjects'" :subjects="subjects" />
       <!-- FIRST TAB END -->
 
       <!-- SECOND TAB -->
 
       <!-- Enrollments Table -->
-      <EnrollmentTable
+      <EnrollmentsTable
         v-if="tab === 'enrollments'"
         :enrollments="enrollments"
       />
@@ -126,9 +126,9 @@ export default {
 
 <script setup>
 import { onMounted, ref } from "vue";
-import SubjectTable from "./tables/SubjectTable.vue";
+import SubjectsTable from "./tables/SubjectsTable.vue";
 import CreditsTable from "./tables/CreditsTable.vue";
-import EnrollmentTable from "./tables/EnrollmentTable.vue";
+import EnrollmentsTable from "./tables/EnrollmentsTable.vue";
 import AEPRequestsTable from "./tables/AEPRequestsTable.vue";
 import CertificatesTable from "./tables/CertificatesTable.vue";
 import VirtualTestRequestTable from "./tables/VirtualTestRequestsTable.vue";

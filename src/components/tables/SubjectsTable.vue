@@ -213,7 +213,7 @@
 
 <script>
 export default {
-  name: "SubjectTable",
+  name: "SubjectsTable",
 };
 </script>
 
