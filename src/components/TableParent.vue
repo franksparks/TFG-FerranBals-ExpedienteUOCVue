@@ -24,10 +24,10 @@
       </button>
       <button
         class="tablinks py-1.5 px-3 rounded text-blue-900"
-        @click.prevent="tab = 'payments'"
+        @click.prevent="tab = 'enrollments'"
         :class="{
-          'bg-cyan-400 font-bold cursor-default': tab === 'payments',
-          'bg-neutral-300 border-2 hover:bg-neutral-400': tab !== 'payments',
+          'bg-cyan-400 font-bold cursor-default': tab === 'enrollments',
+          'bg-neutral-300 border-2 hover:bg-neutral-400': tab !== 'enrollments',
         }"
       >
         {{ $t("table.enrollment") }}
@@ -57,7 +57,10 @@
       <!-- SECOND TAB -->
 
       <!-- Enrollments Table -->
-      <EnrollmentTable v-if="tab === 'payments'" :enrollments="enrollments" />
+      <EnrollmentTable
+        v-if="tab === 'enrollments'"
+        :enrollments="enrollments"
+      />
       <!-- SECOND TAB END -->
 
       <!-- THIRD TAB -->
@@ -97,9 +100,7 @@
 
           <!-- Certificates Table -->
           <CertificatesTable v-if="certs" :certificates="certificates" />
-        </div>
 
-        <div v-if="tab === 'requests'" class="py-2 md:grid grid-cols-2">
           <!-- Virtual test requests Table -->
           <VirtualTestRequestTable
             v-if="virtualTestRequest"
@@ -133,6 +134,7 @@ import CertificatesTable from "./tables/CertificatesTable.vue";
 import VirtualTestRequestTable from "./tables/VirtualTestRequestsTable.vue";
 import ItineraryRequestsTable from "./tables/ItineraryRequestsTable.vue";
 
+//Default tab
 const tab = ref("summary");
 
 onMounted(() => {

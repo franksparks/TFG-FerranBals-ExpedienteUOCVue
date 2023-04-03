@@ -10,25 +10,27 @@
       <p>{{ $t("itineraryRequests.empty") }}</p>
     </div>
     <div v-else class="py-2">
-      <div class="relative overflow-x-auto sm:rounded-lg">
-        <table class="text-sm text-left text-gray-500 dark:text-gray-400">
+      <div class="relative overflow-x-auto rounded-lg">
+        <table
+          class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+        >
           <thead
             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
           >
             <tr>
-              <th scope="col" class="px-6 py-1">
+              <th scope="col" class="w-1/6 py-1">
                 {{ $t("itineraryRequests.semester") }}
               </th>
-              <th scope="col" class="px-6 py-1">
+              <th scope="col" class="w-2/6 py-1">
                 {{ $t("itineraryRequests.itinerary") }}
               </th>
-              <th scope="col" class="px-6 py-1">
+              <th scope="col" class="w-1/6 py-1">
                 {{ $t("itineraryRequests.number") }}
               </th>
-              <th scope="col" class="px-6 py-1">
+              <th scope="col" class="w-1/6 py-1 hidden md:table-cell">
                 {{ $t("itineraryRequests.date") }}
               </th>
-              <th scope="col" class="px-6 py-1">
+              <th scope="col" class="w-1/6 py-1">
                 {{ $t("itineraryRequests.status") }}
               </th>
             </tr>
@@ -42,7 +44,7 @@
               <td class="text-center">{{ request.descAnyAcademic }}</td>
               <td class="text-center">{{ request.descripcioCamiDesti }}</td>
               <td class="text-center">{{ request.numSolicitud }}</td>
-              <td class="text-center">
+              <td class="text-center hidden md:table-cell">
                 {{ formatDate(request.dataSolicitud) }}
               </td>
               <td class="text-center">{{ request.descEstatSolicitud }}</td>

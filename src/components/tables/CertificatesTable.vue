@@ -11,45 +11,30 @@
     </div>
     <div v-else class="py-2">
       <div class="relative overflow-x-auto rounded-lg content-center">
-        <table
-          v-for="certificate in certificates"
-          :key="certificate"
-          class="text-sm text-left text-gray-500 dark:text-gray-400"
-        >
+        <table class="text-sm text-left text-gray-500 dark:text-gray-400">
           <thead
-            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
+            class="w-full text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
           >
             <tr>
-              <th scope="col" class="px-6 py-1 text-center" colspan="2">
-                {{ $t("certificates.tableTitle") }}
+              <th scope="col" class="w-1/5">
+                {{ $t("certificates.number") }}
               </th>
+              <th class="w-1/5">{{ $t("certificates.date") }}</th>
+              <th class="w-2/5">{{ $t("certificates.type") }}</th>
+              <th class="w-1/5">{{ $t("certificates.status") }}</th>
             </tr>
           </thead>
           <tbody>
             <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              v-for="certificate in certificates"
+              :key="certificate"
+              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700 text-center"
             >
-              <td class="pl-3 w-1/4">{{ $t("certificates.number") }}</td>
               <td>{{ certificate.numSolicitud }}</td>
-            </tr>
-            <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-            >
-              <td class="pl-3">{{ $t("certificates.date") }}</td>
               <td>
                 {{ formatDate(certificate.dataSolicitud) }}
               </td>
-            </tr>
-            <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-            >
-              <td class="pl-3">{{ $t("certificates.type") }}</td>
               <td>{{ certificate.descCertificat }}</td>
-            </tr>
-            <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-            >
-              <td class="pl-3">{{ $t("certificates.status") }}</td>
               <td>{{ certificate.descEstatSolicitud }}</td>
             </tr>
           </tbody>

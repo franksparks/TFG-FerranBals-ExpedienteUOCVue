@@ -9,45 +9,40 @@
     <div v-if="AEPRequests.length == 0" class="text-center">
       <p>{{ $t("AEPRequests.empty") }}</p>
     </div>
-    <div v-else>
-      <div v-for="request in AEPRequests" :key="request" class="py-2">
-        <div>
-          <div class="relative overflow-x-auto rounded-lg">
-            <table class="text-sm text-left text-gray-500 dark:text-gray-400">
-              <thead
-                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
-              >
-                <tr>
-                  <th scope="col" class="px-6 py-1 text-center" colspan="2">
-                    {{ $t("AEPRequests.tableTitle") }}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                >
-                  <td class="pl-3 w-1/4">{{ $t("AEPRequests.number") }}</td>
-                  <td>{{ request.secSolicitud }}</td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                >
-                  <td class="pl-3">{{ $t("AEPRequests.data") }}</td>
-                  <td>
-                    {{ formatDate(request.fechaSolicitud) }}
-                  </td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-                >
-                  <td class="pl-3">{{ $t("AEPRequests.type") }}</td>
-                  <td>{{ request.descEstado }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+    <div v-else class="py-2">
+      <div class="relative overflow-x-auto rounded-lg">
+        <table
+          class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+        >
+          <thead
+            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
+          >
+            <tr>
+              <th scope="col" class="py-1 w-1/4 text-center">
+                {{ $t("AEPRequests.number") }}
+              </th>
+              <th scope="col" class="py-1 w-1/4">
+                {{ $t("AEPRequests.data") }}
+              </th>
+              <th scope="col" class="py-1 w-2/4">
+                {{ $t("AEPRequests.type") }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="request in AEPRequests"
+              :key="request"
+              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+            >
+              <td class="text-center">{{ request.secSolicitud }}</td>
+              <td class="text-center">
+                {{ formatDate(request.fechaSolicitud) }}
+              </td>
+              <td class="text-center">{{ request.descEstado }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
