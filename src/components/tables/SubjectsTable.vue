@@ -5,22 +5,23 @@
     >
       {{ $t("subjectTable.mainTitle") }}
     </p>
-    <div class="relative overflow-x-auto sm:rounded-lg mx-2 py-2">
+    <div class="relative overflow-x-auto mx-2 pt-2">
       <div
-        class="flex items-center justify-between px-6 py-3 bg-gray-100 dark:bg-gray-700"
+        class="flex items-center justify-between px-6 bg-gray-100 dark:bg-gray-700 rounded-t-lg py-2"
       >
         <div class="w-1/3 relative inline-block">
           <input
-            class="block w-full max-w-lg py-2 px-3 rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 text-gray-300"
+            class="w-full py-2 px-3 rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 text-gray-300"
             type="text"
             v-model="searchTerm"
             :placeholder="$t('subjectTable.placeholder')"
           />
         </div>
         <!-- FILTERS START -->
+
         <select
           v-model="selectedType"
-          class="pr-4 float-right text-gray-800 rounded align-right py-2"
+          class="float-right text-gray-800 rounded align-right py-2"
         >
           <option value="null" selected="true">
             {{ $t("subjectTable.all") }}
@@ -51,13 +52,13 @@
           v-model="resultsPerPage"
           class="pr-4 float-right text-gray-800 rounded align-right py-2"
         >
-          <option value="100" selected="true">
-            {{ $t("subjectTable.allResults") }}
+          <option value="10" selected="true">
+            10 {{ $t("subjectTable.results") }}
           </option>
-          <option value="10">10 {{ $t("subjectTable.results") }}</option>
           <option value="10">20 {{ $t("subjectTable.results") }}</option>
           <option value="10">40 {{ $t("subjectTable.results") }}</option>
         </select>
+
         <button
           @click.prevent="previousSubjectsPage()"
           class="tablinks py-1.5 px-3 rounded text-white bg-green-600"
@@ -68,9 +69,10 @@
           &lt;&lt;
         </button>
 
-        <label class="tablinks py-1.5 px-3 rounded text-white bg-blue-600">{{
-          currentPage
-        }}</label>
+        <label class="tablinks py-1.5 px-3 rounded text-white bg-blue-600">
+          {{ currentPage }}
+        </label>
+
         <button
           @click="nextSubjectsPage()"
           class="tablinks py-1.5 px-3 rounded text-white bg-green-600"
@@ -80,6 +82,7 @@
         >
           &gt;&gt;
         </button>
+
         <button
           class="tablinks py-1.5 px-3 rounded text-white bg-green-600"
           @click.prevent="resetFilters()"
@@ -87,129 +90,119 @@
           {{ $t("subjectTable.reset") }}
         </button>
       </div>
-      <!-- FILTERS END -->
-      <!-- SUBJECTS TABLE START-->
-      <table
-        class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
-        v-if="filteredSubjects.length != 0"
-      >
-        <thead
-          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
+    </div>
+    <!-- FILTERS END -->
+    <!-- SUBJECTS TABLE START-->
+    <div class="mx-2">
+      <div class="relative overflow-x-auto rounded-b-lg">
+        <table
+          class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+          v-if="filteredSubjects.length != 0"
         >
-          <tr>
-            <th
-              scope="col"
-              class="px-6 py-1 w-2/10 cursor-pointer"
-              @click="sortSubjects('descripcio')"
-            >
-              {{ $t("subjectTable.description") }}
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-1 w-1/10 cursor-pointer"
-              @click="sortSubjects('codi')"
-            >
-              {{ $t("subjectTable.code") }}
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-1 w-1/10 cursor-pointer"
-              @click="sortSubjects('descripcioClasseCredits')"
-            >
-              {{ $t("subjectTable.type") }}
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-1 w-1/10 cursor-pointer"
-              @click="sortSubjects('numCredits')"
-            >
-              {{ $t("subjectTable.credits") }}
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-1 w-1/10 cursor-pointer"
-              @click="sortSubjects('ultAnyMatricula')"
-            >
-              {{ $t("subjectTable.semester") }}
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-1 w-1/10 cursor-pointer"
-              @click="sortSubjects('numConvocatoriesConsumides')"
-            >
-              {{ $t("subjectTable.convos") }}
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-1 w-1/10 cursor-pointer"
-              @click="sortSubjects('descripcioQualificacioQualitativaFinal')"
-            >
-              {{ $t("subjectTable.grade") }}
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-1 w-1/10 cursor-pointer"
-              @click="sortSubjects('qualificacioQuantitativaFinal')"
-            >
-              {{ $t("subjectTable.finalGrade") }}
-            </th>
-            <th scope="col" class="px-6 py-1 w-1/10">
-              {{ $t("subjectTable.info") }}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="subject in paginatedData"
-            :key="subject"
-            class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+          <thead
+            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
           >
-            <th
-              scope="row"
-              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              {{ subject.descripcio }}
-            </th>
-            <td class="text-center px-6 py-4">
-              {{ subject.codi }}
-            </td>
-            <td class="text-center px-6 py-4">
-              {{ subject.descripcioClasseCredits }}
-            </td>
-            <td class="text-center px-6 py-4">{{ subject.numCredits }}</td>
-            <td class="text-center px-6 py-4">
-              {{ subject.ultAnyMatricula }}
-            </td>
-            <td class="text-center px-6 py-4">
-              {{ subject.numConvocatoriesConsumides }}
-            </td>
-            <td
-              class="text-center px-6 py-4"
-              v-if="subject.descripcioQualificacioQualitativaFinal"
-            >
-              {{ subject.descripcioQualificacioQualitativaFinal }}
-            </td>
-            <td class="text-center px-6 py-4" v-else>
-              {{ $t("subjectTable.ongoing") }}
-            </td>
-            <td
-              class="text-center px-6 py-4"
-              v-if="subject.qualificacioQuantitativaFinal"
-            >
-              {{ subject.qualificacioQuantitativaFinal }}
-            </td>
-            <td class="text-center px-6 py-4" v-else>NA</td>
-            <td
-              class="text-center px-6 py-4 cursor-pointer underline text-cyan-500"
+            <tr>
+              <th
+                class="py-1 cursor-pointer"
+                @click="sortSubjects('descripcio')"
+              >
+                {{ $t("subjectTable.description") }}
+              </th>
+              <th
+                class="py-1 cursor-pointer hidden md:table-cell"
+                @click="sortSubjects('codi')"
+              >
+                {{ $t("subjectTable.code") }}
+              </th>
+              <th
+                class="py-1 cursor-pointer hidden md:table-cell"
+                @click="sortSubjects('descripcioClasseCredits')"
+              >
+                {{ $t("subjectTable.type") }}
+              </th>
+              <th
+                class="py-1 cursor-pointer hidden md:table-cell"
+                @click="sortSubjects('numCredits')"
+              >
+                {{ $t("subjectTable.credits") }}
+              </th>
+              <th
+                class="py-1 cursor-pointer hidden md:table-cell"
+                @click="sortSubjects('ultAnyMatricula')"
+              >
+                {{ $t("subjectTable.semester") }}
+              </th>
+              <th
+                class="py-1 cursor-pointer hidden md:table-cell"
+                @click="sortSubjects('numConvocatoriesConsumides')"
+              >
+                {{ $t("subjectTable.convos") }}
+              </th>
+              <th
+                class="py-1 cursor-pointer"
+                @click="sortSubjects('descripcioQualificacioQualitativaFinal')"
+              >
+                {{ $t("subjectTable.grade") }}
+              </th>
+              <th
+                class="py-1 cursor-pointer"
+                @click="sortSubjects('qualificacioQuantitativaFinal')"
+              >
+                {{ $t("subjectTable.finalGrade") }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="subject in paginatedData"
+              :key="subject"
+              class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700 cursor-pointer"
               @click.prevent="requestData(subject)"
             >
-              Link
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div v-else>
-        <p>{{ $t("subjectTable.empty") }}</p>
+              <th
+                class="px-2 md:px-6 py-4 md:font-medium text-gray-900 md:whitespace-nowrap dark:text-white"
+              >
+                {{ subject.descripcio }}
+              </th>
+              <td class="text-center hidden md:table-cell">
+                {{ subject.codi }}
+              </td>
+              <td class="text-center hidden md:table-cell">
+                {{ subject.descripcioClasseCredits }}
+              </td>
+              <td class="text-center hidden md:table-cell">
+                {{ subject.numCredits }}
+              </td>
+              <td class="text-center hidden md:table-cell">
+                {{ subject.ultAnyMatricula }}
+              </td>
+              <td class="text-center hidden md:table-cell">
+                {{ subject.numConvocatoriesConsumides }}
+              </td>
+              <td
+                class="text-center"
+                v-if="subject.descripcioQualificacioQualitativaFinal"
+              >
+                {{ subject.descripcioQualificacioQualitativaFinal }}
+              </td>
+              <td class="text-center" v-else>
+                {{ $t("subjectTable.ongoing") }}
+              </td>
+              <td
+                class="text-center"
+                v-if="subject.qualificacioQuantitativaFinal"
+              >
+                {{ subject.qualificacioQuantitativaFinal }}
+              </td>
+              <td class="text-center" v-else>NA</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div v-else>
+          <p>{{ $t("subjectTable.empty") }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -239,7 +232,7 @@ const searchTerm = ref("");
 const selectedType = ref(null);
 const selectedGrade = ref(null);
 
-const resultsPerPage = ref(100);
+const resultsPerPage = ref(10);
 const currentPage = ref(1);
 
 const filteredSubjects = computed(() => {
@@ -332,7 +325,7 @@ function resetFilters() {
   searchTerm.value = "";
   selectedType.value = null;
   selectedGrade.value = null;
-  resultsPerPage.value = 100;
+  resultsPerPage.value = 10;
   currentPage.value = 1;
 }
 
