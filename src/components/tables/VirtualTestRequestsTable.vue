@@ -1,54 +1,54 @@
 <template>
-  <div class="py-2 mx-2">
-    <p
-      class="tablinks rounded text-white bg-blue-900 text-sm md:text-xl text-center"
-    >
-      {{ $t("virtualTestRequests.sectionTitle") }}
-    </p>
-  </div>
-
-  <div v-if="virtualTestRequests.length == 0" class="text-center">
-    <p>{{ $t("virtualTestRequests.empty") }}</p>
-  </div>
-  <div v-else>
-    <table
-      class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mx-2"
-    >
-      <thead
-        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
+  <div class="mx-2">
+    <div class="">
+      <p
+        class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl text-center"
       >
-        <tr>
-          <th scope="col" class="px-6 py-1">
-            {{ $t("virtualTestRequests.semester") }}
-          </th>
-          <th scope="col" class="px-6 py-1">
-            {{ $t("virtualTestRequests.subject") }}
-          </th>
-          <th scope="col" class="px-6 py-1">
-            {{ $t("virtualTestRequests.subjectCode") }}
-          </th>
-          <th scope="col" class="px-6 py-1">
-            {{ $t("virtualTestRequests.testType") }}
-          </th>
-          <th scope="col" class="px-6 py-1">
-            {{ $t("virtualTestRequests.status") }}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="request in virtualTestRequests"
-          :key="request"
-          class="border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+        {{ $t("virtualTestRequests.sectionTitle") }}
+      </p>
+    </div>
+
+    <div v-if="virtualTestRequests.length == 0" class="text-center">
+      <p>{{ $t("virtualTestRequests.empty") }}</p>
+    </div>
+    <div v-else class="relative overflow-x-auto rounded-lg py-2">
+      <table class="text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead
+          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
         >
-          <td class="text-center">{{ request.descAnyAcademic }}</td>
-          <td class="text-center">{{ request.descAssignatura }}</td>
-          <td class="text-center">{{ request.codAssignatura }}</td>
-          <td class="text-center">{{ request.tipusProva }}</td>
-          <td class="text-center">{{ request.descEstat }}</td>
-        </tr>
-      </tbody>
-    </table>
+          <tr>
+            <th scope="col" class="py-1">
+              {{ $t("virtualTestRequests.semester") }}
+            </th>
+            <th scope="col" class="py-1">
+              {{ $t("virtualTestRequests.subject") }}
+            </th>
+            <th scope="col" class="py-1">
+              {{ $t("virtualTestRequests.subjectCode") }}
+            </th>
+            <th scope="col" class="py-1">
+              {{ $t("virtualTestRequests.testType") }}
+            </th>
+            <th scope="col" class="py-1">
+              {{ $t("virtualTestRequests.status") }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="request in virtualTestRequests"
+            :key="request"
+            class="border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+          >
+            <td class="text-center">{{ request.descAnyAcademic }}</td>
+            <td class="text-center">{{ request.descAssignatura }}</td>
+            <td class="text-center">{{ request.codAssignatura }}</td>
+            <td class="text-center">{{ request.tipusProva }}</td>
+            <td class="text-center">{{ request.descEstat }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 

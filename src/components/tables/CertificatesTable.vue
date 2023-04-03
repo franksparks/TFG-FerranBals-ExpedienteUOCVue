@@ -1,5 +1,5 @@
 <template>
-  <div class="py-2 mx-2">
+  <div class="mx-2">
     <p
       class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl text-center"
     >
@@ -9,14 +9,12 @@
     <div v-if="certificates.length == 0" class="text-center">
       <p>{{ $t("certificates.empty") }}</p>
     </div>
-    <div v-else>
-      <div
-        class="relative overflow-x-auto shadow-md sm:rounded-lg content-center py-2"
-      >
+    <div v-else class="py-2">
+      <div class="relative overflow-x-auto rounded-lg content-center">
         <table
           v-for="certificate in certificates"
           :key="certificate"
-          class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+          class="text-sm text-left text-gray-500 dark:text-gray-400"
         >
           <thead
             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"

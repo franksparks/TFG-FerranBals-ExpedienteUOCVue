@@ -5,13 +5,13 @@
     >
       {{ $t("subjectTable.mainTitle") }}
     </p>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-2 py-2">
+    <div class="relative overflow-x-auto sm:rounded-lg mx-2 py-2">
       <div
         class="flex items-center justify-between px-6 py-3 bg-gray-100 dark:bg-gray-700"
       >
         <div class="w-1/3 relative inline-block">
           <input
-            class="block w-full max-w-lg py-2 px-3 rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-600 shadow-sm focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 text-gray-300"
+            class="block w-full max-w-lg py-2 px-3 rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 text-gray-300"
             type="text"
             v-model="searchTerm"
             :placeholder="$t('subjectTable.placeholder')"

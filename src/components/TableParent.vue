@@ -89,28 +89,29 @@
           </label>
         </div>
       </div>
-      <!-- AEP Requests Table -->
-      <AEPRequestsTable
-        v-if="tab === 'requests' && aep"
-        :AEPRequests="AEPRequests"
-      />
+      <div v-if="tab === 'requests'">
+        <div class="py-2 md:grid grid-cols-2">
+          <!-- AEP Requests Table -->
 
-      <!-- Certificates Table -->
-      <CertificatesTable
-        v-if="tab === 'requests' && certs"
-        :certificates="certificates"
-      />
+          <AEPRequestsTable v-if="aep" :AEPRequests="AEPRequests" />
 
-      <!-- Virtual test requests Table -->
-      <VirtualTestRequestTable
-        v-if="tab === 'requests' && virtualTestRequest"
-        :virtualTestRequests="virtualTestRequests"
-      />
-      <!-- Itineary Table -->
-      <ItineraryRequestsTable
-        v-if="tab === 'requests' && itineraryRequest"
-        :itineraryRequests="itineraryRequests"
-      />
+          <!-- Certificates Table -->
+          <CertificatesTable v-if="certs" :certificates="certificates" />
+        </div>
+
+        <div v-if="tab === 'requests'" class="py-2 md:grid grid-cols-2">
+          <!-- Virtual test requests Table -->
+          <VirtualTestRequestTable
+            v-if="virtualTestRequest"
+            :virtualTestRequests="virtualTestRequests"
+          />
+          <!-- Itineary Table -->
+          <ItineraryRequestsTable
+            v-if="itineraryRequest"
+            :itineraryRequests="itineraryRequests"
+          />
+        </div>
+      </div>
       <!-- THIRD TAB END -->
     </div>
   </div>
