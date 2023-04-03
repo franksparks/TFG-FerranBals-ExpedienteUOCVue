@@ -129,8 +129,8 @@ const filteredLabels = computed(() => {
     { label: t("credits.basicPending"), value: dataValues.value[4] },
     { label: t("credits.optativePending"), value: dataValues.value[5] },
   ]
-    .filter((item) => item.value !== 0)
-    .map((item) => item.label);
+    .map((item) => item.label)
+    .filter((item) => item.value !== 0);
 });
 
 const filteredDataValues = computed(() => {
