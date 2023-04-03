@@ -41,7 +41,7 @@
           <option value="Suspendidas">
             {{ $t("subjectTable.notPassed") }}
           </option>
-          <option value="Cursando">{{ $t("subjectTable.onGoing") }}</option>
+          <option value="Cursando">{{ $t("subjectTable.ongoing") }}</option>
           <option value="Reconocidas">
             {{ $t("subjectTable.accredited") }}
           </option>
@@ -183,12 +183,22 @@
             <td class="text-center px-6 py-4">
               {{ subject.numConvocatoriesConsumides }}
             </td>
-            <td class="text-center px-6 py-4">
+            <td
+              class="text-center px-6 py-4"
+              v-if="subject.descripcioQualificacioQualitativaFinal"
+            >
               {{ subject.descripcioQualificacioQualitativaFinal }}
             </td>
-            <td class="text-center px-6 py-4">
+            <td class="text-center px-6 py-4" v-else>
+              {{ $t("subjectTable.ongoing") }}
+            </td>
+            <td
+              class="text-center px-6 py-4"
+              v-if="subject.qualificacioQuantitativaFinal"
+            >
               {{ subject.qualificacioQuantitativaFinal }}
             </td>
+            <td class="text-center px-6 py-4" v-else>NA</td>
             <td
               class="text-center px-6 py-4 cursor-pointer underline text-cyan-500"
               @click.prevent="requestData(subject)"
