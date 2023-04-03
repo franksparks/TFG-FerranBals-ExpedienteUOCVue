@@ -124,5 +124,10 @@
     "subjectCode": "Codi assignatura",
     "testType": "Núm sol·licitud",
     "status": "Estat"
+  },
+  "footer": {
+    "accessibility": "Accessibilitat",
+    "attention": "Servei d'atenció",
+    "campus": "Seu electrònica"
   }
 }

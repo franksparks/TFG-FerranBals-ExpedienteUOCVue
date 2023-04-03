@@ -124,5 +124,10 @@
     "subjectCode": "Subject code",
     "testType": "Test type",
     "status": "Status"
+  },
+  "footer": {
+    "accessibility": "Accessibility",
+    "attention": "Help service",
+    "campus": "E-Services portal"
   }
 }

@@ -124,5 +124,10 @@
     "subjectCode": "Código asignatura",
     "testType": "Núm solicitud",
     "status": "Estado"
+  },
+  "footer": {
+    "accessibility": "Accesibilidad",
+    "attention": "Servicio de atención",
+    "campus": "Sede electrónica"
   }
 }

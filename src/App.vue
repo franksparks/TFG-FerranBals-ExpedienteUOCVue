@@ -47,6 +47,8 @@
         :AEPRequests="AEPRequests"
         :enrollments="enrollments"
       />
+      <hr class="border-gray-500 py-1 mx-2" />
+      <FooterComponent />
     </div>
   </div>
 </template>
@@ -55,6 +57,7 @@
 import AppHeader from "./components/AppHeader.vue";
 import FileMainInformation from "./components/FileMainInformation.vue";
 import TableParent from "./components/TableParent.vue";
+import FooterComponent from "./components/FooterComponent.vue";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 //const port = 3000;
