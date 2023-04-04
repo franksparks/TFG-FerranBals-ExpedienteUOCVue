@@ -16,74 +16,78 @@
         {{ $t("credits.mainTitle") }}
       </p>
       <div class="py-2 md:flex md:justify-center">
-        <table class="w-full text-sm text-gray-500 dark:text-gray-400">
-          <thead
-            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
-          >
-            <tr>
-              <th class="w-1/4">{{ $t("credits.tableHeader") }}</th>
-              <th class="w-1/4 pt-1">{{ $t("credits.basic") }}</th>
-              <th class="w-1/4 pt-1">
-                {{ $t("credits.optative") }}
-              </th>
-              <th class="w-1/4 pt-1">{{ $t("credits.main") }}</th>
-            </tr>
-          </thead>
-          <tbody class="justify-center">
-            <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 text-center"
+        <div class="w-full overflow-x-auto rounded-lg">
+          <table class="w-full text-sm text-gray-500 dark:text-gray-400">
+            <thead
+              class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
             >
-              <th>{{ $t("credits.goal") }}</th>
-              <td>
-                {{ credits.numCreditsObligatoriObjectiu }}
-              </td>
-              <td>
-                {{ credits.numCreditsOptatiuObjectiu }}
-              </td>
-              <td>
-                {{ credits.numCreditsTroncalObjectiu }}
-              </td>
-            </tr>
-            <tr
-              class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
-            >
-              <th class="text-center">{{ $t("credits.passed") }}</th>
-              <td class="text-center">
-                {{ credits.numCreditsObligatoriSuperat }}
-              </td>
-              <td class="text-center">
-                {{ credits.numCreditsOptatiuSuperat }}
-              </td>
-              <td class="text-center">
-                {{ credits.numCreditsTroncalSuperat }}
-              </td>
-            </tr>
-            <tr
-              class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
-            >
-              <th class="text-center">{{ $t("credits.pending") }}</th>
-              <td class="text-center">
-                {{
-                  credits.numCreditsObligatoriObjectiu -
-                  credits.numCreditsObligatoriSuperat
-                }}
-              </td>
-              <td class="text-center">
-                {{
-                  credits.numCreditsOptatiuObjectiu -
-                  credits.numCreditsOptatiuSuperat
-                }}
-              </td>
-              <td class="text-center">
-                {{
-                  credits.numCreditsTroncalSuperat -
-                  credits.numCreditsTroncalObjectiu
-                }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+              <tr>
+                <th class="w-1/4">{{ $t("credits.tableHeader") }}</th>
+                <th class="w-1/4 pt-1">{{ $t("credits.basic") }}</th>
+                <th class="w-1/4 pt-1">
+                  {{ $t("credits.optative") }}
+                </th>
+                <th class="w-1/4 pt-1">{{ $t("credits.main") }}</th>
+              </tr>
+            </thead>
+            <tbody class="justify-center">
+              <tr
+                class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 text-center"
+              >
+                <th>{{ $t("credits.goal") }}</th>
+                <td>
+                  {{ credits.numCreditsObligatoriObjectiu }}
+                </td>
+                <td>
+                  {{ credits.numCreditsOptatiuObjectiu }}
+                </td>
+                <td>
+                  {{ credits.numCreditsTroncalObjectiu }}
+                </td>
+              </tr>
+              <tr
+                class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
+              >
+                <th class="text-center">{{ $t("credits.passed") }}</th>
+                <td class="text-center">
+                  {{ credits.numCreditsObligatoriSuperat }}
+                </td>
+                <td class="text-center">
+                  {{ credits.numCreditsOptatiuSuperat }}
+                </td>
+                <td class="text-center">
+                  {{ credits.numCreditsTroncalSuperat }}
+                </td>
+              </tr>
+              <tr
+                class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
+              >
+                <th class="text-center">{{ $t("credits.pending") }}</th>
+                <td class="text-center">
+                  {{
+                    credits.numCreditsObligatoriObjectiu -
+                    credits.numCreditsObligatoriSuperat
+                  }}
+                </td>
+                <td class="text-center">
+                  {{
+                    credits.numCreditsOptatiuObjectiu -
+                    credits.numCreditsOptatiuSuperat
+                  }}
+                </td>
+                <td class="text-center">
+                  {{
+                    credits.numCreditsTroncalSuperat -
+                    credits.numCreditsTroncalObjectiu
+                  }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Current subjects -->
       </div>
+      <CurrentSubjects :subjects="subjects" />
     </div>
   </div>
 </template>
@@ -100,9 +104,11 @@ import { DoughnutChart } from "vue-chart-3";
 import { Chart, DoughnutController, ArcElement } from "chart.js";
 import { useI18n } from "vue-i18n";
 import pattern from "patternomaly";
+import CurrentSubjects from "./subjects/CurrentSubjects.vue";
 
 const props = defineProps({
   credits: Object,
+  subjects: Object,
 });
 const { t } = useI18n();
 

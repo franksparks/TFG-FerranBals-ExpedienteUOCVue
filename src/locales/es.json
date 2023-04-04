@@ -68,6 +68,9 @@
     "finalGrade": "Nota final",
     "info": "Más info"
   },
+  "current": {
+    "main": "Asignaturas en curso"
+  },
   "takenSubject": {
     "subject": "Asignatura",
     "subjectCode": "Código",

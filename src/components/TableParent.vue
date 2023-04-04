@@ -49,7 +49,9 @@
       <CreditsTable
         v-if="tab === 'summary' && credits.numCreditsObligatoriSuperat != null"
         :credits="credits"
+        :subjects="subjects"
       />
+
       <!-- Subject Table -->
       <SubjectsTable v-if="tab === 'subjects'" :subjects="subjects" />
       <!-- FIRST TAB END -->

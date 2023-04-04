@@ -68,6 +68,9 @@
     "finalGrade": "Final grade",
     "info": "More info"
   },
+  "current": {
+    "main": "Ongoing subjects"
+  },
   "takenSubject": {
     "subject": "Subject",
     "subjectCode": "Code",

@@ -41,7 +41,7 @@
     "basicPending": "Básiques pendents",
     "mainPending": "Obligatòries pendents",
     "optativePending": "Optatives pendents",
-    "tableHeader": "Resum"
+    "tableHeader": "Resum de crèdits"
   },
   "subjectTable": {
     "mainTitle": "Resum d'assignatures",
@@ -67,6 +67,9 @@
     "grade": "Nota",
     "finalGrade": "Nota final",
     "info": "Més info"
+  },
+  "current": {
+    "main": "Assignatures en curs"
   },
   "takenSubject": {
     "subject": "Assignatura",
