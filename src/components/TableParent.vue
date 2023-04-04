@@ -46,7 +46,7 @@
         </button>
       </div>
 
-      <div class="border-2 border-green-500">
+      <div>
         <div
           v-if="tab === 'requests'"
           class=""
