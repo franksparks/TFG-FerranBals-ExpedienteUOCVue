@@ -7,9 +7,10 @@
     </p>
     <div class="relative overflow-x-auto mx-2 pt-2">
       <div
-        class="flex items-center justify-between px-6 bg-gray-100 dark:bg-gray-700 rounded-t-lg py-2"
+        class="md:flex sm:w-full justify-between md:px-6 bg-gray-100 dark:bg-gray-700 rounded-t-lg py-2"
       >
-        <div class="sm: w-full w-1/3 relative inline-block">
+        <!-- FILTERS START -->
+        <div class="md:w-1/3 relative mx-4">
           <input
             class="w-full py-2 px-3 rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 text-gray-300"
             type="text"
@@ -17,7 +18,6 @@
             :placeholder="$t('subjectTable.placeholder')"
           />
         </div>
-        <!-- FILTERS START -->
 
         <select
           v-model="selectedType"
@@ -110,48 +110,83 @@
                 @click="sortSubjects('descripcio')"
               >
                 {{ $t("subjectTable.description") }}
+                <span class="ml-2">
+                  <i class="fas fa-chevron-up"></i>
+                  <i class="fas fa-chevron-down"></i>
+                </span>
               </th>
               <th
                 class="py-1 cursor-pointer hidden md:table-cell"
                 @click="sortSubjects('codi')"
               >
                 {{ $t("subjectTable.code") }}
+                <span class="ml-2">
+                  <i class="fas fa-chevron-up"></i>
+                  <i class="fas fa-chevron-down"></i>
+                </span>
               </th>
               <th
                 class="py-1 cursor-pointer hidden md:table-cell"
                 @click="sortSubjects('descripcioClasseCredits')"
               >
                 {{ $t("subjectTable.type") }}
+                <span class="ml-2">
+                  <i class="fas fa-chevron-up"></i>
+                  <i class="fas fa-chevron-down"></i>
+                </span>
               </th>
               <th
                 class="py-1 cursor-pointer hidden md:table-cell"
                 @click="sortSubjects('numCredits')"
               >
                 {{ $t("subjectTable.credits") }}
+                <span class="ml-2">
+                  <i class="fas fa-chevron-up"></i>
+                  <i class="fas fa-chevron-down"></i>
+                </span>
               </th>
               <th
                 class="py-1 cursor-pointer hidden md:table-cell"
                 @click="sortSubjects('ultAnyMatricula')"
               >
                 {{ $t("subjectTable.semester") }}
+                <span class="ml-2">
+                  <i class="fas fa-chevron-up"></i>
+                  <i class="fas fa-chevron-down"></i>
+                </span>
               </th>
               <th
                 class="py-1 cursor-pointer hidden md:table-cell"
                 @click="sortSubjects('numConvocatoriesConsumides')"
               >
                 {{ $t("subjectTable.convos") }}
+                <span class="ml-2">
+                  <i class="fas fa-chevron-up"></i>
+                  <i class="fas fa-chevron-down"></i>
+                </span>
               </th>
               <th
                 class="py-1 cursor-pointer"
                 @click="sortSubjects('descripcioQualificacioQualitativaFinal')"
               >
                 {{ $t("subjectTable.grade") }}
+                <span class="ml-2">
+                  <i class="fas fa-chevron-up"></i>
+                  <i class="fas fa-chevron-down"></i>
+                </span>
               </th>
               <th
                 class="py-1 cursor-pointer"
                 @click="sortSubjects('qualificacioQuantitativaFinal')"
               >
                 {{ $t("subjectTable.finalGrade") }}
+                <span class="ml-2">
+                  <i class="fas fa-chevron-up"></i>
+                  <i class="fas fa-chevron-down"></i>
+                </span>
+              </th>
+              <th scope="col" class="py-1 w-1/10 md:hidden sm:table-cell">
+                {{ $t("subjectTable.info") }}
               </th>
             </tr>
           </thead>
@@ -198,6 +233,11 @@
                 {{ subject.qualificacioQuantitativaFinal }}
               </td>
               <td class="text-center" v-else>NA</td>
+              <td
+                class="text-center px-6 py-4 cursor-pointer underline text-cyan-500 md:hidden table-cell"
+              >
+                Link
+              </td>
             </tr>
           </tbody>
         </table>
@@ -223,7 +263,7 @@ export default {
 </script>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 
 import SubjectModal from "@/components/modals/SubjectModal.vue";
 
@@ -236,6 +276,14 @@ const selectedGrade = ref(null);
 
 const resultsPerPage = ref(10);
 const currentPage = ref(1);
+
+onMounted(() => {
+  if (window.innerWidth <= 768) {
+    resultsPerPage.value = 100;
+  } else {
+    resultsPerPage.value = 10;
+  }
+});
 
 const filteredSubjects = computed(() => {
   let filtered = props.subjects;

@@ -18,18 +18,30 @@
                   @click="sortTable('descAnyAcademic')"
                 >
                   {{ $t("enrollment.semester") }}
+                  <span class="ml-2">
+                    <i class="fas fa-chevron-up"></i>
+                    <i class="fas fa-chevron-down"></i>
+                  </span>
                 </th>
                 <th
                   class="w-1/3 cursor-pointer"
                   @click="sortTable('dataMatricula')"
                 >
                   {{ $t("enrollment.date") }}
+                  <span class="ml-2">
+                    <i class="fas fa-chevron-up"></i>
+                    <i class="fas fa-chevron-down"></i>
+                  </span>
                 </th>
                 <th
                   class="w-1/3 cursor-pointer"
                   @click="sortTable('importMatricula')"
                 >
                   {{ $t("enrollment.amount") }}
+                  <span class="ml-2">
+                    <i class="fas fa-chevron-up"></i>
+                    <i class="fas fa-chevron-down"></i>
+                  </span>
                 </th>
               </tr>
             </thead>
