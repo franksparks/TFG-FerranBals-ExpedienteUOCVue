@@ -4,12 +4,14 @@
   },
   "images": {
     "uocLogo": "Link a la página principal de la UOC",
-    "mailIcon": "Link para enviar un mail al tutor"
+    "mailIcon": "Link para enviar un mail al tutor",
+    "plusIcon": "Ver más información del expediente",
+    "minusIcon": "Ver menos información del expediente"
   },
   "mainFileInfo": {
     "main": "Información del expediente",
-    "student": "Alumno/a",
-    "teacher": "Tutor/a",
+    "student": "Alumno/a: ",
+    "teacher": "Tutor/a: ",
     "contact": "Contacto",
     "fileNumber": "Número expediente",
     "averageGrade": "Nota media actual",

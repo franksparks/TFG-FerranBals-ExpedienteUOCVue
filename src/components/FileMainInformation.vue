@@ -9,11 +9,13 @@
           v-if="collapse"
           src="/plusIconWhite.png"
           class="float-left m-1 rounded-full"
+          :alt="$t('images.plusIcon')"
         />
         <img
           v-if="!collapse"
           src="/minusIconWhite.png"
           class="float-left m-1 rounded-full"
+          :alt="$t('images.minusIcon')"
         />
 
         {{ $t("mainFileInfo.main") }}
@@ -22,14 +24,15 @@
     <div class="md:columns-2">
       <!--Info alumno-->
       <p>
-        <span class="font-bold">{{ $t("mainFileInfo.student") }}: </span>
+        <span class="font-bold">{{ $t("mainFileInfo.student") }}</span>
         {{ studentFullName }}
       </p>
       <!--Info tutor-->
       <div v-if="tutorData.nom != null">
         <p>
-          <span class="float-left font-bold"
-            >{{ $t("mainFileInfo.teacher") }}: </span
+          <span class="float-left font-bold">{{
+            $t("mainFileInfo.teacher")
+          }}</span
           ><span class="float-left">{{ tutorFullName }}</span>
           <a
             class="m-1 focus:ring focus:ring-cyan-500 focus:border-cyan-500"

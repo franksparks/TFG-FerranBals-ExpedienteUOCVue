@@ -4,12 +4,14 @@
   },
   "images": {
     "uocLogo": "Link to UOC main page",
-    "mailIcon": "Link to send an email to the teacher"
+    "mailIcon": "Link to send an email to the teacher",
+    "plusIcon": "See more student file information",
+    "minusIcon": "See less student file information"
   },
   "mainFileInfo": {
     "main": "File Information",
-    "student": "Student",
-    "teacher": "Teacher",
+    "student": "Student: ",
+    "teacher": "Teacher: ",
     "contact": "Contact",
     "fileNumber": "File number",
     "averageGrade": "Current average grade",

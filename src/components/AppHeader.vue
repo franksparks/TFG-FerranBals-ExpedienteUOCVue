@@ -1,59 +1,61 @@
 <template>
-  <div id="header">
-    <!-- LOGO UOC -->
-    <div class="md:cols-3">
-      <div class="md:w-1/3">
-        <a
-          class="focus:ring focus:ring-cyan-500 focus:border-cyan-500"
-          href="https://www.uoc.edu/"
-          target="_blank"
+  <header class="mx-2">
+    <div id="header">
+      <!-- LOGO UOC -->
+      <div class="md:cols-3">
+        <div class="md:w-1/3">
+          <a
+            class="focus:ring focus:ring-cyan-500 focus:border-cyan-500"
+            href="https://www.uoc.edu/"
+            target="_blank"
+          >
+            <img
+              class="rounded w-full"
+              src="/0FF0108D4D41E43CCF1FBA356ABC5156.cache.gif"
+              title="Universitat Oberta de Catalunya"
+              :alt="$t('images.uocLogo')"
+            />
+          </a>
+        </div>
+      </div>
+
+      <!-- CONSULTA DE EXPEDIENTE -->
+      <p class="text-2xl font-bold md:text-3xl text-center md:text-left">
+        {{ $t("header.main") }}
+      </p>
+
+      <div>
+        <!-- DROPDOWN IDIOMAS -->
+        <select
+          v-model="$i18n.locale"
+          class="text-gray-800 rounded float-right border-2 border-neutral-400 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
+          value="es"
         >
-          <img
-            class="rounded w-full"
-            src="/0FF0108D4D41E43CCF1FBA356ABC5156.cache.gif"
-            title="Universitat Oberta de Catalunya"
-            :alt="$t('images.uocLogo')"
-          />
-        </a>
+          <option value="en">English</option>
+          <option value="es">Castellano</option>
+          <option value="cat">Català</option>
+        </select>
+
+        <!-- DROPDOWN EXPEDIENTES -->
+        <select
+          v-model="file"
+          @change="refreshFile(file)"
+          class="text-gray-800 rounded md:float-right md:mx-5 border-2 border-neutral-400 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
+        >
+          <option value="alice">Alice</option>
+          <option value="minor">Minor Alice</option>
+          <option value="bob">Bob</option>
+        </select>
       </div>
     </div>
 
-    <!-- CONSULTA DE EXPEDIENTE -->
-    <p class="text-2xl font-bold md:text-3xl text-center md:text-left">
-      {{ $t("header.main") }}
-    </p>
-
-    <div>
-      <!-- DROPDOWN IDIOMAS -->
-      <select
-        v-model="$i18n.locale"
-        class="text-gray-800 rounded float-right border-2 border-neutral-400 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
-        value="es"
-      >
-        <option value="en">English</option>
-        <option value="es">Castellano</option>
-        <option value="cat">Català</option>
-      </select>
-
-      <!-- DROPDOWN EXPEDIENTES -->
-      <select
-        v-model="file"
-        @change="refreshFile(file)"
-        class="text-gray-800 rounded md:float-right md:mx-5 border-2 border-neutral-400 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
-      >
-        <option value="alice">Alice</option>
-        <option value="minor">Minor Alice</option>
-        <option value="bob">Bob</option>
-      </select>
+    <!-- TIPO DE ESTUDIOS -->
+    <div class="text-center pt-1 md:text-left">
+      <p class="text-2xl text-blue-900">
+        {{ degreeType }}
+      </p>
     </div>
-  </div>
-
-  <!-- TIPO DE ESTUDIOS -->
-  <div class="text-center pt-1 md:text-left">
-    <p class="text-2xl text-blue-900">
-      {{ degreeType }}
-    </p>
-  </div>
+  </header>
 </template>
 
 <script>

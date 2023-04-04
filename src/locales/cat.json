@@ -4,12 +4,14 @@
   },
   "images": {
     "uocLogo": "Link a la pàgina principal de la UOC",
-    "mailIcon": "Link per enviar un mail al tutor"
+    "mailIcon": "Link per enviar un mail al tutor",
+    "plusIcon": "Veure més informació de l'expedient",
+    "minusIcon": "Veure menys informació de l'expedient"
   },
   "mainFileInfo": {
     "main": "Informació de l'expedient",
-    "student": "Alumne",
-    "teacher": "Tutor/a",
+    "student": "Alumne: ",
+    "teacher": "Tutor/a: ",
     "contact": "Contacte",
     "fileNumber": "Número expedient",
     "averageGrade": "Nota mitja actual",
