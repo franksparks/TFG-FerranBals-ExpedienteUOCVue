@@ -32,7 +32,7 @@
             >{{ $t("mainFileInfo.teacher") }}: </span
           ><span class="float-left">{{ tutorFullName }}</span>
           <a
-            class="m-1"
+            class="m-1 focus:ring focus:ring-cyan-500 focus:border-cyan-500"
             :href="
               'mailto:' +
               tutorMail +
@@ -40,7 +40,10 @@
               studentFullName
             "
             target="_blank"
-            ><img class="float-left m-1" src="/mail.png"
+            ><img
+              class="float-left m-1"
+              src="/mail.png"
+              :alt="$t('images.mailIcon')"
           /></a>
         </p>
       </div>

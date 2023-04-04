@@ -21,7 +21,7 @@
 
         <select
           v-model="selectedType"
-          class="float-right text-gray-800 rounded align-right py-2"
+          class="float-right text-gray-800 rounded align-right py-2 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
         >
           <option value="null" selected="true">
             {{ $t("subjectTable.all") }}
@@ -33,7 +33,7 @@
 
         <select
           v-model="selectedGrade"
-          class="pr-4 float-right text-gray-800 rounded align-right py-2"
+          class="pr-4 float-right text-gray-800 rounded align-right py-2 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
         >
           <option value="null" selected="true">
             {{ $t("subjectTable.all") }}
@@ -50,7 +50,7 @@
 
         <select
           v-model="resultsPerPage"
-          class="pr-4 float-right text-gray-800 rounded align-right py-2"
+          class="pr-4 float-right text-gray-800 rounded align-right py-2 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
         >
           <option value="10" selected="true">
             10 {{ $t("subjectTable.results") }}
@@ -61,7 +61,7 @@
 
         <button
           @click.prevent="previousSubjectsPage()"
-          class="tablinks py-1.5 px-3 rounded text-white bg-green-600"
+          class="tablinks py-1.5 px-3 rounded text-white bg-green-600 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
           :class="{
             'bg-yellow-600 cursor-not-allowed': currentPage - 1 == 0,
           }"
@@ -75,7 +75,7 @@
 
         <button
           @click="nextSubjectsPage()"
-          class="tablinks py-1.5 px-3 rounded text-white bg-green-600"
+          class="tablinks py-1.5 px-3 rounded text-white bg-green-600 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
           :class="{
             'bg-yellow-600 cursor-not-allowed': currentPage + 1 > totalPages,
           }"
@@ -84,7 +84,7 @@
         </button>
 
         <button
-          class="tablinks py-1.5 px-3 rounded text-white bg-green-600"
+          class="tablinks py-1.5 px-3 rounded text-white bg-green-600 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
           @click.prevent="resetFilters()"
         >
           {{ $t("subjectTable.reset") }}

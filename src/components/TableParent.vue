@@ -3,7 +3,7 @@
     <div class="tab py-2 mx-2">
       <button
         v-if="props.credits.numCreditsObligatoriSuperat != null"
-        class="tablinks py-1.5 px-3 rounded text-blue-900"
+        class="tablinks py-1.5 px-3 rounded text-blue-900 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
         @click.prevent="tab = 'summary'"
         :class="{
           'bg-cyan-400 font-bold cursor-default': tab === 'summary',
@@ -13,7 +13,7 @@
         {{ $t("table.academic") }}
       </button>
       <button
-        class="tablinks py-1.5 px-3 rounded text-blue-900"
+        class="tablinks py-1.5 px-3 rounded text-blue-900 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
         @click.prevent="tab = 'subjects'"
         :class="{
           'bg-cyan-400 font-bold cursor-default': tab === 'subjects',
@@ -23,7 +23,7 @@
         {{ $t("table.subjects") }}
       </button>
       <button
-        class="tablinks py-1.5 px-3 rounded text-blue-900"
+        class="tablinks py-1.5 px-3 rounded text-blue-900 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
         @click.prevent="tab = 'enrollments'"
         :class="{
           'bg-cyan-400 font-bold cursor-default': tab === 'enrollments',
@@ -33,7 +33,7 @@
         {{ $t("table.enrollment") }}
       </button>
       <button
-        class="tablinks py-1.5 px-3 rounded text-blue-900"
+        class="tablinks py-1.5 px-3 rounded text-blue-900 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
         @click.prevent="tab = 'requests'"
         :class="{
           'bg-cyan-400 font-bold cursor-default': tab === 'requests',

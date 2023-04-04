@@ -2,6 +2,10 @@
   "header": {
     "main": "Consulta del expediente"
   },
+  "images": {
+    "uocLogo": "Link a la página principal de la UOC",
+    "mailIcon": "Link para enviar un mail al tutor"
+  },
   "mainFileInfo": {
     "main": "Información del expediente",
     "student": "Alumno/a",

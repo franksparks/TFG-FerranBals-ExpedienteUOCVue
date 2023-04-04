@@ -3,12 +3,16 @@
     <!-- LOGO UOC -->
     <div class="md:cols-3">
       <div class="md:w-1/3">
-        <a href="https://www.uoc.edu/" target="_blank">
+        <a
+          class="focus:ring focus:ring-cyan-500 focus:border-cyan-500"
+          href="https://www.uoc.edu/"
+          target="_blank"
+        >
           <img
             class="rounded w-full"
             src="/0FF0108D4D41E43CCF1FBA356ABC5156.cache.gif"
             title="Universitat Oberta de Catalunya"
-            alt="Universitat Oberta de Catalunya"
+            :alt="$t('images.uocLogo')"
           />
         </a>
       </div>
@@ -23,7 +27,7 @@
       <!-- DROPDOWN IDIOMAS -->
       <select
         v-model="$i18n.locale"
-        class="text-gray-800 rounded float-right border-2 border-neutral-400"
+        class="text-gray-800 rounded float-right border-2 border-neutral-400 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
         value="es"
       >
         <option value="en">English</option>
@@ -35,7 +39,7 @@
       <select
         v-model="file"
         @change="refreshFile(file)"
-        class="text-gray-800 rounded md:float-right md:mx-5 border-2 border-neutral-400"
+        class="text-gray-800 rounded md:float-right md:mx-5 border-2 border-neutral-400 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
       >
         <option value="alice">Alice</option>
         <option value="minor">Minor Alice</option>
