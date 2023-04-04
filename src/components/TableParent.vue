@@ -1,12 +1,7 @@
 <template>
   <div>
     <div class="mx-2 md:flex">
-      <div
-        class="md:flex-1"
-        :class="{
-          'md:pb-3 ': tab !== 'requests',
-        }"
-      >
+      <div class="md:flex-1" :class="{ 'md:pb-3 ': tab !== 'requests' }">
         <button
           v-if="props.credits.numCreditsObligatoriSuperat != null"
           class="tablinks py-1.5 px-3 rounded text-blue-900 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"

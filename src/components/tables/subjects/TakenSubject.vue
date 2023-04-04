@@ -1,21 +1,24 @@
 <template>
   <div>
-    <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-      <ul
-        class="flex flex-wrap -mb-px text-sm font-medium text-center"
-        role="tablist"
-      >
+    <div class="mb-1 border-gray-200 dark:border-gray-700">
+      <ul class="flex flex-wrap text-sm font-medium text-center" role="tablist">
         <li class="mr-2" v-for="(convo, index) in subjectConvo" :key="index">
           <button
-            class="inline-block p-4 border-b-2 rounded-t-lg"
+            class="tablinks py-1.5 px-3 rounded text-blue-900 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
             type="button"
             @click="currentIndex = index"
+            :class="{
+              'bg-cyan-400 font-bold cursor-default': currentIndex === index,
+              'bg-neutral-300 border-2 hover:bg-neutral-400':
+                currentIndex !== index,
+            }"
           >
             {{ convo.descAnyAcademico }}
           </button>
         </li>
       </ul>
     </div>
+    <hr class="border-gray-500 mb-2" />
     <div
       v-for="(convo, index) in subjectConvo"
       :key="convo.numConvocatoriaActual"
@@ -31,7 +34,7 @@
             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
           >
             <tr>
-              <th scope="col" class="px-6 py-1 text-center">
+              <th scope="col" class="px-6 py-1 text-center" colspan="2">
                 {{ convo.descAnyAcademico }}
               </th>
             </tr>
