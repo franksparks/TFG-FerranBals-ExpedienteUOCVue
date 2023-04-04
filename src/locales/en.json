@@ -1,6 +1,8 @@
 {
   "header": {
-    "main": "Student File"
+    "main": "Student File",
+    "language": "Language selector:",
+    "file": "File selector:"
   },
   "images": {
     "uocLogo": "Link to UOC main page",
@@ -10,8 +12,8 @@
   },
   "mainFileInfo": {
     "main": "File Information",
-    "student": "Student: ",
-    "teacher": "Teacher: ",
+    "student": "Student",
+    "teacher": "Teacher ",
     "contact": "Contact",
     "fileNumber": "File number",
     "averageGrade": "Current average grade",

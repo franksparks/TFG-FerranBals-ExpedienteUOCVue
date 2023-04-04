@@ -1,6 +1,8 @@
 {
   "header": {
-    "main": "Consulta de l'expedient"
+    "main": "Consulta de l'expedient",
+    "language": "Selector d'idioma:",
+    "file": "Selector d'expedient:"
   },
   "images": {
     "uocLogo": "Link a la pàgina principal de la UOC",
@@ -10,8 +12,8 @@
   },
   "mainFileInfo": {
     "main": "Informació de l'expedient",
-    "student": "Alumne: ",
-    "teacher": "Tutor/a: ",
+    "student": "Alumne",
+    "teacher": "Tutor/a",
     "contact": "Contacte",
     "fileNumber": "Número expedient",
     "averageGrade": "Nota mitja actual",

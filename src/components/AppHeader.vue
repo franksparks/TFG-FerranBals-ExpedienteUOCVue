@@ -24,28 +24,34 @@
         {{ $t("header.main") }}
       </p>
 
-      <div>
-        <!-- DROPDOWN IDIOMAS -->
-        <select
-          v-model="$i18n.locale"
-          class="text-gray-800 rounded float-right border-2 border-neutral-400 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
-          value="es"
-        >
-          <option value="en">English</option>
-          <option value="es">Castellano</option>
-          <option value="cat">Català</option>
-        </select>
-
-        <!-- DROPDOWN EXPEDIENTES -->
-        <select
-          v-model="file"
-          @change="refreshFile(file)"
-          class="text-gray-800 rounded md:float-right md:mx-5 border-2 border-neutral-400 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
-        >
-          <option value="alice">Alice</option>
-          <option value="minor">Minor Alice</option>
-          <option value="bob">Bob</option>
-        </select>
+      <div class="flex flex-col sm:flex-row">
+        <div class="flex">
+          <label for="language-select" class="mr-2">{{
+            $t("header.language")
+          }}</label>
+          <select
+            id="language-select"
+            v-model="$i18n.locale"
+            class="text-gray-800 rounded border-2 border-neutral-400 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
+          >
+            <option value="en">English</option>
+            <option value="es">Castellano</option>
+            <option value="cat">Català</option>
+          </select>
+        </div>
+        <div class="flex mt-2 sm:mt-0 sm:ml-4">
+          <label for="file-select" class="mr-2">{{ $t("header.file") }}</label>
+          <select
+            id="file-select"
+            v-model="file"
+            @change="refreshFile(file)"
+            class="text-gray-800 rounded border-2 border-neutral-400 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
+          >
+            <option value="alice">Alice</option>
+            <option value="minor">Minor Alice</option>
+            <option value="bob">Bob</option>
+          </select>
+        </div>
       </div>
     </div>
 

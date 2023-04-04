@@ -24,15 +24,14 @@
     <div class="md:columns-2">
       <!--Info alumno-->
       <p>
-        <span class="font-bold">{{ $t("mainFileInfo.student") }}</span>
+        <span class="font-bold">{{ $t("mainFileInfo.student") }}: </span>
         {{ studentFullName }}
       </p>
       <!--Info tutor-->
       <div v-if="tutorData.nom != null">
         <p>
-          <span class="float-left font-bold">{{
-            $t("mainFileInfo.teacher")
-          }}</span
+          <span class="float-left font-bold mr-1"
+            >{{ $t("mainFileInfo.teacher") }}: </span
           ><span class="float-left">{{ tutorFullName }}</span>
           <a
             class="m-1 focus:ring focus:ring-cyan-500 focus:border-cyan-500"
@@ -59,7 +58,7 @@
       </p>
       <!--Nota media actual-->
       <p>
-        <span class="font-bold">{{ $t("mainFileInfo.averageGrade") }}:</span>
+        <span class="font-bold">{{ $t("mainFileInfo.averageGrade") }}: </span>
         {{ fileInfo.notaMitjana }}
       </p>
       <!--Acceso-->
@@ -69,7 +68,7 @@
       </p>
       <!--Estado expediente-->
       <p>
-        <span class="font-bold">{{ $t("mainFileInfo.status") }}:</span>
+        <span class="font-bold">{{ $t("mainFileInfo.status") }}: </span>
         {{ fileInfo.descEstatExpedient }}
       </p>
     </div>

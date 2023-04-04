@@ -1,6 +1,8 @@
 {
   "header": {
-    "main": "Consulta del expediente"
+    "main": "Consulta del expediente",
+    "language": "Selector de idioma:",
+    "file": "Selector de expediente:"
   },
   "images": {
     "uocLogo": "Link a la página principal de la UOC",
@@ -10,8 +12,8 @@
   },
   "mainFileInfo": {
     "main": "Información del expediente",
-    "student": "Alumno/a: ",
-    "teacher": "Tutor/a: ",
+    "student": "Alumno/a",
+    "teacher": "Tutor/a",
     "contact": "Contacto",
     "fileNumber": "Número expediente",
     "averageGrade": "Nota media actual",
