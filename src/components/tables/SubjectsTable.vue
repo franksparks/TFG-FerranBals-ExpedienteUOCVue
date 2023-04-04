@@ -55,8 +55,8 @@
           <option value="10" selected="true">
             10 {{ $t("subjectTable.results") }}
           </option>
-          <option value="10">20 {{ $t("subjectTable.results") }}</option>
-          <option value="10">40 {{ $t("subjectTable.results") }}</option>
+          <option value="20">20 {{ $t("subjectTable.results") }}</option>
+          <option value="40">40 {{ $t("subjectTable.results") }}</option>
         </select>
 
         <button
