@@ -21,7 +21,7 @@
             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
           >
             <tr>
-              <th class="w-1/4 bg-gray-100"></th>
+              <th class="w-1/4">{{ $t("credits.tableHeader") }}</th>
               <th class="w-1/4 pt-1">{{ $t("credits.basic") }}</th>
               <th class="w-1/4 pt-1">
                 {{ $t("credits.optative") }}

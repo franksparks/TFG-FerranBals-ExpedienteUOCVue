@@ -40,7 +40,8 @@
     "optativePassed": "Optatives superades",
     "basicPending": "Básiques pendents",
     "mainPending": "Obligatòries pendents",
-    "optativePending": "Optatives pendents"
+    "optativePending": "Optatives pendents",
+    "tableHeader": "Resum"
   },
   "subjectTable": {
     "mainTitle": "Resum d'assignatures",

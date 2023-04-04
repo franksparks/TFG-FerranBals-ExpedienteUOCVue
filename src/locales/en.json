@@ -40,7 +40,8 @@
     "optativePassed": "Optative approved",
     "basicPending": "Basic pending",
     "mainPending": "Mandatory pending",
-    "optativePending": "Optative pending"
+    "optativePending": "Optative pending",
+    "tableHeader": "Summary"
   },
   "subjectTable": {
     "mainTitle": "Subjects summary",
