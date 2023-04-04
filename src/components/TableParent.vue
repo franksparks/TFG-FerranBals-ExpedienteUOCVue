@@ -43,7 +43,7 @@
         {{ $t("table.requests") }}
       </button>
     </div>
-    <div class="3">
+    <div>
       <!-- FIRST TAB -->
       <!-- Credits Table -->
       <CreditsTable

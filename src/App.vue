@@ -47,7 +47,7 @@
         :AEPRequests="AEPRequests"
         :enrollments="enrollments"
       />
-      <hr class="border-gray-500 py-1 mx-2" />
+
       <FooterComponent />
     </div>
   </div>
