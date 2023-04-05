@@ -96,7 +96,7 @@
     </div>
     <!-- FILTERS END -->
     <!-- SUBJECTS TABLE START-->
-    <div class="mx-2">
+    <div class="mx-2 mb-14">
       <div class="relative overflow-x-auto rounded-b-lg">
         <table
           class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
@@ -199,7 +199,7 @@
               @click.prevent="requestData(subject)"
             >
               <th
-                class="px-2 md:px-6 py-4 md:font-medium text-gray-900 md:whitespace-nowrap dark:text-white"
+                class="px-2 md:px-6 py-3 md:font-medium text-gray-900 md:whitespace-nowrap dark:text-white"
               >
                 {{ subject.descripcio }}
               </th>

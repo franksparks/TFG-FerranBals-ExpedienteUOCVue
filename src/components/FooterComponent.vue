@@ -1,7 +1,7 @@
 <template>
   <div
     id="move"
-    class="md:container md:mx-auto md:fixed md:inset-x-0 md:bottom-0 md:mb-10 md:px-10"
+    class="md:container md:mx-auto md:fixed md:inset-x-0 md:bottom-0 md:px-10"
   >
     <hr class="border-gray-500 py-1" />
     <div class="w-full py-2 bg-gray-200">
