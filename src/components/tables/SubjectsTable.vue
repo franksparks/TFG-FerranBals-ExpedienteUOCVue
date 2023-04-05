@@ -51,6 +51,7 @@
         <select
           v-model="resultsPerPage"
           class="pr-4 float-right text-gray-800 rounded align-right py-2 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 hidden md:block"
+          @change="currentPage = 1"
         >
           <option value="10" selected="true">
             10 {{ $t("subjectTable.results") }}
