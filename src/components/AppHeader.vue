@@ -11,7 +11,7 @@
           >
             <img
               class="rounded w-full"
-              src="/0FF0108D4D41E43CCF1FBA356ABC5156.cache.gif"
+              src="/dayLogo.png"
               title="Universitat Oberta de Catalunya"
               :alt="$t('images.uocLogo')"
             />
