@@ -135,10 +135,11 @@ const filteredLabels = computed(() => {
     { label: t("credits.basicPending"), value: dataValues.value[4] },
     { label: t("credits.optativePending"), value: dataValues.value[5] },
   ]
-
     .filter((item) => item.value !== 0)
     .map((item) => item.label);
 });
+
+console.log(filteredLabels);
 
 const filteredDataValues = computed(() => {
   return dataValues.value.filter((value) => value !== 0);
@@ -150,12 +151,12 @@ const data = computed(() => ({
     {
       data: filteredDataValues.value,
       backgroundColor: [
-        pattern.draw("dot", "#0000BB"),
-        pattern.draw("dot", "#008a00"),
-        pattern.draw("dot", "#800080"),
+        pattern.draw("disc", "#0000BB"),
+        pattern.draw("diamond", "#008a00"),
+        pattern.draw("square", "#800080"),
         pattern.draw("ring", "#ADD8E6"),
-        pattern.draw("ring", "#90EE90"),
-        pattern.draw("ring", "#CBC3E3"),
+        pattern.draw("diamond-box", "#90EE90"),
+        pattern.draw("box", "#CBC3E3"),
       ],
     },
   ],
