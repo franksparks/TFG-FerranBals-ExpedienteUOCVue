@@ -24,7 +24,8 @@
     "academic": "Progress summary",
     "subjects": "Subjects",
     "enrollment": "Enrollments",
-    "requests": "Requests made"
+    "requests": "Requests made",
+    "noContent": "No request type has been selected."
   },
   "credits": {
     "mainTitle": "Credits summary",

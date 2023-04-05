@@ -24,7 +24,8 @@
     "academic": "Resumen del progreso",
     "subjects": "Asignaturas",
     "enrollment": "Matrículas",
-    "requests": "Solicitudes realizadas"
+    "requests": "Solicitudes realizadas",
+    "noContent": "No se ha seleccionado ningún tipo de trámite para mostrar información."
   },
   "credits": {
     "mainTitle": "Resumen de créditos",

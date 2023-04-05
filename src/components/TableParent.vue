@@ -121,6 +121,12 @@
           :itineraryRequests="itineraryRequests"
         />
       </div>
+      <div
+        class="mx-2"
+        v-if="!aep && !certs && !virtualTestRequest && !itineraryRequest"
+      >
+        <p>{{ $t("table.noContent") }}</p>
+      </div>
     </div>
     <!-- THIRD TAB END -->
   </div>

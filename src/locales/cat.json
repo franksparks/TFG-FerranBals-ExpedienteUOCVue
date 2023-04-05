@@ -24,7 +24,8 @@
     "academic": "Resum del progrés",
     "subjects": "Assignatures",
     "enrollment": "Matrícules",
-    "requests": "Sol·licituds realitzades"
+    "requests": "Sol·licituds realitzades",
+    "noContent": "No s'ha seleccionat cap tipus de tràmit."
   },
   "credits": {
     "mainTitle": "Resum de crèdits",
