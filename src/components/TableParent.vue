@@ -149,7 +149,7 @@ import VirtualTestRequestTable from "./tables/VirtualTestRequestsTable.vue";
 import ItineraryRequestsTable from "./tables/ItineraryRequestsTable.vue";
 
 //Default tab
-const tab = ref("summary");
+const tab = ref("subjects");
 
 onMounted(() => {
   if (props.credits.numCreditsObligatoriSuperat == null) tab.value = "subjects";
