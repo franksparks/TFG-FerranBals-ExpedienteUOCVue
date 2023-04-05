@@ -16,12 +16,14 @@
             type="text"
             v-model="searchTerm"
             :placeholder="$t('subjectTable.placeholder')"
+            @input="currentPage = 1"
           />
         </div>
 
         <select
           v-model="selectedType"
           class="float-right text-gray-800 rounded align-right py-2 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 hidden md:block"
+          @change="currentPage = 1"
         >
           <option value="null" selected="true">
             {{ $t("subjectTable.all") }}
@@ -34,6 +36,7 @@
         <select
           v-model="selectedGrade"
           class="pr-4 float-right text-gray-800 rounded align-right py-2 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 hidden md:block"
+          @change="currentPage = 1"
         >
           <option value="null" selected="true">
             {{ $t("subjectTable.all") }}
