@@ -109,7 +109,7 @@
     "tableTitle": "Datos básicos de la solicitud de EEP",
     "number": "Número de solicitud",
     "data": "Fecha de solicitud",
-    "type": "Tipo Certificado"
+    "status": "Estado solicitud"
   },
   "certificates": {
     "sectionTitle": "Certificados y otros documentos académicos",
@@ -118,7 +118,7 @@
     "number": "Número de solicitud",
     "date": "Fecha de solicitud",
     "type": "Tipo Certificado",
-    "status": "Estado solicitud certificado"
+    "status": "Estado solicitud "
   },
   "itineraryRequests": {
     "sectionTitle": "Solicitudes relacionadas con el itinerario académico",

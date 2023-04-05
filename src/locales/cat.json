@@ -109,7 +109,7 @@
     "tableTitle": "Dades bàsiques de la sol·licitud d'AEP",
     "number": "Número de sol·licitud",
     "data": "Data de sol·licitud",
-    "type": "Tipus certificat"
+    "status": "Estat sol·licitud "
   },
   "certificates": {
     "sectionTitle": "Certificats i altres documents acadèmics",
@@ -118,7 +118,7 @@
     "number": "Número de sol·licitud",
     "date": "Data de sol·licitud",
     "type": "Tipus Certificat",
-    "status": "Estat sol·licitud certificat"
+    "status": "Estat sol·licitud"
   },
   "itineraryRequests": {
     "sectionTitle": "Sol·licituds relacionades amb l'itinerari acadèmic",

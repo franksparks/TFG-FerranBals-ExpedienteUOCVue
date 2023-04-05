@@ -25,7 +25,7 @@
                 {{ $t("AEPRequests.data") }}
               </th>
               <th scope="col" class="py-1 w-2/4">
-                {{ $t("AEPRequests.type") }}
+                {{ $t("AEPRequests.status") }}
               </th>
             </tr>
           </thead>

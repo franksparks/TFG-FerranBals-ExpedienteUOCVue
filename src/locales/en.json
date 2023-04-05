@@ -109,7 +109,7 @@
     "tableTitle": "Basic data of the AEP request",
     "number": "Request number",
     "data": "Request date",
-    "type": "Certificate type"
+    "status": "Request status"
   },
   "certificates": {
     "sectionTitle": "Certificates and other academic documents",
@@ -118,7 +118,7 @@
     "number": "Request number",
     "date": "Request date",
     "type": "Certificate type",
-    "status": "Certificate request status"
+    "status": "Request status"
   },
   "itineraryRequests": {
     "sectionTitle": "Requests related to academic itinerary",
