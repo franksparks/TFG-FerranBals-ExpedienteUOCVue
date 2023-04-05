@@ -2,19 +2,19 @@
   <div class="mx-2">
     <div class="text-center py-2">
       <p
-        class="tablinks py-1 rounded text-white bg-blue-900 text-xl cursor-pointer"
+        class="tablinks py-1 rounded text-white bg-blue-900 text-xl sm:cursor-pointer md:cursor-default"
         @click.prevent="toggleSection"
       >
         <img
           v-if="collapse"
           src="/plusIconWhite.png"
-          class="float-left m-1 rounded-full"
+          class="float-left m-1 rounded-full md:hidden"
           :alt="$t('images.plusIcon')"
         />
         <img
           v-if="!collapse"
           src="/minusIconWhite.png"
-          class="float-left m-1 rounded-full"
+          class="float-left m-1 rounded-full md:hidden"
           :alt="$t('images.minusIcon')"
         />
 
@@ -80,8 +80,9 @@ export default {
   name: "FileMainInformation",
 };
 </script>
+
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 
 const props = defineProps({
   studentData: Object,
@@ -89,7 +90,14 @@ const props = defineProps({
   fileInfo: Object,
   accessType: String,
 });
-const collapse = ref(true);
+
+const collapse = ref(false);
+
+onMounted(() => {
+  if (window.innerWidth <= 768) {
+    collapse.value = true;
+  }
+});
 
 function toggleSection() {
   collapse.value = !collapse.value;
