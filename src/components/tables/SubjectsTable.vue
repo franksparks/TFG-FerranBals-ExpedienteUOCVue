@@ -96,7 +96,7 @@
     </div>
     <!-- FILTERS END -->
     <!-- SUBJECTS TABLE START-->
-    <div class="mx-2 mb-14">
+    <div class="mx-2 md:mb-14">
       <div class="relative overflow-x-auto rounded-b-lg">
         <table
           class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
