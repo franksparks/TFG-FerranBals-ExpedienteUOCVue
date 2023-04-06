@@ -153,7 +153,7 @@
 
 <script>
 export default {
-  name: "SubjectStudied",
+  name: "SubjectTaken",
 };
 </script>
 

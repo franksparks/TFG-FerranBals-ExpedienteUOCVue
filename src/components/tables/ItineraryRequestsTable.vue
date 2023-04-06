@@ -58,7 +58,7 @@
 
 <script>
 export default {
-  name: "ItineraryTable",
+  name: "ItineraryRequestsTable",
 };
 </script>
 

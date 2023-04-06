@@ -48,7 +48,7 @@
         :enrollments="enrollments"
       />
 
-      <FooterComponent />
+      <AppFooter />
     </div>
   </div>
 </template>
@@ -57,7 +57,7 @@
 import AppHeader from "./components/AppHeader.vue";
 import FileMainInformation from "./components/FileMainInformation.vue";
 import TableParent from "./components/TableParent.vue";
-import FooterComponent from "./components/FooterComponent.vue";
+import AppFooter from "./components/AppFooter.vue";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 //const port = 3000;

@@ -48,7 +48,7 @@
 
 <script>
 export default {
-  name: "CertificatesTable",
+  name: "CertificateRequestsTable",
 };
 </script>
 

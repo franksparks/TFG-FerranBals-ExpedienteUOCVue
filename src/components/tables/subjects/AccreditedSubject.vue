@@ -62,7 +62,7 @@
 
 <script>
 export default {
-  name: "SubjectRecognized",
+  name: "SubjectAccredited",
 };
 </script>
 <script setup>
