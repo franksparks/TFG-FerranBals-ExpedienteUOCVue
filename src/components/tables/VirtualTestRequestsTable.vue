@@ -9,7 +9,7 @@
     <div v-if="virtualTestRequests.length == 0" class="text-center">
       <p>{{ $t("virtualTestRequests.empty") }}</p>
     </div>
-    <div v-else class="py-2">
+    <div v-else class="py-2 md:py-5">
       <div class="relative overflow-x-auto rounded-lg">
         <table
           class="w-full text-sm text-left text-gray-500 dark:text-gray-400"

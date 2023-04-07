@@ -15,7 +15,7 @@
       >
         {{ $t("credits.mainTitle") }}
       </p>
-      <div class="py-2 md:flex md:justify-center">
+      <div class="py-2 md:py-5 md:flex md:justify-center">
         <div class="w-full overflow-x-auto rounded-lg">
           <table class="w-full text-sm text-gray-500 dark:text-gray-400">
             <thead
@@ -174,7 +174,7 @@ const options = ref({
       top: 0,
     },
     padding: {
-      top: -50,
+      top: -20,
       bottom: 10,
     },
   },

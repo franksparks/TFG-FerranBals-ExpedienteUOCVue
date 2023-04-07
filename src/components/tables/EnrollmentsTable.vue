@@ -6,7 +6,7 @@
       >
         {{ $t("enrollment.title") }}
       </p>
-      <div class="py-2">
+      <div class="py-2 md:py-5">
         <div class="relative overflow-x-auto rounded-lg content-center">
           <table class="w-full text-gray-500 dark:text-gray-400 rounded-lg">
             <thead

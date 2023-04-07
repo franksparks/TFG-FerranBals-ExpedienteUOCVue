@@ -5,7 +5,7 @@
     >
       {{ $t("subjectTable.mainTitle") }}
     </p>
-    <div class="relative overflow-x-auto mx-2 pt-2">
+    <div class="relative overflow-x-auto mx-2 pt-5">
       <div
         class="md:flex sm:w-full justify-between md:px-6 bg-gray-100 dark:bg-gray-700 rounded-t-lg py-2"
       >
