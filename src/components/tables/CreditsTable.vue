@@ -139,7 +139,32 @@ const filteredLabels = computed(() => {
     .map((item) => item.label);
 });
 
-console.log(filteredLabels);
+const colors = computed(() => {
+  const result = {
+    value: [],
+  };
+
+  if (dataValues.value[0] != 0) {
+    result.value.push("#0000BB");
+  }
+  if (dataValues.value[1] != 0) {
+    result.value.push("#008a00");
+  }
+  if (dataValues.value[2] != 0) {
+    result.value.push("#800080");
+  }
+  if (dataValues.value[3] != 0) {
+    result.value.push("#ADD8E6");
+  }
+  if (dataValues.value[4] != 0) {
+    result.value.push("#90EE90");
+  }
+  if (dataValues.value[5] != 0) {
+    result.value.push("#CBC3E3");
+  }
+
+  return result;
+});
 
 const filteredDataValues = computed(() => {
   return dataValues.value.filter((value) => value !== 0);
@@ -151,12 +176,12 @@ const data = computed(() => ({
     {
       data: filteredDataValues.value,
       backgroundColor: [
-        pattern.draw("disc", "#0000BB"),
-        pattern.draw("diamond", "#008a00"),
-        pattern.draw("square", "#800080"),
-        pattern.draw("ring", "#ADD8E6"),
-        pattern.draw("diamond-box", "#90EE90"),
-        pattern.draw("box", "#CBC3E3"),
+        pattern.draw("disc", colors.value.value[0]),
+        pattern.draw("diamond", colors.value.value[1]),
+        pattern.draw("square", colors.value.value[2]),
+        pattern.draw("ring", colors.value.value[3]),
+        pattern.draw("diamond-box", colors.value.value[4]),
+        pattern.draw("box", colors.value.value[5]),
       ],
     },
   ],
