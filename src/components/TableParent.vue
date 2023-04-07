@@ -96,7 +96,11 @@
     <!-- SECOND TAB -->
 
     <!-- Enrollments Table -->
-    <EnrollmentsTable v-if="tab === 'enrollments'" :enrollments="enrollments" />
+    <EnrollmentsTable
+      v-if="tab === 'enrollments'"
+      :enrollments="enrollments"
+      :recal="recal"
+    />
     <!-- SECOND TAB END -->
 
     <!-- THIRD TAB -->
@@ -167,6 +171,7 @@ const props = defineProps({
   virtualTestRequests: Object,
   certificates: Object,
   AEPRequests: Object,
-  enrollments: Object,
+  enrollments: Array,
+  recal: Array,
 });
 </script>

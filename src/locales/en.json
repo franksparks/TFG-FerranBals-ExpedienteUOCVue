@@ -102,7 +102,8 @@
     "amount": "Amount",
     "totalAmount": "Total amount",
     "averageAmount": "Average semester amount",
-    "file": "Enrollment file"
+    "file": "Enrollment file",
+    "recal": "Recalculation"
   },
   "AEPRequests": {
     "sectionTitle": "Evaluation of previous studies",

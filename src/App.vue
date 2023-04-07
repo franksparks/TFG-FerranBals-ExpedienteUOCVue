@@ -46,6 +46,7 @@
         :certificates="certificates"
         :AEPRequests="AEPRequests"
         :enrollments="enrollments"
+        :recal="recal"
       />
 
       <AppFooter />
@@ -97,7 +98,8 @@ const ESPACIO_EUROPEO_EDUCACION_SUPERIOR = "eO2Chrn3K53ySuNj82jHgm9Qo_E=";
 const EXPEDIENTE_COMPLETO = "RHcWxB19zK9mb9$lOHQm8SO7ofs=";
 const INFORMACION_EXPEDIENTE = "sSIxO6pqzrwLhLd3PZFzpndhF1A=";
 const CERTIFICADOS_DOCUMENTOS_ACADEMICOS = "XGhl$81QmbUgS9EZJqobgd248iU=";
-const enrollments = ref({});
+const enrollments = ref([]);
+const recal = ref([]);
 const isLoading = ref(false);
 onMounted(async () => {
   getFile(selectedFile.value);
@@ -115,6 +117,8 @@ function resetFile() {
   completeFile.value = {};
   fileInfo.value = {};
   certificates.value = [];
+  enrollments.value = [];
+  recal.value = [];
 }
 function processFile() {
   console.log("Reiniciando variables");
@@ -186,7 +190,12 @@ async function getEnrollments(text) {
       "https://tfg-ferran-bals-expediente-api.vercel.app/enrollments/" + text
     )
     .then((response) => {
-      enrollments.value = response.data.data.O;
+      for (let i = 0; i < response.data.data.O.length; i++) {
+        if (response.data.data.O[i].P.indOperacio == "ALTA") {
+          enrollments.value.push(response.data.data.O[i]);
+        } else if (response.data.data.O[i].P.indOperacio == "RECAL")
+          recal.value.push(response.data.data.O[i]);
+      }
     })
     .catch((error) => console.error(error));
 }

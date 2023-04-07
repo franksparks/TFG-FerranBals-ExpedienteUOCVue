@@ -49,10 +49,12 @@
                 </th>
               </tr>
             </thead>
-            <tbody class="text-base justify-center">
+            <tbody
+              class="text-base justify-center"
+              v-for="enrollment in sortedEnrollments"
+              :key="enrollment"
+            >
               <tr
-                v-for="enrollment in sortedEnrollments"
-                :key="enrollment"
                 class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
               >
                 <td class="text-center">{{ enrollment.P.descAnyAcademic }}</td>
@@ -62,6 +64,27 @@
                 <td class="text-center">
                   {{ enrollment.P.importMatricula }} €
                 </td>
+                <td class="text-center">
+                  <a
+                    class="focus:ring focus:ring-cyan-500 focus:border-cyan-500"
+                    href="https://www.uoc.edu/"
+                    target="_blank"
+                  >
+                    <i class="far fa-file-pdf"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr
+                v-for="recalItem in filteredRecal(enrollment)"
+                :key="recalItem"
+              >
+                <td>
+                  {{ $t("enrollment.recal") }} - {{ recalItem.P.descMotiu }}
+                </td>
+                {{
+                  formatDate(recalItem.P.dataMatricula)
+                }}
+                <td>{{ recalItem.P.importMatricula }} €</td>
                 <td class="text-center">
                   <a
                     class="focus:ring focus:ring-cyan-500 focus:border-cyan-500"
@@ -101,7 +124,8 @@ import { computed, ref } from "vue";
 const sortedEnrollments = ref(props.enrollments);
 
 const props = defineProps({
-  enrollments: Object,
+  enrollments: Array,
+  recal: Array,
 });
 
 const total = computed(() => {
@@ -109,10 +133,32 @@ const total = computed(() => {
   for (let i = 0; i < props.enrollments.length; i++) {
     sum += props.enrollments[i].P.importMatricula;
   }
+
+  for (let i = 0; i < props.recal.length; i++) {
+    sum += props.recal[i].P.importMatricula;
+  }
+
+  for (let i = 0; i < props.enrollments.length; i++) {
+    for (let j = 0; j < props.recal.length; j++) {
+      if (
+        props.enrollments[i].P.descAnyAcademic ==
+        props.recal[j].P.descAnyAcademic
+      ) {
+        sum -= props.enrollments[i].P.importMatricula;
+      }
+    }
+  }
+
   return sum;
 });
 
 let sortOrder = 1;
+
+const filteredRecal = (enrollment) => {
+  return props.recal.filter((item) => {
+    return item.P.descAnyAcademic == enrollment.P.descAnyAcademic;
+  });
+};
 
 function sortTable(column) {
   sortedEnrollments.value = [...sortedEnrollments.value].sort((a, b) => {
