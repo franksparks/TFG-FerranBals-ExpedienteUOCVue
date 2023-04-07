@@ -126,66 +126,44 @@ const dataValues = ref([
     props.credits.numCreditsOptatiuSuperat,
 ]);
 
-const filteredLabels = computed(() => {
-  return [
-    { label: t("credits.mainPassed"), value: dataValues.value[0] },
-    { label: t("credits.basicPassed"), value: dataValues.value[1] },
-    { label: t("credits.optativePassed"), value: dataValues.value[2] },
-    { label: t("credits.mainPending"), value: dataValues.value[3] },
-    { label: t("credits.basicPending"), value: dataValues.value[4] },
-    { label: t("credits.optativePending"), value: dataValues.value[5] },
-  ]
-    .filter((item) => item.value !== 0)
-    .map((item) => item.label);
-});
+const patterns = ["disc", "diamond", "square", "ring", "diamond-box", "box"];
 
 const colors = computed(() => {
-  const result = {
-    value: [],
+  const colorsArr = [
+    "#0000BB",
+    "#008a00",
+    "#800080",
+    "#ADD8E6",
+    "#90EE90",
+    "#CBC3E3",
+  ];
+  const filteredColors = colorsArr.filter((_, i) => dataValues.value[i] !== 0);
+  return { value: filteredColors };
+});
+
+const data = computed(() => {
+  const dataObj = {
+    labels: [
+      { label: t("credits.mainPassed"), value: dataValues.value[0] },
+      { label: t("credits.basicPassed"), value: dataValues.value[1] },
+      { label: t("credits.optativePassed"), value: dataValues.value[2] },
+      { label: t("credits.mainPending"), value: dataValues.value[3] },
+      { label: t("credits.basicPending"), value: dataValues.value[4] },
+      { label: t("credits.optativePending"), value: dataValues.value[5] },
+    ]
+      .filter((item) => item.value !== 0)
+      .map((item) => item.label),
+    datasets: [
+      {
+        data: dataValues.value.filter((value) => value !== 0),
+        backgroundColor: colors.value.value.map((color, i) =>
+          pattern.draw(patterns[i], color)
+        ),
+      },
+    ],
   };
-
-  if (dataValues.value[0] != 0) {
-    result.value.push("#0000BB");
-  }
-  if (dataValues.value[1] != 0) {
-    result.value.push("#008a00");
-  }
-  if (dataValues.value[2] != 0) {
-    result.value.push("#800080");
-  }
-  if (dataValues.value[3] != 0) {
-    result.value.push("#ADD8E6");
-  }
-  if (dataValues.value[4] != 0) {
-    result.value.push("#90EE90");
-  }
-  if (dataValues.value[5] != 0) {
-    result.value.push("#CBC3E3");
-  }
-
-  return result;
+  return dataObj;
 });
-
-const filteredDataValues = computed(() => {
-  return dataValues.value.filter((value) => value !== 0);
-});
-
-const data = computed(() => ({
-  labels: filteredLabels.value,
-  datasets: [
-    {
-      data: filteredDataValues.value,
-      backgroundColor: [
-        pattern.draw("disc", colors.value.value[0]),
-        pattern.draw("diamond", colors.value.value[1]),
-        pattern.draw("square", colors.value.value[2]),
-        pattern.draw("ring", colors.value.value[3]),
-        pattern.draw("diamond-box", colors.value.value[4]),
-        pattern.draw("box", colors.value.value[5]),
-      ],
-    },
-  ],
-}));
 
 const options = ref({
   plugins: {
