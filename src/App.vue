@@ -48,9 +48,6 @@ import AppFooter from "./components/AppFooter.vue";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
-//const apiUrl = import.meta.env.VITE_VUE_APP_API_URL;
-
-//const port = 3000;
 const BASE_URL = import.meta.env.VITE_VUE_APP_API_URL; // base URL for the GET requests
 // Reactive variables
 //Checked variables
