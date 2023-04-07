@@ -101,7 +101,8 @@
     "date": "Enrollment date",
     "amount": "Amount",
     "totalAmount": "Total amount",
-    "averageAmount": "Average semester amount"
+    "averageAmount": "Average semester amount",
+    "file": "Enrollment file"
   },
   "AEPRequests": {
     "sectionTitle": "Evaluation of previous studies",

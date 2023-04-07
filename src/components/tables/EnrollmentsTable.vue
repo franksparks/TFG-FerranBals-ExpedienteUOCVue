@@ -24,7 +24,7 @@
                   </span>
                 </th>
                 <th
-                  class="w-1/3 cursor-pointer"
+                  class="w-1/4 cursor-pointer"
                   @click="sortTable('dataMatricula')"
                 >
                   {{ $t("enrollment.date") }}
@@ -34,7 +34,7 @@
                   </span>
                 </th>
                 <th
-                  class="w-1/3 cursor-pointer"
+                  class="w-1/4 cursor-pointer"
                   @click="sortTable('importMatricula')"
                 >
                   {{ $t("enrollment.amount") }}
@@ -42,6 +42,10 @@
                     <i class="fas fa-chevron-up"></i>
                     <i class="fas fa-chevron-down"></i>
                   </span>
+                </th>
+                <th class="w-1/4">
+                  {{ $t("enrollment.file") }}
+                  <span class="ml-2"> </span>
                 </th>
               </tr>
             </thead>
@@ -57,6 +61,15 @@
                 </td>
                 <td class="text-center">
                   {{ enrollment.P.importMatricula }} €
+                </td>
+                <td class="text-center">
+                  <a
+                    class="focus:ring focus:ring-cyan-500 focus:border-cyan-500"
+                    href="https://www.uoc.edu/"
+                    target="_blank"
+                  >
+                    <i class="far fa-file-pdf"></i>
+                  </a>
                 </td>
               </tr>
             </tbody>

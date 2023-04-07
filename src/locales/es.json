@@ -101,7 +101,8 @@
     "date": "Fecha matrícula",
     "amount": "Importe",
     "totalAmount": "Importe total",
-    "averageAmount": "importe medio semestre"
+    "averageAmount": "importe medio semestre",
+    "file": "Hoja de matrícula"
   },
   "AEPRequests": {
     "sectionTitle": "Evaluación de estudios previos",

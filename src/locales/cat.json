@@ -101,7 +101,8 @@
     "date": "Data matrícula",
     "amount": "Import",
     "totalAmount": "Import total",
-    "averageAmount": "import mig per semestre"
+    "averageAmount": "import mig per semestre",
+    "file": "Fulla de matrícula"
   },
   "AEPRequests": {
     "sectionTitle": "Evaluació d'estudis previs",
