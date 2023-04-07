@@ -92,6 +92,7 @@ const recal = ref([]);
 const isLoading = ref(false);
 onMounted(async () => {
   getFile(selectedFile.value);
+  console.log("ENV VARIABLE: " + apiUrl);
 });
 function resetFile() {
   procedure.value = [];
