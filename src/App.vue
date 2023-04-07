@@ -48,10 +48,10 @@ import AppFooter from "./components/AppFooter.vue";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
-const apiUrl = import.meta.env.VITE_VUE_APP_API_URL;
+//const apiUrl = import.meta.env.VITE_VUE_APP_API_URL;
 
 //const port = 3000;
-const BASE_URL = "https://tfg-ferran-bals-expediente-api.vercel.app"; // base URL for the GET requests
+const BASE_URL = import.meta.env.VITE_VUE_APP_API_URL; // base URL for the GET requests
 // Reactive variables
 //Checked variables
 let elements = [];
@@ -92,7 +92,6 @@ const recal = ref([]);
 const isLoading = ref(false);
 onMounted(async () => {
   getFile(selectedFile.value);
-  console.log("ENV VARIABLE: " + apiUrl);
 });
 function resetFile() {
   procedure.value = [];
@@ -176,9 +175,7 @@ async function getEnrollments(text) {
   console.log("GET ENROLLMENTS");
   console.log("GET Request de las matriculas de: " + text);
   await axios
-    .get(
-      "https://tfg-ferran-bals-expediente-api.vercel.app/enrollments/" + text
-    )
+    .get(`${BASE_URL}/enrollments/` + text)
     .then((response) => {
       let enrollmentsArray = [];
       let recalArray = [];

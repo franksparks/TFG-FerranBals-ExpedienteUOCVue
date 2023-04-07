@@ -65,6 +65,8 @@ import { ref, watchEffect, onMounted, onUnmounted } from "vue";
 import AccreditedSubject from "@/components/tables/subjects/AccreditedSubject.vue";
 import TakenSubject from "@/components/tables/subjects/TakenSubject.vue";
 
+const BASE_URL = import.meta.env.VITE_VUE_APP_API_URL; // base URL for the GET requests
+
 onMounted(() => {
   const handleEscape = (event) => {
     if (event.key === "Escape") {
@@ -93,7 +95,7 @@ watchEffect(() => {
       "GET Request de la asignatura: " + props.subjectInformation.descripcio
     );
     axios
-      .get("https://tfg-ferran-bals-expediente-api.vercel.app/subject/", {
+      .get(`${BASE_URL}/subject/`, {
         params: { codAsignatura: props.subjectInformation.codi },
       })
       .then((response) => {
