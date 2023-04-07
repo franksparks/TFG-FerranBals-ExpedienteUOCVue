@@ -190,12 +190,25 @@ async function getEnrollments(text) {
       "https://tfg-ferran-bals-expediente-api.vercel.app/enrollments/" + text
     )
     .then((response) => {
+      let enrollmentsArray = [];
+      let recalArray = [];
       for (let i = 0; i < response.data.data.O.length; i++) {
         if (response.data.data.O[i].P.indOperacio == "ALTA") {
-          enrollments.value.push(response.data.data.O[i]);
-        } else if (response.data.data.O[i].P.indOperacio == "RECAL")
-          recal.value.push(response.data.data.O[i]);
+          enrollmentsArray.push(response.data.data.O[i]);
+        } else if (response.data.data.O[i].P.indOperacio == "RECAL") {
+          recalArray.push(response.data.data.O[i]);
+        }
       }
+      // Ordenar las matrículas por la propiedad dataMatricula
+      enrollmentsArray.sort(function (a, b) {
+        return a.P.dataMatricula.localeCompare(b.P.dataMatricula);
+      });
+      recalArray.sort(function (a, b) {
+        return a.P.dataMatricula.localeCompare(b.P.dataMatricula);
+      });
+      // Asignar las matrices ordenadas a las variables de resultado
+      enrollments.value = enrollmentsArray;
+      recal.value = recalArray;
     })
     .catch((error) => console.error(error));
 }
