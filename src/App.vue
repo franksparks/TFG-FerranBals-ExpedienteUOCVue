@@ -47,6 +47,9 @@ import TableParent from "./components/TableParent.vue";
 import AppFooter from "./components/AppFooter.vue";
 import axios from "axios";
 import { onMounted, ref } from "vue";
+
+const apiUrl = import.meta.env.VITE_VUE_APP_API_URL;
+
 //const port = 3000;
 const BASE_URL = "https://tfg-ferran-bals-expediente-api.vercel.app"; // base URL for the GET requests
 // Reactive variables
