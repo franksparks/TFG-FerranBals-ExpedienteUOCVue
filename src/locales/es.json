@@ -4,6 +4,12 @@
     "language": "Selector de idioma:",
     "file": "Selector de expediente:"
   },
+  "settings": {
+    "main": "Configuración",
+    "daltonicLabel": "Modo daltonismo",
+    "enable": "Activado",
+    "disable": "Desactivado"
+  },
   "images": {
     "uocLogo": "Link a la página principal de la UOC",
     "mailIcon": "Link para enviar un mail al tutor",

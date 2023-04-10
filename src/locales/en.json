@@ -4,6 +4,12 @@
     "language": "Language selector:",
     "file": "File selector:"
   },
+  "settings": {
+    "main": "Configuration",
+    "daltonicLabel": "Daltonic mode",
+    "enable": "Activated",
+    "disable": "Desactivated"
+  },
   "images": {
     "uocLogo": "Link to UOC main page",
     "mailIcon": "Link to send an email to the teacher",

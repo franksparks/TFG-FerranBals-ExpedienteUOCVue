@@ -4,6 +4,12 @@
     "language": "Selector d'idioma:",
     "file": "Selector d'expedient:"
   },
+  "settings": {
+    "main": "Configuració",
+    "daltonicLabel": "Mode daltonisme",
+    "enable": "Activat",
+    "disable": "Desactivat"
+  },
   "images": {
     "uocLogo": "Link a la pàgina principal de la UOC",
     "mailIcon": "Link per enviar un mail al tutor",

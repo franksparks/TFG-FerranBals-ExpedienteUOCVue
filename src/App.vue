@@ -12,6 +12,10 @@
       <AppHeader
         :degreeType="degreeType"
         :selectedFile="selectedFile"
+        :daltonicMode="daltonicMode"
+        :dayMode="dayMode"
+        @toggle-colors="daltonicMode = !daltonicMode"
+        @toggle-styles="dayMode = !dayMode"
         @refresh-file="getFile"
       />
       <hr class="border-gray-500 py-1 mx-2" />
@@ -87,6 +91,9 @@ const CERTIFICADOS_DOCUMENTOS_ACADEMICOS = "XGhl$81QmbUgS9EZJqobgd248iU=";
 const enrollments = ref([]);
 const recal = ref([]);
 const isLoading = ref(false);
+const daltonicMode = ref(false);
+const dayMode = ref(true);
+
 onMounted(async () => {
   getFile(selectedFile.value);
 });
