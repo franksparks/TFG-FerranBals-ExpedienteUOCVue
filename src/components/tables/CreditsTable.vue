@@ -14,8 +14,6 @@
       />
 
       <DoughnutChart v-else :chart-data="daltonicData" :options="options" />
-      <p v-if="!daltonicMode">Not daltonic</p>
-      <p v-else>Daltonic</p>
     </div>
     <div class="text-center py-2 mx-2">
       <p
