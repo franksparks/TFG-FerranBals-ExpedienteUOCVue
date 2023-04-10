@@ -84,7 +84,8 @@ const eees = ref([]);
 const completeFile = ref({});
 const certificates = ref([]);
 const selectedFile = ref("alice");
-// Element type constants
+
+// Element type constants --- start
 const TRAMITE_ACADEMICO = "pHnAg5M_UV2eNft6JYjLM6wGvWM=";
 const INSTANCIA_AEP = "zgufyJB2ytYUEauhIrcVTwsXfLE=";
 const SOLICITUD_PRUEBA_VIRTUAL = "atiod4vkRiNDS651NTVpY77vWZo=";
@@ -97,12 +98,14 @@ const ESPACIO_EUROPEO_EDUCACION_SUPERIOR = "eO2Chrn3K53ySuNj82jHgm9Qo_E=";
 const EXPEDIENTE_COMPLETO = "RHcWxB19zK9mb9$lOHQm8SO7ofs=";
 const INFORMACION_EXPEDIENTE = "sSIxO6pqzrwLhLd3PZFzpndhF1A=";
 const CERTIFICADOS_DOCUMENTOS_ACADEMICOS = "XGhl$81QmbUgS9EZJqobgd248iU=";
+// Element type constants --- end
+
 const enrollments = ref([]);
 const recal = ref([]);
 const isLoading = ref(false);
 
+//reading and storing daltonicMode on browser
 const daltonicMode = ref(false);
-
 const storedDaltonicMode = localStorage.getItem("daltonicMode");
 daltonicMode.value =
   storedDaltonicMode !== null ? JSON.parse(storedDaltonicMode) : false;
@@ -111,6 +114,7 @@ watch(daltonicMode, (newVal) => {
   localStorage.setItem("daltonicMode", JSON.stringify(newVal));
 });
 
+//reading and storing darkMode on browser
 const darkMode = ref(false);
 const storedDarkMode = localStorage.getItem("darkMode");
 darkMode.value = storedDarkMode !== null ? JSON.parse(storedDarkMode) : false;
@@ -119,9 +123,12 @@ watch(darkMode, (newVal) => {
   localStorage.setItem("darkMode", JSON.stringify(newVal));
 });
 
+// starting point
 onMounted(async () => {
   getFile(selectedFile.value);
 });
+
+// resetParameters before getting a new file
 function resetFile() {
   procedure.value = [];
   AEPRequests.value = [];
@@ -138,6 +145,8 @@ function resetFile() {
   enrollments.value = [];
   recal.value = [];
 }
+
+// after getting a new file, process its content
 function processFile() {
   console.log("Reiniciando variables");
   resetFile();
@@ -145,61 +154,65 @@ function processFile() {
   for (const elem of elements) {
     const elementType = elem.T;
     switch (elementType) {
-      case TRAMITE_ACADEMICO: //Trámite académico
+      case TRAMITE_ACADEMICO:
         certificates.value.push(elem.P);
         break;
-      case INSTANCIA_AEP: //Instancia AEP
+      case INSTANCIA_AEP:
         AEPRequests.value.push(elem.P);
         break;
-      case SOLICITUD_PRUEBA_VIRTUAL: //Solicitud prueba virtual
+      case SOLICITUD_PRUEBA_VIRTUAL:
         virtualTestRequests.value.push(elem.P);
         break;
-      case ASIGNATURAS: //Asignaturas
+      case ASIGNATURAS:
         subjects.value.push(elem.P);
         break;
-      case ITINERARIO: //Itinerario
+      case ITINERARIO:
         itineraryRequests.value.push(elem.P);
         break;
-      case PERSONAS: //Personas
+      case PERSONAS:
         people.push(elem);
         break;
       case "fEsBQZocOtnSXQniJn0BbX9ILA0=": //???
         something.value.push(elem.P);
         break;
-      case AEP: //AEP
+      case AEP:
         aep.value.push(elem.P);
         break;
-      case RESUMEN_CREDITOS: //Resumen créditos
+      case RESUMEN_CREDITOS:
         credits.value = elem.P;
         break;
-      case ESPACIO_EUROPEO_EDUCACION_SUPERIOR: //Espacio Europeo Educación Superior
+      case ESPACIO_EUROPEO_EDUCACION_SUPERIOR:
         eees.value.push(elem.P);
         break;
-      case EXPEDIENTE_COMPLETO: //Expediente completo
+      case EXPEDIENTE_COMPLETO:
         completeFile.value = elem.P;
         break;
-      case INFORMACION_EXPEDIENTE: //Información expediente
+      case INFORMACION_EXPEDIENTE:
         fileInfo.value = elem;
         break;
-      case CERTIFICADOS_DOCUMENTOS_ACADEMICOS: //Cerfificados y otros documentos académicos
+      case CERTIFICADOS_DOCUMENTOS_ACADEMICOS:
         procedure.value.push(elem.P);
         break;
     }
   }
-  //Student information
+
+  //Student data
   for (const person of people) {
     if (person.Y == fileInfo.value.P.tercer.Y) {
       studentData.value = person.P;
     }
-    //Tutor information
+    //Tutor data
     if (person.Y == completeFile.value.tutor.Y) {
       tutorData.value = person.P;
     }
   }
+  // Degree data
   degreeType.value = completeFile.value.descPlan;
   accessType.value = completeFile.value.descOpcioAcces;
   fileInfo.value = fileInfo.value.P;
 }
+
+// getEnrollments
 async function getEnrollments(text) {
   console.log("GET ENROLLMENTS");
   console.log("GET Request de las matriculas de: " + text);
@@ -228,6 +241,8 @@ async function getEnrollments(text) {
     })
     .catch((error) => console.error(error));
 }
+
+// getFile
 async function getFile(text) {
   console.log("GET file of: " + text);
   selectedFile.value = text;
