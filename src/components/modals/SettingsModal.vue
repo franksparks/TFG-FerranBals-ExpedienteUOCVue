@@ -30,7 +30,7 @@
 
         <div class="flex items-center">
           <div id="daltonicSelector">
-            <!-- Rounded switch -->
+            <!-- Daltonic selector -->
             <label for="daltonic-select"
               >{{ $t("settings.daltonicLabel") }}:</label
             >
@@ -53,9 +53,9 @@
         </div>
 
         <div id="DayNight" class="">
-          <label for="daltonic-select">{{ $t("settings.dayNight") }}: </label>
+          <label for="dayNight-select">{{ $t("settings.dayNight") }}: </label>
           <i class="fas fa-sun"></i>
-          <!-- Rounded switch -->
+          <!-- DayNight selector -->
           <label class="relative inline-flex items-center mb-5 cursor-pointer">
             <input
               type="checkbox"

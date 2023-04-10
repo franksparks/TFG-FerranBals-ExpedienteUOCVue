@@ -17,21 +17,21 @@
             />
           </a>
 
-          <!-- File selector -->
           <div class="md:absolute top-0 right-0 md:w-1/3">
             <div class="flex items-center">
+              <!-- Main title -->
               <p
                 class="text-2xl font-bold md:text-3xl text-center md:text-left py-2 md:py-3"
               >
                 {{ $t("header.main") }}
               </p>
-
               <i
                 @click.prevent="settings = true"
                 class="fas fa-cog ml-auto align-right cursor-pointer"
               ></i>
             </div>
 
+            <!-- File selector -->
             <label for="file-select" class="mr-2">{{
               $t("header.file")
             }}</label>
@@ -45,6 +45,7 @@
               <option value="minor">Minor Alice</option>
               <option value="bob">Bob</option>
             </select>
+
             <!-- Degree type -->
             <div class="text-center pt-1 md:text-left">
               <p class="text-2xl text-blue-900">
@@ -52,6 +53,8 @@
               </p>
             </div>
           </div>
+
+          <!-- Settings modal -->
           <SettingsModal
             v-if="settings"
             :daltonicMode="daltonicMode"

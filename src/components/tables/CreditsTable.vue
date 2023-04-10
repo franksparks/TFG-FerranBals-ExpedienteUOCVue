@@ -7,6 +7,7 @@
         {{ $t("credits.pieTitle") }}
       </p>
 
+      <!-- Charts -->
       <DoughnutChart
         v-if="!daltonicMode"
         :chart-data="data"
@@ -15,6 +16,8 @@
 
       <DoughnutChart v-else :chart-data="daltonicData" :options="options" />
     </div>
+
+    <!-- Credits table -->
     <div class="text-center py-2 mx-2">
       <p
         class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl"
@@ -93,6 +96,8 @@
         </div>
         <!-- Current subjects -->
       </div>
+
+      <!-- Current subjects table -->
       <CurrentSubjects :subjects="subjects" />
     </div>
   </div>
