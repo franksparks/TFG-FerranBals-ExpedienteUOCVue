@@ -1,35 +1,48 @@
-# expediente
+# Repositorio del TFG de Ferran Bals Moreno
 
-This template should help get you started developing with Vue 3 in Vite.
+El propósito de este TFG es el de actualizar la página del expediente de los alumnos de la UOC en Vue3.
 
-## Recommended IDE Setup
+## Primeros pasos
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Para lanzar la aplicación en local, primero debemos levantar la API localmente.
 
-## Customize configuration
+Se encuentra disponible en: https://github.com/franksparks/TFG-Expediente-API
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+### API: Instalación de dependencias
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### API: Inicializando en local
+
+```sh
+npm index.js
+```
+
+Con esto, la API está levantado y lista para recibir peticiones.
+
+Podemos comprobarlo accediendo a: http://localhost:5001/
+
+### API y variables de entorno
+
+El proyecto hace una serie de llamadas HTTP para obtener la información de unos expedientes de muestra.
+
+- En un entorno de desarrollo, las llamadas se hacen a http://localhost:5001/
+- En un entorno de producción, las llamadas se hacen a https://tfg-ferran-bals-expediente-api.vercel.app/
+
+## Arrancando el proyecto Vue3
+
+### Vue3: Instalación de dependencias
+
+```sh
+npm install
+```
+
+### Vue3: Inicializando en local
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+La dirección por defecto de nuestro proyecto Vue3 es: http://localhost:5173
