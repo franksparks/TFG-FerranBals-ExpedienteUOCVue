@@ -1,5 +1,5 @@
 <template>
-  <div class="md:grid grid-cols-2">
+  <div class="md:grid grid-cols-2" :class="{ dark: !darkMode }">
     <div id="col2" class="text-center py-2 mx-2">
       <p
         class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl"
@@ -12,6 +12,7 @@
         v-if="!daltonicMode"
         :chart-data="data"
         :options="options"
+        class="bg-white"
       />
 
       <DoughnutChart v-else :chart-data="daltonicData" :options="options" />
@@ -121,6 +122,7 @@ const props = defineProps({
   credits: Object,
   subjects: Object,
   daltonicMode: Boolean,
+  darkMode: Boolean,
 });
 const { t } = useI18n();
 

@@ -13,9 +13,9 @@
         :degreeType="degreeType"
         :selectedFile="selectedFile"
         :daltonicMode="daltonicMode"
-        :dayMode="dayMode"
+        :darkMode="darkMode"
         @toggle-colors="daltonicMode = !daltonicMode"
-        @toggle-styles="dayMode = !dayMode"
+        @toggle-styles="darkMode = !darkMode"
         @refresh-file="getFile"
       />
       <hr class="border-gray-500 py-1 md:py-3 mx-2" />
@@ -25,6 +25,7 @@
         :tutorData="tutorData"
         :fileInfo="fileInfo"
         :accessType="accessType"
+        :darkMode="darkMode"
       />
       <hr class="border-gray-500 py-1 md:py-3 mt-2 mx-2" />
 
@@ -38,6 +39,7 @@
         :enrollments="enrollments"
         :recal="recal"
         :daltonicMode="daltonicMode"
+        :darkMode="darkMode"
       />
 
       <AppFooter />
@@ -93,7 +95,7 @@ const enrollments = ref([]);
 const recal = ref([]);
 const isLoading = ref(false);
 const daltonicMode = ref(false);
-const dayMode = ref(true);
+const darkMode = ref(false);
 
 onMounted(async () => {
   getFile(selectedFile.value);
@@ -224,6 +226,6 @@ async function getFile(text) {
 
 <style>
 body {
-  background-color: WhiteSmoke;
+  background-color: whitesmoke;
 }
 </style>

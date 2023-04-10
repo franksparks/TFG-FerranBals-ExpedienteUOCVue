@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{ dark: !darkMode }">
     <div class="mx-2 md:flex">
       <div class="md:flex-1" :class="{ 'md:pb-2 ': tab !== 'requests' }">
         <button
@@ -88,10 +88,15 @@
       :credits="credits"
       :subjects="subjects"
       :daltonicMode="!!daltonicMode"
+      :darkMode="darkMode"
     />
 
     <!-- Subject Table -->
-    <SubjectsTable v-if="tab === 'subjects'" :subjects="subjects" />
+    <SubjectsTable
+      v-if="tab === 'subjects'"
+      :subjects="subjects"
+      :darkMode="darkMode"
+    />
     <!-- FIRST TAB END -->
 
     <!-- SECOND TAB -->
@@ -101,6 +106,7 @@
       v-if="tab === 'enrollments'"
       :enrollments="enrollments"
       :recal="recal"
+      :darkMode="darkMode"
     />
     <!-- SECOND TAB END -->
 
@@ -110,20 +116,30 @@
       <div class="py-3 md:grid grid-cols-2">
         <!-- AEP Requests Table -->
 
-        <AEPRequestsTable v-if="aep" :AEPRequests="AEPRequests" />
+        <AEPRequestsTable
+          v-if="aep"
+          :AEPRequests="AEPRequests"
+          :darkMode="darkMode"
+        />
 
         <!-- Certificates Table -->
-        <CertificatesTable v-if="certs" :certificates="certificates" />
+        <CertificatesTable
+          v-if="certs"
+          :certificates="certificates"
+          :darkMode="darkMode"
+        />
 
         <!-- Virtual test requests Table -->
         <VirtualTestRequestTable
           v-if="virtualTestRequest"
           :virtualTestRequests="virtualTestRequests"
+          :darkMode="darkMode"
         />
         <!-- Itinerary Table -->
         <ItineraryRequestsTable
           v-if="itineraryRequest"
           :itineraryRequests="itineraryRequests"
+          :darkMode="darkMode"
         />
       </div>
       <div
@@ -175,5 +191,6 @@ const props = defineProps({
   enrollments: Array,
   recal: Array,
   daltonicMode: Boolean,
+  darkMode: Boolean,
 });
 </script>

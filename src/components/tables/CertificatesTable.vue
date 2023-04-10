@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-2">
+  <div class="mx-2" :class="{ dark: !darkMode }">
     <p
       class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl text-center"
     >
@@ -55,6 +55,7 @@ export default {
 <script setup>
 defineProps({
   certificates: Object,
+  darkMode: Boolean,
 });
 
 function formatDate(unixDate) {

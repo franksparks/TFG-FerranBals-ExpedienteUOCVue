@@ -1,5 +1,5 @@
 <template>
-  <div class="md:flex md:justify-center">
+  <div class="md:flex md:justify-center" :class="{ dark: !darkMode }">
     <div class="md:w-1/2 text-center py-3 mx-2">
       <p
         class="tablinks rounded text-white bg-blue-900 text-center py-1 text-sm md:text-xl"
@@ -126,6 +126,7 @@ const sortedEnrollments = ref(props.enrollments);
 const props = defineProps({
   enrollments: Array,
   recal: Array,
+  darkMode: Boolean,
 });
 
 const total = computed(() => {
