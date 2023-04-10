@@ -85,7 +85,6 @@ export default {
 import { onMounted, onUnmounted, toRefs } from "vue";
 
 const props = defineProps({
-  language: String,
   daltonicMode: Boolean,
   darkMode: Boolean,
 });
