@@ -1,48 +1,50 @@
 <template>
-  <div class="text-center" v-if="isLoading">
-    <div class="flex justify-center items-center h-screen">
-      <div
-        class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"
-      ></div>
+  <div :class="{ dark: darkMode }">
+    <div class="text-center" v-if="isLoading">
+      <div class="flex justify-center items-center h-screen">
+        <div
+          class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"
+        ></div>
+      </div>
     </div>
-  </div>
 
-  <div class="container mx-auto" v-if="!isLoading">
-    <div class="p-1 md:px-9">
-      <AppHeader
-        :degreeType="degreeType"
-        :selectedFile="selectedFile"
-        :daltonicMode="daltonicMode"
-        :darkMode="darkMode"
-        @toggle-colors="daltonicMode = !daltonicMode"
-        @toggle-styles="darkMode = !darkMode"
-        @refresh-file="getFile"
-      />
-      <hr class="border-gray-500 py-1 md:py-3 mx-2" />
+    <div class="container mx-auto bg-white dark:bg-black" v-if="!isLoading">
+      <div class="p-1 md:px-9">
+        <AppHeader
+          :degreeType="degreeType"
+          :selectedFile="selectedFile"
+          :daltonicMode="daltonicMode"
+          :darkMode="darkMode"
+          @toggle-colors="daltonicMode = !daltonicMode"
+          @toggle-styles="darkMode = !darkMode"
+          @refresh-file="getFile"
+        />
+        <hr class="border-gray-500 py-1 md:py-3 mx-2" />
 
-      <FileMainInformation
-        :studentData="studentData"
-        :tutorData="tutorData"
-        :fileInfo="fileInfo"
-        :accessType="accessType"
-        :darkMode="darkMode"
-      />
-      <hr class="border-gray-500 py-1 md:py-3 mt-2 mx-2" />
+        <FileMainInformation
+          :studentData="studentData"
+          :tutorData="tutorData"
+          :fileInfo="fileInfo"
+          :accessType="accessType"
+          :darkMode="darkMode"
+        />
+        <hr class="border-gray-500 py-1 md:py-3 mt-2 mx-2" />
 
-      <TableParent
-        :itineraryRequests="itineraryRequests"
-        :credits="credits"
-        :subjects="subjects"
-        :virtualTestRequests="virtualTestRequests"
-        :certificates="certificates"
-        :AEPRequests="AEPRequests"
-        :enrollments="enrollments"
-        :recal="recal"
-        :daltonicMode="daltonicMode"
-        :darkMode="darkMode"
-      />
+        <TableParent
+          :itineraryRequests="itineraryRequests"
+          :credits="credits"
+          :subjects="subjects"
+          :virtualTestRequests="virtualTestRequests"
+          :certificates="certificates"
+          :AEPRequests="AEPRequests"
+          :enrollments="enrollments"
+          :recal="recal"
+          :daltonicMode="daltonicMode"
+          :darkMode="darkMode"
+        />
 
-      <AppFooter />
+        <AppFooter />
+      </div>
     </div>
   </div>
 </template>

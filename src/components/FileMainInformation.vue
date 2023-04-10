@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-2">
+  <div class="mx-2" :class="{ dark: darkMode }">
     <div class="text-center py-2">
       <p
         class="tablinks py-1 rounded text-white bg-blue-900 text-xl sm:cursor-pointer md:cursor-default"
@@ -21,7 +21,7 @@
         {{ $t("mainFileInfo.main") }}
       </p>
     </div>
-    <div class="md:columns-2">
+    <div class="md:columns-2 text-black dark:text-white">
       <!--Info alumno-->
       <p>
         <span class="font-bold">{{ $t("mainFileInfo.student") }}: </span>
@@ -50,7 +50,7 @@
         </p>
       </div>
     </div>
-    <div v-if="!collapse" class="md:columns-2">
+    <div v-if="!collapse" class="md:columns-2 text-black dark:text-white">
       <!--Núm expediente-->
       <p>
         <span class="font-bold">{{ $t("mainFileInfo.fileNumber") }}: </span

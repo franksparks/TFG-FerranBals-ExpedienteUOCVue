@@ -1,17 +1,25 @@
 <template>
-  <header class="mr-2">
+  <header class="mr-2" :class="{ dark: darkMode }">
     <div id="header">
-      <!-- UOC logo -->
       <div class="md:cols-3 relative">
         <div class="md:w-1/3 md:pb-10">
+          <!-- UOC logo -->
           <a
             class="focus:ring focus:ring-cyan-500 focus:border-cyan-500"
             href="https://www.uoc.edu/"
             target="_blank"
           >
             <img
+              v-if="!darkMode"
               class="rounded w-full"
               src="/dayLogo.png"
+              title="Universitat Oberta de Catalunya"
+              :alt="$t('images.uocLogo')"
+            />
+            <img
+              v-else
+              class="rounded w-full"
+              src="/nightLogo.png"
               title="Universitat Oberta de Catalunya"
               :alt="$t('images.uocLogo')"
             />
@@ -21,7 +29,7 @@
             <div class="flex items-center">
               <!-- Main title -->
               <p
-                class="text-2xl font-bold md:text-3xl text-center md:text-left py-2 md:py-3"
+                class="text-2xl text-black dark:text-white font-bold md:text-3xl text-center md:text-left py-2 md:py-3"
               >
                 {{ $t("header.main") }}
               </p>
@@ -32,7 +40,7 @@
             </div>
 
             <!-- File selector -->
-            <label for="file-select" class="mr-2">{{
+            <label for="file-select" class="mr-2 text-black dark:text-white">{{
               $t("header.file")
             }}</label>
             <select
@@ -82,6 +90,7 @@ const props = defineProps({
   degreeType: String,
   selectedFile: String,
   daltonicMode: Boolean,
+  darkMode: Boolean,
 });
 
 const { selectedFile } = toRefs(props);

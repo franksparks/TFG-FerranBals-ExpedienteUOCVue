@@ -1,5 +1,5 @@
 <template>
-  <div class="md:grid grid-cols-2" :class="{ dark: !darkMode }">
+  <div class="md:grid grid-cols-2" :class="{ dark: darkMode }">
     <div id="col2" class="text-center py-2 mx-2">
       <p
         class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl"

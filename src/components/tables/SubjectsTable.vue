@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center py-2" :class="{ dark: !darkMode }">
+  <div class="text-center py-2" :class="{ dark: darkMode }">
     <p
       class="tablinks rounded text-white bg-blue-900 text-center py-1 mx-2 text-sm md:text-xl"
     >

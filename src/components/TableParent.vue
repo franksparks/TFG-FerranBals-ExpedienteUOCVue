@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ dark: !darkMode }">
+  <div :class="{ dark: darkMode }">
     <div class="mx-2 md:flex">
       <div class="md:flex-1" :class="{ 'md:pb-2 ': tab !== 'requests' }">
         <button
@@ -49,7 +49,7 @@
       <div>
         <div
           v-if="tab === 'requests'"
-          class=""
+          class="text-black dark:text-white"
           data-control="checkbox-dropdown"
         >
           <div class="md:block hidden">
