@@ -8,7 +8,8 @@
     "main": "Configuración",
     "daltonicLabel": "Modo daltonismo",
     "enable": "Activado",
-    "disable": "Desactivado"
+    "disable": "Desactivado",
+    "dayNight": "Modo día/noche"
   },
   "images": {
     "uocLogo": "Link a la página principal de la UOC",

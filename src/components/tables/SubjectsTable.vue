@@ -9,7 +9,7 @@
       <div
         class="md:flex sm:w-full justify-between md:px-6 bg-gray-100 dark:bg-gray-700 rounded-t-lg py-2"
       >
-        <!-- FILTERS START -->
+        <!-- Filters start -->
         <div class="md:w-1/3 relative mx-4">
           <input
             class="w-full py-2 px-3 rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 text-gray-300"
@@ -97,8 +97,9 @@
         </button>
       </div>
     </div>
-    <!-- FILTERS END -->
-    <!-- SUBJECTS TABLE START-->
+    <!-- Filters end -->
+
+    <!-- Subjects table -->
     <div class="mx-2 md:mb-14">
       <div class="relative overflow-x-auto rounded-b-lg">
         <table

@@ -18,7 +18,7 @@
         @toggle-styles="dayMode = !dayMode"
         @refresh-file="getFile"
       />
-      <hr class="border-gray-500 py-1 mx-2" />
+      <hr class="border-gray-500 py-1 md:py-3 mx-2" />
 
       <FileMainInformation
         :studentData="studentData"
@@ -26,7 +26,7 @@
         :fileInfo="fileInfo"
         :accessType="accessType"
       />
-      <hr class="border-gray-500 py-2 mt-2 mx-2" />
+      <hr class="border-gray-500 py-1 md:py-3 mt-2 mx-2" />
 
       <TableParent
         :itineraryRequests="itineraryRequests"

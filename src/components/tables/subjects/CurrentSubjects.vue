@@ -3,7 +3,7 @@
     <p class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl">
       {{ $t("current.main") }}
     </p>
-    <div class="py-2">
+    <div class="py-4">
       <div class="relative overflow-x-auto rounded-lg">
         <table
           class="w-full text-sm text-left text-gray-500 dark:text-gray-400"

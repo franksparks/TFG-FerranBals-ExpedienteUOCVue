@@ -107,7 +107,7 @@
     <!-- THIRD TAB -->
 
     <div v-if="tab === 'requests'">
-      <div class="py-2 md:grid grid-cols-2">
+      <div class="py-3 md:grid grid-cols-2">
         <!-- AEP Requests Table -->
 
         <AEPRequestsTable v-if="aep" :AEPRequests="AEPRequests" />
@@ -120,7 +120,7 @@
           v-if="virtualTestRequest"
           :virtualTestRequests="virtualTestRequests"
         />
-        <!-- Itineary Table -->
+        <!-- Itinerary Table -->
         <ItineraryRequestsTable
           v-if="itineraryRequest"
           :itineraryRequests="itineraryRequests"

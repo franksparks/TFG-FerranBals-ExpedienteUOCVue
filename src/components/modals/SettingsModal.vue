@@ -16,7 +16,7 @@
           <label for="language-select" class="mr-2">{{
             $t("header.language")
           }}</label>
-          <!-- SELECTOR IDIOMA -->
+          <!-- Language selector -->
           <select
             id="language-select"
             v-model="$i18n.locale"
@@ -28,23 +28,32 @@
           </select>
         </div>
 
-        <div id="daltonicMode" class="py-2">
-          <label for="daltonic-select" class="mr-2"
-            >{{ $t("settings.daltonicLabel") }}:</label
-          >
-
-          <select
-            id="daltonic-select"
-            v-model="daltonicMode"
-            @change="toggleColors"
-            class="text-gray-800 rounded border-2 border-neutral-400 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500"
-          >
-            <option value="false">{{ $t("settings.disable") }}</option>
-            <option value="true">{{ $t("settings.enable") }}</option>
-          </select>
+        <div class="flex items-center">
+          <div id="daltonicSelector">
+            <!-- Rounded switch -->
+            <label for="daltonic-select"
+              >{{ $t("settings.daltonicLabel") }}:</label
+            >
+          </div>
+          <div class="pl-5 mt-5">
+            <label
+              class="relative inline-flex items-center mb-5 cursor-pointer"
+            >
+              <input
+                type="checkbox"
+                value=""
+                class="sr-only peer"
+                @change="toggleColors"
+              />
+              <div
+                class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+              ></div>
+            </label>
+          </div>
         </div>
 
-        <div id="DayNight" class="py-2">
+        <div id="DayNight" class="">
+          <label for="daltonic-select">{{ $t("settings.dayNight") }}: </label>
           <i class="fas fa-sun"></i>
           <!-- Rounded switch -->
           <label class="relative inline-flex items-center mb-5 cursor-pointer">
@@ -72,10 +81,7 @@ export default {
 </script>
 
 <script setup>
-import { onMounted, onUnmounted, toRefs } from "vue";
-const props = defineProps({
-  daltonicMode: Boolean,
-});
+import { onMounted, onUnmounted } from "vue";
 
 onMounted(() => {
   const handleEscape = (event) => {
@@ -89,8 +95,6 @@ onMounted(() => {
     window.removeEventListener("keyup", handleEscape);
   });
 });
-
-const { daltonicMode } = toRefs(props);
 
 const emit = defineEmits([
   "close-settings-modal",

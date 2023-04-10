@@ -2,7 +2,7 @@
   <div
     class="md:container md:mx-auto md:fixed md:inset-x-0 md:bottom-0 md:px-10"
   >
-    <hr class="border-gray-500 py-2" />
+    <hr class="border-gray-500 py-1 md:py-3" />
     <div class="w-full py-2 bg-gray-200">
       <ul class="text-blue-900 md:flex md:justify-center text-center">
         <li class="py-2 md:mx-10">
