@@ -139,10 +139,10 @@ const colors = computed(() => {
   const colorsArr = [
     "#0000BB",
     "#008a00",
-    "#800080",
-    "#ADD8E6",
-    "#90EE90",
-    "#CBC3E3",
+    "#9932CC",
+    "#E6AF69",
+    "#00CED1",
+    "#E6E6FA",
   ];
   const filteredColors = colorsArr.filter((_, i) => dataValues.value[i] !== 0);
   return { value: filteredColors };
