@@ -33,7 +33,7 @@
             <tr
               v-for="request in AEPRequests"
               :key="request"
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:bg-gray-600 hover:text-white dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="text-center">{{ request.secSolicitud }}</td>
               <td class="text-center">

@@ -42,7 +42,7 @@
             </thead>
             <tbody class="justify-center">
               <tr
-                class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 text-center"
+                class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 text-center"
               >
                 <th>{{ $t("credits.goal") }}</th>
                 <td>
@@ -56,7 +56,7 @@
                 </td>
               </tr>
               <tr
-                class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
+                class="subjects bg-white hover:text-white hover:bg-gray-600 border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
               >
                 <th class="text-center">{{ $t("credits.passed") }}</th>
                 <td class="text-center">
@@ -70,7 +70,7 @@
                 </td>
               </tr>
               <tr
-                class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
+                class="subjects bg-white hover:text-white hover:bg-gray-600 border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600"
               >
                 <th class="text-center">{{ $t("credits.pending") }}</th>
                 <td class="text-center">

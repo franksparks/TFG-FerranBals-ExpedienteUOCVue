@@ -41,53 +41,53 @@
           </thead>
           <tbody>
             <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="pl-3">{{ $t("takenSubject.subject") }}</td>
               <td>{{ subjectInformation.descripcio }}</td>
             </tr>
             <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
               v-if="subjectInformation.codi != null"
             >
               <td class="pl-3">{{ $t("takenSubject.subjectCode") }}</td>
               <td>{{ subjectInformation.codi }}</td>
             </tr>
             <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="pl-3">{{ $t("takenSubject.credits") }}</td>
               <td>{{ subjectInformation.numCredits }}</td>
             </tr>
             <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="pl-3">{{ $t("takenSubject.type") }}</td>
               <td>{{ subjectInformation.descripcioClasseCredits }}</td>
             </tr>
             <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
               v-if="convo.numConvocatoriaActual != null"
             >
               <td class="pl-3">{{ $t("takenSubject.convo") }}</td>
               <td>{{ convo.numConvocatoriaActual }}</td>
             </tr>
             <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
               v-if="convo.nomConsultor != null"
             >
               <td class="pl-3">{{ $t("takenSubject.teacher") }}</td>
               <td>{{ convo.nomConsultor }}</td>
             </tr>
             <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
               v-if="convo.codCalifFC != null"
             >
               <td class="pl-3">{{ $t("takenSubject.continuous") }}</td>
               <td>{{ convo.codCalifC }} ({{ convo.numCalifC }})</td>
             </tr>
             <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
               v-if="convo.codCalifP != null"
             >
               <td class="pl-3">{{ $t("takenSubject.practical") }}</td>
@@ -97,7 +97,7 @@
               <td v-else>{{ convo.codCalifP }}</td>
             </tr>
             <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
               v-if="convo.codCalifFC != null"
             >
               <td class="pl-3">{{ $t("takenSubject.continuousFinal") }}</td>
@@ -105,21 +105,21 @@
             </tr>
             <tr
               v-if="convo.numCalifPS != null"
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="pl-3">{{ $t("takenSubject.testFinal") }}</td>
               <td>{{ convo.numCalifPS }}</td>
             </tr>
             <tr
               v-if="convo.numCalifEX != null"
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:text-white hover:bg-gray-600 ark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="pl-3">{{ $t("takenSubject.exam") }}</td>
               <td>{{ convo.numCalifEX }}</td>
             </tr>
 
             <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="pl-3">{{ $t("takenSubject.subjectGrade") }}</td>
               <td
@@ -138,7 +138,7 @@
             </tr>
 
             <tr
-              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
               v-if="convo.numConvocatoriaActual != 0"
             >
               <td class="pl-3">{{ $t("takenSubject.year") }}</td>
@@ -156,7 +156,6 @@ export default {
   name: "SubjectTaken",
 };
 </script>
-
 <script setup>
 import { ref } from "vue";
 let currentIndex = ref(0);

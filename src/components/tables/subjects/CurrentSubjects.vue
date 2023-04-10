@@ -33,7 +33,7 @@
             <tr
               v-for="subject in currentSubjects"
               :key="subject.id"
-              class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="subjects bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="text-center">{{ subject.descripcio }}</td>
               <td class="text-center">{{ subject.codi }}</td>

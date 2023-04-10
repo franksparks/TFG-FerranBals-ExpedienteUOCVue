@@ -67,14 +67,14 @@
           @click.prevent="previousSubjectsPage()"
           class="tablinks py-1.5 px-3 rounded text-white bg-green-600 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 hidden md:block"
           :class="{
-            'bg-yellow-600 cursor-not-allowed': currentPage - 1 == 0,
+            'bg-gray-600 cursor-not-allowed': currentPage - 1 == 0,
           }"
         >
           &lt;&lt;
         </button>
 
         <label
-          class="tablinks py-1.5 px-3 rounded text-white bg-blue-600 hidden md:block"
+          class="tablinks py-1.5 px-3 rounded text-white bg-blue-800 hidden md:block"
         >
           {{ currentPage }}
         </label>
@@ -83,14 +83,14 @@
           @click="nextSubjectsPage()"
           class="tablinks py-1.5 px-3 rounded text-white bg-green-600 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 hidden md:block"
           :class="{
-            'bg-yellow-600 cursor-not-allowed': currentPage + 1 > totalPages,
+            'bg-gray-600 cursor-not-allowed': currentPage + 1 > totalPages,
           }"
         >
           &gt;&gt;
         </button>
 
         <button
-          class="tablinks py-1.5 px-3 rounded text-white bg-green-600 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 hidden md:block"
+          class="tablinks py-1.5 px-3 rounded text-white bg-rose-600 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 hidden md:block"
           @click.prevent="resetFilters()"
         >
           {{ $t("subjectTable.reset") }}
@@ -199,11 +199,11 @@
             <tr
               v-for="subject in paginatedData"
               :key="subject"
-              class="subjects bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700 cursor-pointer"
+              class="subjects bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700 cursor-pointer"
               @click.prevent="requestData(subject)"
             >
               <th
-                class="px-2 md:px-6 py-3 md:font-medium text-gray-900 md:whitespace-nowrap dark:text-white"
+                class="px-2 md:px-6 py-3 md:font-medium hover:text-white hover:bg-gray-600 text-gray-900 md:whitespace-nowrap dark:text-white"
               >
                 {{ subject.descripcio }}
               </th>
