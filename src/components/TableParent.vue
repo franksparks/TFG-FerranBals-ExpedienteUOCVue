@@ -87,6 +87,7 @@
       v-if="tab === 'summary' && credits.numCreditsObligatoriSuperat != null"
       :credits="credits"
       :subjects="subjects"
+      :daltonicMode="!!daltonicMode"
     />
 
     <!-- Subject Table -->
@@ -173,5 +174,6 @@ const props = defineProps({
   AEPRequests: Object,
   enrollments: Array,
   recal: Array,
+  daltonicMode: Boolean,
 });
 </script>

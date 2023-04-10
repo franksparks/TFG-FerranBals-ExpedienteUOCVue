@@ -37,6 +37,7 @@
         :AEPRequests="AEPRequests"
         :enrollments="enrollments"
         :recal="recal"
+        :daltonicMode="daltonicMode"
       />
 
       <AppFooter />

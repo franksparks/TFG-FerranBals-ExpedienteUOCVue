@@ -7,7 +7,15 @@
         {{ $t("credits.pieTitle") }}
       </p>
 
-      <DoughnutChart :chart-data="data" :options="options" />
+      <DoughnutChart
+        v-if="!daltonicMode"
+        :chart-data="data"
+        :options="options"
+      />
+
+      <DoughnutChart v-else :chart-data="daltonicData" :options="options" />
+      <p v-if="!daltonicMode">Not daltonic</p>
+      <p v-else>Daltonic</p>
     </div>
     <div class="text-center py-2 mx-2">
       <p
@@ -109,6 +117,7 @@ import CurrentSubjects from "./subjects/CurrentSubjects.vue";
 const props = defineProps({
   credits: Object,
   subjects: Object,
+  daltonicMode: Boolean,
 });
 const { t } = useI18n();
 
@@ -141,7 +150,7 @@ const colors = computed(() => {
   return { value: filteredColors };
 });
 
-const data = computed(() => {
+const daltonicData = computed(() => {
   const dataObj = {
     labels: [
       { label: t("credits.mainPassed"), value: dataValues.value[0] },
@@ -159,6 +168,28 @@ const data = computed(() => {
         backgroundColor: colors.value.value.map((color, i) =>
           pattern.draw(patterns[i], color)
         ),
+      },
+    ],
+  };
+  return dataObj;
+});
+
+const data = computed(() => {
+  const dataObj = {
+    labels: [
+      { label: t("credits.mainPassed"), value: dataValues.value[0] },
+      { label: t("credits.basicPassed"), value: dataValues.value[1] },
+      { label: t("credits.optativePassed"), value: dataValues.value[2] },
+      { label: t("credits.mainPending"), value: dataValues.value[3] },
+      { label: t("credits.basicPending"), value: dataValues.value[4] },
+      { label: t("credits.optativePending"), value: dataValues.value[5] },
+    ]
+      .filter((item) => item.value !== 0)
+      .map((item) => item.label),
+    datasets: [
+      {
+        data: dataValues.value.filter((value) => value !== 0),
+        backgroundColor: colors.value.value,
       },
     ],
   };
