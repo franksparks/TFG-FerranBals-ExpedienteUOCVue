@@ -59,7 +59,7 @@ import FileMainInformation from "./components/FileMainInformation.vue";
 import TableParent from "./components/TableParent.vue";
 import AppFooter from "./components/AppFooter.vue";
 import axios from "axios";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 
 const BASE_URL = import.meta.env.VITE_VUE_APP_API_URL; // base URL for the GET requests
 // Reactive variables
@@ -100,8 +100,24 @@ const CERTIFICADOS_DOCUMENTOS_ACADEMICOS = "XGhl$81QmbUgS9EZJqobgd248iU=";
 const enrollments = ref([]);
 const recal = ref([]);
 const isLoading = ref(false);
+
 const daltonicMode = ref(false);
+
+const storedDaltonicMode = localStorage.getItem("daltonicMode");
+daltonicMode.value =
+  storedDaltonicMode !== null ? JSON.parse(storedDaltonicMode) : false;
+
+watch(daltonicMode, (newVal) => {
+  localStorage.setItem("daltonicMode", JSON.stringify(newVal));
+});
+
 const darkMode = ref(false);
+const storedDarkMode = localStorage.getItem("darkMode");
+darkMode.value = storedDarkMode !== null ? JSON.parse(storedDarkMode) : false;
+
+watch(darkMode, (newVal) => {
+  localStorage.setItem("darkMode", JSON.stringify(newVal));
+});
 
 onMounted(async () => {
   getFile(selectedFile.value);

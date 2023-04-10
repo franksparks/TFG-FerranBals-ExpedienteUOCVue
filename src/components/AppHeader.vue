@@ -74,6 +74,7 @@
           <SettingsModal
             v-if="settings"
             :daltonicMode="daltonicMode"
+            :darkMode="darkMode"
             @toggle-colors="toggleColors"
             @toggle-styles="toggleStyles"
             @close-settings-modal="settings = false"
