@@ -12,7 +12,7 @@
         v-if="!daltonicMode"
         :chart-data="data"
         :options="options"
-        class="bg-white"
+        class="bg-gray-100 dark:bg-gray-200"
       />
 
       <DoughnutChart v-else :chart-data="daltonicData" :options="options" />

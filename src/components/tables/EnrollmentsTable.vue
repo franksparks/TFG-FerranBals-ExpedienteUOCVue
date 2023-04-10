@@ -70,7 +70,8 @@
                     href="https://www.uoc.edu/"
                     target="_blank"
                   >
-                    <i class="far fa-file-pdf"></i>
+                    <i v-if="darkMode" class="far fa-file-pdf"></i>
+                    <i v-else class="far fa-file-pdf" style="ffffff"></i>
                   </a>
                 </td>
               </tr>

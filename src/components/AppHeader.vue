@@ -10,16 +10,16 @@
             target="_blank"
           >
             <img
-              v-if="!darkMode"
+              v-if="darkMode"
               class="rounded w-full"
-              src="/dayLogo.png"
+              src="/nightUOCLogo.png"
               title="Universitat Oberta de Catalunya"
               :alt="$t('images.uocLogo')"
             />
             <img
               v-else
               class="rounded w-full"
-              src="/nightLogo.png"
+              src="/dayUOCLogo.png"
               title="Universitat Oberta de Catalunya"
               :alt="$t('images.uocLogo')"
             />
@@ -34,8 +34,16 @@
                 {{ $t("header.main") }}
               </p>
               <i
+                v-if="darkMode"
                 @click.prevent="settings = true"
-                class="fas fa-cog ml-auto align-right cursor-pointer"
+                class="fas fa-cog fa-lg ml-auto align-right cursor-pointer"
+                style="color: #ffffff"
+              >
+              </i>
+              <i
+                v-else
+                @click.prevent="settings = true"
+                class="fas fa-cog fa-lg ml-auto align-right cursor-pointer"
               ></i>
             </div>
 
@@ -56,7 +64,7 @@
 
             <!-- Degree type -->
             <div class="text-center pt-1 md:text-left">
-              <p class="text-2xl text-blue-900">
+              <p class="text-2xl text-blue-900 dark:text-white">
                 {{ degreeType }}
               </p>
             </div>

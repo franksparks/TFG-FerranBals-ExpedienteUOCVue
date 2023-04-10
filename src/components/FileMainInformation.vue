@@ -42,11 +42,10 @@
               studentFullName
             "
             target="_blank"
-            ><img
-              class="float-left m-1"
-              src="/mail.png"
-              :alt="$t('images.mailIcon')"
-          /></a>
+          >
+            <i v-if="darkMode" class="fas fa-envelope fa-lg" style="#fff"></i>
+            <i v-else class="fas fa-envelope fa-lg"></i
+          ></a>
         </p>
       </div>
     </div>
