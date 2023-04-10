@@ -1,5 +1,5 @@
 <template>
-  <header class="mx-2">
+  <header class="mr-2">
     <div id="header">
       <!-- UOC logo -->
       <div class="md:cols-3 relative">
