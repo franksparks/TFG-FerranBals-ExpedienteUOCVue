@@ -108,14 +108,14 @@
               class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="pl-3">{{ $t("takenSubject.testFinal") }}</td>
-              <td>{{ convo.numCalifPS }}</td>
+              <td>{{ convo.codCalifPS }} ({{ convo.numCalifPS }})</td>
             </tr>
             <tr
               v-if="convo.numCalifEX != null"
-              class="bg-white border-b hover:text-white hover:bg-gray-600 ark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
+              class="bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
             >
               <td class="pl-3">{{ $t("takenSubject.exam") }}</td>
-              <td>{{ convo.numCalifEX }}</td>
+              <td>{{ convo.codCalifEX }} ({{ convo.numCalifEX }})</td>
             </tr>
 
             <tr
