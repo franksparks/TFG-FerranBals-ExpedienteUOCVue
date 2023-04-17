@@ -28,7 +28,7 @@
         {{ studentFullName }}
       </p>
       <!--Info tutor-->
-      <div v-if="tutorData.nom != null">
+      <div v-if="tutorData">
         <p>
           <span class="float-left font-bold mr-1"
             >{{ $t("mainFileInfo.teacher") }}: </span
