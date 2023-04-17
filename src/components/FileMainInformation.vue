@@ -28,7 +28,7 @@
         {{ studentFullName }}
       </p>
       <!--Info tutor-->
-      <div v-if="tutorData">
+      <div v-if="tutorData.nom != null">
         <p>
           <span class="float-left font-bold mr-1"
             >{{ $t("mainFileInfo.teacher") }}: </span
@@ -88,6 +88,7 @@ const props = defineProps({
   tutorData: Object,
   fileInfo: Object,
   accessType: String,
+  darkMode: Boolean,
 });
 
 const collapse = ref(false);
