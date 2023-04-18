@@ -91,11 +91,14 @@ watchEffect(() => {
       "GET Request de la asignatura: " + props.subjectInformation.descripcio
     );
     axios
-      .get(`${BASE_URL}/subject/`, {
+      //.get(`${BASE_URL}/grades`, {
+      .get(`${BASE_URL}/subject`, {
         params: { codAsignatura: props.subjectInformation.codi },
       })
       .then((response) => {
-        subjectConvo.value = response.data.asignatura;
+        console.log(response.data.data.O);
+
+        subjectConvo.value = response.data.data.O.map((item) => item.P);
       })
       .catch((error) => {
         console.log(error);
