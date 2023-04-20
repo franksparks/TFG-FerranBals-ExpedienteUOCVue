@@ -96,9 +96,9 @@ watchEffect(() => {
         params: { codAsignatura: props.subjectInformation.codi },
       })
       .then((response) => {
-        console.log(response.data.data.O);
+        console.log(response.data.subject);
 
-        subjectConvo.value = response.data.data.O.map((item) => item.P);
+        subjectConvo.value = response.data.subject.O.map((item) => item.P);
       })
       .catch((error) => {
         console.log(error);
