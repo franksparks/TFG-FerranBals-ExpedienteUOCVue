@@ -58,8 +58,8 @@ export default {
 <script setup>
 import axios from "axios";
 import { ref, watchEffect, onMounted, onUnmounted } from "vue";
-import AccreditedSubject from "@/components/tables/subjects/AccreditedSubject.vue";
-import TakenSubject from "@/components/tables/subjects/TakenSubject.vue";
+import AccreditedSubject from "../subjects/AccreditedSubject.vue";
+import TakenSubject from "../subjects/TakenSubject.vue";
 
 const BASE_URL = import.meta.env.VITE_VUE_APP_API_URL; // base URL for the GET requests
 

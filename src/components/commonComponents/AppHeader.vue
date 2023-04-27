@@ -93,7 +93,7 @@ export default {
 
 <script setup>
 import { toRefs, ref } from "vue";
-import SettingsModal from "./modals/SettingsModal.vue";
+import SettingsModal from "../modals/SettingsModal.vue";
 
 const props = defineProps({
   degreeType: String,

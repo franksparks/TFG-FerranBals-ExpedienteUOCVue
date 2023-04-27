@@ -123,14 +123,14 @@
         />
 
         <!-- Certificates Table -->
-        <CertificatesTable
+        <CertificateRequestsTable
           v-if="certs"
           :certificates="certificates"
           :darkMode="darkMode"
         />
 
         <!-- Virtual test requests Table -->
-        <VirtualTestRequestTable
+        <VirtualTestRequestsTable
           v-if="virtualTestRequest"
           :virtualTestRequests="virtualTestRequests"
           :darkMode="darkMode"
@@ -161,13 +161,13 @@ export default {
 
 <script setup>
 import { onMounted, ref } from "vue";
-import SubjectsTable from "./tables/SubjectsTable.vue";
-import CreditsTable from "./tables/CreditsTable.vue";
-import EnrollmentsTable from "./tables/EnrollmentsTable.vue";
-import AEPRequestsTable from "./tables/AEPRequestsTable.vue";
-import CertificatesTable from "./tables/CertificatesTable.vue";
-import VirtualTestRequestTable from "./tables/VirtualTestRequestsTable.vue";
-import ItineraryRequestsTable from "./tables/ItineraryRequestsTable.vue";
+import SubjectsTable from "../subjects/SubjectsTable.vue";
+import CreditsTable from "../credits/CreditsTable.vue";
+import EnrollmentsTable from "../enrollments/EnrollmentsTable.vue";
+import AEPRequestsTable from "../requests/AEPRequestsTable.vue";
+import CertificateRequestsTable from "../requests/CertificateRequestsTable.vue";
+import VirtualTestRequestsTable from "../requests/VirtualTestRequestsTable.vue";
+import ItineraryRequestsTable from "../requests/ItineraryRequestsTable.vue";
 
 // Default tab
 const tab = ref("summary");

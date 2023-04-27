@@ -270,7 +270,7 @@ export default {
 <script setup>
 import { ref, computed, onMounted } from "vue";
 
-import SubjectModal from "@/components/modals/SubjectModal.vue";
+import SubjectModal from "../modals/SubjectModal.vue";
 
 const modalVisibility = ref(false);
 const subjectInformation = ref({});

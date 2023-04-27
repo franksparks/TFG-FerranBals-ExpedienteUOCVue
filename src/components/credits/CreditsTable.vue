@@ -116,7 +116,7 @@ import { DoughnutChart } from "vue-chart-3";
 import { Chart, DoughnutController, ArcElement } from "chart.js";
 import { useI18n } from "vue-i18n";
 import pattern from "patternomaly";
-import CurrentSubjects from "./subjects/CurrentSubjects.vue";
+import CurrentSubjects from "../subjects/CurrentSubjects.vue";
 
 const props = defineProps({
   credits: Object,

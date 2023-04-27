@@ -54,10 +54,10 @@
 </template>
 
 <script setup>
-import AppHeader from "./components/AppHeader.vue";
-import FileMainInformation from "./components/FileMainInformation.vue";
-import TableParent from "./components/TableParent.vue";
-import AppFooter from "./components/AppFooter.vue";
+import AppHeader from "./components/commonComponents/AppHeader.vue";
+import FileMainInformation from "./components/commonComponents/FileMainInformation.vue";
+import TableParent from "./components/commonComponents/TableParent.vue";
+import AppFooter from "./components/commonComponents/AppFooter.vue";
 import axios from "axios";
 import { onMounted, ref, watch } from "vue";
 
