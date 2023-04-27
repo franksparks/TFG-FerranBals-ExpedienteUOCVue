@@ -169,7 +169,7 @@ import CertificatesTable from "./tables/CertificatesTable.vue";
 import VirtualTestRequestTable from "./tables/VirtualTestRequestsTable.vue";
 import ItineraryRequestsTable from "./tables/ItineraryRequestsTable.vue";
 
-//Default tab
+// Default tab
 const tab = ref("summary");
 
 onMounted(() => {

@@ -1,4 +1,4 @@
-//Archivo de configuración del Pie chart
+// Pie chart config file
 
 import { Chart, Legend, Title, Tooltip } from "chart.js";
 

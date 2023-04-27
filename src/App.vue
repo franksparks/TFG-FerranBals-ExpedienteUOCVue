@@ -62,49 +62,49 @@ import axios from "axios";
 import { onMounted, ref, watch } from "vue";
 
 const BASE_URL = import.meta.env.VITE_VUE_APP_API_URL; // base URL for the GET requests
-// Reactive variables
-//Checked variables
+
+const completeFile = ref({});
+// Variables that store only part of the file -- start
 let elements = [];
+const accessType = ref("");
+const aep = ref([]);
+const AEPRequests = ref([]);
+const certificates = ref([]);
 const credits = ref({});
 const degreeType = ref("");
-const accessType = ref("");
+const eees = ref([]);
 const fileInfo = ref({});
 const itineraryRequests = ref([]);
-const virtualTestRequests = ref([]);
-const studentData = ref({});
-const tutorData = ref({});
-//Not checked variables
-const procedure = ref([]);
-const AEPRequests = ref([]);
-const subjects = ref([]);
 const people = [];
-const something = ref([]);
-const aep = ref([]);
-const eees = ref([]);
-const completeFile = ref({});
-const certificates = ref([]);
+const procedure = ref([]);
+const studentData = ref({});
+const subjects = ref([]);
+const tutorData = ref({});
+const virtualTestRequests = ref([]);
+// Variables that store only part of the file -- end
+
 const selectedFile = ref("alice");
 
 // Element type constants --- start
-const TRAMITE_ACADEMICO = "pHnAg5M_UV2eNft6JYjLM6wGvWM=";
-const INSTANCIA_AEP = "zgufyJB2ytYUEauhIrcVTwsXfLE=";
-const SOLICITUD_PRUEBA_VIRTUAL = "atiod4vkRiNDS651NTVpY77vWZo=";
 const ASIGNATURAS = "997hN7iymHHoU8BGqmuM0QMNPxs=";
-const ITINERARIO = "ua6oBq2$2vD_EV3hJJ2wzqrkrPQ=";
-const PERSONAS = "p_ovO$a_rkE0DzW9ZSC8AMXg5VQ=";
 const AEP = "NN$jjZrm84w_8AovFmxnnHU6giw=";
-const RESUMEN_CREDITOS = "1WNiS_NQH7GCRNTiIl2g1nIcgMM=";
+const CERTIFICADOS_DOCUMENTOS_ACADEMICOS = "XGhl$81QmbUgS9EZJqobgd248iU=";
 const ESPACIO_EUROPEO_EDUCACION_SUPERIOR = "eO2Chrn3K53ySuNj82jHgm9Qo_E=";
 const EXPEDIENTE_COMPLETO = "RHcWxB19zK9mb9$lOHQm8SO7ofs=";
 const INFORMACION_EXPEDIENTE = "sSIxO6pqzrwLhLd3PZFzpndhF1A=";
-const CERTIFICADOS_DOCUMENTOS_ACADEMICOS = "XGhl$81QmbUgS9EZJqobgd248iU=";
+const INSTANCIA_AEP = "zgufyJB2ytYUEauhIrcVTwsXfLE=";
+const ITINERARIO = "ua6oBq2$2vD_EV3hJJ2wzqrkrPQ=";
+const PERSONAS = "p_ovO$a_rkE0DzW9ZSC8AMXg5VQ=";
+const RESUMEN_CREDITOS = "1WNiS_NQH7GCRNTiIl2g1nIcgMM=";
+const SOLICITUD_PRUEBA_VIRTUAL = "atiod4vkRiNDS651NTVpY77vWZo=";
+const TRAMITE_ACADEMICO = "pHnAg5M_UV2eNft6JYjLM6wGvWM=";
 // Element type constants --- end
 
 const enrollments = ref([]);
 const recal = ref([]);
 const isLoading = ref(false);
 
-//reading and storing daltonicMode on browser
+// Reading and storing daltonicMode on browser
 const daltonicMode = ref(false);
 const storedDaltonicMode = localStorage.getItem("daltonicMode");
 daltonicMode.value =
@@ -114,7 +114,7 @@ watch(daltonicMode, (newVal) => {
   localStorage.setItem("daltonicMode", JSON.stringify(newVal));
 });
 
-//reading and storing darkMode on browser
+// Reading and storing darkMode on browser
 const darkMode = ref(false);
 const storedDarkMode = localStorage.getItem("darkMode");
 darkMode.value = storedDarkMode !== null ? JSON.parse(storedDarkMode) : false;
@@ -123,30 +123,30 @@ watch(darkMode, (newVal) => {
   localStorage.setItem("darkMode", JSON.stringify(newVal));
 });
 
-// starting point
+// Starting point
 onMounted(async () => {
   getFile(selectedFile.value);
 });
 
 // resetParameters before getting a new file
 function resetFile() {
-  procedure.value = [];
-  AEPRequests.value = [];
-  virtualTestRequests.value = [];
-  subjects.value = [];
-  itineraryRequests.value = [];
-  people.value = [];
   aep.value = [];
+  AEPRequests.value = [];
+  certificates.value = [];
+  completeFile.value = {};
   credits.value = {};
   eees.value = [];
-  completeFile.value = {};
-  fileInfo.value = {};
-  certificates.value = [];
   enrollments.value = [];
+  fileInfo.value = {};
+  itineraryRequests.value = [];
+  people.value = [];
+  procedure.value = [];
   recal.value = [];
+  subjects.value = [];
+  virtualTestRequests.value = [];
 }
 
-// after getting a new file, process its content
+// After getting a new file, process its content
 function processFile() {
   console.log("Reiniciando variables");
   resetFile();
@@ -154,32 +154,14 @@ function processFile() {
   for (const elem of elements) {
     const elementType = elem.T;
     switch (elementType) {
-      case TRAMITE_ACADEMICO:
-        certificates.value.push(elem.P);
-        break;
-      case INSTANCIA_AEP:
-        AEPRequests.value.push(elem.P);
-        break;
-      case SOLICITUD_PRUEBA_VIRTUAL:
-        virtualTestRequests.value.push(elem.P);
-        break;
       case ASIGNATURAS:
         subjects.value.push(elem.P);
-        break;
-      case ITINERARIO:
-        itineraryRequests.value.push(elem.P);
-        break;
-      case PERSONAS:
-        people.push(elem);
-        break;
-      case "fEsBQZocOtnSXQniJn0BbX9ILA0=": //???
-        something.value.push(elem.P);
         break;
       case AEP:
         aep.value.push(elem.P);
         break;
-      case RESUMEN_CREDITOS:
-        credits.value = elem.P;
+      case CERTIFICADOS_DOCUMENTOS_ACADEMICOS:
+        procedure.value.push(elem.P);
         break;
       case ESPACIO_EUROPEO_EDUCACION_SUPERIOR:
         eees.value.push(elem.P);
@@ -190,18 +172,33 @@ function processFile() {
       case INFORMACION_EXPEDIENTE:
         fileInfo.value = elem;
         break;
-      case CERTIFICADOS_DOCUMENTOS_ACADEMICOS:
-        procedure.value.push(elem.P);
+      case INSTANCIA_AEP:
+        AEPRequests.value.push(elem.P);
+        break;
+      case ITINERARIO:
+        itineraryRequests.value.push(elem.P);
+        break;
+      case PERSONAS:
+        people.push(elem);
+        break;
+      case RESUMEN_CREDITOS:
+        credits.value = elem.P;
+        break;
+      case SOLICITUD_PRUEBA_VIRTUAL:
+        virtualTestRequests.value.push(elem.P);
+        break;
+      case TRAMITE_ACADEMICO:
+        certificates.value.push(elem.P);
         break;
     }
   }
 
-  //Student data
+  // Student data
   for (const person of people) {
     if (person.Y == fileInfo.value.P.tercer.Y) {
       studentData.value = person.P;
     }
-    //Tutor data
+    // Tutor data
     if (person.Y == completeFile.value.tutor.Y) {
       tutorData.value = person.P;
     }
@@ -248,7 +245,6 @@ async function getFile(text) {
   selectedFile.value = text;
   try {
     isLoading.value = true;
-    console.log("GET Request del expediente de: " + text);
     const response = await axios.get(`${BASE_URL}/file/${text}`);
     elements = response.data.data.O;
     processFile(elements.value);
