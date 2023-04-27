@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-2" :class="{ dark: darkMode }">
+  <div class="mx-2 pb-10" :class="{ dark: darkMode }">
     <p
       class="tablinks py-1 rounded text-white bg-blue-900 text-sm md:text-xl text-center"
     >
@@ -7,7 +7,7 @@
     </p>
 
     <div v-if="AEPRequests.length == 0" class="text-center">
-      <p>{{ $t("AEPRequests.empty") }}</p>
+      <p class="dark:text-white">{{ $t("AEPRequests.empty") }}</p>
     </div>
     <div v-else class="py-2 md:py-5">
       <div class="relative overflow-x-auto rounded-lg">

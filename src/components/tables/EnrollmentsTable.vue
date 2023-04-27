@@ -101,11 +101,11 @@
         </div>
       </div>
       <div>
-        <p class="text-center">
+        <p class="text-center dark:text-white">
           <span class="font-bold">{{ $t("enrollment.totalAmount") }}:</span>
           {{ total.toFixed(2) }} €
         </p>
-        <p class="text-center">
+        <p class="text-center dark:text-white">
           <span class="font-bold"> {{ $t("enrollment.averageAmount") }}: </span
           >{{ (total / enrollments.length).toFixed(2) }} €
         </p>
