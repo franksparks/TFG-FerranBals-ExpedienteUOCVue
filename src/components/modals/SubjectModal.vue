@@ -91,7 +91,6 @@ watchEffect(() => {
       "GET Request de la asignatura: " + props.subjectInformation.descripcio
     );
     axios
-      //.get(`${BASE_URL}/grades`, {
       .get(`${BASE_URL}/subject`, {
         params: { codAsignatura: props.subjectInformation.codi },
       })

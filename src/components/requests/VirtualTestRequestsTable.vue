@@ -39,7 +39,7 @@
             <tr
               v-for="request in virtualTestRequests"
               :key="request"
-              class="border-b dark:bg-gray-900 hover:text-white hover:bg-gray-600 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700 text-center"
+              class="border-b dark:bg-gray-900 hover:text-white hover:bg-gray-600 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-200 odd:dark:bg-gray-800 odd:dark:border-gray-700 text-center"
             >
               <td>{{ request.descAnyAcademic }}</td>
               <td>{{ request.descAssignatura }}</td>

@@ -29,7 +29,7 @@
         <div class="w-full overflow-x-auto rounded-lg">
           <table class="w-full text-sm text-gray-500 dark:text-gray-400">
             <thead
-              class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center"
+              class="text-xs text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400 text-center"
             >
               <tr>
                 <th class="w-1/4">{{ $t("credits.tableHeader") }}</th>

@@ -78,13 +78,14 @@
               <tr
                 v-for="recalItem in filteredRecal(enrollment)"
                 :key="recalItem"
+                class="border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 hover:text-white hover:bg-gray-600 bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
               >
                 <td>
                   {{ $t("enrollment.recal") }} - {{ recalItem.P.descMotiu }}
                 </td>
-                {{
-                  formatDate(recalItem.P.dataMatricula)
-                }}
+                <td>
+                  {{ formatDate(recalItem.P.dataMatricula) }}
+                </td>
                 <td>{{ recalItem.P.importMatricula }} €</td>
                 <td class="text-center">
                   <a

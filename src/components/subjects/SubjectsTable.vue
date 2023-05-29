@@ -12,7 +12,7 @@
         <!-- Filters start -->
         <div class="md:w-1/3 relative mx-4">
           <input
-            class="w-full py-2 px-3 rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 text-gray-300"
+            class="w-full py-2 px-3 rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-cyan-500 focus:border-cyan-500 text-gray-800 dark:text-white italic"
             type="text"
             v-model="searchTerm"
             :placeholder="$t('subjectTable.placeholder')"
@@ -199,7 +199,7 @@
             <tr
               v-for="subject in paginatedData"
               :key="subject"
-              class="subjects bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700 cursor-pointer"
+              class="subjects bg-white border-b hover:text-white hover:bg-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 odd:bg-gray-200 odd:dark:bg-gray-800 odd:dark:border-gray-700 cursor-pointer"
               @click.prevent="requestData(subject)"
             >
               <th
