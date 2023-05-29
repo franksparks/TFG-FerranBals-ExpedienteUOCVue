@@ -11,6 +11,7 @@
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
           >&#8203;</span
         >
+
         <div
           class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
         >
@@ -28,20 +29,25 @@
               </div>
             </div>
 
-            <TakenSubject
-              :subjectInformation="subjectInformation"
-              :subjectConvo="subjectConvo"
-              v-if="
-                props.subjectInformation
-                  .descripcioQualificacioQualitativaFinal != 'Reconocido'
-              "
-            >
-            </TakenSubject>
+            <div v-if="!subjectInfo">
+              <p>{{ $t("subjectModal.noData") }}</p>
+            </div>
+            <div>
+              <TakenSubject
+                :subjectInformation="subjectInformation"
+                :subjectConvo="subjectConvo"
+                v-if="
+                  props.subjectInformation
+                    .descripcioQualificacioQualitativaFinal != 'Reconocido'
+                "
+              >
+              </TakenSubject>
 
-            <AccreditedSubject
-              :subjectInformation="subjectInformation"
-              v-else
-            ></AccreditedSubject>
+              <AccreditedSubject
+                :subjectInformation="subjectInformation"
+                v-else
+              ></AccreditedSubject>
+            </div>
           </div>
         </div>
       </div>
@@ -81,6 +87,7 @@ const props = defineProps({
 });
 
 let subjectConvo = ref({});
+let subjectInfo = false;
 
 watchEffect(() => {
   if (
@@ -98,6 +105,7 @@ watchEffect(() => {
         console.log(response.data.subject);
 
         subjectConvo.value = response.data.subject.O.map((item) => item.P);
+        subjectInfo = true;
       })
       .catch((error) => {
         console.log(error);

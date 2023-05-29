@@ -79,6 +79,9 @@
   "current": {
     "main": "Asignaturas en curso"
   },
+  "subjectModal": {
+    "noData": "No hay información disponible de la asignatura seleccionada"
+  },
   "takenSubject": {
     "subject": "Asignatura",
     "subjectCode": "Código",

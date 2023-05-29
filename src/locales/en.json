@@ -79,6 +79,9 @@
   "current": {
     "main": "Ongoing subjects"
   },
+  "subjectModal": {
+    "noData": "There is no available information of the selected subject"
+  },
   "takenSubject": {
     "subject": "Subject",
     "subjectCode": "Code",
