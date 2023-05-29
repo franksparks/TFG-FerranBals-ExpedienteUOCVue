@@ -50,13 +50,11 @@
               </tr>
             </thead>
             <tbody
-              class="text-base justify-center"
+              class="text-base justify-center bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 hover:text-white hover:bg-gray-600 odd:bg-gray-200 odd:dark:bg-gray-800 odd:dark:border-gray-700"
               v-for="enrollment in sortedEnrollments"
               :key="enrollment"
             >
-              <tr
-                class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 hover:text-white hover:bg-gray-600 odd:bg-gray-50 odd:dark:bg-gray-800 odd:dark:border-gray-700"
-              >
+              <tr>
                 <td class="text-center">{{ enrollment.P.descAnyAcademic }}</td>
                 <td class="text-center">
                   {{ formatDate(enrollment.P.dataMatricula) }}
@@ -78,7 +76,7 @@
               <tr
                 v-for="recalItem in filteredRecal(enrollment)"
                 :key="recalItem"
-                class="border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 hover:text-white hover:bg-gray-600 bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
+                class="border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-600 hover:text-white hover:bg-gray-600 bg-gray-200 dark:bg-gray-800 dark:border-gray-700"
               >
                 <td>
                   {{ $t("enrollment.recal") }} - {{ recalItem.P.descMotiu }}
